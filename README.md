@@ -16,7 +16,7 @@ RightStick Left/Right: Open/Close Sail
 RightStick Up/Down: Zoom in and out
 A: Press,hold,release left stick to adjust trim of sail
 
-##TODO
+## TODO
 - More Complex Wind and Current: I want the wind to be swirling around the mountains
 - ShipEditor: Rewards for Quests are also needed
 - Quest Trading: Transport goods from A to B and receive goodies
