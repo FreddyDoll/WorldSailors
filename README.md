@@ -1,19 +1,29 @@
 # WorldSailors
 A Sailing Game made with [Duality](https://duality.adamslair.net/)
+
 Still very much a work in Progress but playable.
 
 ## Controls
 ### Keyboard
 Arrow Keys Left/Right: Turn Boat
+
 Arrow Keys Up/Down: Open/Close Sail
+
 Strg/Shift: Zoom in and out
+
 a: start race (in the red zone)
+
 x: stop quest (only races for now)
+
 s: switch through Agents (AI,Player)
+
 ### XBox 360 Controller
 LeftStick Left/Right: Turn Boat
+
 RightStick Left/Right: Open/Close Sail
+
 RightStick Up/Down: Zoom in and out
+
 A: Press,hold,release left stick to adjust trim of sail
 
 ## TODO
