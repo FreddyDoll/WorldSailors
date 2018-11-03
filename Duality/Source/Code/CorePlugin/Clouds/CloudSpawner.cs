@@ -26,6 +26,7 @@ namespace WorldSailorsDuality
         public float MaxLinDamping { get; set; }
         public Vector2 Height { get; set; }
         public float SpawnDelay { get; set; }
+        public List<GameObject> ActiveClouds { get { return activeClouds; } }
 
         [DontSerialize]
         private float m_timer = 0;
@@ -115,7 +116,6 @@ namespace WorldSailorsDuality
             c.maxAlpha = a;
             cloud.Transform.Scale = s;
             cloud.GetComponent<RigidBody>().LinearDamping = d;
-            air.foils.Add(cloud);
             cloud.Active = true;
             Scene.Current.AddObject(cloud);
             activeClouds.Add(cloud);

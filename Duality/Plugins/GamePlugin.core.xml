@@ -164,6 +164,18 @@
             -Each must be targeted at the same Parent (usually Hull) 
             </summary>
         </member>
+        <member name="M:WorldSailorsDuality.MediumParticleRenderer.MediumParticle.ProcessParticle">
+            <summary>
+            Returns false if Particle is at the end of life
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WorldSailorsDuality.MediumParticleRenderer.MediumParticle.SetUpRender(Duality.Drawing.IDrawDevice,System.Boolean)">
+            <summary>
+            Returns False if Quad is not in view;
+            </summary>
+            <param name="device"></param>
+        </member>
         <member name="T:WorldSailorsDuality.WorldSailorsDualityCorePlugin">
             <summary>
             Defines a Duality core plugin.

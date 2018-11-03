@@ -14,11 +14,16 @@ namespace WorldSailorsDuality
         public ContentRef<Prefab> BoatPrefab { get; set; }
         public Agent ParentAgent { get; private set; }
 
+        public BoatFactory()
+        {
+        }
+
         public void CreateBoat()
         {
             GameObject BoatGameObj = BoatPrefab.Res.Instantiate();
             BoatGameObj.Parent = this.GameObj;
             BoatController c = BoatGameObj.GetComponent<BoatController>();
+            List<IUpgradeable> upgrades = BoatGameObj.GetComponentsDeep<IUpgradeable>().ToList();
             
 
             if (ParentAgent == null)

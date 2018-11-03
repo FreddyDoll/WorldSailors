@@ -219,8 +219,8 @@ namespace WorldSailorsDuality
                 if (currentAA < 0)
                     error = AtrTargetAngleOfAttack + currentAA;
 
-                if(forceCloseTimer<=0)
-                    targetSailAngle -= error * AtrSailContAmpl;
+                //if(forceCloseTimer<=0)
+                    //targetSailAngle -= error * AtrSailContAmpl;
 
                 if (targetSailAngle < 0)
                     targetSailAngle = 0;
@@ -300,6 +300,7 @@ namespace WorldSailorsDuality
             float offsettoWind = FindDiff(targetHeading, windAngle);
             if (offsettoWind < 0)
                 offsettoWind *= -1;
+            targetSailAngle = offsettoWind*0.3f;
         }
         
         private void UpwindController()
@@ -323,6 +324,7 @@ namespace WorldSailorsDuality
                 targetHeading = possibleLeftFootForward;
             else
                 targetHeading = possibleRightFootForward;
+            targetSailAngle = 0.1f;
         }
         
         private float FindDiff(float target, float current)

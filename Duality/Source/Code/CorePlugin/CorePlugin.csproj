@@ -65,8 +65,11 @@
     <Compile Include="AStar\PriorityQueue.cs" />
     <Compile Include="AStar\SpatialAStar.cs" />
     <Compile Include="Boat\BoatFactory.cs" />
+    <Compile Include="Boat\IUpgradeable.cs" />
     <Compile Include="Boat\RudderController.cs" />
     <Compile Include="Boat\SailController.cs" />
+    <Compile Include="Clouds\MediumParticleRenderer.cs" />
+    <Compile Include="ColorLUT.cs" />
     <Compile Include="HUDandCamera\CameraController.cs" />
     <Compile Include="Clouds\CloudController.cs" />
     <Compile Include="Clouds\CloudSpawner.cs" />

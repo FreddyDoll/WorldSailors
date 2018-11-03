@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 namespace WorldSailorsDuality
 {
     [RequiredComponent(typeof(RigidBody)), RequiredComponent(typeof(Transform))]
-    public class FoilController : Component, Ihudstring,ICmpUpdatable
+    public class FoilController : Component, Ihudstring, IUpgradeable
     {
         public float StatLift { get; set; }
+        public MediumType TargetMedium { get; set; } = MediumType.INACTIVE;
         public float StatDrag { get; set; }
         public float maxSpeed { get; set; } //for drawing purpose
         public string ScreenString { get; set; } //for drawing purpose
         public Vector2 CurrentWorkingPoint { get { return currentWP; } }
         public Vector2 FluidSpeed { get; set; } = new Vector2();
-        public MediumController TargetMedium {get;set;}
 
         [DontSerialize]
         private float liftToDrag = 0;
@@ -60,12 +60,9 @@ namespace WorldSailorsDuality
             return ret;
         }
 
-        public void OnUpdate()
+        public void ApplyMedium(MediumController medium)
         {
-            if (TargetMedium == null)
-                return;
-
-            FluidSpeed = TargetMedium.speed;
+            FluidSpeed = medium.speed;
 
             RigidBody body = this.GameObj.GetComponent<RigidBody>();
             Transform pos = this.GameObj.GetComponent<Transform>();
