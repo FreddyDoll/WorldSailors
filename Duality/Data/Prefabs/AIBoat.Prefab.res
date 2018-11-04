@@ -119,7 +119,7 @@
                 <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                   <contentPath dataType="String">Data\Boat.Material.res</contentPath>
                 </sharedMat>
-                <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
+                <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="574580525">
                 <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
@@ -332,7 +332,7 @@
                 <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                   <contentPath dataType="String">Data\Sail.Material.res</contentPath>
                 </sharedMat>
-                <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
+                <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="1627763018">
                 <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
@@ -532,7 +532,7 @@
                 <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                   <contentPath dataType="String">Data\Rudder.Material.res</contentPath>
                 </sharedMat>
-                <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
+                <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.RudderController" id="697545600">
                 <_x003C_maxOffset_x003E_k__BackingField dataType="Float">0</_x003C_maxOffset_x003E_k__BackingField>

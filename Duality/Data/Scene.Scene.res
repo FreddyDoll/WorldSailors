@@ -63,7 +63,7 @@
             </passes>
             <perspective dataType="Enum" type="Duality.Drawing.PerspectiveMode" name="Parallax" value="1" />
             <priority dataType="Int">0</priority>
-            <visibilityMask dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="All" value="4294967295" />
+            <visibilityMask dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
           </item>
           <item dataType="Struct" type="Duality.Components.SoundListener" id="179372574">
             <active dataType="Bool">true</active>
@@ -667,7 +667,7 @@
                               <parent dataType="ObjectRef">1751361107</parent>
                               <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="3586620342">
                                 <changes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Resources.PrefabLink+VarMod]]" id="1460113361">
-                                  <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="2901077742" length="16">
+                                  <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="2901077742">
                                     <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                                       <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2247812620">
                                         <_items dataType="Array" type="System.Int32[]" id="3845342372">1, 0, 0, 0</_items>
@@ -796,8 +796,35 @@
                                       <prop dataType="MemberInfo" id="1039175984" value="P:WorldSailorsDuality.BoatController:map" />
                                       <val />
                                     </item>
+                                    <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                                      <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3466568522">
+                                        <_items dataType="Array" type="System.Int32[]" id="881971474">0, 0, 0, 0</_items>
+                                        <_size dataType="Int">1</_size>
+                                      </childIndex>
+                                      <componentType dataType="ObjectRef">360991382</componentType>
+                                      <prop dataType="MemberInfo" id="3077648476" value="P:Duality.Components.Renderer:VisibilityGroup" />
+                                      <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
+                                    </item>
+                                    <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                                      <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2817764102">
+                                        <_items dataType="Array" type="System.Int32[]" id="965756054">2, 0, 0, 0</_items>
+                                        <_size dataType="Int">1</_size>
+                                      </childIndex>
+                                      <componentType dataType="ObjectRef">360991382</componentType>
+                                      <prop dataType="ObjectRef">3077648476</prop>
+                                      <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
+                                    </item>
+                                    <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                                      <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="37892968">
+                                        <_items dataType="Array" type="System.Int32[]" id="432628552">1, 0, 0, 0</_items>
+                                        <_size dataType="Int">1</_size>
+                                      </childIndex>
+                                      <componentType dataType="ObjectRef">360991382</componentType>
+                                      <prop dataType="ObjectRef">3077648476</prop>
+                                      <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
+                                    </item>
                                   </_items>
-                                  <_size dataType="Int">13</_size>
+                                  <_size dataType="Int">16</_size>
                                 </changes>
                                 <obj dataType="ObjectRef">3358450117</obj>
                                 <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
@@ -1228,7 +1255,7 @@
                       </parent>
                       <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="4032337114">
                         <changes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Resources.PrefabLink+VarMod]]" id="3185164188">
-                          <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="2495998404" length="16">
+                          <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="2495998404" length="32">
                             <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                               <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3121575240">
                                 <_items dataType="Array" type="System.Int32[]" id="392329324">0, 0, 0, 0</_items>
@@ -1374,8 +1401,35 @@
                               <prop dataType="ObjectRef">1039175984</prop>
                               <val />
                             </item>
+                            <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                              <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1564619162">
+                                <_items dataType="Array" type="System.Int32[]" id="3987521110">0, 0, 0, 0</_items>
+                                <_size dataType="Int">1</_size>
+                              </childIndex>
+                              <componentType dataType="ObjectRef">360991382</componentType>
+                              <prop dataType="ObjectRef">3077648476</prop>
+                              <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
+                            </item>
+                            <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                              <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2469755816">
+                                <_items dataType="Array" type="System.Int32[]" id="3253393356">2, 0, 0, 0</_items>
+                                <_size dataType="Int">1</_size>
+                              </childIndex>
+                              <componentType dataType="ObjectRef">360991382</componentType>
+                              <prop dataType="ObjectRef">3077648476</prop>
+                              <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
+                            </item>
+                            <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                              <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2171188542">
+                                <_items dataType="Array" type="System.Int32[]" id="3255338730">1, 0, 0, 0</_items>
+                                <_size dataType="Int">1</_size>
+                              </childIndex>
+                              <componentType dataType="ObjectRef">360991382</componentType>
+                              <prop dataType="ObjectRef">3077648476</prop>
+                              <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
+                            </item>
                           </_items>
-                          <_size dataType="Int">14</_size>
+                          <_size dataType="Int">17</_size>
                         </changes>
                         <obj dataType="ObjectRef">3721956329</obj>
                         <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
@@ -1590,12 +1644,12 @@
                                   <ignoreParent dataType="Bool">false</ignoreParent>
                                   <parentTransform />
                                   <pos dataType="Struct" type="Duality.Vector3">
-                                    <X dataType="Float">-13981.9189</X>
+                                    <X dataType="Float">-14020.9658</X>
                                     <Y dataType="Float">4532.07275</Y>
                                     <Z dataType="Float">0</Z>
                                   </pos>
                                   <posAbs dataType="Struct" type="Duality.Vector3">
-                                    <X dataType="Float">-13981.9189</X>
+                                    <X dataType="Float">-14020.9658</X>
                                     <Y dataType="Float">4532.07275</Y>
                                     <Z dataType="Float">0</Z>
                                   </posAbs>
@@ -1778,10 +1832,16 @@
                                   <_x003C_SeaFloorTextHeightFactor_x003E_k__BackingField dataType="Float">3</_x003C_SeaFloorTextHeightFactor_x003E_k__BackingField>
                                   <_x003C_SeaFloorTextScale_x003E_k__BackingField dataType="Float">50000</_x003C_SeaFloorTextScale_x003E_k__BackingField>
                                   <active dataType="Bool">true</active>
+                                  <dataGroup0 dataType="Struct" type="WorldSailorsDuality.LandRendererShaded+RenderDataSettings" id="3268927181">
+                                    <sizeX dataType="Int">100</sizeX>
+                                    <sizeY dataType="Int">100</sizeY>
+                                  </dataGroup0>
+                                  <dataGroup1 dataType="Struct" type="WorldSailorsDuality.LandRendererShaded+RenderDataSettings" id="2601488886">
+                                    <sizeX dataType="Int">3</sizeX>
+                                    <sizeY dataType="Int">3</sizeY>
+                                  </dataGroup1>
                                   <gameobj dataType="ObjectRef">2542847861</gameobj>
-                                  <sizeX dataType="Int">160</sizeX>
-                                  <sizeY dataType="Int">90</sizeY>
-                                  <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
+                                  <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                                 </item>
                                 <item dataType="Struct" type="WorldSailorsDuality.PathFinder" id="359605017">
                                   <_x003C_maxSpeedHeight_x003E_k__BackingField dataType="Float">-400</_x003C_maxSpeedHeight_x003E_k__BackingField>
@@ -1886,7 +1946,7 @@
                                         <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                                           <contentPath dataType="String">Data\water.Material.res</contentPath>
                                         </sharedMat>
-                                        <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
+                                        <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                                       </item>
                                       <item dataType="Struct" type="WorldSailorsDuality.WaterLayerController" id="609752070">
                                         <_x003C_amp_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
@@ -1983,7 +2043,7 @@
                                         <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                                           <contentPath dataType="String">Data\water.Material.res</contentPath>
                                         </sharedMat>
-                                        <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
+                                        <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                                       </item>
                                       <item dataType="Struct" type="WorldSailorsDuality.WaterLayerController" id="1633098088">
                                         <_x003C_amp_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
@@ -2080,7 +2140,7 @@
                                         <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                                           <contentPath dataType="String">Data\water.Material.res</contentPath>
                                         </sharedMat>
-                                        <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
+                                        <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                                       </item>
                                       <item dataType="Struct" type="WorldSailorsDuality.WaterLayerController" id="2040675856">
                                         <_x003C_amp_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
@@ -5850,7 +5910,7 @@
             </passes>
             <perspective dataType="Enum" type="Duality.Drawing.PerspectiveMode" name="Parallax" value="1" />
             <priority dataType="Int">0</priority>
-            <visibilityMask dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="All" value="4294967295" />
+            <visibilityMask dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group1" value="2" />
           </item>
           <item dataType="Struct" type="WorldSailorsDuality.NavBallRenderer" id="56629465">
             <_x003C_BorderSize_x003E_k__BackingField dataType="Float">2</_x003C_BorderSize_x003E_k__BackingField>
