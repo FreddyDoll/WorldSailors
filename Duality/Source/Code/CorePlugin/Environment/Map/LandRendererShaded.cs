@@ -15,6 +15,7 @@ namespace WorldSailorsDuality
     {
         public ContentRef<Material> LandMaterial { get; set; } = Material.DualityIcon;
         public HeightMap map{ get; set; }
+        public ColorLUT LUTheight { get; set; } = new ColorLUT();
         /// <summary>
         /// Look Up Table for Conversion of Height->Color
         /// (Heights part)
@@ -99,11 +100,13 @@ namespace WorldSailorsDuality
         public override void Draw(IDrawDevice device)
         {
             RenderDataSettings data=dataGroup0;
-            if ((device.VisibilityMask & VisibilityFlag.Group1) != VisibilityFlag.None)
-                 data = dataGroup1;
 
-            //Find The right spot in the screen for our Verteces
-            Vector3 TopLeftWorld = device.GetSpaceCoord(new Vector3(0, 0, 0));
+
+            if ((device.VisibilityMask & VisibilityFlag.Group1) == VisibilityFlag.Group1 && (device.VisibilityMask & VisibilityFlag.Group0) != VisibilityFlag.Group0)
+                data = dataGroup1;
+
+                //Find The right spot in the screen for our Verteces
+                Vector3 TopLeftWorld = device.GetSpaceCoord(new Vector3(0, 0, 0));
             Vector3 BottomRightWorld = device.GetSpaceCoord(new Vector3(device.TargetSize.X, device.TargetSize.Y, 0));
             Vector3 WorldArea = (BottomRightWorld - TopLeftWorld);
             Vector3 WorldOffset = device.RefCoord - WorldArea / 2f;

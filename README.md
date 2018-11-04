@@ -37,7 +37,6 @@ A: Press,hold,release left stick to adjust trim of sail
 - On Collision check right of way to determine who gets broken
 - Allow Player to set waypoint for next Quest
 - improve speed of particle renderer
-- Move Color Height ColorLUT to new class
 - Nav Ball:
 	- Show Control Aids
 
