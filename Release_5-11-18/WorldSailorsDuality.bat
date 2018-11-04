@@ -1,1 +1,0 @@
-cd GameData && start DualityLauncher.exe
