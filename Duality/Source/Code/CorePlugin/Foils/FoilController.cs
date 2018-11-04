@@ -19,6 +19,15 @@ namespace WorldSailorsDuality
         public string ScreenString { get; set; } //for drawing purpose
         public Vector2 CurrentWorkingPoint { get { return currentWP; } }
         public Vector2 FluidSpeed { get; set; } = new Vector2();
+        public Vector2 Position
+        {
+            get
+            {
+                if(GameObj.Transform!= null)
+                return GameObj.Transform.Pos.Xy;
+                return new Vector2();
+            }
+        }
 
         [DontSerialize]
         private float liftToDrag = 0;
@@ -60,9 +69,9 @@ namespace WorldSailorsDuality
             return ret;
         }
 
-        public void ApplyMedium(MediumController medium)
+        public void ApplyMedium(Vector2 speed)
         {
-            FluidSpeed = medium.speed;
+            FluidSpeed = speed;
 
             RigidBody body = this.GameObj.GetComponent<RigidBody>();
             Transform pos = this.GameObj.GetComponent<Transform>();

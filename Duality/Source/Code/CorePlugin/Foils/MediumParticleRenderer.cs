@@ -11,10 +11,11 @@ using Duality.Resources;
 namespace WorldSailorsDuality
 {
     [RequiredComponent(typeof(MediumController))]
-    public class MediumParticleRenderer : Component, ICmpRenderer,Ihudstring
+    public class MediumParticleRenderer : Component, ICmpRenderer, Ihudstring
     {
         public int ParticleLife { get; set; } = 100;
         public bool ConstantScreenSize { get; set; } = false;
+        public bool RenderHead { get; set; } = false;
         public float ScreenAreaFraction { get; set; } = 2;
         public Vector2 zHeight { get; set; } = new Vector2();
         public int ParticlesPerFrame { get; set; } = 10;
@@ -48,10 +49,10 @@ namespace WorldSailorsDuality
 
             if (!anyGroupFlag) return false;
             if (screenOverlayFlag) return false;
-            
+
             return true;
         }
-        
+
         public float BoundRadius
         {
             get
@@ -65,10 +66,10 @@ namespace WorldSailorsDuality
             Vector3 TopLeftWorld = device.GetSpaceCoord(new Vector3(0, 0, 0));
             Vector3 BottomRightWorld = device.GetSpaceCoord(new Vector3(device.TargetSize.X, device.TargetSize.Y, 0));
 
-            for (int n = visibleCounter; n<visibleCounter+ParticlesPerFrame; n++)
+            for (int n = visibleCounter; n < visibleCounter + ParticlesPerFrame; n++)
             {
                 Vector3 pos = new Vector3();
-                if (SpawnArea == null || SpawnArea.Length<1)
+                if (SpawnArea == null || SpawnArea.Length < 1)
                 {
                     pos.X = StaticHelpers.lerp(TopLeftWorld.X, BottomRightWorld.X, MathF.Rnd.NextFloat() * ScreenAreaFraction - (ScreenAreaFraction - 1f) / 2f);
                     pos.Y = StaticHelpers.lerp(TopLeftWorld.Y, BottomRightWorld.Y, MathF.Rnd.NextFloat() * ScreenAreaFraction - (ScreenAreaFraction - 1f) / 2f);
@@ -94,31 +95,28 @@ namespace WorldSailorsDuality
                     aliveParticles.Add(p);
                     MediumController mc = GameObj.GetComponent<MediumController>();
                     if (mc != null)
-                        p.Speed = mc.speed;
+                        p.Speed = mc.GetSpeedAtPosition(p.Transform.Pos.Xy);
                 }
             }
             particles = aliveParticles;
 
             visibleCounter = 0;
-            List<VertexC1P3T2> quads = new List<VertexC1P3T2>();
             foreach (MediumParticle p in particles)
             {
-                if (p.SetUpRender(device,ConstantScreenSize))
+                if (p.SetUpRender(device, ConstantScreenSize, RenderHead))
                 {
-                    quads.AddRange(p.Quad);
-                    //device.AddVertices(ParticleMaterial, VertexMode.Quads, p.Quad);
+                    if (RenderHead)
+                        device.AddVertices(ParticleMaterial, VertexMode.Quads, p.Quad);
                     device.AddVertices(TrailMaterial, VertexMode.LineStrip, p.trail);
                     visibleCounter++;
                 }
             }
-
-            device.AddVertices(ParticleMaterial, VertexMode.Quads, quads.ToArray());
         }
 
         public string GetHudString()
         {
             string s = "Medium Renderer";
-            if(GameObj != null && particles!=null)
+            if (GameObj != null && particles != null)
                 return s += " in: " + this.GameObj.ToString() + " Visible: " + visibleCounter.ToString() + " Total: " + particles.Count().ToString();
             return s;
         }
@@ -132,12 +130,14 @@ namespace WorldSailorsDuality
             public Vector2 Speed { get; set; }
             public ColorLUT colorFromSpeed { get; set; }
             public ColorLUT colorFromLifetime { get; set; }
-            
-            private  Rect TextureArea;
+
+            private Rect TextureArea;
             private Rect WorldArea;
             private Vector3[] trailPositions;
             private ColorRgba[] trailColor;
-            private int trailCounter;
+            private int FrameCounter;
+            private int TrailCounter;
+            private int trailSkip;
 
             public MediumParticle(Vector3 position, float scale, int lifetime, Material mat)
             {
@@ -149,14 +149,17 @@ namespace WorldSailorsDuality
                 Speed = new Vector2();
                 trailPositions = new Vector3[lifetime];
                 trailColor = new ColorRgba[lifetime];
-                trailCounter = 0;
+                FrameCounter = 0;
+                TrailCounter = 0;
+                trailSkip = LifeTime / 30; ;
 
                 TextureArea = new Rect(mat.MainTexture.Res.UVRatio);
                 WorldArea.X = TextureArea.X - TextureArea.W / 2f;
                 WorldArea.Y = TextureArea.Y - TextureArea.W / 2f;
                 WorldArea.W = TextureArea.W;
                 WorldArea.H = TextureArea.H;
-            }
+                
+        }
 
             /// <summary>
             /// Returns false if Particle is at the end of life
@@ -168,7 +171,7 @@ namespace WorldSailorsDuality
                 if (LifeTime <= 0)
                     return false;
 
-                Transform.Pos = Transform.Pos + new Vector3(Speed.X, Speed.Y, 0)*Time.TimeMult;
+                Transform.Pos = Transform.Pos + new Vector3(Speed.X, Speed.Y, 0) * Time.TimeMult;
                 return true;
             }
 
@@ -176,11 +179,12 @@ namespace WorldSailorsDuality
             /// Returns False if Quad is not in view;
             /// </summary>
             /// <param name="device"></param>
-            public bool SetUpRender(IDrawDevice device,bool ConstantScreenSize)
+            public bool SetUpRender(IDrawDevice device, bool ConstantScreenSize, bool RenderHead)
             {
-                //First Check if visible
-                float radius = MathF.Max(WorldArea.H, WorldArea.W) * Transform.Scale/2f;
-                if (!device.IsCoordInView(Transform.Pos,radius))
+
+                //Check if visible
+                float radius = MathF.Max(WorldArea.H, WorldArea.W) * Transform.Scale / 2f;
+                if (!device.IsCoordInView(Transform.Pos, radius))
                     return false;
 
                 //Color Generation
@@ -191,64 +195,72 @@ namespace WorldSailorsDuality
                 if (colorFromSpeed != null)
                     SpeedColor = colorFromSpeed.GetColor(Speed.Length);
                 ColorRgba color = new ColorRgba();
-                ColorRgba.Multiply(ref LifeColor, ref SpeedColor,out color);
+                ColorRgba.Multiply(ref LifeColor, ref SpeedColor, out color);
 
                 //Trail Buffering
-                if (trailCounter < trailPositions.Count())
+                if (FrameCounter < trailPositions.Count() && FrameCounter % trailSkip == 0)
                 {
-                    trailPositions[trailCounter] = Transform.Pos;
-                    trailColor[trailCounter] = color;
+                    trailPositions[TrailCounter] = Transform.Pos;
+                    trailColor[TrailCounter] = color;
+                    TrailCounter++;
                 }
-                
+
+
                 // Determine relative position and scale of the object based on
                 // where the Camera is and whether a parallax effect is applied.
                 Vector3 posTemp = Transform.Pos;
                 float scaleTemp = Transform.Scale;
                 device.PreprocessCoords(ref posTemp, ref scaleTemp);
-                if(ConstantScreenSize)
+                if (ConstantScreenSize)
                     scaleTemp = Transform.Scale;
 
                 //trail Generation
-                trail = new VertexC1P3[trailCounter];
+                trail = new VertexC1P3[TrailCounter+1];
 
-                for (int n = 0; n < trailCounter; n++)
+                for (int n = 0; n < TrailCounter; n++)
                 {
                     Vector3 pT = trailPositions[n];
                     float sT = 1f;
                     device.PreprocessCoords(ref pT, ref sT);
-                    byte alpha = (byte)(color.A * n / trailCounter);
+                    byte alpha = (byte)(color.A * n / TrailCounter);
                     trail[n].Color = trailColor[n];
                     trail[n].Color.A = alpha;
-                    trail[n].Pos = new Vector3(pT.X,pT.Y,pT.Z);
+                    trail[n].Pos = new Vector3(pT.X, pT.Y, pT.Z);
                 }
-                trailCounter++;
 
+                trail[TrailCounter].Color = color;
+                trail[TrailCounter].Pos = posTemp;
 
-                // QuadGeneration
-                Quad[0].Pos.X = posTemp.X + WorldArea.TopLeft.X * scaleTemp;
-                Quad[0].Pos.Y = posTemp.Y + WorldArea.TopLeft.Y * scaleTemp;
-                Quad[0].Pos.Z = posTemp.Z;
-                Quad[0].TexCoord = TextureArea.TopLeft;
-                Quad[0].Color = color;
+                FrameCounter++;
 
-                Quad[1].Pos.X = posTemp.X + WorldArea.TopRight.X * scaleTemp;
-                Quad[1].Pos.Y = posTemp.Y + WorldArea.TopRight.Y * scaleTemp;
-                Quad[1].Pos.Z = posTemp.Z;
-                Quad[1].TexCoord = TextureArea.TopRight;
-                Quad[1].Color = color;
+                if (RenderHead)
+                {
 
-                Quad[2].Pos.X = posTemp.X + WorldArea.BottomRight.X * scaleTemp;
-                Quad[2].Pos.Y = posTemp.Y + WorldArea.BottomRight.Y * scaleTemp;
-                Quad[2].Pos.Z = posTemp.Z;
-                Quad[2].TexCoord = TextureArea.BottomRight;
-                Quad[2].Color = color;
+                    // QuadGeneration
+                    Quad[0].Pos.X = posTemp.X + WorldArea.TopLeft.X * scaleTemp;
+                    Quad[0].Pos.Y = posTemp.Y + WorldArea.TopLeft.Y * scaleTemp;
+                    Quad[0].Pos.Z = posTemp.Z;
+                    Quad[0].TexCoord = TextureArea.TopLeft;
+                    Quad[0].Color = color;
 
-                Quad[3].Pos.X = posTemp.X + WorldArea.BottomLeft.X * scaleTemp;
-                Quad[3].Pos.Y = posTemp.Y + WorldArea.BottomLeft.Y * scaleTemp;
-                Quad[3].Pos.Z = posTemp.Z;
-                Quad[3].TexCoord = TextureArea.BottomLeft;
-                Quad[3].Color = color;
+                    Quad[1].Pos.X = posTemp.X + WorldArea.TopRight.X * scaleTemp;
+                    Quad[1].Pos.Y = posTemp.Y + WorldArea.TopRight.Y * scaleTemp;
+                    Quad[1].Pos.Z = posTemp.Z;
+                    Quad[1].TexCoord = TextureArea.TopRight;
+                    Quad[1].Color = color;
 
+                    Quad[2].Pos.X = posTemp.X + WorldArea.BottomRight.X * scaleTemp;
+                    Quad[2].Pos.Y = posTemp.Y + WorldArea.BottomRight.Y * scaleTemp;
+                    Quad[2].Pos.Z = posTemp.Z;
+                    Quad[2].TexCoord = TextureArea.BottomRight;
+                    Quad[2].Color = color;
+
+                    Quad[3].Pos.X = posTemp.X + WorldArea.BottomLeft.X * scaleTemp;
+                    Quad[3].Pos.Y = posTemp.Y + WorldArea.BottomLeft.Y * scaleTemp;
+                    Quad[3].Pos.Z = posTemp.Z;
+                    Quad[3].TexCoord = TextureArea.BottomLeft;
+                    Quad[3].Color = color;
+                }
 
                 return true;
             }

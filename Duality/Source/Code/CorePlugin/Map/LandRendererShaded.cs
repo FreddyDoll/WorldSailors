@@ -139,16 +139,19 @@ namespace WorldSailorsDuality
                     Taide.X = (x * spacingX + WorldOffset.X);
                     Taide.Y = (y * spacingY + WorldOffset.Y);
                     Taide.Z = heights[x][y];
-                    Taide.W = 25000;
+                    Taide.W = 1;
 
                     Vertices[y * sizeX + x].TexCoord = Taide;
                     //Vertices[x][y].Attrib = heights[x][y];
                 }
             }
-            
+
             
             LandMaterial.Res.SetUniform("beachHeight", MatTransitionSeaFloorBeach);
             LandMaterial.Res.SetUniform("landHeight", MatTransitionBeachLand);
+            LandMaterial.Res.SetUniform("landTextScale", LandTextScale);
+            LandMaterial.Res.SetUniform("beachTexScale", BeachTextScale);
+            LandMaterial.Res.SetUniform("seaTexScale", SeaFloorTextScale);
 
             for (int x = 0; x < sizeX - 1; x++)
             {

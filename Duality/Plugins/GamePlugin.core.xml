@@ -176,7 +176,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WorldSailorsDuality.MediumParticleRenderer.MediumParticle.SetUpRender(Duality.Drawing.IDrawDevice,System.Boolean)">
+        <member name="M:WorldSailorsDuality.MediumParticleRenderer.MediumParticle.SetUpRender(Duality.Drawing.IDrawDevice,System.Boolean,System.Boolean)">
             <summary>
             Returns False if Quad is not in view;
             </summary>

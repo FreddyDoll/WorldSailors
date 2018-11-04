@@ -111,12 +111,15 @@ namespace WorldSailorsDuality
                 {
                     if (f != null)
                     {
+                        Vector2 mSpeed = f.speed;
+                        if (trackedAgent != null)
+                            mSpeed = f.GetSpeedAtPosition(TrackedAgent.GetPosition());
                         canvas.DrawCircle(pos.X, pos.Y, radius);
-                        Vector2 textSize = canvas.MeasureText(f.InfoString);
-                        canvas.DrawText(f.InfoString, pos.X-textSize.X/2f, pos.Y - radius + textSize.Y*2f);
+                        Vector2 textSize = canvas.MeasureText(MathF.Round(mSpeed.Length,2).ToString());
+                        canvas.DrawText(MathF.Round(mSpeed.Length, 2).ToString(), pos.X-textSize.X/2f, pos.Y - radius + textSize.Y*2f);
 
-                        Vector2 to = pos + (f.speed/f.MaxSpeed)*radius;
-                        Vector2 from = pos - (f.speed / f.MaxSpeed) * radius;
+                        Vector2 to = pos + (mSpeed / f.MaxSpeed)*radius;
+                        Vector2 from = pos - (mSpeed / f.MaxSpeed) * radius;
 
                         StaticHelpers.DrawArrow(canvas,from,to);
 

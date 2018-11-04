@@ -59,7 +59,7 @@ namespace WorldSailorsDuality
                     if (q.checkActivation(owner)) //Show Activation Message
                         ActiveQuest = q;
                 }
-                if (DualityApp.Keyboard[Key.A])
+                if (ActiveQuest != null && DualityApp.Keyboard[Key.A])
                 {
                     ActiveQuest.activateQuest(owner);
                 }
