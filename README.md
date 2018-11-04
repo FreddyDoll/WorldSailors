@@ -4,7 +4,7 @@ A Sailing Game made with [Duality](https://duality.adamslair.net/)
 Still very much a work in Progress but playable.
 
 ## Install
-you can find the Release here: [WorldSailors](https://github.com/FreddyDoll/WorldSailors/releases)
+you can find the Release here: [WorldSailors](https://github.com/FreddyDoll/WorldSailors/releases/download/v0.1/WorldSailorsDuality.zip)
 
 Just Download Unzip and run DualityLauncher.exe
 
