@@ -27,14 +27,22 @@ RightStick Up/Down: Zoom in and out
 A: Press,hold,release left stick to adjust trim of sail
 
 ## TODO
-- More Complex Wind and Current: I want the wind to be swirling around the mountains
 - ShipEditor: Rewards for Quests are also needed
 - Quest Trading: Transport goods from A to B and receive goodies
-- Improved Cloud and Water Particle Renderer to Visualize Flow of Medium
 - Boat Trail Renderer: Boats need a nicer Trail!
 - Get up on a plane! Reduces Drag when reaching a certain speed and adjust visuals
 - Seperate MapView for Large Scale Viewing
 - Support for the Player: Add Sail and heading controller
+- On Collision check right of way to determine who gets broken
+- Allow Player to set waypoint for next Quest
+- Add Lighting (Sun moves around 1 day)
+- improve speed of particle renderer
+- Move Color Height ColorLUT to new class
+- Nav Ball:
+	- Show next target
+	- Show Mediums
+	- Show Control Aids
+	- Reduced Quad Array Size
 
 
 

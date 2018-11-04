@@ -5,6 +5,7 @@ using Duality;
 using Duality.Components.Physics;
 using Duality.Input;
 using Duality.Components;
+using Duality.Resources;
 
 namespace WorldSailorsDuality
 {
@@ -84,6 +85,14 @@ namespace WorldSailorsDuality
 
         void ICmpUpdatable.OnUpdate()
         {
+            if (map == null)
+            {
+                //Attempt to find it in the World
+                List<HeightMap> li = Scene.Current.ActiveObjects.GetComponents<HeightMap>().ToList();
+                if (li.Count > 0)
+                    map = li.First();
+            }
+
             //Map Collision
             if (map != null)
             {

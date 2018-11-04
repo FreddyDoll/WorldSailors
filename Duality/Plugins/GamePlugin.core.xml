@@ -259,6 +259,27 @@
             Change Value -> new Map
             </summary>
         </member>
+        <member name="P:WorldSailorsDuality.HeightMap.SimplexSeed">
+            <summary>
+            Change Value -> new Map for Simplex mode
+            integer
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMap.SimplexOctave">
+            <summary>
+            Generate Map with doubled frequency (persistence used for higher frequencys)
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMap.SimplexPersistance">
+            <summary>
+            Scaling of Simplex Noise
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMap.SimplexFreq">
+            <summary>
+            Scaling of Simplex Noise
+            </summary>
+        </member>
         <member name="P:WorldSailorsDuality.HeightMap.SimpleFreqX">
             <summary>
             Parameter for SIMPLE mode
@@ -604,6 +625,14 @@
             Quit doing this Quest
             </summary>
         </member>
+        <member name="M:WorldSailorsDuality.StaticHelpers.DrawDirMarker(Duality.Drawing.Canvas,Duality.Vector2,Duality.Vector2)">
+            <summary>
+            from only gives direction
+            </summary>
+            <param name="canvas"></param>
+            <param name="from"></param>
+            <param name="to"></param>
+        </member>
         <member name="M:WorldSailorsDuality.StaticHelpers.lerp(Duality.Vector2,Duality.Vector2,System.Single)">
             <summary>
             Draws A line Through given Points and returns the Y value for given x
@@ -630,6 +659,22 @@
             <param name="a"></param>
             <param name="b"></param>
             <param name="x"></param>
+            <returns></returns>
+        </member>
+        <!-- Ungültiger XML-Kommentar wurde für den Member "T:Simplex.Noise" ignoriert -->
+        <member name="M:Simplex.Noise.Generate(System.Single)">
+            <summary>
+            1D simplex noise
+            </summary>
+            <param name="x"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Simplex.Noise.Generate(System.Single,System.Single)">
+            <summary>
+            2D simplex noise
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
             <returns></returns>
         </member>
     </members>

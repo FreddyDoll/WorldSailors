@@ -72,8 +72,12 @@ namespace WorldSailorsDuality
             DrawMediums(canvas);
 
             float xOffset = 0;
-            xOffset += DrawQuestManager(canvas, xOffset);
-            DrawAgent(canvas,xOffset);
+            xOffset += DrawAgent(canvas, xOffset);
+
+            if(mediums==null || mediums.Count == 0)
+                DrawQuestManager(canvas, canvas.Width-BoxWidth-BoxOffset*2);
+            else
+                DrawQuestManager(canvas, xOffset);
         }
 
         float DrawAgent(Canvas canvas, float xOffset)

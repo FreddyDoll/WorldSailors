@@ -95,5 +95,10 @@ namespace WorldSailorsDuality
         {
             base.DrawAgentWindow(c, area);
         }
+
+        public override AITarget GetTarget()
+        {
+            return currentTarget;
+        }
     }
 }

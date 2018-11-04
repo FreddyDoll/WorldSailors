@@ -93,7 +93,10 @@ namespace WorldSailorsDuality
                 return null;
             if (e.Y >= sizeY || e.Y < 0)
                 return null;
-            List<MyPathNode> path = aStar.Search(s, e, null).ToList();
+            var p = aStar.Search(s, e, null);
+            if (p == null)
+                return null;
+            List<MyPathNode> path = p.ToList();
             return path;
         }
 

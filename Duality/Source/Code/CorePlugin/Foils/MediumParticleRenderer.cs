@@ -29,14 +29,15 @@ namespace WorldSailorsDuality
 
         public ContentRef<Material> ParticleMaterial { get; set; } = Material.DualityIcon;
         public ContentRef<Material> TrailMaterial { get; set; } = Material.SolidBlack;
-
-        public ColorLUT colorFromSpeed { get; set; } = new ColorLUT();
+        
         public ColorLUT colorFromLifetime { get; set; } = new ColorLUT();
 
         [DontSerialize]
         private List<MediumParticle> particles = new List<MediumParticle>();
         [DontSerialize]
         private int visibleCounter;
+        [DontSerialize]
+        private MediumController Medium = null;
 
         public bool IsVisible(IDrawDevice device)
         {
@@ -63,6 +64,9 @@ namespace WorldSailorsDuality
 
         public void Draw(IDrawDevice device)
         {
+            if(Medium == null)
+                Medium = GameObj.GetComponent<MediumController>();
+
             Vector3 TopLeftWorld = device.GetSpaceCoord(new Vector3(0, 0, 0));
             Vector3 BottomRightWorld = device.GetSpaceCoord(new Vector3(device.TargetSize.X, device.TargetSize.Y, 0));
 
@@ -83,8 +87,14 @@ namespace WorldSailorsDuality
                 pos.Z = zHeight.X + (zHeight.Y - zHeight.X) * MathF.Rnd.NextFloat();
                 MediumParticle aParticle = new MediumParticle(pos, ParticlesScale, ParticleLife, ParticleMaterial.Res);
                 particles.Add(aParticle);
+
+                //aParticle.colorFromLifetime = colorFromLifetime;
+                //aParticle.colorFromSpeed = colorFromSpeed;
                 aParticle.colorFromLifetime = colorFromLifetime;
-                aParticle.colorFromSpeed = colorFromSpeed;
+                if (Medium != null)
+                    aParticle.colorFromSpeed = Medium.colorFromSpeed;
+                else
+                    aParticle.colorFromSpeed = new ColorLUT();
             }
 
             List<MediumParticle> aliveParticles = new List<MediumParticle>();

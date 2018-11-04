@@ -6,12 +6,14 @@ using Duality.Components.Physics;
 using Duality.Input;
 using Duality.Components;
 using Duality.Resources;
+using Duality.Drawing;
 
 namespace WorldSailorsDuality
 {
 
     public class MediumController : Component,ICmpUpdatable
     {
+        public ColorLUT colorFromSpeed { get; set; } = new ColorLUT();
         public MediumType Medium { get; set; } = MediumType.INACTIVE;
         public Vector2 speed { get; set; }
         public GenerationType GenType { get; set; } = GenerationType.DIRECT;
@@ -49,8 +51,9 @@ namespace WorldSailorsDuality
             Vector2 offset = speed.PerpendicularLeft.Normalized;
             return speed + offset * MathF.Sin(pos.X/ GenSineParameter.X) * speed.Length * pos.Y / GenSineParameter.Y;
         }
-        
     }
+
+
 
     public enum MediumType
     {

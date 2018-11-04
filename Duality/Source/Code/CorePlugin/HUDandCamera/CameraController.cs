@@ -14,6 +14,7 @@ namespace WorldSailorsDuality
     public class CameraController : Component, ICmpUpdatable
     {
         public Agent TrackedAgent { get; set; }
+        public bool AcceptUserInput { get; set; }
 
         [DontSerialize]
         private int BoatCounter = 0;
@@ -21,7 +22,7 @@ namespace WorldSailorsDuality
         public void OnUpdate()
         {
             //switch through Agents
-            if (DualityApp.Keyboard.KeyHit(Key.S))
+            if (DualityApp.Keyboard.KeyHit(Key.S) && AcceptUserInput)
             {
                 List<Agent> ln = Scene.Current.FindComponents<Agent>().ToList();
                 List<Agent> l = new List<Agent>();
@@ -63,6 +64,8 @@ namespace WorldSailorsDuality
                     c.FocusDist *= (float)Math.Pow(c.FocusDist, deltaHeight / 10000f);
                     deltaHeight = t.Pos.Z;
                 }
+                if (!AcceptUserInput)
+                    deltaHeight = t.Pos.Z;
                 t.MoveTo(new Vector3(TrackedAgent.GetPosition().X, TrackedAgent.GetPosition().Y, deltaHeight));
             }          
         }

@@ -365,6 +365,11 @@ namespace WorldSailorsDuality
             return bodyText;
         }
 
+        public override AITarget GetTarget()
+        {
+            return StraightTarget;
+        }
+
         public enum MovementControllerState
         {
             UPWIND,

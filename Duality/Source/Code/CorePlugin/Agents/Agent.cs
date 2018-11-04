@@ -14,12 +14,14 @@ namespace WorldSailorsDuality
     {
         public abstract void SetTarget(AITarget target);
         public abstract void RemoveTarget();
+        public abstract AITarget GetTarget();
 
         public virtual float respawnAfterSecond { get; set; } = 10;
         public virtual string Name { get; set; } = "An Agent";
         public virtual ColorRgba PrimaryColor { get; set; } = ColorRgba.Green;
         public virtual BoatController targetBoat { get; set; }
         public virtual ContentRef<Prefab> NavTargetPrefab { get; set; }
+
         public virtual Vector2 GetPosition()
         {
             if (targetBoat != null)
@@ -27,11 +29,12 @@ namespace WorldSailorsDuality
             else
             {
                 GameObject initialPosition =  GameObj.ChildByName("ref_InitialPosition");
-                if (initialPosition != null)
+                if (initialPosition != null && DualityApp.ExecContext!=DualityApp.ExecutionContext.Editor) //Stop Target from disapearing in editor
                 {
                     Transform trans = initialPosition.Transform;
                     if (trans!=null)
                     {
+
                         initialPosition.Active = false;
                         return trans.Pos.Xy;
                     }

@@ -14,7 +14,8 @@ namespace WorldSailorsDuality
     public enum MapGenerationType
     {
         PERLIN,
-        SIMPLE
+        SIMPLE,
+        SIMPLEX
     }
 
     public class GenerationPoint : IHasRect
@@ -61,6 +62,23 @@ namespace WorldSailorsDuality
         /// </summary>
         public int PerlinSeed { get; set; } = 0;
         /// <summary>
+        /// Change Value -> new Map for Simplex mode
+        /// integer
+        /// </summary>
+        public int SimplexSeed { get { return simplexSeed; } set { simplexSeed = value; Simplex.Noise.Seed = simplexSeed; } }
+        /// <summary>
+        /// Generate Map with doubled frequency (persistence used for higher frequencys)
+        /// </summary>
+        public int SimplexOctave { get; set; } = 1;
+        /// <summary>
+        /// Scaling of Simplex Noise
+        /// </summary>
+        public float SimplexPersistance { get; set; } = 0.5f;
+        /// <summary>
+        /// Scaling of Simplex Noise
+        /// </summary>
+        public int SimplexFreq { get; set; } = 0;
+        /// <summary>
         /// Parameter for SIMPLE mode
         /// Frequency in X-Direction
         /// </summary>
@@ -98,6 +116,8 @@ namespace WorldSailorsDuality
         float genCounter = 0;
         [DontSerialize]
         float bufferCounter = 0;
+        
+        public int simplexSeed = 0;
 
         #region MapGeneration
 
@@ -178,6 +198,7 @@ namespace WorldSailorsDuality
             {
                 case MapGenerationType.PERLIN: return ProbePerlin(point); 
                 case MapGenerationType.SIMPLE: return ProbeSimple(point);
+                case MapGenerationType.SIMPLEX: return ProbeSimplex(point);
             }
 
             return 0;
@@ -193,10 +214,30 @@ namespace WorldSailorsDuality
             return (float)(ScaleZ * Math.Sin(point.X / SimpleFreqX) + ScaleZ * Math.Sin(point.Y / SimpleFreqY)) / 2f + Offset;
         }
 
+        public float ProbeSimplex(Vector2 point)
+        {
+            float ret = 0;
+            float freq = SimplexFreq;
+            float per = SimplexPersistance;
+            
+            for (int n = 0; n < SimplexOctave; n++)
+            {
+                float Generated = Simplex.Noise.Generate((point.X / freq + 10000), (point.Y / freq + 10000));
+                ret += Generated * per * ScaleZ + Offset;
+                freq *= 0.7f;
+                per *= per;
+            }
+
+            return ret;// * ScaleZ + Offset;
+        }
+
         public void OnInit(InitContext context)
         {
             if(context == InitContext.Loaded)
                 GeneratedPointsBuffer = new QuadTree<GenerationPoint>(CompleteArea);
+
+
+            Simplex.Noise.Seed = SimplexSeed;
         }
 
         public void OnShutdown(ShutdownContext context)

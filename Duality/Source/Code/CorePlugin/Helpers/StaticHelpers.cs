@@ -49,6 +49,51 @@ namespace WorldSailorsDuality
         }
 
         /// <summary>
+        /// from only gives direction
+        /// </summary>
+        /// <param name="canvas"></param>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        public static void DrawDirMarker(Canvas canvas, Vector2 from, Vector2 to)
+        {
+            float w = 10;
+
+            Vector2 dirBack = (from - to).Normalized;
+            Vector2 dirRight = dirBack.PerpendicularRight;
+
+            Vector2 LeftTip = to + dirBack * w - dirRight * w;
+            Vector2 RightTip = to + dirBack * w + dirRight * w; ;
+
+            Vector2[] tip = new Vector2[] { to, LeftTip, RightTip };
+            canvas.FillPolygon(tip, 0, 0);
+        }
+
+        public static void DrawThickArrow(Canvas canvas, Vector2 from, Vector2 to,float w)
+        {
+            
+            float tips = 2*w;
+            float len = (from - to).Length;
+            if (len == 0)
+                return;
+            float back = 0.2f*len;
+
+            Vector2 dirForward = (to - from).Normalized;
+            Vector2 dirRight = dirForward.PerpendicularRight;
+
+            Vector2 LeftTip = to - dirForward * back - dirRight * tips;
+            Vector2 RightTip = to - dirForward * back + dirRight * tips; ;
+            Vector2 LeftMid = to - dirForward * back - dirRight * w;
+            Vector2 RightMid = to - dirForward * back + dirRight * w;
+            Vector2 LeftEnd = from - dirRight * w;
+            Vector2 RightEnd = from + dirRight * w;
+
+            Vector2[] tip = new Vector2[]{ to,LeftTip,RightTip};
+            canvas.FillPolygon(tip, 0,0);
+            Vector2[] block = new Vector2[] { LeftMid, RightMid, RightEnd, LeftEnd };
+            canvas.FillPolygon(block, 0, 0);
+        }
+
+        /// <summary>
         /// Draws A line Through given Points and returns the Y value for given x
         /// </summary>
         /// <param name="p0">First point</param>
