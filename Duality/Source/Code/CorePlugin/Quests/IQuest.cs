@@ -37,6 +37,11 @@ namespace WorldSailorsDuality
         /// Quit doing this Quest
         /// </summary>
         void TerminateQuest(Agent agent);
+
+        /// <summary>
+        /// Quit doing this Quest
+        /// </summary>
+        AITarget GetStartPoint();
     }
     
     public enum QuestState

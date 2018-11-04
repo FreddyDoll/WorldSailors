@@ -339,6 +339,8 @@ namespace WorldSailorsDuality
 
         public override void SetTarget(AITarget target)
         {
+            if (target == null)
+                return;
             NavTarget = target;
             NavMode = NavigationMode.INIT;
         }

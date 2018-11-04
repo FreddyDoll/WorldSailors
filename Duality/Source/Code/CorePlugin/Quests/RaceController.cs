@@ -170,6 +170,11 @@ namespace WorldSailorsDuality
             participants = newList;
             State = RaceState.IDLE;
         }
+
+        public AITarget GetStartPoint()
+        {
+             return WaitArea;
+        }
         #endregion
 
         class RaceParticipant

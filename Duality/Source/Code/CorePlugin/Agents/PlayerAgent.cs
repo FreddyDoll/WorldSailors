@@ -69,6 +69,9 @@ namespace WorldSailorsDuality
                 
         public override void SetTarget(AITarget target)
         {
+            if (target == null)
+                return;
+
             if (currentTarget != null)
                 Scene.Current.RemoveObject(currentTarget.GameObj);
             GameObject t = NavTargetPrefab.Res.Instantiate();

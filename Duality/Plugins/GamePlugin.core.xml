@@ -320,18 +320,6 @@
             If This function is used, QuadTree Buffering SHOULD/COULD used
             </summary>
         </member>
-        <member name="P:WorldSailorsDuality.LandRendererShaded.ColorLUTheights">
-            <summary>
-            Look Up Table for Conversion of Height->Color
-            (Heights part)
-            </summary>
-        </member>
-        <member name="P:WorldSailorsDuality.LandRendererShaded.ColorLUTColor">
-            <summary>
-            Look Up Table for Conversion of Height->Color
-            (Color part)
-            </summary>
-        </member>
         <member name="P:WorldSailorsDuality.LandRendererShaded.MatTransitionSeaFloorBeach">
             <summary>
             Transition Height from SeaFloor Material to Beach Material
@@ -616,6 +604,11 @@
             </summary>
         </member>
         <member name="M:WorldSailorsDuality.IQuest.TerminateQuest(WorldSailorsDuality.Agent)">
+            <summary>
+            Quit doing this Quest
+            </summary>
+        </member>
+        <member name="M:WorldSailorsDuality.IQuest.GetStartPoint">
             <summary>
             Quit doing this Quest
             </summary>

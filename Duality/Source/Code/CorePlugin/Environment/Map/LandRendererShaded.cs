@@ -17,16 +17,6 @@ namespace WorldSailorsDuality
         public HeightMap map{ get; set; }
         public ColorLUT LUTheight { get; set; } = new ColorLUT();
         /// <summary>
-        /// Look Up Table for Conversion of Height->Color
-        /// (Heights part)
-        /// </summary>
-        public List<float> ColorLUTheights { get; set; } = new List<float>();
-        /// <summary>
-        /// Look Up Table for Conversion of Height->Color
-        /// (Color part)
-        /// </summary>
-        public List<ColorRgba> ColorLUTColor { get; set; } = new List<ColorRgba>();
-        /// <summary>
         /// Transition Height from SeaFloor Material to Beach Material
         /// </summary>
         public float MatTransitionSeaFloorBeach { get; set; } = -50;
@@ -105,8 +95,8 @@ namespace WorldSailorsDuality
             if ((device.VisibilityMask & VisibilityFlag.Group1) == VisibilityFlag.Group1 && (device.VisibilityMask & VisibilityFlag.Group0) != VisibilityFlag.Group0)
                 data = dataGroup1;
 
-                //Find The right spot in the screen for our Verteces
-                Vector3 TopLeftWorld = device.GetSpaceCoord(new Vector3(0, 0, 0));
+            //Find The right spot in the screen for our Verteces
+            Vector3 TopLeftWorld = device.GetSpaceCoord(new Vector3(0, 0, 0));
             Vector3 BottomRightWorld = device.GetSpaceCoord(new Vector3(device.TargetSize.X, device.TargetSize.Y, 0));
             Vector3 WorldArea = (BottomRightWorld - TopLeftWorld);
             Vector3 WorldOffset = device.RefCoord - WorldArea / 2f;
@@ -130,7 +120,7 @@ namespace WorldSailorsDuality
                     data.Vertices[y * data.sizeX + x].Pos.X = offsetFromCamera.X + x * spacingX * scaleTemp;
                     data.Vertices[y * data.sizeX + x].Pos.Y = offsetFromCamera.Y + y * spacingY * scaleTemp;
                     data.Vertices[y * data.sizeX + x].Pos.Z = offsetFromCamera.Z - data.heights[x][y];
-                    data.Vertices[y * data.sizeX + x].Color = getColorFromHeight(data.heights[x][y]);
+                    data.Vertices[y * data.sizeX + x].Color = LUTheight.GetColor(data.heights[x][y]);
 
                     Vector4 Taide = new Vector4();
                     Taide.X = (x * spacingX + WorldOffset.X);
@@ -164,43 +154,7 @@ namespace WorldSailorsDuality
             device.AddVertices(LandMaterial, VertexMode.Quads, data.Quads);
 
         }
-        
-        //Improve: Generate LUT at Frame start to save time
-        private ColorRgba getColorFromHeight(float z)
-        {
-            if(ColorLUTColor == null || ColorLUTheights == null || ColorLUTColor.Count == 0 || ColorLUTheights.Count == 0)
-                return ColorRgba.Red;
-
-            //find last
-            int last = ColorLUTheights.Count;
-            if (ColorLUTColor.Count < last)
-                last = ColorLUTColor.Count;
-            last--;
-
-            //Out of Bounds
-            if (z < ColorLUTheights[0])
-                return ColorLUTColor[0];
-            if (z > ColorLUTheights[last])
-                return ColorLUTColor[last];
-
-            ColorRgba colorA = ColorLUTColor[0];
-            ColorRgba colorB = ColorLUTColor[0];
-            float biasA = 0;
-            for (int n = 1; n <= last; n++)
-            {
-                if (ColorLUTheights[n] > z)
-                {
-                    colorA = ColorLUTColor[n];
-                    colorB = ColorLUTColor[n - 1];
-                    float disA = z - ColorLUTheights[n];
-                    float disB = ColorLUTheights[n - 1] - z;
-                    biasA = (disA) / (disA + disB);
-                    break;
-                }
-            }
-            return ColorRgba.Lerp(colorA, colorB, biasA);
-        }
-                
+           
         public void OnInit(InitContext context)
         {
             map = GameObj.GetComponent<HeightMap>();

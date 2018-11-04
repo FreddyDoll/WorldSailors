@@ -19,6 +19,8 @@ namespace WorldSailorsDuality
         private Agent owner;
         [DontSerialize]
         private IQuest ActiveQuest;
+        [DontSerialize]
+        private int SelectedQuest = -1;
 
         public Agent Owner { get { return owner; } }
 
@@ -44,8 +46,22 @@ namespace WorldSailorsDuality
         {
             if (owner == null)
                 return;
-            
-            if (DualityApp.Keyboard[Key.X] && ActiveQuest != null)
+
+            if (DualityApp.Gamepads[0].ButtonHit(GamepadButton.DPadDown))
+            {
+                SelectedQuest++;
+                if (SelectedQuest > AllQuests.Count)
+                    SelectedQuest = -1;
+            }
+
+            if (DualityApp.Gamepads[0].ButtonHit(GamepadButton.DPadUp))
+            {
+                SelectedQuest--;
+                if (SelectedQuest < -1)
+                    SelectedQuest = -1;
+            }
+
+            if ((DualityApp.Keyboard[Key.Y] || DualityApp.Gamepads[0].ButtonHit(GamepadButton.Y)) && ActiveQuest != null)
             {
                 ActiveQuest.TerminateQuest(owner);
                 ActiveQuest = null;
@@ -56,10 +72,10 @@ namespace WorldSailorsDuality
                 ActiveQuest = null;
                 foreach (IQuest q in allQuests)
                 {
-                    if (q.checkActivation(owner)) //Show Activation Message
+                    if (q.checkActivation(owner)) 
                         ActiveQuest = q;
                 }
-                if (ActiveQuest != null && DualityApp.Keyboard[Key.A])
+                if ((DualityApp.Keyboard[Key.B]||DualityApp.Gamepads[0].ButtonHit(GamepadButton.B)) && ActiveQuest != null)
                 {
                     ActiveQuest.activateQuest(owner);
                 }
@@ -70,7 +86,7 @@ namespace WorldSailorsDuality
         {
             if (ActiveQuest != null && ActiveQuest.GetState() == QuestState.IDLE)
             {
-                string Text = "Press [a] to start " + ActiveQuest.screenName();
+                string Text = "Press [B] to start " + ActiveQuest.screenName();
                 Vector2 TextSize = c.MeasureText(Text);
                 c.DrawText(Text, (c.Width - TextSize.X) / 2f, (c.Height - TextSize.Y) / 2f);
             }
@@ -82,19 +98,28 @@ namespace WorldSailorsDuality
             c.DrawLine(area.X, area.Y + NameBoxHeight, area.X + area.W, area.Y + NameBoxHeight);
             string header = "Available Quests";
             if (ActiveQuest != null)
-                header = ActiveQuest.screenName();
+                header = ActiveQuest.screenName() + " [Y] to cancel";
             c.DrawText(header, area.X + textPadding, area.Y + textPadding);
             List<string> bodyText = new List<string>();
             if (ActiveQuest == null)
             {
-                foreach (IQuest q in allQuests)
-                    bodyText.Add(q.screenName());
-                float lineHeigt = 10;
+                float lineHeigt = 12;
                 float y = area.Y + NameBoxHeight + textPadding;
-                foreach (string s in bodyText)
+                int questCounter = 0;
+
+                foreach (IQuest q in allQuests)
                 {
+                    string s = q.screenName();
                     c.DrawText(s, area.X + textPadding, y);
+                    if (SelectedQuest == questCounter)
+                    {
+                        c.DrawRect(area.X + 2, y, area.W - 4, 14);
+                        AITarget t = q.GetStartPoint();
+                        if(t!=null)
+                        owner.SetTarget(t);
+                    }
                     y += lineHeigt;
+                    questCounter++;
                 }
             }
             else
