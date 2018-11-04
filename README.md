@@ -15,7 +15,7 @@ b: start race (in the red zone)
 
 y: stop quest 
 
-s: switch through Agents (AI,Player)
+a,s: switch through Agents (AI,Player)
 
 ### XBox 360 Controller
 LeftStick Left/Right: Turn Boat
@@ -24,13 +24,17 @@ RightStick Left/Right: Open/Close Sail
 
 Left/Right Trigger: Override Open/Close Sail
 
-RightStick Up/Down: Zoom in and out
+Left/Right Shoulder Buttons: Zoom in and out
 
-A: Press,hold,release left stick to adjust trim of boat
+A: Press to adjust steering trim (watch indicator on navball)
 
 B: Activate Quest
 
 Y: Cancel Quest
+
+DPad Left/Right : Cycle through Agents
+
+DPad UP/Down : Choose Quest (Sets traget in Nav Ball)
 
 ## TODO
 - Add Lighting (Sun moves around 1 day)
