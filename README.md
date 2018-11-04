@@ -44,9 +44,10 @@ DPad UP/Down : Choose Quest (Sets traget in Nav Ball)
 - Boat Trail Renderer: Boats need a nicer Trail!
 - Get up on a plane! Reduces Drag when reaching a certain speed and adjust visuals
 - SecondMap Renderer for Large Scale Viewing
-- Support for the Player: Add Sail and heading controller
+- Improve AI
 - On Collision check right of way to determine who gets broken
 - improve speed of particle renderer
+- Better Cloud Textures
 - Nav Ball:
 	- Show Control Aids
 

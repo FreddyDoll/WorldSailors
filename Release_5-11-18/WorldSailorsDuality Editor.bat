@@ -1,0 +1,1 @@
+cd GameData && start DualityEditor.exe
