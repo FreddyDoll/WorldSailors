@@ -132,17 +132,19 @@
                 <gameobj dataType="ObjectRef">3342002986</gameobj>
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.PathRenderer" id="1558863603">
-                <_x003C_Delay_x003E_k__BackingField dataType="Float">20</_x003C_Delay_x003E_k__BackingField>
-                <_x003C_DrawColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
-                  <A dataType="Byte">255</A>
-                  <B dataType="Byte">53</B>
-                  <G dataType="Byte">207</G>
-                  <R dataType="Byte">255</R>
-                </_x003C_DrawColor_x003E_k__BackingField>
+                <_x003C_Delay_x003E_k__BackingField dataType="Float">0.2</_x003C_Delay_x003E_k__BackingField>
+                <_x003C_MainColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
+                  <A dataType="Byte">164</A>
+                  <B dataType="Byte">0</B>
+                  <G dataType="Byte">168</G>
+                  <R dataType="Byte">221</R>
+                </_x003C_MainColor_x003E_k__BackingField>
                 <_x003C_maxLength_x003E_k__BackingField dataType="Int">100</_x003C_maxLength_x003E_k__BackingField>
+                <_x003C_TrailMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
+                  <contentPath dataType="String">Data\ParticleTrail.Material.res</contentPath>
+                </_x003C_TrailMaterial_x003E_k__BackingField>
                 <active dataType="Bool">true</active>
                 <gameobj dataType="ObjectRef">3342002986</gameobj>
-                <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
               </item>
             </_items>
             <_size dataType="Int">5</_size>

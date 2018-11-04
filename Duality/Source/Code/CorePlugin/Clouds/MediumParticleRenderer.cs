@@ -16,9 +16,15 @@ namespace WorldSailorsDuality
         public int ParticleLife { get; set; } = 100;
         public bool ConstantScreenSize { get; set; } = false;
         public float ScreenAreaFraction { get; set; } = 2;
+        public Vector2 zHeight { get; set; } = new Vector2();
         public int ParticlesPerFrame { get; set; } = 10;
         public int ParticlesVisible { get; set; } = 1000;
         public int ParticlesScale { get; set; } = 10;
+        /// <summary>
+        /// If Set to != null the Area where the particles are spawned is kept constant.
+        /// Otherwise its the screen*ScreenAreaFraction
+        /// </summary>
+        public Vector2 SpawnArea { get; set; }
 
         public ContentRef<Material> ParticleMaterial { get; set; } = Material.DualityIcon;
         public ContentRef<Material> TrailMaterial { get; set; } = Material.SolidBlack;
@@ -62,8 +68,18 @@ namespace WorldSailorsDuality
             for (int n = visibleCounter; n<visibleCounter+ParticlesPerFrame; n++)
             {
                 Vector3 pos = new Vector3();
-                pos.X = StaticHelpers.lerp(TopLeftWorld.X, BottomRightWorld.X, MathF.Rnd.NextFloat() * ScreenAreaFraction - (ScreenAreaFraction-1f)/2f );
-                pos.Y = StaticHelpers.lerp(TopLeftWorld.Y, BottomRightWorld.Y, MathF.Rnd.NextFloat()*ScreenAreaFraction - (ScreenAreaFraction - 1f) / 2f);
+                if (SpawnArea == null || SpawnArea.Length<1)
+                {
+                    pos.X = StaticHelpers.lerp(TopLeftWorld.X, BottomRightWorld.X, MathF.Rnd.NextFloat() * ScreenAreaFraction - (ScreenAreaFraction - 1f) / 2f);
+                    pos.Y = StaticHelpers.lerp(TopLeftWorld.Y, BottomRightWorld.Y, MathF.Rnd.NextFloat() * ScreenAreaFraction - (ScreenAreaFraction - 1f) / 2f);
+                }
+                else
+                {
+                    Vector2 ScreenCenter = device.RefCoord.Xy;
+                    pos.X = ScreenCenter.X + MathF.Rnd.NextFloat(-1, 1) * SpawnArea.X;
+                    pos.Y = ScreenCenter.Y + MathF.Rnd.NextFloat(-1, 1) * SpawnArea.Y;
+                }
+                pos.Z = zHeight.X + (zHeight.Y - zHeight.X) * MathF.Rnd.NextFloat();
                 MediumParticle aParticle = new MediumParticle(pos, ParticlesScale, ParticleLife, ParticleMaterial.Res);
                 particles.Add(aParticle);
                 aParticle.colorFromLifetime = colorFromLifetime;
@@ -84,15 +100,19 @@ namespace WorldSailorsDuality
             particles = aliveParticles;
 
             visibleCounter = 0;
+            List<VertexC1P3T2> quads = new List<VertexC1P3T2>();
             foreach (MediumParticle p in particles)
             {
                 if (p.SetUpRender(device,ConstantScreenSize))
                 {
-                    device.AddVertices(ParticleMaterial, VertexMode.Quads, p.Quad);
+                    quads.AddRange(p.Quad);
+                    //device.AddVertices(ParticleMaterial, VertexMode.Quads, p.Quad);
                     device.AddVertices(TrailMaterial, VertexMode.LineStrip, p.trail);
                     visibleCounter++;
                 }
             }
+
+            device.AddVertices(ParticleMaterial, VertexMode.Quads, quads.ToArray());
         }
 
         public string GetHudString()

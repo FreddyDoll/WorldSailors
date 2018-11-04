@@ -132,17 +132,19 @@
                 <gameobj dataType="ObjectRef">1412585361</gameobj>
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.PathRenderer" id="3924413274">
-                <_x003C_Delay_x003E_k__BackingField dataType="Float">20</_x003C_Delay_x003E_k__BackingField>
-                <_x003C_DrawColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
-                  <A dataType="Byte">120</A>
+                <_x003C_Delay_x003E_k__BackingField dataType="Float">0.2</_x003C_Delay_x003E_k__BackingField>
+                <_x003C_MainColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
+                  <A dataType="Byte">188</A>
                   <B dataType="Byte">0</B>
-                  <G dataType="Byte">255</G>
+                  <G dataType="Byte">234</G>
                   <R dataType="Byte">0</R>
-                </_x003C_DrawColor_x003E_k__BackingField>
-                <_x003C_maxLength_x003E_k__BackingField dataType="Int">100000</_x003C_maxLength_x003E_k__BackingField>
+                </_x003C_MainColor_x003E_k__BackingField>
+                <_x003C_maxLength_x003E_k__BackingField dataType="Int">500</_x003C_maxLength_x003E_k__BackingField>
+                <_x003C_TrailMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
+                  <contentPath dataType="String">Data\ParticleTrail.Material.res</contentPath>
+                </_x003C_TrailMaterial_x003E_k__BackingField>
                 <active dataType="Bool">true</active>
                 <gameobj dataType="ObjectRef">1412585361</gameobj>
-                <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
               </item>
             </_items>
             <_size dataType="Int">5</_size>
@@ -1059,16 +1061,18 @@
                                     </item>
                                     <item dataType="Struct" type="WorldSailorsDuality.PathRenderer" id="3064532780">
                                       <_x003C_Delay_x003E_k__BackingField dataType="Float">20</_x003C_Delay_x003E_k__BackingField>
-                                      <_x003C_DrawColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
-                                        <A dataType="Byte">120</A>
+                                      <_x003C_MainColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
+                                        <A dataType="Byte">255</A>
                                         <B dataType="Byte">0</B>
                                         <G dataType="Byte">255</G>
                                         <R dataType="Byte">0</R>
-                                      </_x003C_DrawColor_x003E_k__BackingField>
+                                      </_x003C_MainColor_x003E_k__BackingField>
                                       <_x003C_maxLength_x003E_k__BackingField dataType="Int">100000</_x003C_maxLength_x003E_k__BackingField>
+                                      <_x003C_TrailMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
+                                        <contentPath dataType="String">Default:Material:SolidBlack</contentPath>
+                                      </_x003C_TrailMaterial_x003E_k__BackingField>
                                       <active dataType="Bool">true</active>
                                       <gameobj dataType="ObjectRef">552704867</gameobj>
-                                      <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
                                     </item>
                                   </_items>
                                   <_size dataType="Int">5</_size>
@@ -1727,16 +1731,18 @@
                                                     </item>
                                                     <item dataType="Struct" type="WorldSailorsDuality.PathRenderer" id="1528879215">
                                                       <_x003C_Delay_x003E_k__BackingField dataType="Float">20</_x003C_Delay_x003E_k__BackingField>
-                                                      <_x003C_DrawColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
+                                                      <_x003C_MainColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
                                                         <A dataType="Byte">255</A>
-                                                        <B dataType="Byte">53</B>
-                                                        <G dataType="Byte">207</G>
-                                                        <R dataType="Byte">255</R>
-                                                      </_x003C_DrawColor_x003E_k__BackingField>
+                                                        <B dataType="Byte">0</B>
+                                                        <G dataType="Byte">255</G>
+                                                        <R dataType="Byte">0</R>
+                                                      </_x003C_MainColor_x003E_k__BackingField>
                                                       <_x003C_maxLength_x003E_k__BackingField dataType="Int">100</_x003C_maxLength_x003E_k__BackingField>
+                                                      <_x003C_TrailMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
+                                                        <contentPath dataType="String">Default:Material:SolidBlack</contentPath>
+                                                      </_x003C_TrailMaterial_x003E_k__BackingField>
                                                       <active dataType="Bool">true</active>
                                                       <gameobj dataType="ObjectRef">3312018598</gameobj>
-                                                      <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
                                                     </item>
                                                   </_items>
                                                   <_size dataType="Int">5</_size>

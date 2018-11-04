@@ -79,6 +79,7 @@
     <Compile Include="HUDandCamera\BoatRenderer.cs" />
     <Compile Include="Map\HeightMap.cs" />
     <Compile Include="HUDandCamera\HudRenderer.cs" />
+    <Compile Include="Map\LandRendererShaded.cs" />
     <Compile Include="Map\LandRenderer.cs" />
     <Compile Include="HUDandCamera\PathRenderer.cs" />
     <Compile Include="Map\Pathfinder.cs" />

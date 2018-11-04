@@ -14,6 +14,8 @@ namespace WorldSailorsDuality
     {
         public MediumType Medium { get; set; } = MediumType.INACTIVE;
         public Vector2 speed { get; set; }
+        public GenerationType GenType { get; set; } = GenerationType.DIRECT;
+        public double GenSineAmp { get; set; } = 2;
         public List<FoilController> foils { get; private set; }
         public float MaxSpeed { get; set; } = 20;//for drawing purpose
         public string ScreenString{ get; set; } = "Medium";//for drawing purpose
@@ -32,6 +34,7 @@ namespace WorldSailorsDuality
                     f.ApplyMedium(this);
             }
         }
+        
     }
 
     public enum MediumType
@@ -39,5 +42,11 @@ namespace WorldSailorsDuality
         INACTIVE,
         WATER,
         AIR
+    }
+
+    public enum GenerationType
+    {
+        DIRECT,
+        SINE_OFFSET
     }
 }

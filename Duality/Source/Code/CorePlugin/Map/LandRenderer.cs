@@ -330,7 +330,7 @@ namespace WorldSailorsDuality
                 sizeY = 50;
 
             heights = new float[sizeX][];
-            for (int n = 0; n < sizeY; n++)
+            for (int n = 0; n < sizeX; n++)
                 heights[n] = new float[sizeY];
 
             spacingX = width / (sizeX - 1);

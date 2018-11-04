@@ -6,64 +6,81 @@ using System.Text;
 using System.Threading.Tasks;
 using Duality.Drawing;
 using Duality;
+using Duality.Resources;
 
 namespace WorldSailorsDuality
 {
     [RequiredComponent(typeof(Transform))]
-    public class PathRenderer : Renderer
+    public class PathRenderer : Component, ICmpRenderer
     {
         /// <summary>
         /// Delay between adding Points (In Frames)
         /// </summary>
-        public float Delay { get; set; } = 30;
+        public float Delay { get; set; } = 1;
         /// <summary>
         /// in Elements
         /// </summary>
-        public int maxLength { get; set; } = 10000;
-        public ColorRgba DrawColor { get; set; } = ColorRgba.Green.WithAlpha(120);
+        public int maxLength { get; set; } = 1000;
+        public ContentRef<Material> TrailMaterial { get; set; } = Material.SolidBlack;
+        public ColorRgba MainColor { get; set; } = ColorRgba.Green;
 
         [DontSerialize]
         private List<Vector3> positions = new List<Vector3>();
         [DontSerialize]
         private float tim = 0;
 
-        public override float BoundRadius
+        public float BoundRadius
         {
-            get {
-                return float.MaxValue; }
+            get {return float.MaxValue; }
         }
 
-        public override void Draw(IDrawDevice device)
+
+        public bool IsVisible(IDrawDevice device)
         {
-            tim += Time.TimeMult;
+            bool anyGroupFlag =
+                   (device.VisibilityMask & VisibilityFlag.AllGroups)
+                   != VisibilityFlag.None;
+            bool screenOverlayFlag =
+                (device.VisibilityMask & VisibilityFlag.ScreenOverlay)
+                != VisibilityFlag.None;
+
+            if (!anyGroupFlag) return false;
+            if (screenOverlayFlag) return false;
+
+            return true;
+        }
+
+        public void Draw(IDrawDevice device)
+        {
+            tim += Time.TimeMult*Time.SPFMult;
             positions.Add(this.GameObj.Transform.Pos); //buffer Position
 
-            // Prepare a Canvas object to make drawing easier
-            Canvas canvas = new Canvas(device);
+            
 
-            // Draw things!
-            canvas.State.ColorTint = DrawColor;
+            VertexC1P3[] lineStrip = new VertexC1P3[positions.Count];
+            int vertexCounter = 0;
 
-            Vector3 posA = positions[positions.Count-1];
-            Vector3 posB;
-            for (int n = 2; n < positions.Count; n+=n/1000+1)
+            foreach(Vector3 pos in positions)
             {
-                posB = positions[positions.Count-n];
-                canvas.DrawLine(posA.X, posA.Y, posA.Z, posB.X, posB.Y, posB.Z);
-                posA = posB;
+                Vector3 posTemp = pos;
+                float scaleTemp = 1;
+                device.PreprocessCoords(ref posTemp, ref scaleTemp);
+                float alpha = (float)vertexCounter / positions.Count;
+                lineStrip[vertexCounter].Pos = posTemp;
+                lineStrip[vertexCounter].Color = MainColor.WithAlpha(alpha);
+                vertexCounter++;
             }
-            posB = positions[0];
-            canvas.DrawLine(posA.X, posA.Y, posA.Z, posB.X, posB.Y, posB.Z);
+
+            device.AddVertices(TrailMaterial, VertexMode.LineStrip,lineStrip);
+            
             if (tim > Delay || positions.Count == 0)
             {
                 tim = 0;
-                if (maxLength > 0 && positions.Count > maxLength)
+                if (positions.Count > maxLength)
                     positions.RemoveAt(0);
             }
             else
-            {
                 positions.RemoveAt(positions.Count - 1);
-            }
         }
     }
 }
