@@ -135,5 +135,12 @@ namespace WorldSailorsDuality
                 respawnTimer -= Time.TimeMult * Time.SPFMult;
             }
         }
+        
+        public virtual float GetControlTorque()
+        {
+            if (targetBoat != null)
+                return targetBoat.ControlTorque;
+            return 0;
+        }
     }
 }

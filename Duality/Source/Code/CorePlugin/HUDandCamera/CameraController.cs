@@ -11,7 +11,7 @@ using Duality.Drawing;
 namespace WorldSailorsDuality
 {
     [RequiredComponent(typeof(Transform)),RequiredComponent(typeof(Camera))]
-    public class CameraController : Component, ICmpUpdatable
+    public class CameraController : Component, ICmpUpdatable, ITracksAgent
     {
         public Agent TrackedAgent { get; set; }
         public bool AcceptUserInput { get; set; }
@@ -21,24 +21,7 @@ namespace WorldSailorsDuality
 
         public void OnUpdate()
         {
-            //switch through Agents
-            if (DualityApp.Keyboard.KeyHit(Key.S) && AcceptUserInput)
-            {
-                List<Agent> ln = Scene.Current.FindComponents<Agent>().ToList();
-                List<Agent> l = new List<Agent>();
-                foreach (Agent a in ln)
-                    if (a.Active)
-                        l.Add(a);
-                BoatCounter %= l.Count;
-                TrackedAgent = l[BoatCounter];
-                HudRenderer render = GameObj.GetComponent<HudRenderer>();
-                if (render != null)
-                {
-                    render.TrackedAgent = TrackedAgent;
-                }
-                BoatCounter++;
-            }
-
+           
             if (TrackedAgent == null)
               return;
                         
@@ -49,13 +32,19 @@ namespace WorldSailorsDuality
             {
                 float deltaHeight = 0;
 
-                float padAxis = StaticHelpers.ApplyStickDeadZone(DualityApp.Gamepads[0].RightThumbstick.Y);
-                deltaHeight += -padAxis * Time.TimeMult * 50;
+                //float padAxis = StaticHelpers.ApplyStickDeadZone(DualityApp.Gamepads[0].RightThumbstick.Y);
+                //deltaHeight += -padAxis * Time.TimeMult * 50;
 
                 if (DualityApp.Keyboard[Key.ShiftLeft])
                     deltaHeight += 50 * Time.TimeMult;
                 if (DualityApp.Keyboard[Key.ControlLeft])
                     deltaHeight -= 50 * Time.TimeMult;
+
+
+                if (DualityApp.Gamepads[0].ButtonPressed(GamepadButton.LeftShoulder))
+                    deltaHeight -= 50 * Time.TimeMult;
+                if (DualityApp.Gamepads[0].ButtonPressed(GamepadButton.RightShoulder))
+                    deltaHeight += 50 * Time.TimeMult;
 
                 if (c.Perspective == PerspectiveMode.Parallax)
                     deltaHeight += t.Pos.Z;

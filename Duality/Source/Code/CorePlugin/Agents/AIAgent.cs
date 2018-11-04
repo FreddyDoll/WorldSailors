@@ -212,7 +212,7 @@ namespace WorldSailorsDuality
                 //Find Offset Angle
                 HeadingError = FindDiff(targetHeading, targetBoat.GetHeading());
                 //Aplly Torque
-                targetBoat.ApplySteering(HeadingError * AtrSteeringAmplification - targetBoat.GetTurnRate()*AtrTurnDamping);
+                targetBoat.ApplySteering(HeadingError * AtrSteeringAmplification - targetBoat.GetTurnRate() * AtrTurnDamping);
                 //SetSail
                 float currentAA = targetBoat.Sail.GetComponent<FoilController>().GetAngleOfAttack();
                 float error = AtrTargetAngleOfAttack - currentAA;

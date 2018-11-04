@@ -47,6 +47,7 @@ namespace WorldSailorsDuality
         /// -Each must be targeted at the same Parent (usually Hull) 
         /// </summary>
         public GameObject Rudder { get; set; }
+        public float ControlTorque { get; set; }
         public string name { get; set; } = "boat";
         /// <summary>
         /// Get/Set Agent Position
@@ -156,6 +157,7 @@ namespace WorldSailorsDuality
                 {
                     //Apply Torque
                     hullBody.ApplyLocalForce(t * hullBody.Inertia);
+                    ControlTorque = t;
                 }
 
                 if (Rudder != null)

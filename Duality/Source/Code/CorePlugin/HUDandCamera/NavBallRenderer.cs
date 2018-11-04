@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace WorldSailorsDuality
 {
     [RequiredComponent(typeof(Camera)),RequiredComponent(typeof(Transform))]
-    public class NavBallRenderer : Component, ICmpRenderer,ICmpUpdatable
+    public class NavBallRenderer : Component, ICmpRenderer,ICmpUpdatable, ITracksAgent
     {
         public float BoundRadius { get; private set; }
 
@@ -55,14 +55,44 @@ namespace WorldSailorsDuality
                 if (m != null)
                     drawMedium(m);
 
+            if (TrackedAgent != null)
+                drawControlTorque();
+
             if (CameraTexture.IsAvailable)
                 drawCameraTexture();
+
 
             if (TrackedAgent != null && TrackedAgent.GetTarget() != null)
             {
                 Vector2 dir = TrackedAgent.GetTarget().Position - TrackedAgent.GetPosition();
                 drawTarget(dir);
             }
+        }
+
+        private void drawControlTorque()
+        { 
+            Vector2 pos = CenterOfNavBall + new Vector2(0,-MinimapSize-BorderSize-5);
+            Vector2 pos2 = pos + new Vector2(TrackedAgent.GetControlTorque()*100000, 0);
+            ColorHsva col = mainColor.ToHsva();
+            col = col.WithValue(col.V * 0.7f);
+            col = col.WithHue(col.H - 0.2f);
+
+
+            float angle = TrackedAgent.GetControlTorque() * 2000;
+            float w = 8;
+
+            canvas.State.Reset();
+            canvas.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha,mainColor));
+
+            canvas.FillCircleSegment(CenterOfNavBall.X, CenterOfNavBall.Y, MinimapSize + BorderSize + w + 2, -2.02f, 2.02f);
+
+            canvas.State.Reset();
+            canvas.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha, col.ToRgba()));
+
+            if(angle>0)
+                canvas.FillCircleSegment(CenterOfNavBall.X, CenterOfNavBall.Y, MinimapSize + BorderSize + w, 0, angle);
+            else
+            canvas.FillCircleSegment(CenterOfNavBall.X, CenterOfNavBall.Y, MinimapSize + BorderSize + w, angle, 0);
         }
 
 

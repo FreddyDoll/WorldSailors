@@ -26,7 +26,7 @@ Left/Right Trigger: Override Open/Close Sail
 
 RightStick Up/Down: Zoom in and out
 
-A: Press,hold,release left stick to adjust trim of sail
+A: Press,hold,release left stick to adjust trim of boat
 
 B: Activate Quest
 
@@ -34,6 +34,7 @@ Y: Cancel Quest
 
 ## TODO
 - Add Lighting (Sun moves around 1 day)
+- Sound
 - ShipEditor: Rewards for Quests are also needed
 - Quest Trading: Transport goods from A to B and receive goodies
 - Boat Trail Renderer: Boats need a nicer Trail!

@@ -71,6 +71,8 @@
     <Compile Include="Foils\MediumParticleRenderer.cs" />
     <Compile Include="Helpers\ColorLUT.cs" />
     <Compile Include="Helpers\Simplex.cs" />
+    <Compile Include="HUDandCamera\AgentSwitcher.cs" />
+    <Compile Include="HUDandCamera\ITracksAgent.cs" />
     <Compile Include="HUDandCamera\NavBallRenderer.cs" />
     <Compile Include="HUDandCamera\CameraController.cs" />
     <Compile Include="Environment\Clouds\CloudController.cs" />

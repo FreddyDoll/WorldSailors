@@ -15,7 +15,7 @@ namespace WorldSailorsDuality
         string GetHudString();
     }
 
-    public class HudRenderer : Component, ICmpRenderer
+    public class HudRenderer : Component, ICmpRenderer, ITracksAgent
     {
         public List<Ihudstring> hudstrings { get; set; } = new List<Ihudstring>();
         public List<MediumController> mediums { get; set; } = new List<MediumController>();

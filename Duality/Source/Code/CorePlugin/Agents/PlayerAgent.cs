@@ -20,6 +20,8 @@ namespace WorldSailorsDuality
         private float trimPoint = 0;
         [DontSerialize]
         private bool trimming = false;
+        [DontSerialize]
+        private float controlTorque;
 
         public override void OnUpdate()
         {
@@ -36,6 +38,10 @@ namespace WorldSailorsDuality
                 if (DualityApp.Gamepads[0].ButtonPressed(GamepadButton.A) && !trimming) //start trimming
                 {
                     trimPoint += turn;
+                    if (trimPoint > 1)
+                        trimPoint = 1;
+                    if (trimPoint < -1)
+                        trimPoint = -1;
                     trimming = true;
                 }
                 if (DualityApp.Gamepads[0].ButtonPressed(GamepadButton.A) && trimming) //still trimming
