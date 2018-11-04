@@ -4,9 +4,9 @@ A Sailing Game made with [Duality](https://duality.adamslair.net/)
 Still very much a work in Progress but playable.
 
 ## Install
-Just Download the Release Folder and WorldSailorsDuality.bat
-or play around with the Editor
+Just Download the Release Folder and run WorldSailorsDuality.bat
 
+or play around with the Editor
 
 ## Controls
 ### Keyboard
