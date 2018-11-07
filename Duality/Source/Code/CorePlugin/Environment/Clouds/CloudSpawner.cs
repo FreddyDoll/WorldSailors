@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace WorldSailorsDuality
 {
-    public class CloudSpawner : Component, ICmpUpdatable, ICmpInitializable
+    public class CloudSpawner : Component, ICmpUpdatable, ICmpInitializable,ITracksAgent
     {
         //This whole thing should be changed to a Particle system...
         public ContentRef<Prefab> CloudPrefab { get; set; }
         public Vector2 Area { get; set; }
-        public Transform Target { get; set; }
+        public Agent TrackedAgent { get; set; }
         public float MinLifetime { get; set; }
         public float MaxLifetime { get; set; }
         public float MinScale { get; set; }
@@ -27,7 +27,7 @@ namespace WorldSailorsDuality
         public Vector2 Height { get; set; }
         public float SpawnDelay { get; set; }
         public List<GameObject> ActiveClouds { get { return activeClouds; } }
-
+        
         [DontSerialize]
         private float m_timer = 0;
         [DontSerialize]
@@ -66,13 +66,14 @@ namespace WorldSailorsDuality
                 m_timer = 0;
             }
 
-            if (Target != null)
+            if (TrackedAgent != null)
             {
+                Vector2 p = TrackedAgent.GetPosition();
                 List<GameObject> n = new List<GameObject>();
                 int spawnCounter = 0;
                 foreach (GameObject g in activeClouds)
                 {
-                    if ((Target.Pos.Xy - g.Transform.Pos.Xy).Length < (Area.X + Area.Y) / 4f)
+                    if ((p - g.Transform.Pos.Xy).Length < (Area.X + Area.Y) / 4f)
                         n.Add(g); //keep
                     else //discard
                     {
@@ -101,9 +102,10 @@ namespace WorldSailorsDuality
             float h = Height.X + rand.NextFloat() * (Height.Y - Height.X);
             Vector3 pos = new Vector3(rand.NextFloat() * Area.X - Area.X / 2f, rand.NextFloat() * Area.Y - Area.Y / 2f, h);
 
-            if(Target != null)
+            if(TrackedAgent != null)
             {
-                pos = pos + new Vector3(Target.Pos.X, Target.Pos.Y, 0);
+                Vector2 p = TrackedAgent.GetPosition();
+                pos = pos + new Vector3(p,0);
             }
 
             float life = rand.NextFloat() * (MaxLifetime - MinLifetime) + MinLifetime;
