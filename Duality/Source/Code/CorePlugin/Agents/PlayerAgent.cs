@@ -34,25 +34,28 @@ namespace WorldSailorsDuality
                     targetBoat.ApplySteering(-0.001f);
                 else if (DualityApp.Keyboard[Key.Right])
                     targetBoat.ApplySteering(0.001f);
-                float turn = StaticHelpers.ApplyStickDeadZone(DualityApp.Gamepads[0].LeftThumbstick.X);
-                if (DualityApp.Gamepads[0].ButtonPressed(GamepadButton.A) && !trimming) //start trimming
+                else //Just to fix display of Control Torque Only LAST ApplySteering ist displayed 
                 {
-                    trimPoint += turn;
-                    if (trimPoint > 1)
-                        trimPoint = 1;
-                    if (trimPoint < -1)
-                        trimPoint = -1;
-                    trimming = true;
+                    float turn = StaticHelpers.ApplyStickDeadZone(DualityApp.Gamepads[0].LeftThumbstick.X);
+                    if (DualityApp.Gamepads[0].ButtonPressed(GamepadButton.A) && !trimming) //start trimming
+                    {
+                        trimPoint += turn;
+                        if (trimPoint > 1)
+                            trimPoint = 1;
+                        if (trimPoint < -1)
+                            trimPoint = -1;
+                        trimming = true;
+                    }
+                    if (DualityApp.Gamepads[0].ButtonPressed(GamepadButton.A) && trimming) //still trimming
+                    {
+                        turn = 0;
+                    }
+                    if (DualityApp.Gamepads[0].ButtonReleased(GamepadButton.A)) //end trimming
+                    {
+                        trimming = false;
+                    }
+                    targetBoat.ApplySteering((turn + trimPoint) * 0.001f);
                 }
-                if (DualityApp.Gamepads[0].ButtonPressed(GamepadButton.A) && trimming) //still trimming
-                {
-                    turn = 0;
-                }
-                if (DualityApp.Gamepads[0].ButtonReleased(GamepadButton.A)) //end trimming
-                {
-                    trimming = false;
-                }
-                targetBoat.ApplySteering((turn + trimPoint) * 0.001f);
 
                 //Sail Setting
                 if (DualityApp.Keyboard[Key.Up])

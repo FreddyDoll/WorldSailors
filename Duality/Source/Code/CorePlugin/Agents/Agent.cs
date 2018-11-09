@@ -57,6 +57,7 @@ namespace WorldSailorsDuality
                 bodyText.Add("Boat Name " + targetBoat.name);
                 bodyText.Add("Boat Speed " + Math.Round(targetBoat.GetSpeed().Length, 2).ToString());
                 bodyText.Add("Boat Upwind " + Math.Round(targetBoat.GetUpwindSpeed(), 2).ToString());
+                bodyText.Add("True Wind " + Math.Round(targetBoat.GetWind().Length, 2).ToString());
             }
             return bodyText;
         }
