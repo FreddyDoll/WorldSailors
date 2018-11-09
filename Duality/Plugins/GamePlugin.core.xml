@@ -320,6 +320,46 @@
             If This function is used, QuadTree Buffering SHOULD/COULD used
             </summary>
         </member>
+        <member name="P:WorldSailorsDuality.LandRendererShaded.MatTransitionSeaFloorBeach">
+            <summary>
+            Transition Height from SeaFloor Material to Beach Material
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.LandRendererShaded.MatTransitionBeachLand">
+            <summary>
+            Transition Height from Beach Material to Land
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.LandRendererShaded.LandTextHeightFactor">
+            <summary>
+            Creates kind of a 3D effect
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.LandRendererShaded.LandTextScale">
+            <summary>
+            scaling of Texture
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.LandRendererShaded.BeachTextHeightFactor">
+            <summary>
+            Creates kind of a 3D effect
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.LandRendererShaded.BeachTextScale">
+            <summary>
+            scaling of Texture
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.LandRendererShaded.SeaFloorTextHeightFactor">
+            <summary>
+            Creates kind of a 3D effect
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.LandRendererShaded.SeaFloorTextScale">
+            <summary>
+            scaling of Texture
+            </summary>
+        </member>
         <member name="P:WorldSailorsDuality.LandRendererShaded.RenderDataSettings.GridSizeX">
             <summary>
             Screen gets split into Grid for Coloring/Texturing

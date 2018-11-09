@@ -16,6 +16,39 @@ namespace WorldSailorsDuality
         public ContentRef<Material> LandMaterial { get; set; } = Material.DualityIcon;
         public HeightMap map{ get; set; }
         public ColorLUT LUTheight { get; set; } = new ColorLUT();
+        /// <summary>
+        /// Transition Height from SeaFloor Material to Beach Material
+        /// </summary>
+        public float MatTransitionSeaFloorBeach { get; set; } = -50;
+        /// <summary>
+        /// Transition Height from Beach Material to Land
+        /// </summary>
+        public float MatTransitionBeachLand { get; set; } = 25;
+        /// <summary>
+        /// Creates kind of a 3D effect
+        /// </summary>
+        public float LandTextHeightFactor { get; set; } = 10;
+        /// <summary>
+        /// scaling of Texture
+        /// </summary>
+        public float LandTextScale { get; set; } = 25000;
+        /// <summary>
+        /// Creates kind of a 3D effect
+        /// </summary>
+        public float BeachTextHeightFactor { get; set; } = 7;
+        /// <summary>
+        /// scaling of Texture
+        /// </summary>
+        public float BeachTextScale { get; set; } = 2000;
+        /// <summary>
+        /// Creates kind of a 3D effect
+        /// </summary>
+        public float SeaFloorTextHeightFactor { get; set; } = 3;
+        /// <summary>
+        /// scaling of Texture
+        /// </summary>
+        public float SeaFloorTextScale { get; set; } = 50000;
+
 
         private RenderDataSettings dataGroup0 = new RenderDataSettings();
         private RenderDataSettings dataGroup1 = new RenderDataSettings();
@@ -99,6 +132,13 @@ namespace WorldSailorsDuality
                     //Vertices[x][y].Attrib = heights[x][y];
                 }
             }
+
+
+            LandMaterial.Res.SetUniform("beachHeight", MatTransitionSeaFloorBeach);
+            LandMaterial.Res.SetUniform("landHeight", MatTransitionBeachLand);
+            LandMaterial.Res.SetUniform("landTextScale", LandTextScale);
+            LandMaterial.Res.SetUniform("beachTexScale", BeachTextScale);
+            LandMaterial.Res.SetUniform("seaTexScale", SeaFloorTextScale);
 
             for (int x = 0; x < data.sizeX - 1; x++)
             {

@@ -15,7 +15,9 @@ namespace WorldSailorsDuality
     {
         public Agent TrackedAgent { get; set; }
         public bool AcceptUserInput { get; set; }
-        public Vector2 ZoomLimit { get; set; } = new Vector2(-20000,1000);
+
+        [DontSerialize]
+        private int BoatCounter = 0;
 
         public void OnUpdate()
         {
@@ -53,10 +55,6 @@ namespace WorldSailorsDuality
                 }
                 if (!AcceptUserInput)
                     deltaHeight = t.Pos.Z;
-                if (deltaHeight > ZoomLimit.Y)
-                    deltaHeight = ZoomLimit.Y;
-                if (deltaHeight < ZoomLimit.X)
-                    deltaHeight = ZoomLimit.X;
                 t.MoveTo(new Vector3(TrackedAgent.GetPosition().X, TrackedAgent.GetPosition().Y, deltaHeight));
             }          
         }

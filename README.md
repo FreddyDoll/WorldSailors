@@ -20,13 +20,7 @@ b: start race (in the red zone)
 
 y: stop quest 
 
-Tab: Cycle through available Quests 
-
 a,s: switch through Agents (AI,Player)
-
-q,w: Increase/Decrease GridSize (Graphic Setting)
-
-e,r: Increase/Decrease Wind Particle Count (Graphic Setting)
 
 ### XBox 360 Controller
 LeftStick Left/Right: Turn Boat

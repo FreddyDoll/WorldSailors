@@ -117,7 +117,7 @@
                 </rect>
                 <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
                 <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                  <contentPath dataType="String">Data\Textures\Boat.Material.res</contentPath>
+                  <contentPath dataType="String">Data\Boat.Material.res</contentPath>
                 </sharedMat>
                 <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
               </item>
@@ -141,7 +141,7 @@
                 </_x003C_MainColor_x003E_k__BackingField>
                 <_x003C_maxLength_x003E_k__BackingField dataType="Int">100</_x003C_maxLength_x003E_k__BackingField>
                 <_x003C_TrailMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                  <contentPath dataType="String">Data\Textures\ParticleTrail.Material.res</contentPath>
+                  <contentPath dataType="String">Data\ParticleTrail.Material.res</contentPath>
                 </_x003C_TrailMaterial_x003E_k__BackingField>
                 <active dataType="Bool">true</active>
                 <gameobj dataType="ObjectRef">3342002986</gameobj>
@@ -330,7 +330,7 @@
                 </rect>
                 <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
                 <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                  <contentPath dataType="String">Data\Textures\Sail.Material.res</contentPath>
+                  <contentPath dataType="String">Data\Sail.Material.res</contentPath>
                 </sharedMat>
                 <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
               </item>
@@ -530,7 +530,7 @@
                 </rect>
                 <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
                 <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                  <contentPath dataType="String">Data\Textures\Rudder.Material.res</contentPath>
+                  <contentPath dataType="String">Data\Rudder.Material.res</contentPath>
                 </sharedMat>
                 <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
               </item>
@@ -578,7 +578,6 @@
     <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3032293014">
       <_items dataType="Array" type="Duality.Component[]" id="853198486" length="4">
         <item dataType="Struct" type="WorldSailorsDuality.BoatController" id="3433360014">
-          <_x003C_ControlTorque_x003E_k__BackingField dataType="Float">0</_x003C_ControlTorque_x003E_k__BackingField>
           <_x003C_Hull_x003E_k__BackingField dataType="ObjectRef">3342002986</_x003C_Hull_x003E_k__BackingField>
           <_x003C_IsBeached_x003E_k__BackingField dataType="Bool">false</_x003C_IsBeached_x003E_k__BackingField>
           <_x003C_IsDestroyed_x003E_k__BackingField dataType="Bool">false</_x003C_IsDestroyed_x003E_k__BackingField>

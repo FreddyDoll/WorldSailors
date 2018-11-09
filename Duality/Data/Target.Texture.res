@@ -2,14 +2,14 @@
   <anisoFilter dataType="Bool">false</anisoFilter>
   <assetInfo />
   <basePixmap dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Pixmap]]">
-    <contentPath dataType="String">Data\Textures\Rudder.Pixmap.res</contentPath>
+    <contentPath dataType="String">Data\Target.Pixmap.res</contentPath>
   </basePixmap>
   <filterMag dataType="Enum" type="Duality.Drawing.TextureMagFilter" name="Linear" value="1" />
   <filterMin dataType="Enum" type="Duality.Drawing.TextureMinFilter" name="LinearMipmapLinear" value="5" />
   <pixelformat dataType="Enum" type="Duality.Drawing.TexturePixelFormat" name="Rgba" value="3" />
   <size dataType="Struct" type="Duality.Vector2">
-    <X dataType="Float">383</X>
-    <Y dataType="Float">695</Y>
+    <X dataType="Float">800</X>
+    <Y dataType="Float">800</Y>
   </size>
   <texSizeMode dataType="Enum" type="Duality.Drawing.TextureSizeMode" name="Enlarge" value="0" />
   <wrapX dataType="Enum" type="Duality.Drawing.TextureWrapMode" name="Clamp" value="0" />
