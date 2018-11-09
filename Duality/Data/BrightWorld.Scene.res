@@ -408,6 +408,7 @@
                     <Y dataType="Float">-1E+08</Y>
                   </_x003C_CompleteArea_x003E_k__BackingField>
                   <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MapGenerationType" name="PERLIN" value="0" />
+                  <_x003C_GridOffset_x003E_k__BackingField dataType="Float">100</_x003C_GridOffset_x003E_k__BackingField>
                   <_x003C_Offset_x003E_k__BackingField dataType="Float">-500</_x003C_Offset_x003E_k__BackingField>
                   <_x003C_PerlinFrequency_x003E_k__BackingField dataType="Double">70000</_x003C_PerlinFrequency_x003E_k__BackingField>
                   <_x003C_PerlinOctave_x003E_k__BackingField dataType="Int">3</_x003C_PerlinOctave_x003E_k__BackingField>

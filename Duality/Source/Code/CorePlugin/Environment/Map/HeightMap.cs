@@ -41,6 +41,10 @@ namespace WorldSailorsDuality
     public class HeightMap:Component,ICmpInitializable
     {
         /// <summary>
+        /// The map is only Generated for a Grid of Points other Points are interpolated
+        /// </summary>
+        public float GridOffset { get; set; } = 100;
+        /// <summary>
         /// Parameter for PERLIN mode
         /// How close are the islands together
         /// </summary>
@@ -103,52 +107,11 @@ namespace WorldSailorsDuality
         /// Choose Map Generation mode
         /// </summary>
         public MapGenerationType GenType { get; set; } = MapGenerationType.PERLIN;
-        /// <summary>
-        /// Shows the fraction of Points beeing Generated instead of read from buffer
-        /// </summary>
-        public float GenerationFraction { get { return genCounter / (genCounter + bufferCounter); } }
 
         public Rect CompleteArea { get; set; } = new Rect(-100000000, -100000000, 200000000, 200000000);
-
-        [DontSerialize]
-        QuadTree<GenerationPoint> GeneratedPointsBuffer;
-        [DontSerialize]
-        float genCounter = 0;
-        [DontSerialize]
-        float bufferCounter = 0;
         
-        public int simplexSeed = 0;
-
         #region MapGeneration
-
-        /// <summary>
-        /// If This function is used, QuadTree Buffering SHOULD/COULD used
-        /// </summary>
-        public Vector3 GetPointFromGrid(Vector2 offset, Vector2 spacing, Point2 p)
-        {
-            Vector2 vP = new Vector2(p.X * spacing.X + offset.X, p.Y * spacing.Y + offset.Y);
-            /*Rect area = new Rect(vP.X - spacing.X / 2f, vP.Y - spacing.Y / 2f, spacing.X, spacing.Y);
-            List<GenerationPoint> alreadyGen = GeneratedPointsBuffer.Query(area);
-            float height = 0;
-            if (alreadyGen.Count == 0)
-            {
-                height = Probe(vP);
-                GeneratedPointsBuffer.Insert(new GenerationPoint(area, height));
-                bufferCounter++;
-            }
-            else
-            {
-                foreach (GenerationPoint gp in alreadyGen)
-                {
-                    height += gp.Value;
-                }
-                height /= alreadyGen.Count;
-                genCounter++;
-            }*/
-            //return new Vector3(vP.X,vP.Y,height);
-            return new Vector3(vP.X, vP.Y, Probe(vP));
-        }
-
+        
         public void GenerateMap(Vector2 offset, Vector2 spacing,ref float[][] map)
         {
             int sizeY =  map[0].Count();
@@ -158,7 +121,7 @@ namespace WorldSailorsDuality
                 for (int y = 0; y < sizeY; y++)
                 {
                     Vector2 point = new Vector2(x * spacing.X + offset.X, y * spacing.Y + offset.Y);
-                    map[x][y] = GetPointFromGrid(offset, spacing, new Point2(x, y)).Z; 
+                    map[x][y] = Probe(point); 
                 }
             }
         }
@@ -172,8 +135,9 @@ namespace WorldSailorsDuality
             {
                 for (int y = 0; y < sizeY; y++)
                 {
+                    Vector2 point = new Vector2(x * spacing.X + offset.X, y * spacing.Y + offset.Y);
                     map[x,y] = new MyPathNode();
-                    map[x, y].Position = GetPointFromGrid(offset,spacing,new Point2(x,y));
+                    map[x, y].Position =new Vector3(point,Probe(point));
 
                     if (map[x, y].Position.Z < limit)
                         map[x, y].IsWall = false;
@@ -194,11 +158,14 @@ namespace WorldSailorsDuality
 
         public float Probe(Vector2 point)
         {
+            //First Round the Value to Grid Size
+            Vector2 pRounded = new Vector2(MathF.Round(point.X/GridOffset)*GridOffset, MathF.Round(point.Y / GridOffset) * GridOffset);
+
             switch (GenType)
             {
-                case MapGenerationType.PERLIN: return ProbePerlin(point); 
-                case MapGenerationType.SIMPLE: return ProbeSimple(point);
-                case MapGenerationType.SIMPLEX: return ProbeSimplex(point);
+                case MapGenerationType.PERLIN: return ProbePerlin(pRounded); 
+                case MapGenerationType.SIMPLE: return ProbeSimple(pRounded);
+                case MapGenerationType.SIMPLEX: return ProbeSimplex(pRounded);
             }
 
             return 0;
