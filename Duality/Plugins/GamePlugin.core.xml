@@ -234,6 +234,11 @@
             Get/Set Agent Position
             </summary>
         </member>
+        <member name="P:WorldSailorsDuality.HeightMap.GridOffset">
+            <summary>
+            The map is only Generated for a Grid of Points other Points are interpolated
+            </summary>
+        </member>
         <member name="P:WorldSailorsDuality.HeightMap.PerlinFrequency">
             <summary>
             Parameter for PERLIN mode
@@ -305,19 +310,29 @@
             How high/low is the map
             </summary>
         </member>
+        <member name="P:WorldSailorsDuality.HeightMap.GridSize">
+            <summary>
+            Choose Map Generation mode
+            </summary>
+        </member>
         <member name="P:WorldSailorsDuality.HeightMap.GenType">
             <summary>
             Choose Map Generation mode
             </summary>
         </member>
-        <member name="P:WorldSailorsDuality.HeightMap.GenerationFraction">
+        <member name="P:WorldSailorsDuality.HeightMap.CompleteArea">
             <summary>
-            Shows the fraction of Points beeing Generated instead of read from buffer
+            Area of the Height Map
             </summary>
         </member>
-        <member name="M:WorldSailorsDuality.HeightMap.GetPointFromGrid(Duality.Vector2,Duality.Vector2,Duality.Point2)">
+        <member name="P:WorldSailorsDuality.HeightMap.BufferPoints">
             <summary>
-            If This function is used, QuadTree Buffering SHOULD/COULD used
+            Nr Of Points Generated
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMap.PointsGenerated">
+            <summary>
+            Nr Of Points Generated
             </summary>
         </member>
         <member name="P:WorldSailorsDuality.LandRendererShaded.RenderDataSettings.GridSizeX">
