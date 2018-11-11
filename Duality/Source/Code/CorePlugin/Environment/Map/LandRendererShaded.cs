@@ -11,7 +11,7 @@ using Duality.Resources;
 namespace WorldSailorsDuality
 {
     [RequiredComponent(typeof(HeightMap))]
-    public class LandRendererShaded : Renderer,ICmpInitializable
+    public class LandRendererShaded :Component, ICmpRenderer,ICmpInitializable
     {
         public ContentRef<Material> LandMaterial { get; set; } = Material.DualityIcon;
         public HeightMap map{ get; set; }
@@ -46,7 +46,7 @@ namespace WorldSailorsDuality
             }
         }
 
-        public override float BoundRadius
+        public float BoundRadius
         {
             get
             {
@@ -54,11 +54,10 @@ namespace WorldSailorsDuality
             }
         }
 
-        public override void Draw(IDrawDevice device)
+        public void Draw(IDrawDevice device)
         {
             RenderDataSettings data=dataGroup0;
-
-
+            
             if ((device.VisibilityMask & VisibilityFlag.Group1) == VisibilityFlag.Group1 && (device.VisibilityMask & VisibilityFlag.Group0) != VisibilityFlag.Group0)
                 data = dataGroup1;
 
@@ -124,6 +123,16 @@ namespace WorldSailorsDuality
 
         public void OnShutdown(ShutdownContext context)
         {
+        }
+
+        public bool IsVisible(IDrawDevice device)
+        {
+            if ((device.VisibilityMask & VisibilityFlag.ScreenOverlay) == VisibilityFlag.ScreenOverlay)
+                return false;
+            if ((device.VisibilityMask & VisibilityFlag.Group1) == VisibilityFlag.Group1 ||
+                (device.VisibilityMask & VisibilityFlag.Group0) == VisibilityFlag.Group0)
+                return true;
+            return false;
         }
 
         private class RenderDataSettings
