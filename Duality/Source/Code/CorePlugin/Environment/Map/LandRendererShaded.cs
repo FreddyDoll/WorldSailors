@@ -149,7 +149,7 @@ namespace WorldSailorsDuality
                 return true;
             return false;
         }
-
+        
         private class RenderDataSettings
         {
             /// <summary>

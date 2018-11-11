@@ -18,7 +18,7 @@ namespace WorldSailorsDuality
         SIMPLEX
     }
     
-    public class HeightMap : Component, ICmpInitializable,ICmpUpdatable
+    public class HeightMap : Component, ICmpInitializable,ICmpUpdatable,Ihudstring
     {
         /// <summary>
         /// The map is only Generated for a Grid of Points other Points are interpolated
@@ -111,7 +111,7 @@ namespace WorldSailorsDuality
         /// <summary>
         /// Nr Of Tasks running
         /// </summary>
-        public int TasksRunning { get; private set; } = 0;
+        public int TasksRunning { get { return activeTasks.Count; } }
 
         [DontSerialize]
         private int simplexSeed = 0;
@@ -232,7 +232,6 @@ namespace WorldSailorsDuality
                     n.Add(t);
             }
             activeTasks = n;
-            TasksRunning = activeTasks.Count;
         }
 
         private void GenerateGridPoint(Point2 p)
@@ -440,6 +439,11 @@ namespace WorldSailorsDuality
         public void OnUpdate()
         {
             CheckTasks();
+        }
+
+        public string GetHudString()
+        {
+            return "HeightMap active Tasks: " + TasksRunning.ToString();
         }
 
         public class GridPoint
