@@ -401,7 +401,7 @@
                   <velAbs dataType="Struct" type="Duality.Vector3" />
                 </item>
                 <item dataType="Struct" type="WorldSailorsDuality.HeightMap" id="3389403723">
-                  <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">false</_x003C_BufferPoints_x003E_k__BackingField>
+                  <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
                   <_x003C_CompleteArea_x003E_k__BackingField dataType="Struct" type="Duality.Rect">
                     <H dataType="Float">2000000</H>
                     <W dataType="Float">2000000</W>
@@ -415,7 +415,7 @@
                   <_x003C_PerlinOctave_x003E_k__BackingField dataType="Int">4</_x003C_PerlinOctave_x003E_k__BackingField>
                   <_x003C_PerlinPersistance_x003E_k__BackingField dataType="Float">0.8</_x003C_PerlinPersistance_x003E_k__BackingField>
                   <_x003C_PerlinSeed_x003E_k__BackingField dataType="Int">3</_x003C_PerlinSeed_x003E_k__BackingField>
-                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">3324994</_x003C_PointsGenerated_x003E_k__BackingField>
+                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">3325431</_x003C_PointsGenerated_x003E_k__BackingField>
                   <_x003C_ScaleZ_x003E_k__BackingField dataType="Float">1400</_x003C_ScaleZ_x003E_k__BackingField>
                   <_x003C_SimpleFreqX_x003E_k__BackingField dataType="Float">5000</_x003C_SimpleFreqX_x003E_k__BackingField>
                   <_x003C_SimpleFreqY_x003E_k__BackingField dataType="Float">8000</_x003C_SimpleFreqY_x003E_k__BackingField>
@@ -424,86 +424,6 @@
                   <_x003C_SimplexPersistance_x003E_k__BackingField dataType="Float">0.65</_x003C_SimplexPersistance_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <gameobj dataType="ObjectRef">2542847861</gameobj>
-                </item>
-                <item dataType="Struct" type="WorldSailorsDuality.LandRenderer" id="2208707780">
-                  <_x003C_BeachTextHeightFactor_x003E_k__BackingField dataType="Float">8</_x003C_BeachTextHeightFactor_x003E_k__BackingField>
-                  <_x003C_BeachTextScale_x003E_k__BackingField dataType="Float">6000</_x003C_BeachTextScale_x003E_k__BackingField>
-                  <_x003C_ColorLUTColor_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Drawing.ColorRgba]]" id="535480464">
-                    <_items dataType="Array" type="Duality.Drawing.ColorRgba[]" id="2839762236">
-                      <item dataType="Struct" type="Duality.Drawing.ColorRgba">
-                        <A dataType="Byte">255</A>
-                        <B dataType="Byte">62</B>
-                        <G dataType="Byte">3</G>
-                        <R dataType="Byte">0</R>
-                      </item>
-                      <item dataType="Struct" type="Duality.Drawing.ColorRgba">
-                        <A dataType="Byte">255</A>
-                        <B dataType="Byte">102</B>
-                        <G dataType="Byte">10</G>
-                        <R dataType="Byte">0</R>
-                      </item>
-                      <item dataType="Struct" type="Duality.Drawing.ColorRgba">
-                        <A dataType="Byte">255</A>
-                        <B dataType="Byte">255</B>
-                        <G dataType="Byte">152</G>
-                        <R dataType="Byte">0</R>
-                      </item>
-                      <item dataType="Struct" type="Duality.Drawing.ColorRgba">
-                        <A dataType="Byte">255</A>
-                        <B dataType="Byte">58</B>
-                        <G dataType="Byte">108</G>
-                        <R dataType="Byte">133</R>
-                      </item>
-                      <item dataType="Struct" type="Duality.Drawing.ColorRgba">
-                        <A dataType="Byte">255</A>
-                        <B dataType="Byte">0</B>
-                        <G dataType="Byte">127</G>
-                        <R dataType="Byte">4</R>
-                      </item>
-                      <item dataType="Struct" type="Duality.Drawing.ColorRgba">
-                        <A dataType="Byte">255</A>
-                        <B dataType="Byte">0</B>
-                        <G dataType="Byte">71</G>
-                        <R dataType="Byte">69</R>
-                      </item>
-                      <item dataType="Struct" type="Duality.Drawing.ColorRgba">
-                        <A dataType="Byte">255</A>
-                        <B dataType="Byte">77</B>
-                        <G dataType="Byte">96</G>
-                        <R dataType="Byte">96</R>
-                      </item>
-                      <item dataType="Struct" type="Duality.Drawing.ColorRgba">
-                        <A dataType="Byte">255</A>
-                        <B dataType="Byte">255</B>
-                        <G dataType="Byte">255</G>
-                        <R dataType="Byte">255</R>
-                      </item>
-                    </_items>
-                    <_size dataType="Int">8</_size>
-                  </_x003C_ColorLUTColor_x003E_k__BackingField>
-                  <_x003C_ColorLUTheights_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[System.Single]]" id="3175343854">
-                    <_items dataType="Array" type="System.Single[]" id="2692938978">-1000, -900, -100, 0, 300, 500, 800, 1000</_items>
-                    <_size dataType="Int">8</_size>
-                  </_x003C_ColorLUTheights_x003E_k__BackingField>
-                  <_x003C_LandTextHeightFactor_x003E_k__BackingField dataType="Float">5</_x003C_LandTextHeightFactor_x003E_k__BackingField>
-                  <_x003C_LandTextScale_x003E_k__BackingField dataType="Float">15000</_x003C_LandTextScale_x003E_k__BackingField>
-                  <_x003C_map_x003E_k__BackingField dataType="ObjectRef">3389403723</_x003C_map_x003E_k__BackingField>
-                  <_x003C_MaterialLand_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                    <contentPath dataType="String">Data\Textures\LandMat.Material.res</contentPath>
-                  </_x003C_MaterialLand_x003E_k__BackingField>
-                  <_x003C_MaterialStrand_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                    <contentPath dataType="String">Data\Textures\Strand.Material.res</contentPath>
-                  </_x003C_MaterialStrand_x003E_k__BackingField>
-                  <_x003C_MaterialWasser_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                    <contentPath dataType="String">Data\Textures\Meeresgrund.Material.res</contentPath>
-                  </_x003C_MaterialWasser_x003E_k__BackingField>
-                  <_x003C_MatTransitionBeachLand_x003E_k__BackingField dataType="Float">40</_x003C_MatTransitionBeachLand_x003E_k__BackingField>
-                  <_x003C_MatTransitionSeaFloorBeach_x003E_k__BackingField dataType="Float">-80</_x003C_MatTransitionSeaFloorBeach_x003E_k__BackingField>
-                  <_x003C_SeaFloorTextHeightFactor_x003E_k__BackingField dataType="Float">10</_x003C_SeaFloorTextHeightFactor_x003E_k__BackingField>
-                  <_x003C_SeaFloorTextScale_x003E_k__BackingField dataType="Float">100000</_x003C_SeaFloorTextScale_x003E_k__BackingField>
-                  <active dataType="Bool">false</active>
-                  <gameobj dataType="ObjectRef">2542847861</gameobj>
-                  <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
                 </item>
                 <item dataType="Struct" type="WorldSailorsDuality.LandRendererShaded" id="2996869631">
                   <_x003C_LandMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
@@ -584,28 +504,24 @@
                 <item dataType="Struct" type="WorldSailorsDuality.PathFinder" id="359605017">
                   <_x003C_maxSpeedHeight_x003E_k__BackingField dataType="Float">-400</_x003C_maxSpeedHeight_x003E_k__BackingField>
                   <_x003C_minTravelHeight_x003E_k__BackingField dataType="Float">-100</_x003C_minTravelHeight_x003E_k__BackingField>
-                  <_x003C_sizeX_x003E_k__BackingField dataType="Int">1000</_x003C_sizeX_x003E_k__BackingField>
-                  <_x003C_sizeY_x003E_k__BackingField dataType="Int">1000</_x003C_sizeY_x003E_k__BackingField>
                   <_x003C_spacing_x003E_k__BackingField dataType="Int">5000</_x003C_spacing_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <gameobj dataType="ObjectRef">2542847861</gameobj>
                 </item>
               </_items>
-              <_size dataType="Int">5</_size>
+              <_size dataType="Int">4</_size>
             </compList>
             <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="1631501312" surrogate="true">
               <header />
               <body>
                 <keys dataType="Array" type="System.Object[]" id="3809980531">
                   <item dataType="ObjectRef">2739956540</item>
-                  <item dataType="Type" id="1469878566" value="WorldSailorsDuality.LandRenderer" />
-                  <item dataType="Type" id="1012689594" value="WorldSailorsDuality.HeightMap" />
-                  <item dataType="Type" id="2082490918" value="WorldSailorsDuality.PathFinder" />
-                  <item dataType="Type" id="3763003322" value="WorldSailorsDuality.LandRendererShaded" />
+                  <item dataType="Type" id="1469878566" value="WorldSailorsDuality.HeightMap" />
+                  <item dataType="Type" id="1012689594" value="WorldSailorsDuality.PathFinder" />
+                  <item dataType="Type" id="2082490918" value="WorldSailorsDuality.LandRendererShaded" />
                 </keys>
                 <values dataType="Array" type="System.Object[]" id="4097480632">
                   <item dataType="ObjectRef">2600125079</item>
-                  <item dataType="ObjectRef">2208707780</item>
                   <item dataType="ObjectRef">3389403723</item>
                   <item dataType="ObjectRef">359605017</item>
                   <item dataType="ObjectRef">2996869631</item>

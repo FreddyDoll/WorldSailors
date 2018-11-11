@@ -54,16 +54,17 @@ namespace WorldSailorsDuality
     [RequiredComponent(typeof(HeightMap))]
     public class PathFinder : Component,ICmpInitializable
     {
-        public int sizeX { get; set; } = 100;
-        public int sizeY { get; set; } = 100;
         public int spacing { get; set; } = 2000;
         public float minTravelHeight { get; set; } = -100;
         public float maxSpeedHeight { get; set; } = -1000;
+        public Point2 GridSize { get { return gridsize; } }
 
         [DontSerialize]
         private HeightMap map;
         [DontSerialize]
         private Vector2 offset;
+        [DontSerialize]
+        private Point2 gridsize;
         [DontSerialize]
         private MySolver<MyPathNode, Object> aStar;
         
@@ -85,13 +86,13 @@ namespace WorldSailorsDuality
             e.X = convertToGrid(end.X);
             e.Y = convertToGrid(end.Y);
 
-            if (s.X >= sizeX || s.X < 0)
+            if (s.X >= gridsize.X || s.X < 0)
                 return null;
-            if (s.Y >= sizeY || s.Y < 0)
+            if (s.Y >= gridsize.Y || s.Y < 0)
                 return null;
-            if (e.X >= sizeX || e.X < 0)
+            if (e.X >= gridsize.X || e.X < 0)
                 return null;
-            if (e.Y >= sizeY || e.Y < 0)
+            if (e.Y >= gridsize.Y || e.Y < 0)
                 return null;
             var p = aStar.Search(s, e, null);
             if (p == null)
@@ -105,16 +106,13 @@ namespace WorldSailorsDuality
             map = GameObj.GetComponent<HeightMap>();
             if (map == null) //nothing to do here....
                 return;
-
-            if(sizeX == 0)
-                sizeX=100;
-            if (sizeY == 0)
-                sizeY=100;
+            
             if (spacing == 0)
                 spacing = 1000;
 
-            offset = new Vector2(-sizeX * spacing/2f, -sizeY * spacing / 2f); // make sure Grid is centered
-            MyPathNode[,] grid = new MyPathNode[sizeX, sizeY];
+            gridsize = new Point2((int)MathF.Ceiling(map.CompleteArea.W / spacing), (int)MathF.Ceiling(map.CompleteArea.H / spacing));
+            offset = new Vector2(-map.CompleteArea.X, -map.CompleteArea.X); // make sure Grid is centered
+            MyPathNode[,] grid = new MyPathNode[gridsize.X, gridsize.Y];
             map.GenerateMap(offset, new Vector2(spacing, spacing),ref grid, minTravelHeight);
             MyPathNode.Distance1Height = maxSpeedHeight;
             MyPathNode.Distance10Height = minTravelHeight;
