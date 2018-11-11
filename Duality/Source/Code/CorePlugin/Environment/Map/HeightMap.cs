@@ -104,6 +104,8 @@ namespace WorldSailorsDuality
         /// </summary>
         public int PointsGenerated { get; private set; } = 0;
 
+        public bool DirectProbing { get; set; } = true;
+
 
         [DontSerialize]
         private int simplexSeed = 0;
@@ -113,15 +115,43 @@ namespace WorldSailorsDuality
         Point2 gridSize;
 
         #region MapGeneration
+
+        public Vector2 findTopLeftGridPoint(Vector2 p)
+        {
+            Vector2 GridCoord = GetGridCoord(p);
+            
+            GridCoord.X = MathF.Floor(GridCoord.X);
+            GridCoord.Y = MathF.Floor(GridCoord.Y);
+
+            return GetWorldCoord(GridCoord);
+
+        }
+
+        public Vector2 findBottomRightGridPoint(Vector2 p)
+        {
+            Vector2 GridCoord = GetGridCoord(p);
+
+            GridCoord.X = MathF.Ceiling(GridCoord.X);
+            GridCoord.Y = MathF.Ceiling(GridCoord.Y);
+
+            return GetWorldCoord(GridCoord);
+
+        }
+
         public void GenerateMap(Vector2 offset, Vector2 spacing, ref float[][] map)
         {
+            //bool upSample = true;
+            //if (GridOffset < spacing.X || GridOffset < spacing.Y)
+                //upSample = false;
             int sizeY = map[0].Count();
             int sizeX = map.Count();
+            
             for (int x = 0; x < sizeX; x++)
             {
                 for (int y = 0; y < sizeY; y++)
                 {
-                    Vector2 point = new Vector2(x * spacing.X + offset.X, y * spacing.Y + offset.Y);
+                    Vector2 UpperLeft = new Vector2(x * spacing.X + offset.X, y * spacing.Y + offset.Y);
+                    Vector2 point = UpperLeft + spacing / 2f;
                     map[x][y] = Probe(point);
                 }
             }
@@ -156,28 +186,30 @@ namespace WorldSailorsDuality
                 return GetNoisePoint(point);
             }
 
+            //Vector2 ind = GetGridCoord(point);
+            //Point2 gridPoint = new Point2((int)MathF.Floor(ind.X), (int)MathF.Floor(ind.Y)); //X0Y0
+            //return GetGridPoint(gridPoint).Val;
+
+
             List<Point2> ps = new List<Point2>();
             Vector2 ind = GetGridCoord(point);
             //First Round all Values to Grid Size
             ps.Add(new Point2((int)MathF.Floor(ind.X), (int)MathF.Floor(ind.Y))); //X0Y0
-            ps.Add(new Point2((int)MathF.Floor(ind.X), ps[0].Y + 1)); //X0Y1
-            ps.Add(new Point2(ps[0].X + 1, (int)MathF.Floor(ind.Y))); //X1Y0
+            ps.Add(new Point2(ps[0].X, ps[0].Y + 1)); //X0Y1
+            ps.Add(new Point2(ps[0].X + 1, ps[0].Y)); //X1Y0
             ps.Add(new Point2(ps[0].X + 1, ps[0].Y + 1)); //X1Y1
-
-            List<GridPoint> vals = new List<GridPoint>();
-
+            
+            List<float> vals = new List<float>();
             foreach (Point2 p in ps)
-                vals.Add(GetGridPoint(p));
+                vals.Add(GetGridPoint(p).Val);
+            
+            Vector2 pInt = GetGridCoord(point);
+            pInt.X -= MathF.Floor(pInt.X);
+            pInt.Y -= MathF.Floor(pInt.Y);
+            pInt.X *= GridOffset;
+            pInt.Y *= GridOffset;
 
-            float ret = 0;
-
-            ret += vals[0].Val * (vals[2].Pos.X - point.X) * (vals[1].Pos.Y - point.Y);
-            ret += vals[1].Val * (vals[2].Pos.X - point.X) * (point.Y - vals[0].Pos.Y);
-            ret += vals[2].Val * (point.X - vals[0].Pos.X) * (vals[1].Pos.Y - point.Y);
-            ret += vals[3].Val * (point.X - vals[0].Pos.X) * (point.Y - vals[0].Pos.Y);
-
-            ret /= ((vals[2].Pos.X - vals[0].Pos.X) * (vals[1].Pos.Y - vals[0].Pos.Y));
-            return ret;
+            return StaticHelpers.BilinearInterpolation(pInt,new Vector2(GridOffset,GridOffset), vals);
         }
 
         public Vector2 ProbeGradient(Vector2 point)
@@ -226,7 +258,7 @@ namespace WorldSailorsDuality
             return new Vector2((world.X - CompleteArea.X) / GridOffset, (world.Y - CompleteArea.Y) / GridOffset);
         }
 
-        private Vector2 GetWorldCoord(Point2 gridCoord)
+        private Vector2 GetWorldCoord(Vector2 gridCoord)
         {
             return new Vector2(gridCoord.X * GridOffset + CompleteArea.X, gridCoord.Y * GridOffset + CompleteArea.Y);
         }

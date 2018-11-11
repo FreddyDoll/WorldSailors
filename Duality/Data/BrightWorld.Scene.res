@@ -22,13 +22,13 @@
                   <ignoreParent dataType="Bool">true</ignoreParent>
                   <parentTransform />
                   <pos dataType="Struct" type="Duality.Vector3">
-                    <X dataType="Float">-11240.1094</X>
-                    <Y dataType="Float">-14776.6621</Y>
+                    <X dataType="Float">499.88147</X>
+                    <Y dataType="Float">-3085.99756</Y>
                     <Z dataType="Float">-0.1</Z>
                   </pos>
                   <posAbs dataType="Struct" type="Duality.Vector3">
-                    <X dataType="Float">-11240.1094</X>
-                    <Y dataType="Float">-14776.6621</Y>
+                    <X dataType="Float">499.88147</X>
+                    <Y dataType="Float">-3085.99756</Y>
                     <Z dataType="Float">-0.1</Z>
                   </posAbs>
                   <scale dataType="Float">2.5</scale>
@@ -356,6 +356,7 @@
                     <X dataType="Float">-1000000</X>
                     <Y dataType="Float">-1000000</Y>
                   </_x003C_CompleteArea_x003E_k__BackingField>
+                  <_x003C_DirectProbing_x003E_k__BackingField dataType="Bool">true</_x003C_DirectProbing_x003E_k__BackingField>
                   <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MapGenerationType" name="PERLIN" value="0" />
                   <_x003C_GridOffset_x003E_k__BackingField dataType="Float">1000</_x003C_GridOffset_x003E_k__BackingField>
                   <_x003C_Offset_x003E_k__BackingField dataType="Float">-500</_x003C_Offset_x003E_k__BackingField>
@@ -363,7 +364,7 @@
                   <_x003C_PerlinOctave_x003E_k__BackingField dataType="Int">4</_x003C_PerlinOctave_x003E_k__BackingField>
                   <_x003C_PerlinPersistance_x003E_k__BackingField dataType="Float">0.8</_x003C_PerlinPersistance_x003E_k__BackingField>
                   <_x003C_PerlinSeed_x003E_k__BackingField dataType="Int">3</_x003C_PerlinSeed_x003E_k__BackingField>
-                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">3338111</_x003C_PointsGenerated_x003E_k__BackingField>
+                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">3934758</_x003C_PointsGenerated_x003E_k__BackingField>
                   <_x003C_ScaleZ_x003E_k__BackingField dataType="Float">1400</_x003C_ScaleZ_x003E_k__BackingField>
                   <_x003C_SimpleFreqX_x003E_k__BackingField dataType="Float">5000</_x003C_SimpleFreqX_x003E_k__BackingField>
                   <_x003C_SimpleFreqY_x003E_k__BackingField dataType="Float">8000</_x003C_SimpleFreqY_x003E_k__BackingField>
@@ -439,8 +440,8 @@
                   <_x003C_map_x003E_k__BackingField dataType="ObjectRef">3389403723</_x003C_map_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <dataGroup0 dataType="Struct" type="WorldSailorsDuality.LandRendererShaded+RenderDataSettings" id="275252832">
-                    <sizeX dataType="Int">80</sizeX>
-                    <sizeY dataType="Int">45</sizeY>
+                    <sizeX dataType="Int">100</sizeX>
+                    <sizeY dataType="Int">100</sizeY>
                   </dataGroup0>
                   <dataGroup1 dataType="Struct" type="WorldSailorsDuality.LandRendererShaded+RenderDataSettings" id="916300573">
                     <sizeX dataType="Int">3</sizeX>

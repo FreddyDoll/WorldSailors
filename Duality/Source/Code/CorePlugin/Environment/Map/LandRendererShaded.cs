@@ -62,16 +62,22 @@ namespace WorldSailorsDuality
                 data = dataGroup1;
 
             //Find The right spot in the screen for our Verteces
+            //Vector3 TopLeftWorld = device.GetSpaceCoord(new Vector3(0, 0, 0));
+            //Vector3 BottomRightWorld = device.GetSpaceCoord(new Vector3(device.TargetSize.X, device.TargetSize.Y, 0));
+            //Vector3 WorldArea = (BottomRightWorld - TopLeftWorld);
+            //Vector3 WorldOffset = device.RefCoord - WorldArea / 2f;
             Vector3 TopLeftWorld = device.GetSpaceCoord(new Vector3(0, 0, 0));
+            Vector3 TopLeftWorldGrid = new Vector3(map.findBottomRightGridPoint(TopLeftWorld.Xy),0);
             Vector3 BottomRightWorld = device.GetSpaceCoord(new Vector3(device.TargetSize.X, device.TargetSize.Y, 0));
+            //BottomRightWorld = new Vector3(map.findTopLeftGridPoint(BottomRightWorld.Xy), 0);
             Vector3 WorldArea = (BottomRightWorld - TopLeftWorld);
-            Vector3 WorldOffset = device.RefCoord - WorldArea / 2f;
+            Vector3 WorldOffset = TopLeftWorld;
             WorldOffset.Z = 0;
             //define Parameters Off Grid
-            float width = WorldArea.X;
-            float height = WorldArea.Y;
-            float spacingX = width / (data.sizeX - 1);
-            float spacingY = height / (data.sizeY - 1);
+            float spacingX = WorldArea.X / (data.sizeX - 1);
+            float spacingY = WorldArea.Y / (data.sizeY - 1);
+            //float spacingX = map.GridOffset;
+            //float spacingY = map.GridOffset;
             //Generate Height Map
             map.GenerateMap(WorldOffset.Xy, new Vector2(spacingX, spacingY), ref data.heights);
             //Preprocess Coordinates

@@ -27,6 +27,27 @@ namespace WorldSailorsDuality
 
         }
 
+        /// <summary>
+        /// p from 0,0 to 1,1
+        /// Coordinates in grid
+        /// 0--2
+        /// |  |
+        /// 1--3
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="grid"></param>
+        public static float BilinearInterpolation(Vector2 p,Vector2 maxP, List<float> grid)
+        {
+            float ret = 0;
+
+            ret += grid[0] * (maxP.X - p.X) * (maxP.Y - p.Y);
+            ret += grid[1] * (maxP.X - p.X) * (p.Y);
+            ret += grid[2] * (p.X) * (maxP.Y - p.Y);
+            ret += grid[3] * (p.X) * (p.Y);
+            
+            return ret/(maxP.X*maxP.Y);
+        }
+
         public static bool Intersects(Rect a, Rect b)
         {
             return a.Intersects(b.LeftX, b.TopY, b.W, b.H);
