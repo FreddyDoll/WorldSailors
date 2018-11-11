@@ -104,14 +104,17 @@ namespace WorldSailorsDuality
         /// </summary>
         public int PointsGenerated { get; private set; } = 0;
         /// <summary>
-        /// Set if Points should be Generated on seperate Thread.
-        /// If so points will have wrong value(0) first;
+        /// Nr Of Background Workers running
         /// </summary>
-        public bool GenerateInBackGround { get; set; } = false;
+        public int BackgroundWorkersRunning { get { return backroundGenerators.Count; } }
         /// <summary>
-        /// Nr Of Tasks running
+        /// Nr Of Background Workers that will be used for generation
         /// </summary>
-        public int TasksRunning { get { return activeTasks.Count; } }
+        public int BackgroundWorkersCount { get; set; } = 2;
+        /// <summary>
+        /// How Many Grid Points are there
+        /// </summary>
+        public int GridPointsCount { get { return GridSize.X * GridSize.Y; } }
 
         [DontSerialize]
         private int simplexSeed = 0;
@@ -120,7 +123,7 @@ namespace WorldSailorsDuality
         [DontSerialize]
         Point2 gridSize;
         [DontSerialize]
-        List<Task> activeTasks = new List<Task>();
+        List<Task> backroundGenerators = new List<Task>();
 
         #region MapGeneration
         public Vector2 findTopLeftGridPoint(Vector2 p)
@@ -190,7 +193,6 @@ namespace WorldSailorsDuality
                 return GetNoisePoint(point);
             }
 
-
             List<Point2> ps = new List<Point2>();
             Vector2 ind = GetGridCoord(point);
             //First Round all Values to Grid Size
@@ -223,97 +225,46 @@ namespace WorldSailorsDuality
         #endregion
 
         #region gridManipulation
-        private void CheckTasks()
+        private Point2 GridFromLin(int n)
         {
-            List<Task> n = new List<Task>();
-            foreach (Task t in activeTasks)
-            {
-                if (!t.IsCompleted)
-                    n.Add(t);
-            }
-            activeTasks = n;
+            int x = n % gridSize.X;
+            n -= x;
+            int y = n / gridSize.X;
+            return new Point2(x, y);
+        }
+
+        private int LinFromGrid(Point2 p)
+        {
+            return p.Y * GridSize.X + p.X;
         }
 
         private void GenerateGridPoint(Point2 p)
         {
             if (grid == null)
-                InitArray();
-
-            if (p.X < 0 || p.Y < 0 || p.X >= GridSize.X || p.Y >= GridSize.Y)
+                return;
+            
+            int ind = LinFromGrid(p);
+            if (ind < 0 || ind >= GridPointsCount)
                 return;
 
-            int ind = p.Y * GridSize.X + p.X;
-
-            List<Point2> averaging = new List<Point2>();
-
-            averaging.Add(new Point2(p.X, p.Y));
-            averaging.Add(new Point2(p.X + 1, p.Y));
-            averaging.Add(new Point2(p.X + 2, p.Y));
-            averaging.Add(new Point2(p.X - 1, p.Y));
-            averaging.Add(new Point2(p.X - 2, p.Y));
-            averaging.Add(new Point2(p.X, p.Y - 1));
-            averaging.Add(new Point2(p.X, p.Y - 2));
-            averaging.Add(new Point2(p.X, p.Y + 1));
-            averaging.Add(new Point2(p.X, p.Y + 2));
-
-            averaging.Add(new Point2(p.X + 1, p.Y + 1));
-            averaging.Add(new Point2(p.X + 1, p.Y - 1));
-            averaging.Add(new Point2(p.X - 1, p.Y + 1));
-            averaging.Add(new Point2(p.X - 1, p.Y - 1));
-
-            float sum = 0;
-
-            foreach (Point2 l in averaging)
-                sum += GetNoisePoint(GetWorldCoord(l));
-
-            sum /= averaging.Count;
-
-            grid[ind].Val = sum;//GetNoisePoint(GetWorldCoord(p));
             grid[ind].Generated = true;
             PointsGenerated++;
+            grid[ind].Val = GetNoisePoint(GetWorldCoord(p));
         }
         
-        private void GenerateGridPoint(object pO)
+        private void GenerateCompleteGrid()
         {
-            if (!(pO is Point2))
-                return;
-            Point2 p = (Point2)pO;
-
             if (grid == null)
-                InitArray();
-
-            if (p.X < 0 || p.Y < 0 || p.X >= GridSize.X || p.Y >= GridSize.Y)
                 return;
 
-            int ind = p.Y * GridSize.X + p.X;
-
-            List<Point2> averaging = new List<Point2>();
-
-            averaging.Add(new Point2(p.X, p.Y));
-            averaging.Add(new Point2(p.X + 1, p.Y));
-            averaging.Add(new Point2(p.X + 2, p.Y));
-            averaging.Add(new Point2(p.X - 1, p.Y));
-            averaging.Add(new Point2(p.X - 2, p.Y));
-            averaging.Add(new Point2(p.X, p.Y - 1));
-            averaging.Add(new Point2(p.X, p.Y - 2));
-            averaging.Add(new Point2(p.X, p.Y + 1));
-            averaging.Add(new Point2(p.X, p.Y + 2));
-
-            averaging.Add(new Point2(p.X + 1, p.Y + 1));
-            averaging.Add(new Point2(p.X + 1, p.Y - 1));
-            averaging.Add(new Point2(p.X - 1, p.Y + 1));
-            averaging.Add(new Point2(p.X - 1, p.Y - 1));
-
-            float sum = 0;
-
-            foreach (Point2 l in averaging)
-                sum += GetNoisePoint(GetWorldCoord(l));
-
-            sum /= averaging.Count;
-
-            grid[ind].Val = sum;//GetNoisePoint(GetWorldCoord(p));
-            grid[ind].Generated = true;
-            PointsGenerated++;
+            for(int genID = 0;genID < GridPointsCount;genID++)
+            {
+                if (grid[genID].Generated == false)
+                {
+                    grid[genID].Generated = true; //Stop other Threads from Generating the point
+                    GenerateGridPoint(GridFromLin(genID));
+                }
+            }
         }
 
         private GridPoint GetGridPoint(Point2 p)
@@ -328,16 +279,7 @@ namespace WorldSailorsDuality
 
             if (!grid[ind].Generated)
             {
-                if (GenerateInBackGround)
-                {
-                    Task t = new Task(new Action<object>(GenerateGridPoint), p);
-                    t.Start();
-                    activeTasks.Add(t);
-                }
-                else
-                {
-                    GenerateGridPoint(p);
-                }
+                GenerateGridPoint(p);
             }
 
             return grid[ind];
@@ -394,13 +336,19 @@ namespace WorldSailorsDuality
 
         private void InitArray()
         {
+            //End all Backround Workers
+            gridSize = new Point2();
+            if (backroundGenerators.Count > 0)
+                foreach (Task t in backroundGenerators)
+                    t.Wait();
+            backroundGenerators = new List<Task>();
+
             if (grid == null)
             {
                 gridSize = new Point2((int)MathF.Ceiling(CompleteArea.W / GridOffset), (int)MathF.Ceiling(CompleteArea.H / GridOffset));
-                int arrSize = GridSize.X * GridSize.Y;
                 try
                 {
-                    grid = new GridPoint[GridSize.X * GridSize.Y];
+                    grid = new GridPoint[GridPointsCount];
                 }
                 catch (OutOfMemoryException e)
                 {
@@ -409,16 +357,36 @@ namespace WorldSailorsDuality
                 }
             }
 
-            for (int x = 0; x < GridSize.X; x++)
+            if (grid != null)
             {
-                for (int y = 0; y < GridSize.X; y++)
+                for (int i = 0; i < GridPointsCount; i++)
+                    grid[i] = new GridPoint();
+            }
+            PointsGenerated = 0;
+
+
+            if ((DualityApp.ExecEnvironment != DualityApp.ExecutionEnvironment.Editor))
+            {
+                for (int n = 0; n < BackgroundWorkersCount; n++)
                 {
-                    Vector2 Pos = CompleteArea.TopLeft + new Vector2(x * GridOffset, y * GridOffset);
-                    grid[y * GridSize.X + x] = new GridPoint();
+                    Task backroundWorker = new Task(new Action(GenerateCompleteGrid));
+                    backroundWorker.Start();
+                    backroundGenerators.Add(backroundWorker);
                 }
             }
         }
-
+        
+        private void CheckTasks()
+        {
+            List<Task> n = new List<Task>();
+            foreach (Task t in backroundGenerators)
+            {
+                if (!t.IsCompleted)
+                    n.Add(t);
+            }
+            backroundGenerators = n;
+        }
+        
         public void OnInit(InitContext context)
         {
             if (context == InitContext.Activate)
@@ -430,20 +398,16 @@ namespace WorldSailorsDuality
         public void OnShutdown(ShutdownContext context)
         {
         }
-
-        public void testFunc()
-        {
-
-        }
-
+        
         public void OnUpdate()
         {
             CheckTasks();
+            //Collect points
         }
 
         public string GetHudString()
         {
-            return "HeightMap active Tasks: " + TasksRunning.ToString();
+            return "HeightMap active Tasks: " + BackgroundWorkersCount.ToString() + " Points Generated:" + PointsGenerated.ToString() + " of " + GridPointsCount.ToString();
         }
 
         public class GridPoint

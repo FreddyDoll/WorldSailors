@@ -54,14 +54,15 @@ namespace WorldSailorsDuality
                 m_timer = 0;
             }
 
-            if (TrackedAgent != null)
+            /*if (TrackedAgent != null)
             {
                 Vector2 p = TrackedAgent.GetPosition();
                 List<GameObject> n = new List<GameObject>();
                 int spawnCounter = 0;
                 foreach (GameObject g in activeClouds)
                 {
-                    if ((p - g.Transform.Pos.Xy).Length < (Area.X + Area.Y) / 4f)
+                    Vector2 dist = (p - g.Transform.Pos.Xy);
+                    if (dist.X > )
                         n.Add(g); //keep
                     else //discard
                     {
@@ -71,7 +72,7 @@ namespace WorldSailorsDuality
                 }
                 activeClouds = n;
                 Spawn(spawnCounter);
-            }
+            }*/
         }
 
         #region spawning
@@ -88,12 +89,13 @@ namespace WorldSailorsDuality
             float a = MinAlpha + MathF.Rnd.NextFloat() * (MaxAlpha - MinAlpha);
             float d = MinLinDamping + MathF.Rnd.NextFloat() * (MaxLinDamping - MinLinDamping);
             float h = Height.X + MathF.Rnd.NextFloat() * (Height.Y - Height.X);
-            Vector3 pos = new Vector3(MathF.Rnd.NextFloat() * Area.X - Area.X / 2f, MathF.Rnd.NextFloat() * Area.Y - Area.Y / 2f, h);
+            Vector2 pos2 = MathF.Rnd.NextVector2(new Rect(-Area.X/2f, -Area.Y / 2f,Area.X,Area.Y));
+            Vector3 pos = new Vector3(pos2,h);
 
             if(TrackedAgent != null)
             {
                 Vector2 p = TrackedAgent.GetPosition();
-                pos = pos + new Vector3(p,0);
+                pos += new Vector3(p,0);
             }
 
             float life = MathF.Rnd.NextFloat() * (MaxLifetime - MinLifetime) + MinLifetime;

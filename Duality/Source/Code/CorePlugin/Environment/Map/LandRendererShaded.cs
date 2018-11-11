@@ -83,9 +83,7 @@ namespace WorldSailorsDuality
             }
 
             //Generate Height Map
-            map.GenerateInBackGround = true;
             map.GenerateMap(WorldOffset.Xy, new Vector2(spacingX, spacingY), ref data.heights);
-            map.GenerateInBackGround = false;
 
             //Preprocess Coordinates
             float scaleTemp = 1f;

@@ -335,15 +335,19 @@
             Nr Of Points Generated
             </summary>
         </member>
-        <member name="P:WorldSailorsDuality.HeightMap.GenerateInBackGround">
+        <member name="P:WorldSailorsDuality.HeightMap.BackgroundWorkersRunning">
             <summary>
-            Set if Points should be Generated on seperate Thread.
-            If so points will have wrong value(0) first;
+            Nr Of Background Workers running
             </summary>
         </member>
-        <member name="P:WorldSailorsDuality.HeightMap.TasksRunning">
+        <member name="P:WorldSailorsDuality.HeightMap.BackgroundWorkersCount">
             <summary>
-            Nr Of Tasks running
+            Nr Of Background Workers that will be used for generation
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMap.GridPointsCount">
+            <summary>
+            How Many Grid Points are there
             </summary>
         </member>
         <member name="P:WorldSailorsDuality.LandRendererShaded.RenderDataSettings.GridSizeX">

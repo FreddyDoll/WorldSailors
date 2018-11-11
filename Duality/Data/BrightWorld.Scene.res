@@ -187,8 +187,8 @@
               <_items dataType="Array" type="Duality.Component[]" id="3873706534" length="4">
                 <item dataType="Struct" type="WorldSailorsDuality.CloudSpawner" id="4191051546">
                   <_x003C_Area_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                    <X dataType="Float">400000</X>
-                    <Y dataType="Float">400000</Y>
+                    <X dataType="Float">640000</X>
+                    <Y dataType="Float">360000</Y>
                   </_x003C_Area_x003E_k__BackingField>
                   <_x003C_CloudPrefab_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
                     <contentPath dataType="String">Data\Prefabs\cloud_PNG32.Prefab.res</contentPath>
@@ -200,12 +200,12 @@
                   <_x003C_MaxAlpha_x003E_k__BackingField dataType="Float">0.5</_x003C_MaxAlpha_x003E_k__BackingField>
                   <_x003C_MaxLifetime_x003E_k__BackingField dataType="Float">10000</_x003C_MaxLifetime_x003E_k__BackingField>
                   <_x003C_MaxLinDamping_x003E_k__BackingField dataType="Float">10</_x003C_MaxLinDamping_x003E_k__BackingField>
-                  <_x003C_MaxScale_x003E_k__BackingField dataType="Float">10</_x003C_MaxScale_x003E_k__BackingField>
+                  <_x003C_MaxScale_x003E_k__BackingField dataType="Float">50</_x003C_MaxScale_x003E_k__BackingField>
                   <_x003C_MinAlpha_x003E_k__BackingField dataType="Float">0.1</_x003C_MinAlpha_x003E_k__BackingField>
                   <_x003C_MinLifetime_x003E_k__BackingField dataType="Float">6000</_x003C_MinLifetime_x003E_k__BackingField>
                   <_x003C_MinLinDamping_x003E_k__BackingField dataType="Float">0</_x003C_MinLinDamping_x003E_k__BackingField>
                   <_x003C_MinScale_x003E_k__BackingField dataType="Float">1</_x003C_MinScale_x003E_k__BackingField>
-                  <_x003C_SpawnDelay_x003E_k__BackingField dataType="Float">10</_x003C_SpawnDelay_x003E_k__BackingField>
+                  <_x003C_SpawnDelay_x003E_k__BackingField dataType="Float">50</_x003C_SpawnDelay_x003E_k__BackingField>
                   <_x003C_TrackedAgent_x003E_k__BackingField dataType="ObjectRef">1720751284</_x003C_TrackedAgent_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <gameobj dataType="ObjectRef">1927754364</gameobj>
@@ -288,12 +288,12 @@
                       <_size dataType="Int">4</_size>
                     </_x003C_LUTcolors_x003E_k__BackingField>
                     <_x003C_LUTvalues_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[System.Single]]" id="3691147594">
-                      <_items dataType="Array" type="System.Single[]" id="3081309388">0, 100, 400, 500</_items>
+                      <_items dataType="Array" type="System.Single[]" id="3081309388">0, 100, 900, 1000</_items>
                       <_size dataType="Int">4</_size>
                     </_x003C_LUTvalues_x003E_k__BackingField>
                   </_x003C_colorFromLifetime_x003E_k__BackingField>
                   <_x003C_ConstantScreenSize_x003E_k__BackingField dataType="Bool">true</_x003C_ConstantScreenSize_x003E_k__BackingField>
-                  <_x003C_ParticleLife_x003E_k__BackingField dataType="Int">500</_x003C_ParticleLife_x003E_k__BackingField>
+                  <_x003C_ParticleLife_x003E_k__BackingField dataType="Int">1000</_x003C_ParticleLife_x003E_k__BackingField>
                   <_x003C_ParticleMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                     <contentPath dataType="String">Data\Textures\Particle.Material.res</contentPath>
                   </_x003C_ParticleMaterial_x003E_k__BackingField>
@@ -303,8 +303,8 @@
                   <_x003C_RenderHead_x003E_k__BackingField dataType="Bool">true</_x003C_RenderHead_x003E_k__BackingField>
                   <_x003C_ScreenAreaFraction_x003E_k__BackingField dataType="Float">2</_x003C_ScreenAreaFraction_x003E_k__BackingField>
                   <_x003C_SpawnArea_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                    <X dataType="Float">200000</X>
-                    <Y dataType="Float">140000</Y>
+                    <X dataType="Float">640000</X>
+                    <Y dataType="Float">360000</Y>
                   </_x003C_SpawnArea_x003E_k__BackingField>
                   <_x003C_TrailMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                     <contentPath dataType="String">Data\Textures\ParticleTrail.Material.res</contentPath>
@@ -349,6 +349,7 @@
             <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="1665722457">
               <_items dataType="Array" type="Duality.Component[]" id="514402254" length="8">
                 <item dataType="Struct" type="WorldSailorsDuality.HeightMap" id="3389403723">
+                  <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">4</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
                   <_x003C_CompleteArea_x003E_k__BackingField dataType="Struct" type="Duality.Rect">
                     <H dataType="Float">2000000</H>
@@ -356,7 +357,6 @@
                     <X dataType="Float">-1000000</X>
                     <Y dataType="Float">-1000000</Y>
                   </_x003C_CompleteArea_x003E_k__BackingField>
-                  <_x003C_GenerateInBackGround_x003E_k__BackingField dataType="Bool">false</_x003C_GenerateInBackGround_x003E_k__BackingField>
                   <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MapGenerationType" name="PERLIN" value="0" />
                   <_x003C_GridOffset_x003E_k__BackingField dataType="Float">500</_x003C_GridOffset_x003E_k__BackingField>
                   <_x003C_Offset_x003E_k__BackingField dataType="Float">-500</_x003C_Offset_x003E_k__BackingField>
@@ -364,14 +364,13 @@
                   <_x003C_PerlinOctave_x003E_k__BackingField dataType="Int">3</_x003C_PerlinOctave_x003E_k__BackingField>
                   <_x003C_PerlinPersistance_x003E_k__BackingField dataType="Float">0.8</_x003C_PerlinPersistance_x003E_k__BackingField>
                   <_x003C_PerlinSeed_x003E_k__BackingField dataType="Int">3</_x003C_PerlinSeed_x003E_k__BackingField>
-                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">8402956</_x003C_PointsGenerated_x003E_k__BackingField>
+                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">21004</_x003C_PointsGenerated_x003E_k__BackingField>
                   <_x003C_ScaleZ_x003E_k__BackingField dataType="Float">1400</_x003C_ScaleZ_x003E_k__BackingField>
                   <_x003C_SimpleFreqX_x003E_k__BackingField dataType="Float">5000</_x003C_SimpleFreqX_x003E_k__BackingField>
                   <_x003C_SimpleFreqY_x003E_k__BackingField dataType="Float">8000</_x003C_SimpleFreqY_x003E_k__BackingField>
                   <_x003C_SimplexFreq_x003E_k__BackingField dataType="Int">100000</_x003C_SimplexFreq_x003E_k__BackingField>
                   <_x003C_SimplexOctave_x003E_k__BackingField dataType="Int">1</_x003C_SimplexOctave_x003E_k__BackingField>
                   <_x003C_SimplexPersistance_x003E_k__BackingField dataType="Float">0.65</_x003C_SimplexPersistance_x003E_k__BackingField>
-                  <_x003C_TasksRunning_x003E_k__BackingField dataType="Int">0</_x003C_TasksRunning_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <gameobj dataType="ObjectRef">2542847861</gameobj>
                 </item>
@@ -441,8 +440,8 @@
                   <_x003C_map_x003E_k__BackingField dataType="ObjectRef">3389403723</_x003C_map_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <dataGroup0 dataType="Struct" type="WorldSailorsDuality.LandRendererShaded+RenderDataSettings" id="275252832">
-                    <sizeX dataType="Int">80</sizeX>
-                    <sizeY dataType="Int">45</sizeY>
+                    <sizeX dataType="Int">120</sizeX>
+                    <sizeY dataType="Int">70</sizeY>
                   </dataGroup0>
                   <dataGroup1 dataType="Struct" type="WorldSailorsDuality.LandRendererShaded+RenderDataSettings" id="916300573">
                     <sizeX dataType="Int">3</sizeX>
@@ -877,8 +876,8 @@
                   <_x003C_RenderHead_x003E_k__BackingField dataType="Bool">true</_x003C_RenderHead_x003E_k__BackingField>
                   <_x003C_ScreenAreaFraction_x003E_k__BackingField dataType="Float">2</_x003C_ScreenAreaFraction_x003E_k__BackingField>
                   <_x003C_SpawnArea_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                    <X dataType="Float">160000</X>
-                    <Y dataType="Float">90000</Y>
+                    <X dataType="Float">640000</X>
+                    <Y dataType="Float">360000</Y>
                   </_x003C_SpawnArea_x003E_k__BackingField>
                   <_x003C_TrailMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                     <contentPath dataType="String">Data\Textures\ParticleTrail.Material.res</contentPath>
@@ -8298,8 +8297,9 @@
                     <_items dataType="Array" type="WorldSailorsDuality.Ihudstring[]" id="3433356534" length="8">
                       <item dataType="ObjectRef">2080249702</item>
                       <item dataType="ObjectRef">327049340</item>
+                      <item dataType="ObjectRef">3389403723</item>
                     </_items>
-                    <_size dataType="Int">2</_size>
+                    <_size dataType="Int">3</_size>
                   </_x003C_hudstrings_x003E_k__BackingField>
                   <_x003C_mediums_x003E_k__BackingField />
                   <active dataType="Bool">true</active>

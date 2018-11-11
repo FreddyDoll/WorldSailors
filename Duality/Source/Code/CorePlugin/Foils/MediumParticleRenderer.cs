@@ -81,15 +81,12 @@ namespace WorldSailorsDuality
                 else
                 {
                     Vector2 ScreenCenter = device.RefCoord.Xy;
-                    pos.X = ScreenCenter.X + MathF.Rnd.NextFloat(-1, 1) * SpawnArea.X;
-                    pos.Y = ScreenCenter.Y + MathF.Rnd.NextFloat(-1, 1) * SpawnArea.Y;
+                    pos = new Vector3(MathF.Rnd.NextVector2(new Rect(-SpawnArea.X/2f, -SpawnArea.Y / 2f, SpawnArea.X, SpawnArea.Y))+ScreenCenter, 0);
                 }
                 pos.Z = zHeight.X + (zHeight.Y - zHeight.X) * MathF.Rnd.NextFloat();
                 MediumParticle aParticle = new MediumParticle(pos, ParticlesScale, ParticleLife, ParticleMaterial.Res);
                 particles.Add(aParticle);
-
-                //aParticle.colorFromLifetime = colorFromLifetime;
-                //aParticle.colorFromSpeed = colorFromSpeed;
+                
                 aParticle.colorFromLifetime = colorFromLifetime;
                 if (Medium != null)
                     aParticle.colorFromSpeed = Medium.colorFromSpeed;
