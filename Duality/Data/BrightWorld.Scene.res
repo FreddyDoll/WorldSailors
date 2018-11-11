@@ -22,13 +22,13 @@
                   <ignoreParent dataType="Bool">true</ignoreParent>
                   <parentTransform />
                   <pos dataType="Struct" type="Duality.Vector3">
-                    <X dataType="Float">200908.5</X>
-                    <Y dataType="Float">-13116.1045</Y>
+                    <X dataType="Float">-11240.1094</X>
+                    <Y dataType="Float">-14776.6621</Y>
                     <Z dataType="Float">-0.1</Z>
                   </pos>
                   <posAbs dataType="Struct" type="Duality.Vector3">
-                    <X dataType="Float">200908.5</X>
-                    <Y dataType="Float">-13116.1045</Y>
+                    <X dataType="Float">-11240.1094</X>
+                    <Y dataType="Float">-14776.6621</Y>
                     <Z dataType="Float">-0.1</Z>
                   </posAbs>
                   <scale dataType="Float">2.5</scale>
@@ -402,10 +402,10 @@
                 </item>
                 <item dataType="Struct" type="WorldSailorsDuality.HeightMap" id="3389403723">
                   <_x003C_CompleteArea_x003E_k__BackingField dataType="Struct" type="Duality.Rect">
-                    <H dataType="Float">2E+08</H>
-                    <W dataType="Float">2E+08</W>
-                    <X dataType="Float">-1E+08</X>
-                    <Y dataType="Float">-1E+08</Y>
+                    <H dataType="Float">2000000</H>
+                    <W dataType="Float">2000000</W>
+                    <X dataType="Float">-1000000</X>
+                    <Y dataType="Float">-1000000</Y>
                   </_x003C_CompleteArea_x003E_k__BackingField>
                   <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MapGenerationType" name="PERLIN" value="0" />
                   <_x003C_Offset_x003E_k__BackingField dataType="Float">-500</_x003C_Offset_x003E_k__BackingField>
