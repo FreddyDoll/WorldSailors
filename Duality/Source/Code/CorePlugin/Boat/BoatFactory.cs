@@ -31,12 +31,12 @@ namespace WorldSailorsDuality
             if (ParentAgent != null)
             {
                 if(ParentAgent.targetBoat!= null)
-                    Scene.Current.RemoveObject(ParentAgent.targetBoat.GameObj);
+                    GameObj.ParentScene.RemoveObject(ParentAgent.targetBoat.GameObj);
                 Vector2 pos = ParentAgent.GetPosition();
                 c.Position = pos;
                 ParentAgent.targetBoat = c;
                 BoatGameObj.Active = true;
-                Scene.Current.AddObject(BoatGameObj);
+                GameObj.ParentScene.AddObject(BoatGameObj);
             }
         }
     }

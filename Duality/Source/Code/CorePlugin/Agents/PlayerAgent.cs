@@ -20,8 +20,6 @@ namespace WorldSailorsDuality
         private float trimPoint = 0;
         [DontSerialize]
         private bool trimming = false;
-        [DontSerialize]
-        private float controlTorque;
 
         public override void OnUpdate()
         {
@@ -82,7 +80,7 @@ namespace WorldSailorsDuality
                 return;
 
             if (currentTarget != null)
-                Scene.Current.RemoveObject(currentTarget.GameObj);
+                GameObj.ParentScene.RemoveObject(currentTarget.GameObj);
             GameObject t = NavTargetPrefab.Res.Instantiate();
             t.GetComponent<Transform>().Pos = new Vector3(target.Position.X, target.Position.Y, t.Transform.Pos.Z);
             t.Parent = this.GameObj;
@@ -93,13 +91,13 @@ namespace WorldSailorsDuality
             t.GetComponent<AITarget>().TargetActive = true;
             currentTarget = t.GetComponent<AITarget>();
             t.Active = true;
-            Scene.Current.AddObject(t);
+           GameObj.ParentScene.AddObject(t);
         }
 
         public override void RemoveTarget()
         {
             if (currentTarget != null)
-                Scene.Current.RemoveObject(currentTarget.GameObj);
+                GameObj.ParentScene.RemoveObject(currentTarget.GameObj);
             currentTarget = null;
         }
 

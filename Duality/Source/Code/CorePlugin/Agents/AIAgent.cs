@@ -146,7 +146,7 @@ namespace WorldSailorsDuality
                         if (StraightTargetsMode == TargetListMode.DELETE)
                         {
                             if(StraightTarget.Temporary)
-                                Scene.Current.RemoveObject(StraightTarget.GameObj);
+                                GameObj.ParentScene.RemoveObject(StraightTarget.GameObj);
                             StraightTarget = StraightTargetList[0];
                             StraightTargetList.RemoveAt(0);
                         }
@@ -171,7 +171,7 @@ namespace WorldSailorsDuality
                             t.Transform.Pos = new Vector3(t.Transform.Pos.X, t.Transform.Pos.Y, 1);
                             StraightTarget = t.GetComponent<AITarget>();
                             t.Active = true;
-                            Scene.Current.AddObject(t);
+                            GameObj.ParentScene.AddObject(t);
                             if (!NavShowTargets)
                                 t.Active = false;
 
@@ -181,7 +181,7 @@ namespace WorldSailorsDuality
                         {
                             if (StraightTarget != null)
                                 if (StraightTarget.Temporary)
-                                    Scene.Current.RemoveObject(StraightTarget.GameObj);
+                                    GameObj.ParentScene.RemoveObject(StraightTarget.GameObj);
 
                             StraightTarget = LingerBuffer;
                             NavMode = NavigationMode.NAVIGATE;
@@ -244,7 +244,7 @@ namespace WorldSailorsDuality
             if (NavMap == null)
             {
                 //Attempt to find it in the World
-                List<PathFinder> li = Scene.Current.ActiveObjects.GetComponents<PathFinder>().ToList();
+                List<PathFinder> li = GameObj.ParentScene.FindComponents<PathFinder>().ToList();
                 if (li.Count > 0)
                     NavMap = li.First();
             }
@@ -253,11 +253,11 @@ namespace WorldSailorsDuality
             {
                 if (StraightTarget != null)
                     if (StraightTarget.Temporary)
-                        Scene.Current.RemoveObject(StraightTarget.GameObj);
+                        GameObj.ParentScene.RemoveObject(StraightTarget.GameObj);
                 if (StraightTargetList != null)
                     foreach (AITarget t in StraightTargetList)
                         if (t.Temporary)
-                            Scene.Current.RemoveObject(t.GameObj);
+                            GameObj.ParentScene.RemoveObject(t.GameObj);
 
 
 
@@ -274,7 +274,7 @@ namespace WorldSailorsDuality
                         t.Transform.Pos = new Vector3(t.Transform.Pos.X, t.Transform.Pos.Y, 1);
                         StraightTargetList.Add(t.GetComponent<AITarget>());
                         t.Active = true;
-                        Scene.Current.AddObject(t);
+                        GameObj.ParentScene.AddObject(t);
                         if (!NavShowTargets)
                             t.Active = false;
                     }
@@ -352,11 +352,11 @@ namespace WorldSailorsDuality
 
             if (StraightTarget != null)
                 if (StraightTarget.Temporary)
-                    Scene.Current.RemoveObject(StraightTarget.GameObj);
+                    GameObj.ParentScene.RemoveObject(StraightTarget.GameObj);
             if (StraightTargetList != null)
                 foreach (AITarget t in StraightTargetList)
                     if (t.Temporary)
-                        Scene.Current.RemoveObject(t.GameObj);
+                        GameObj.ParentScene.RemoveObject(t.GameObj);
         }
         
         public override List<string> GenerateBodyText()

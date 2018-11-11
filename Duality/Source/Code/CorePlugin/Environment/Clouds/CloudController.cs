@@ -48,7 +48,7 @@ namespace WorldSailorsDuality
             if (m_LifetimeCounter > LifeTime)
             {
                 //GameObj is a reference to this Components parent GameObject
-                Scene.Current.RemoveObject(GameObj);
+                GameObj.ParentScene.RemoveObject(GameObj);
             }
         }
     }

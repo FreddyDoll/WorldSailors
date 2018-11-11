@@ -125,10 +125,10 @@
             <contentPath dataType="String">Data\Prefabs\Target.Prefab.res</contentPath>
           </_x003C_NavTargetPrefab_x003E_k__BackingField>
           <_x003C_PrimaryColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
-            <A dataType="Byte">255</A>
-            <B dataType="Byte">0</B>
-            <G dataType="Byte">193</G>
-            <R dataType="Byte">225</R>
+            <A dataType="Byte">220</A>
+            <B dataType="Byte">16</B>
+            <G dataType="Byte">174</G>
+            <R dataType="Byte">200</R>
           </_x003C_PrimaryColor_x003E_k__BackingField>
           <_x003C_respawnAfterSecond_x003E_k__BackingField dataType="Float">10</_x003C_respawnAfterSecond_x003E_k__BackingField>
           <_x003C_StraightModeChangeHysteresis_x003E_k__BackingField dataType="Float">0.2</_x003C_StraightModeChangeHysteresis_x003E_k__BackingField>

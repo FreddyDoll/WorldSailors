@@ -106,6 +106,9 @@ namespace WorldSailorsDuality
                 {
                     factory.CreateBoat();
                 }
+
+                if (targetBoat == null)
+                    return;
             }
 
 

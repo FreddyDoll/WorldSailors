@@ -28,7 +28,7 @@ namespace WorldSailorsDuality
             if (Medium == MediumType.INACTIVE)
                 return;
 
-            foils = Scene.Current.ActiveObjects.GetComponents<FoilController>().ToList();
+            foils = GameObj.ParentScene.FindComponents<FoilController>().ToList();
 
 
             foreach (FoilController f in foils)

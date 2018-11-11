@@ -23,7 +23,7 @@ namespace WorldSailorsDuality
 
         private void ScanArrays()
         {
-            List<Agent> ln = Scene.Current.FindComponents<Agent>().ToList();
+            List<Agent> ln = GameObj.ParentScene.FindComponents<Agent>().ToList();
             allAgents = new List<Agent>();
             foreach (Agent a in ln)
                 if (a.Active)

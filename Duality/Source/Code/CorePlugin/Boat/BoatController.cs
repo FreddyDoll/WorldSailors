@@ -89,7 +89,7 @@ namespace WorldSailorsDuality
             if (map == null)
             {
                 //Attempt to find it in the World
-                List<HeightMap> li = Scene.Current.ActiveObjects.GetComponents<HeightMap>().ToList();
+                List<HeightMap> li = GameObj.ParentScene.FindComponents<HeightMap>().ToList();
                 if (li.Count > 0)
                     map = li.First();
             }

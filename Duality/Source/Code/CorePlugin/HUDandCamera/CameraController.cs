@@ -14,19 +14,15 @@ namespace WorldSailorsDuality
     public class CameraController : Component, ICmpUpdatable, ITracksAgent
     {
         public Agent TrackedAgent { get; set; }
-        public bool AcceptUserInput { get; set; }
+        public bool AcceptUserInput { get; set; } = true;
         public Vector2 ZoomLimit { get; set; } = new Vector2(-20000,1000);
 
         public void OnUpdate()
-        {
-           
-            if (TrackedAgent == null)
-              return;
-                        
+        {   
             Transform t = this.GameObj.GetComponent<Transform>();
             Camera c = this.GameObj.GetComponent<Camera>();
 
-            if (TrackedAgent != null && t != null && TrackedAgent != null) //Camera follows
+            if (t != null && AcceptUserInput) //Camera follows
             {
                 float deltaHeight = 0;
 
@@ -57,8 +53,11 @@ namespace WorldSailorsDuality
                     deltaHeight = ZoomLimit.Y;
                 if (deltaHeight < ZoomLimit.X)
                     deltaHeight = ZoomLimit.X;
-                t.MoveTo(new Vector3(TrackedAgent.GetPosition().X, TrackedAgent.GetPosition().Y, deltaHeight));
-            }          
+                t.MoveTo(new Vector3(t.Pos.X, t.Pos.Y, deltaHeight));
+            }
+            
+            if(TrackedAgent != null)
+                t.MoveTo(new Vector3(TrackedAgent.GetPosition().X, TrackedAgent.GetPosition().Y, t.Pos.Z));
         }
     }
 }
