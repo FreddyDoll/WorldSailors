@@ -1,5 +1,6 @@
 ﻿using Duality;
 using Duality.Components;
+using Duality.Components.Diagnostics;
 using Duality.Drawing;
 using Duality.Resources;
 using System;
@@ -57,6 +58,15 @@ namespace WorldSailorsDuality
         {
             // Create a buffer to cache and re-use vertex arrays. Not required, but will boost performance.
             if (this.buffer == null) this.buffer = new CanvasBuffer();
+
+            ProfileRenderer profileRend = GameObj.GetComponent<ProfileRenderer>();
+            if(profileRend != null && DualityApp.Keyboard.KeyHit(Duality.Input.Key.P))
+            {
+                if (profileRend.Active == true)
+                    profileRend.Active = false;
+                else
+                    profileRend.Active = true;
+            }
 
             // Create a Canvas to auto-generate vertices from high-level drawing commands.
             Canvas canvas = new Canvas(device, this.buffer);

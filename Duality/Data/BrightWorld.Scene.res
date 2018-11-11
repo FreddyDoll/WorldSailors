@@ -356,21 +356,22 @@
                     <X dataType="Float">-1000000</X>
                     <Y dataType="Float">-1000000</Y>
                   </_x003C_CompleteArea_x003E_k__BackingField>
-                  <_x003C_DirectProbing_x003E_k__BackingField dataType="Bool">true</_x003C_DirectProbing_x003E_k__BackingField>
+                  <_x003C_GenerateInBackGround_x003E_k__BackingField dataType="Bool">false</_x003C_GenerateInBackGround_x003E_k__BackingField>
                   <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MapGenerationType" name="PERLIN" value="0" />
-                  <_x003C_GridOffset_x003E_k__BackingField dataType="Float">1000</_x003C_GridOffset_x003E_k__BackingField>
+                  <_x003C_GridOffset_x003E_k__BackingField dataType="Float">500</_x003C_GridOffset_x003E_k__BackingField>
                   <_x003C_Offset_x003E_k__BackingField dataType="Float">-500</_x003C_Offset_x003E_k__BackingField>
                   <_x003C_PerlinFrequency_x003E_k__BackingField dataType="Double">60000</_x003C_PerlinFrequency_x003E_k__BackingField>
-                  <_x003C_PerlinOctave_x003E_k__BackingField dataType="Int">4</_x003C_PerlinOctave_x003E_k__BackingField>
+                  <_x003C_PerlinOctave_x003E_k__BackingField dataType="Int">3</_x003C_PerlinOctave_x003E_k__BackingField>
                   <_x003C_PerlinPersistance_x003E_k__BackingField dataType="Float">0.8</_x003C_PerlinPersistance_x003E_k__BackingField>
                   <_x003C_PerlinSeed_x003E_k__BackingField dataType="Int">3</_x003C_PerlinSeed_x003E_k__BackingField>
-                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">3934758</_x003C_PointsGenerated_x003E_k__BackingField>
+                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">8402956</_x003C_PointsGenerated_x003E_k__BackingField>
                   <_x003C_ScaleZ_x003E_k__BackingField dataType="Float">1400</_x003C_ScaleZ_x003E_k__BackingField>
                   <_x003C_SimpleFreqX_x003E_k__BackingField dataType="Float">5000</_x003C_SimpleFreqX_x003E_k__BackingField>
                   <_x003C_SimpleFreqY_x003E_k__BackingField dataType="Float">8000</_x003C_SimpleFreqY_x003E_k__BackingField>
                   <_x003C_SimplexFreq_x003E_k__BackingField dataType="Int">100000</_x003C_SimplexFreq_x003E_k__BackingField>
                   <_x003C_SimplexOctave_x003E_k__BackingField dataType="Int">1</_x003C_SimplexOctave_x003E_k__BackingField>
                   <_x003C_SimplexPersistance_x003E_k__BackingField dataType="Float">0.65</_x003C_SimplexPersistance_x003E_k__BackingField>
+                  <_x003C_TasksRunning_x003E_k__BackingField dataType="Int">0</_x003C_TasksRunning_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <gameobj dataType="ObjectRef">2542847861</gameobj>
                 </item>
@@ -440,8 +441,8 @@
                   <_x003C_map_x003E_k__BackingField dataType="ObjectRef">3389403723</_x003C_map_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <dataGroup0 dataType="Struct" type="WorldSailorsDuality.LandRendererShaded+RenderDataSettings" id="275252832">
-                    <sizeX dataType="Int">100</sizeX>
-                    <sizeY dataType="Int">100</sizeY>
+                    <sizeX dataType="Int">80</sizeX>
+                    <sizeY dataType="Int">45</sizeY>
                   </dataGroup0>
                   <dataGroup1 dataType="Struct" type="WorldSailorsDuality.LandRendererShaded+RenderDataSettings" id="916300573">
                     <sizeX dataType="Int">3</sizeX>
@@ -509,13 +510,13 @@
                         <ignoreParent dataType="Bool">false</ignoreParent>
                         <parentTransform />
                         <pos dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">35.3067</X>
-                          <Y dataType="Float">-35.3067627</Y>
+                          <X dataType="Float">0</X>
+                          <Y dataType="Float">0</Y>
                           <Z dataType="Float">0.2</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">35.3067</X>
-                          <Y dataType="Float">-35.3067627</Y>
+                          <X dataType="Float">0</X>
+                          <Y dataType="Float">0</Y>
                           <Z dataType="Float">0.2</Z>
                         </posAbs>
                         <scale dataType="Float">1.7</scale>
@@ -537,10 +538,10 @@
                         <offset dataType="Int">0</offset>
                         <pixelGrid dataType="Bool">true</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
-                          <H dataType="Float">3200000</H>
-                          <W dataType="Float">3200000</W>
-                          <X dataType="Float">-1600000</X>
-                          <Y dataType="Float">-1600000</Y>
+                          <H dataType="Float">2000000</H>
+                          <W dataType="Float">2000000</W>
+                          <X dataType="Float">-1000000</X>
+                          <Y dataType="Float">-1000000</Y>
                         </rect>
                         <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="WrapBoth" value="3" />
                         <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
@@ -634,10 +635,10 @@
                         <offset dataType="Int">0</offset>
                         <pixelGrid dataType="Bool">true</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
-                          <H dataType="Float">3200000</H>
-                          <W dataType="Float">3200000</W>
-                          <X dataType="Float">-1600000</X>
-                          <Y dataType="Float">-1600000</Y>
+                          <H dataType="Float">2000000</H>
+                          <W dataType="Float">2000000</W>
+                          <X dataType="Float">-1000000</X>
+                          <Y dataType="Float">-1000000</Y>
                         </rect>
                         <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="WrapBoth" value="3" />
                         <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
@@ -703,13 +704,13 @@
                         <ignoreParent dataType="Bool">false</ignoreParent>
                         <parentTransform />
                         <pos dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">839.8668</X>
-                          <Y dataType="Float">849.126953</Y>
+                          <X dataType="Float">0</X>
+                          <Y dataType="Float">0</Y>
                           <Z dataType="Float">0.1</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">839.8668</X>
-                          <Y dataType="Float">849.126953</Y>
+                          <X dataType="Float">0</X>
+                          <Y dataType="Float">0</Y>
                           <Z dataType="Float">0.1</Z>
                         </posAbs>
                         <scale dataType="Float">1.1</scale>
@@ -731,10 +732,10 @@
                         <offset dataType="Int">0</offset>
                         <pixelGrid dataType="Bool">true</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
-                          <H dataType="Float">3200000</H>
-                          <W dataType="Float">3200000</W>
-                          <X dataType="Float">-1600000</X>
-                          <Y dataType="Float">-1600000</Y>
+                          <H dataType="Float">2000000</H>
+                          <W dataType="Float">2000000</W>
+                          <X dataType="Float">-1000000</X>
+                          <Y dataType="Float">-1000000</Y>
                         </rect>
                         <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="WrapBoth" value="3" />
                         <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">

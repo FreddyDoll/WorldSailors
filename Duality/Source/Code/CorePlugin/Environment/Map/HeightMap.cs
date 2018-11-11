@@ -18,7 +18,7 @@ namespace WorldSailorsDuality
         SIMPLEX
     }
     
-    public class HeightMap : Component, ICmpInitializable
+    public class HeightMap : Component, ICmpInitializable,ICmpUpdatable
     {
         /// <summary>
         /// The map is only Generated for a Grid of Points other Points are interpolated
@@ -103,9 +103,15 @@ namespace WorldSailorsDuality
         /// Nr Of Points Generated
         /// </summary>
         public int PointsGenerated { get; private set; } = 0;
-
-        public bool DirectProbing { get; set; } = true;
-
+        /// <summary>
+        /// Set if Points should be Generated on seperate Thread.
+        /// If so points will have wrong value(0) first;
+        /// </summary>
+        public bool GenerateInBackGround { get; set; } = false;
+        /// <summary>
+        /// Nr Of Tasks running
+        /// </summary>
+        public int TasksRunning { get; private set; } = 0;
 
         [DontSerialize]
         private int simplexSeed = 0;
@@ -113,9 +119,10 @@ namespace WorldSailorsDuality
         private GridPoint[] grid = null;
         [DontSerialize]
         Point2 gridSize;
+        [DontSerialize]
+        List<Task> activeTasks = new List<Task>();
 
         #region MapGeneration
-
         public Vector2 findTopLeftGridPoint(Vector2 p)
         {
             Vector2 GridCoord = GetGridCoord(p);
@@ -140,9 +147,6 @@ namespace WorldSailorsDuality
 
         public void GenerateMap(Vector2 offset, Vector2 spacing, ref float[][] map)
         {
-            //bool upSample = true;
-            //if (GridOffset < spacing.X || GridOffset < spacing.Y)
-                //upSample = false;
             int sizeY = map[0].Count();
             int sizeX = map.Count();
             
@@ -186,10 +190,6 @@ namespace WorldSailorsDuality
                 return GetNoisePoint(point);
             }
 
-            //Vector2 ind = GetGridCoord(point);
-            //Point2 gridPoint = new Point2((int)MathF.Floor(ind.X), (int)MathF.Floor(ind.Y)); //X0Y0
-            //return GetGridPoint(gridPoint).Val;
-
 
             List<Point2> ps = new List<Point2>();
             Vector2 ind = GetGridCoord(point);
@@ -223,15 +223,98 @@ namespace WorldSailorsDuality
         #endregion
 
         #region gridManipulation
-        private float GetNoisePoint(Vector2 p)
+        private void CheckTasks()
         {
-            switch (GenType)
+            List<Task> n = new List<Task>();
+            foreach (Task t in activeTasks)
             {
-                case MapGenerationType.PERLIN: return ProbePerlin(p);
-                case MapGenerationType.SIMPLE: return ProbeSimple(p);
-                case MapGenerationType.SIMPLEX: return ProbeSimplex(p);
+                if (!t.IsCompleted)
+                    n.Add(t);
             }
-            return 0;
+            activeTasks = n;
+            TasksRunning = activeTasks.Count;
+        }
+
+        private void GenerateGridPoint(Point2 p)
+        {
+            if (grid == null)
+                InitArray();
+
+            if (p.X < 0 || p.Y < 0 || p.X >= GridSize.X || p.Y >= GridSize.Y)
+                return;
+
+            int ind = p.Y * GridSize.X + p.X;
+
+            List<Point2> averaging = new List<Point2>();
+
+            averaging.Add(new Point2(p.X, p.Y));
+            averaging.Add(new Point2(p.X + 1, p.Y));
+            averaging.Add(new Point2(p.X + 2, p.Y));
+            averaging.Add(new Point2(p.X - 1, p.Y));
+            averaging.Add(new Point2(p.X - 2, p.Y));
+            averaging.Add(new Point2(p.X, p.Y - 1));
+            averaging.Add(new Point2(p.X, p.Y - 2));
+            averaging.Add(new Point2(p.X, p.Y + 1));
+            averaging.Add(new Point2(p.X, p.Y + 2));
+
+            averaging.Add(new Point2(p.X + 1, p.Y + 1));
+            averaging.Add(new Point2(p.X + 1, p.Y - 1));
+            averaging.Add(new Point2(p.X - 1, p.Y + 1));
+            averaging.Add(new Point2(p.X - 1, p.Y - 1));
+
+            float sum = 0;
+
+            foreach (Point2 l in averaging)
+                sum += GetNoisePoint(GetWorldCoord(l));
+
+            sum /= averaging.Count;
+
+            grid[ind].Val = sum;//GetNoisePoint(GetWorldCoord(p));
+            grid[ind].Generated = true;
+            PointsGenerated++;
+        }
+        
+        private void GenerateGridPoint(object pO)
+        {
+            if (!(pO is Point2))
+                return;
+            Point2 p = (Point2)pO;
+
+            if (grid == null)
+                InitArray();
+
+            if (p.X < 0 || p.Y < 0 || p.X >= GridSize.X || p.Y >= GridSize.Y)
+                return;
+
+            int ind = p.Y * GridSize.X + p.X;
+
+            List<Point2> averaging = new List<Point2>();
+
+            averaging.Add(new Point2(p.X, p.Y));
+            averaging.Add(new Point2(p.X + 1, p.Y));
+            averaging.Add(new Point2(p.X + 2, p.Y));
+            averaging.Add(new Point2(p.X - 1, p.Y));
+            averaging.Add(new Point2(p.X - 2, p.Y));
+            averaging.Add(new Point2(p.X, p.Y - 1));
+            averaging.Add(new Point2(p.X, p.Y - 2));
+            averaging.Add(new Point2(p.X, p.Y + 1));
+            averaging.Add(new Point2(p.X, p.Y + 2));
+
+            averaging.Add(new Point2(p.X + 1, p.Y + 1));
+            averaging.Add(new Point2(p.X + 1, p.Y - 1));
+            averaging.Add(new Point2(p.X - 1, p.Y + 1));
+            averaging.Add(new Point2(p.X - 1, p.Y - 1));
+
+            float sum = 0;
+
+            foreach (Point2 l in averaging)
+                sum += GetNoisePoint(GetWorldCoord(l));
+
+            sum /= averaging.Count;
+
+            grid[ind].Val = sum;//GetNoisePoint(GetWorldCoord(p));
+            grid[ind].Generated = true;
+            PointsGenerated++;
         }
 
         private GridPoint GetGridPoint(Point2 p)
@@ -240,16 +323,24 @@ namespace WorldSailorsDuality
                 InitArray();
 
             if (p.X < 0 || p.Y < 0 || p.X >= GridSize.X || p.Y >= GridSize.Y)
-                return new GridPoint(GetWorldCoord(p));
+                return new GridPoint();
 
             int ind = p.Y * GridSize.X + p.X;
 
             if (!grid[ind].Generated)
             {
-                grid[ind].Val = GetNoisePoint(grid[ind].Pos);
-                grid[ind].Generated = true;
-                PointsGenerated++;
+                if (GenerateInBackGround)
+                {
+                    Task t = new Task(new Action<object>(GenerateGridPoint), p);
+                    t.Start();
+                    activeTasks.Add(t);
+                }
+                else
+                {
+                    GenerateGridPoint(p);
+                }
             }
+
             return grid[ind];
         }
 
@@ -263,6 +354,17 @@ namespace WorldSailorsDuality
             return new Vector2(gridCoord.X * GridOffset + CompleteArea.X, gridCoord.Y * GridOffset + CompleteArea.Y);
         }
         #endregion
+
+        private float GetNoisePoint(Vector2 p)
+        {
+            switch (GenType)
+            {
+                case MapGenerationType.PERLIN: return ProbePerlin(p);
+                case MapGenerationType.SIMPLE: return ProbeSimple(p);
+                case MapGenerationType.SIMPLEX: return ProbeSimplex(p);
+            }
+            return 0;
+        }
 
         private float ProbePerlin(Vector2 point)
         {
@@ -291,14 +393,6 @@ namespace WorldSailorsDuality
             return ret;// * ScaleZ + Offset;
         }
 
-        public void OnInit(InitContext context)
-        {
-            if (context == InitContext.Activate)
-            {
-                Simplex.Noise.Seed = SimplexSeed;
-            }
-        }
-
         private void InitArray()
         {
             if (grid == null)
@@ -321,29 +415,45 @@ namespace WorldSailorsDuality
                 for (int y = 0; y < GridSize.X; y++)
                 {
                     Vector2 Pos = CompleteArea.TopLeft + new Vector2(x * GridOffset, y * GridOffset);
-                    grid[y * GridSize.X + x] = new GridPoint(Pos);
+                    grid[y * GridSize.X + x] = new GridPoint();
                 }
             }
         }
 
+        public void OnInit(InitContext context)
+        {
+            if (context == InitContext.Activate)
+            {
+                Simplex.Noise.Seed = SimplexSeed;
+            }
+        }
+        
         public void OnShutdown(ShutdownContext context)
         {
         }
 
+        public void testFunc()
+        {
+
+        }
+
+        public void OnUpdate()
+        {
+            CheckTasks();
+        }
+
         public class GridPoint
         {
-            public Vector2 Pos;
             public float Val = 0;
             public bool Generated = false;
 
-            public GridPoint(Vector2 p)
+            public GridPoint()
             {
-                Pos = p;
             }
 
             public override string ToString()
             {
-                return Pos.ToString() + Val.ToString();
+                return Val.ToString();
             }
         }
     }

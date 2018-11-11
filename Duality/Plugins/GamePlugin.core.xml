@@ -335,6 +335,17 @@
             Nr Of Points Generated
             </summary>
         </member>
+        <member name="P:WorldSailorsDuality.HeightMap.GenerateInBackGround">
+            <summary>
+            Set if Points should be Generated on seperate Thread.
+            If so points will have wrong value(0) first;
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMap.TasksRunning">
+            <summary>
+            Nr Of Tasks running
+            </summary>
+        </member>
         <member name="P:WorldSailorsDuality.LandRendererShaded.RenderDataSettings.GridSizeX">
             <summary>
             Screen gets split into Grid for Coloring/Texturing
