@@ -386,13 +386,13 @@
                   <ignoreParent dataType="Bool">false</ignoreParent>
                   <parentTransform />
                   <pos dataType="Struct" type="Duality.Vector3">
-                    <X dataType="Float">-13830.7129</X>
-                    <Y dataType="Float">4174.376</Y>
+                    <X dataType="Float">-15924.52</X>
+                    <Y dataType="Float">3798.6377</Y>
                     <Z dataType="Float">0</Z>
                   </pos>
                   <posAbs dataType="Struct" type="Duality.Vector3">
-                    <X dataType="Float">-13830.7129</X>
-                    <Y dataType="Float">4174.376</Y>
+                    <X dataType="Float">-15924.52</X>
+                    <Y dataType="Float">3798.6377</Y>
                     <Z dataType="Float">0</Z>
                   </posAbs>
                   <scale dataType="Float">1</scale>
@@ -401,7 +401,7 @@
                   <velAbs dataType="Struct" type="Duality.Vector3" />
                 </item>
                 <item dataType="Struct" type="WorldSailorsDuality.HeightMap" id="3389403723">
-                  <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
+                  <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">false</_x003C_BufferPoints_x003E_k__BackingField>
                   <_x003C_CompleteArea_x003E_k__BackingField dataType="Struct" type="Duality.Rect">
                     <H dataType="Float">2000000</H>
                     <W dataType="Float">2000000</W>
@@ -411,11 +411,11 @@
                   <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MapGenerationType" name="PERLIN" value="0" />
                   <_x003C_GridOffset_x003E_k__BackingField dataType="Float">1000</_x003C_GridOffset_x003E_k__BackingField>
                   <_x003C_Offset_x003E_k__BackingField dataType="Float">-500</_x003C_Offset_x003E_k__BackingField>
-                  <_x003C_PerlinFrequency_x003E_k__BackingField dataType="Double">70000</_x003C_PerlinFrequency_x003E_k__BackingField>
-                  <_x003C_PerlinOctave_x003E_k__BackingField dataType="Int">3</_x003C_PerlinOctave_x003E_k__BackingField>
+                  <_x003C_PerlinFrequency_x003E_k__BackingField dataType="Double">60000</_x003C_PerlinFrequency_x003E_k__BackingField>
+                  <_x003C_PerlinOctave_x003E_k__BackingField dataType="Int">4</_x003C_PerlinOctave_x003E_k__BackingField>
                   <_x003C_PerlinPersistance_x003E_k__BackingField dataType="Float">0.8</_x003C_PerlinPersistance_x003E_k__BackingField>
                   <_x003C_PerlinSeed_x003E_k__BackingField dataType="Int">3</_x003C_PerlinSeed_x003E_k__BackingField>
-                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">1957674</_x003C_PointsGenerated_x003E_k__BackingField>
+                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">3324994</_x003C_PointsGenerated_x003E_k__BackingField>
                   <_x003C_ScaleZ_x003E_k__BackingField dataType="Float">1400</_x003C_ScaleZ_x003E_k__BackingField>
                   <_x003C_SimpleFreqX_x003E_k__BackingField dataType="Float">5000</_x003C_SimpleFreqX_x003E_k__BackingField>
                   <_x003C_SimpleFreqY_x003E_k__BackingField dataType="Float">8000</_x003C_SimpleFreqY_x003E_k__BackingField>
@@ -1308,13 +1308,13 @@
                         <ignoreParent dataType="Bool">true</ignoreParent>
                         <parentTransform />
                         <pos dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">-16840.42</X>
-                          <Y dataType="Float">-125683.141</Y>
+                          <X dataType="Float">-11531.15</X>
+                          <Y dataType="Float">-115823.07</Y>
                           <Z dataType="Float">1</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">-16840.42</X>
-                          <Y dataType="Float">-125683.141</Y>
+                          <X dataType="Float">-11531.15</X>
+                          <Y dataType="Float">-115823.07</Y>
                           <Z dataType="Float">1</Z>
                         </posAbs>
                         <scale dataType="Float">5.89556551</scale>
@@ -1411,13 +1411,13 @@
                         <ignoreParent dataType="Bool">true</ignoreParent>
                         <parentTransform />
                         <pos dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">-51489.5938</X>
-                          <Y dataType="Float">-108457.383</Y>
+                          <X dataType="Float">-37837.19</X>
+                          <Y dataType="Float">-101631.18</Y>
                           <Z dataType="Float">1</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">-51489.5938</X>
-                          <Y dataType="Float">-108457.383</Y>
+                          <X dataType="Float">-37837.19</X>
+                          <Y dataType="Float">-101631.18</Y>
                           <Z dataType="Float">1</Z>
                         </posAbs>
                         <scale dataType="Float">5.89556551</scale>
@@ -3431,13 +3431,13 @@
                         <ignoreParent dataType="Bool">true</ignoreParent>
                         <parentTransform />
                         <pos dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">90209.01</X>
-                          <Y dataType="Float">5435.338</Y>
+                          <X dataType="Float">68791.79</X>
+                          <Y dataType="Float">-6964.10449</Y>
                           <Z dataType="Float">1</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">90209.01</X>
-                          <Y dataType="Float">5435.338</Y>
+                          <X dataType="Float">68791.79</X>
+                          <Y dataType="Float">-6964.10449</Y>
                           <Z dataType="Float">1</Z>
                         </posAbs>
                         <scale dataType="Float">7.60624933</scale>
@@ -3534,13 +3534,13 @@
                         <ignoreParent dataType="Bool">true</ignoreParent>
                         <parentTransform />
                         <pos dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">98246.25</X>
-                          <Y dataType="Float">-1630.89746</Y>
+                          <X dataType="Float">74010.98</X>
+                          <Y dataType="Float">-7079.138</Y>
                           <Z dataType="Float">1</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">98246.25</X>
-                          <Y dataType="Float">-1630.89746</Y>
+                          <X dataType="Float">74010.98</X>
+                          <Y dataType="Float">-7079.138</Y>
                           <Z dataType="Float">1</Z>
                         </posAbs>
                         <scale dataType="Float">2.5</scale>
@@ -3637,13 +3637,13 @@
                         <ignoreParent dataType="Bool">true</ignoreParent>
                         <parentTransform />
                         <pos dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">92613.4453</X>
-                          <Y dataType="Float">-13982.8164</Y>
+                          <X dataType="Float">83971.4141</X>
+                          <Y dataType="Float">-25442.9082</Y>
                           <Z dataType="Float">1</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">92613.4453</X>
-                          <Y dataType="Float">-13982.8164</Y>
+                          <X dataType="Float">83971.4141</X>
+                          <Y dataType="Float">-25442.9082</Y>
                           <Z dataType="Float">1</Z>
                         </posAbs>
                         <scale dataType="Float">2.5</scale>
@@ -3740,13 +3740,13 @@
                         <ignoreParent dataType="Bool">true</ignoreParent>
                         <parentTransform />
                         <pos dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">76666.6</X>
-                          <Y dataType="Float">-5740.6123</Y>
+                          <X dataType="Float">73284.94</X>
+                          <Y dataType="Float">-24339.7773</Y>
                           <Z dataType="Float">1</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">76666.6</X>
-                          <Y dataType="Float">-5740.6123</Y>
+                          <X dataType="Float">73284.94</X>
+                          <Y dataType="Float">-24339.7773</Y>
                           <Z dataType="Float">1</Z>
                         </posAbs>
                         <scale dataType="Float">2.5</scale>
@@ -4773,13 +4773,13 @@
                         <ignoreParent dataType="Bool">true</ignoreParent>
                         <parentTransform />
                         <pos dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">27468.1016</X>
-                          <Y dataType="Float">-169994.172</Y>
+                          <X dataType="Float">60369.46</X>
+                          <Y dataType="Float">-153173.828</Y>
                           <Z dataType="Float">-0.1</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">27468.1016</X>
-                          <Y dataType="Float">-169994.172</Y>
+                          <X dataType="Float">60369.46</X>
+                          <Y dataType="Float">-153173.828</Y>
                           <Z dataType="Float">-0.1</Z>
                         </posAbs>
                         <scale dataType="Float">2.5</scale>
@@ -4876,13 +4876,13 @@
                         <ignoreParent dataType="Bool">true</ignoreParent>
                         <parentTransform />
                         <pos dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">110466.523</X>
-                          <Y dataType="Float">-98730.01</Y>
+                          <X dataType="Float">108063.609</X>
+                          <Y dataType="Float">-85976.11</Y>
                           <Z dataType="Float">-0.1</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">110466.523</X>
-                          <Y dataType="Float">-98730.01</Y>
+                          <X dataType="Float">108063.609</X>
+                          <Y dataType="Float">-85976.11</Y>
                           <Z dataType="Float">-0.1</Z>
                         </posAbs>
                         <scale dataType="Float">2.5</scale>
@@ -4982,13 +4982,13 @@
                         <ignoreParent dataType="Bool">true</ignoreParent>
                         <parentTransform />
                         <pos dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">207406.063</X>
-                          <Y dataType="Float">7787.39453</Y>
+                          <X dataType="Float">130711.539</X>
+                          <Y dataType="Float">36630.71</Y>
                           <Z dataType="Float">-0.1</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">207406.063</X>
-                          <Y dataType="Float">7787.39453</Y>
+                          <X dataType="Float">130711.539</X>
+                          <Y dataType="Float">36630.71</Y>
                           <Z dataType="Float">-0.1</Z>
                         </posAbs>
                         <scale dataType="Float">2.5</scale>
@@ -8402,6 +8402,28 @@
       </children>
       <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="4233758862">
         <_items dataType="Array" type="Duality.Component[]" id="849044402" length="4">
+          <item dataType="Struct" type="Duality.Components.Diagnostics.ProfileRenderer" id="894796662">
+            <active dataType="Bool">false</active>
+            <counterGraphs dataType="Struct" type="System.Collections.Generic.List`1[[System.String]]" id="3014228042">
+              <_items dataType="Array" type="System.String[]" id="19727712">
+                <item dataType="String">Duality\Frame</item>
+                <item dataType="String">Duality\Frame\Render</item>
+                <item dataType="String">Duality\Frame\Update</item>
+                <item dataType="String">Duality\Stats\Memory\TotalUsage</item>
+              </_items>
+              <_size dataType="Int">4</_size>
+            </counterGraphs>
+            <drawGraphs dataType="Bool">true</drawGraphs>
+            <gameobj dataType="ObjectRef">3379412982</gameobj>
+            <keyResetCounters dataType="Enum" type="Duality.Input.Key" name="F5" value="14" />
+            <keyToggleGraph dataType="Enum" type="Duality.Input.Key" name="F4" value="13" />
+            <keyToggleTextPerf dataType="Enum" type="Duality.Input.Key" name="F2" value="11" />
+            <keyToggleTextStat dataType="Enum" type="Duality.Input.Key" name="F3" value="12" />
+            <textReportOptions dataType="Enum" type="Duality.ProfileReportOptions" name="LastValue, MaxValue, Header, OmitMinorValues" value="40977" />
+            <textReportPerf dataType="Bool">true</textReportPerf>
+            <textReportStat dataType="Bool">true</textReportStat>
+            <updateInterval dataType="Int">250</updateInterval>
+          </item>
           <item dataType="Struct" type="WorldSailorsDuality.AgentSwitcher" id="2578067603">
             <_x003C_AllTrackers_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.ITracksAgent]]" id="3277661683">
               <_items dataType="Array" type="WorldSailorsDuality.ITracksAgent[]" id="294552358">
@@ -8436,7 +8458,7 @@
           </item>
           <item dataType="ObjectRef">4079431515</item>
         </_items>
-        <_size dataType="Int">2</_size>
+        <_size dataType="Int">3</_size>
       </compList>
       <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="2192820604" surrogate="true">
         <header />
@@ -8444,10 +8466,12 @@
           <keys dataType="Array" type="System.Object[]" id="2021836408">
             <item dataType="Type" id="3496425836" value="WorldSailorsDuality.HudRenderer" />
             <item dataType="Type" id="3587668022" value="WorldSailorsDuality.AgentSwitcher" />
+            <item dataType="Type" id="1749950520" value="Duality.Components.Diagnostics.ProfileRenderer" />
           </keys>
           <values dataType="Array" type="System.Object[]" id="4096465374">
             <item dataType="ObjectRef">4079431515</item>
             <item dataType="ObjectRef">2578067603</item>
+            <item dataType="ObjectRef">894796662</item>
           </values>
         </body>
       </compMap>
