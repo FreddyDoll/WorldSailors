@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace WorldSailorsDuality
 {
-    public class CloudSpawner : Component, ICmpUpdatable, ICmpInitializable,ITracksAgent
+    public class CloudSpawner : Component, ICmpUpdatable, ITracksAgent
     {
         //This whole thing should be changed to a Particle system...
         public ContentRef<Prefab> CloudPrefab { get; set; }
@@ -33,21 +33,8 @@ namespace WorldSailorsDuality
         [DontSerialize]
         private bool firstRun = true;
         [DontSerialize]
-        private Random rand;
-        [DontSerialize]
         private List<GameObject> activeClouds = new List<GameObject>();
-
-        #region init
-        public void OnInit(InitContext context)
-        {
-            rand = new Random();
-        }
-
-        public void OnShutdown(ShutdownContext context)
-        {
-        }
-        #endregion
-
+        
         public void OnUpdate()
         {
             m_timer += Time.TimeMult;
@@ -77,7 +64,7 @@ namespace WorldSailorsDuality
                         n.Add(g); //keep
                     else //discard
                     {
-                        Scene.Current.RemoveObject(g);
+                        GameObj.ParentScene.RemoveObject(g);
                         spawnCounter++;
                     }
                 }
@@ -96,11 +83,11 @@ namespace WorldSailorsDuality
         private void Spawn()
         {
             
-            float s = MinScale + rand.NextFloat() * (MaxScale - MinScale);
-            float a = MinAlpha + rand.NextFloat() * (MaxAlpha - MinAlpha);
-            float d = MinLinDamping + rand.NextFloat() * (MaxLinDamping - MinLinDamping);
-            float h = Height.X + rand.NextFloat() * (Height.Y - Height.X);
-            Vector3 pos = new Vector3(rand.NextFloat() * Area.X - Area.X / 2f, rand.NextFloat() * Area.Y - Area.Y / 2f, h);
+            float s = MinScale + MathF.Rnd.NextFloat() * (MaxScale - MinScale);
+            float a = MinAlpha + MathF.Rnd.NextFloat() * (MaxAlpha - MinAlpha);
+            float d = MinLinDamping + MathF.Rnd.NextFloat() * (MaxLinDamping - MinLinDamping);
+            float h = Height.X + MathF.Rnd.NextFloat() * (Height.Y - Height.X);
+            Vector3 pos = new Vector3(MathF.Rnd.NextFloat() * Area.X - Area.X / 2f, MathF.Rnd.NextFloat() * Area.Y - Area.Y / 2f, h);
 
             if(TrackedAgent != null)
             {
@@ -108,7 +95,7 @@ namespace WorldSailorsDuality
                 pos = pos + new Vector3(p,0);
             }
 
-            float life = rand.NextFloat() * (MaxLifetime - MinLifetime) + MinLifetime;
+            float life = MathF.Rnd.NextFloat() * (MaxLifetime - MinLifetime) + MinLifetime;
             MediumController air = GameObj.GetComponent<MediumController>();
             Vector3 Pos = new Vector3(pos.X, pos.Y, pos.Z);
             GameObject cloud = CloudPrefab.Res.Instantiate(Pos);
@@ -119,7 +106,7 @@ namespace WorldSailorsDuality
             cloud.Transform.Scale = s;
             cloud.GetComponent<RigidBody>().LinearDamping = d;
             cloud.Active = true;
-            Scene.Current.AddObject(cloud);
+            GameObj.ParentScene.AddObject(cloud);
             activeClouds.Add(cloud);
         }
         #endregion

@@ -19,14 +19,10 @@ namespace WorldSailorsDuality
 
         public void OnUpdate()
         {
-           
-            if (TrackedAgent == null)
-              return;
-                        
             Transform t = this.GameObj.GetComponent<Transform>();
             Camera c = this.GameObj.GetComponent<Camera>();
 
-            if (TrackedAgent != null && t != null && TrackedAgent != null) //Camera follows
+            if (t != null) //Camera follows
             {
                 float deltaHeight = 0;
 
@@ -47,7 +43,7 @@ namespace WorldSailorsDuality
                 if (c.Perspective == PerspectiveMode.Parallax)
                     deltaHeight += t.Pos.Z;
                 else
-                { 
+                {
                     c.FocusDist *= (float)Math.Pow(c.FocusDist, deltaHeight / 10000f);
                     deltaHeight = t.Pos.Z;
                 }
@@ -57,8 +53,10 @@ namespace WorldSailorsDuality
                     deltaHeight = ZoomLimit.Y;
                 if (deltaHeight < ZoomLimit.X)
                     deltaHeight = ZoomLimit.X;
-                t.MoveTo(new Vector3(TrackedAgent.GetPosition().X, TrackedAgent.GetPosition().Y, deltaHeight));
-            }          
+                t.MoveTo(new Vector3(0, 0, deltaHeight));
+            }
+            if (TrackedAgent != null)
+                t.MoveTo(new Vector3(TrackedAgent.GetPosition().X, TrackedAgent.GetPosition().Y, t.Pos.Z));
         }
     }
 }

@@ -310,9 +310,29 @@
             How high/low is the map
             </summary>
         </member>
+        <member name="P:WorldSailorsDuality.HeightMap.GridSize">
+            <summary>
+            Choose Map Generation mode
+            </summary>
+        </member>
         <member name="P:WorldSailorsDuality.HeightMap.GenType">
             <summary>
             Choose Map Generation mode
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMap.CompleteArea">
+            <summary>
+            Area of the Height Map
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMap.BufferPoints">
+            <summary>
+            Nr Of Points Generated
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMap.PointsGenerated">
+            <summary>
+            Nr Of Points Generated
             </summary>
         </member>
         <member name="P:WorldSailorsDuality.LandRendererShaded.RenderDataSettings.GridSizeX">

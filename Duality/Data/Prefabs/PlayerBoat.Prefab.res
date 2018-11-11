@@ -64,8 +64,27 @@
                   <_items dataType="Array" type="Duality.Components.Physics.ShapeInfo[]" id="2810064811">
                     <item dataType="Struct" type="Duality.Components.Physics.PolyShapeInfo" id="91733238">
                       <convexPolygons dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Vector2[]]]" id="2018718944">
-                        <_items dataType="Array" type="Duality.Vector2[][]" id="1562673116" length="4" />
-                        <_size dataType="Int">0</_size>
+                        <_items dataType="Array" type="Duality.Vector2[][]" id="1562673116" length="4">
+                          <item dataType="Array" type="Duality.Vector2[]" id="3461540548">
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">-167.555817</X>
+                              <Y dataType="Float">-331.172119</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">164.976852</X>
+                              <Y dataType="Float">-333.749878</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">160.237534</X>
+                              <Y dataType="Float">264.505463</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">-168.375824</X>
+                              <Y dataType="Float">268.480621</Y>
+                            </item>
+                          </item>
+                        </_items>
+                        <_size dataType="Int">1</_size>
                       </convexPolygons>
                       <density dataType="Float">1</density>
                       <friction dataType="Float">0.3</friction>
@@ -228,10 +247,10 @@
                 <joints dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Components.Physics.JointInfo]]" id="1184096581">
                   <_items dataType="Array" type="Duality.Components.Physics.JointInfo[]" id="4192010454">
                     <item dataType="Struct" type="Duality.Components.Physics.RevoluteJointInfo" id="81004832">
-                      <breakPoint dataType="Float">1000</breakPoint>
+                      <breakPoint dataType="Float">0</breakPoint>
                       <collide dataType="Bool">false</collide>
                       <enabled dataType="Bool">true</enabled>
-                      <limitEnabled dataType="Bool">false</limitEnabled>
+                      <limitEnabled dataType="Bool">true</limitEnabled>
                       <localAnchorA dataType="Struct" type="Duality.Vector2">
                         <X dataType="Float">0</X>
                         <Y dataType="Float">-200</Y>
@@ -250,7 +269,7 @@
                       <upperLimit dataType="Float">0</upperLimit>
                     </item>
                     <item dataType="Struct" type="Duality.Components.Physics.DistanceJointInfo" id="3314470798">
-                      <breakPoint dataType="Float">1000</breakPoint>
+                      <breakPoint dataType="Float">0</breakPoint>
                       <collide dataType="Bool">false</collide>
                       <dampingRatio dataType="Float">0.8</dampingRatio>
                       <enabled dataType="Bool">true</enabled>
@@ -277,8 +296,27 @@
                   <_items dataType="Array" type="Duality.Components.Physics.ShapeInfo[]" id="3201828655">
                     <item dataType="Struct" type="Duality.Components.Physics.PolyShapeInfo" id="905136366">
                       <convexPolygons dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Vector2[]]]" id="2233814096">
-                        <_items dataType="Array" type="Duality.Vector2[][]" id="4217049532" length="4" />
-                        <_size dataType="Int">0</_size>
+                        <_items dataType="Array" type="Duality.Vector2[][]" id="4217049532" length="4">
+                          <item dataType="Array" type="Duality.Vector2[]" id="4138383940">
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">38.4874535</X>
+                              <Y dataType="Float">214.46051</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">-44.4245262</X>
+                              <Y dataType="Float">215.435883</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">-40.77972</X>
+                              <Y dataType="Float">-262.291321</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">39.63626</X>
+                              <Y dataType="Float">-263.440155</Y>
+                            </item>
+                          </item>
+                        </_items>
+                        <_size dataType="Int">1</_size>
                       </convexPolygons>
                       <density dataType="Float">1</density>
                       <friction dataType="Float">0.3</friction>
@@ -477,8 +515,27 @@
                   <_items dataType="Array" type="Duality.Components.Physics.ShapeInfo[]" id="1322314075">
                     <item dataType="Struct" type="Duality.Components.Physics.PolyShapeInfo" id="3786214806">
                       <convexPolygons dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Vector2[]]]" id="3039061024">
-                        <_items dataType="Array" type="Duality.Vector2[][]" id="986547164" length="4" />
-                        <_size dataType="Int">0</_size>
+                        <_items dataType="Array" type="Duality.Vector2[][]" id="986547164" length="4">
+                          <item dataType="Array" type="Duality.Vector2[]" id="654838468">
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">-33.1183472</X>
+                              <Y dataType="Float">298.924622</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">33.11435</X>
+                              <Y dataType="Float">297.6</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">33.11435</X>
+                              <Y dataType="Float">398.273682</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">-33.1183472</X>
+                              <Y dataType="Float">396.949036</Y>
+                            </item>
+                          </item>
+                        </_items>
+                        <_size dataType="Int">1</_size>
                       </convexPolygons>
                       <density dataType="Float">1</density>
                       <friction dataType="Float">0.3</friction>
