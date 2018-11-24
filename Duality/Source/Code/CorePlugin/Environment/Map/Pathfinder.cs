@@ -67,11 +67,14 @@ namespace WorldSailorsDuality
         private Point2 gridsize;
         [DontSerialize]
         private MySolver<MyPathNode, Object> aStar;
-        
+        [DontSerialize]
+        private Vector2 TrueSpacing;
 
-        private int convertToGrid(float inp)
+
+        private Point2 convertToGrid(Vector2 inp)
         {
-            return (int)Math.Round((inp- offset.X) / spacing);
+            Vector2 res = (inp - offset) / TrueSpacing;
+            return new Point2((int)MathF.Round(res.X), (int)MathF.Round(res.Y));
         }
 
         /// <summary>
@@ -79,12 +82,8 @@ namespace WorldSailorsDuality
         /// </summary>
         public List<MyPathNode> FindPath(Vector2 start, Vector2 end)
         {
-            Point2 s = new Point2();
-            s.X = convertToGrid(start.X);
-            s.Y = convertToGrid(start.Y);
-            Point2 e = new Point2();
-            e.X = convertToGrid(end.X);
-            e.Y = convertToGrid(end.Y);
+            Point2 s = convertToGrid(start);
+            Point2 e = convertToGrid(end);
 
             if (s.X >= gridsize.X || s.X < 0)
                 return null;
@@ -111,9 +110,10 @@ namespace WorldSailorsDuality
                 spacing = 1000;
 
             gridsize = new Point2((int)MathF.Ceiling(map.CompleteArea.W / spacing), (int)MathF.Ceiling(map.CompleteArea.H / spacing));
-            offset = new Vector2(-map.CompleteArea.X, -map.CompleteArea.X); // make sure Grid is centered
+            TrueSpacing = new Vector2(map.CompleteArea.W/(float)gridsize.X, map.CompleteArea.H / (float)gridsize.Y);
+            offset = new Vector2(map.CompleteArea.X, map.CompleteArea.Y); // make sure Grid is centered
             MyPathNode[,] grid = new MyPathNode[gridsize.X, gridsize.Y];
-            map.GenerateMap(offset, new Vector2(spacing, spacing),ref grid, minTravelHeight);
+            map.GenerateMap(offset, TrueSpacing, ref grid, minTravelHeight);
             MyPathNode.Distance1Height = maxSpeedHeight;
             MyPathNode.Distance10Height = minTravelHeight;
             aStar = new MySolver<MyPathNode, Object>(grid);
