@@ -11,10 +11,23 @@ using Duality.Resources;
 
 namespace WorldSailorsDuality
 {
+
+    public class PathGenParameters
+    {
+        public static float fallbackMaxSpeedHeight  { get; set; } = -400;
+        public static float fallbackMaxSpeedFactor { get; set; } = 10;
+        public float maxSpeedHeight { get; set; }
+        public float maxSpeedFactor { get; set; }
+        public PathGenParameters()
+        {
+            maxSpeedFactor = fallbackMaxSpeedFactor;
+            maxSpeedHeight = fallbackMaxSpeedHeight;
+        }
+    }
+
     //This could need some cleanup....
     public class MyPathNode : IPathNode<Object>
     {
-        public static float Distance1Height = -1000;
         public static float Distance10Height = 0;
         public Vector3 Position;
         public Boolean IsWall { get; set; }
@@ -26,7 +39,11 @@ namespace WorldSailorsDuality
 
         public float nodeLength(Object inUserContext)
         {
-            float length = StaticHelpers.lerp(new Vector2(Distance1Height,1), new Vector2(Distance10Height,10),Position.Z);
+            PathGenParameters p = new PathGenParameters();
+            if (inUserContext is PathGenParameters)
+                p = (PathGenParameters)inUserContext;
+
+            float length = StaticHelpers.lerp(new Vector2(p.maxSpeedHeight,1), new Vector2(Distance10Height,p.maxSpeedFactor),Position.Z);
             if (length < 1)
                 length = 1;
             return length;
@@ -56,7 +73,7 @@ namespace WorldSailorsDuality
     {
         public int spacing { get; set; } = 2000;
         public float minTravelHeight { get; set; } = -100;
-        public float maxSpeedHeight { get; set; } = -1000;
+        public PathGenParameters FallBackParmeters { get; set; } = new PathGenParameters();
         public Point2 GridSize { get { return gridsize; } }
 
         [DontSerialize]
@@ -82,6 +99,17 @@ namespace WorldSailorsDuality
         /// </summary>
         public List<MyPathNode> FindPath(Vector2 start, Vector2 end)
         {
+            PathGenParameters.fallbackMaxSpeedHeight = FallBackParmeters.maxSpeedHeight;
+            PathGenParameters.fallbackMaxSpeedFactor = FallBackParmeters.maxSpeedFactor;
+
+            return FindPath(start, end, FallBackParmeters);
+        }
+
+        /// <summary>
+        /// null if no path found
+        /// </summary>
+        public List<MyPathNode> FindPath(Vector2 start, Vector2 end,PathGenParameters parameters)
+        {
             Point2 s = convertToGrid(start);
             Point2 e = convertToGrid(end);
 
@@ -93,7 +121,7 @@ namespace WorldSailorsDuality
                 return null;
             if (e.Y >= gridsize.Y || e.Y < 0)
                 return null;
-            var p = aStar.Search(s, e, null);
+            var p = aStar.Search(s, e, parameters);
             if (p == null)
                 return null;
             List<MyPathNode> path = p.ToList();
@@ -114,7 +142,6 @@ namespace WorldSailorsDuality
             offset = new Vector2(map.CompleteArea.X, map.CompleteArea.Y); // make sure Grid is centered
             MyPathNode[,] grid = new MyPathNode[gridsize.X, gridsize.Y];
             map.GenerateMap(offset, TrueSpacing, ref grid, minTravelHeight);
-            MyPathNode.Distance1Height = maxSpeedHeight;
             MyPathNode.Distance10Height = minTravelHeight;
             aStar = new MySolver<MyPathNode, Object>(grid);
         }

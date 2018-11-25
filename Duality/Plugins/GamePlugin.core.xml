@@ -61,6 +61,13 @@
             135° is Upwind
             </summary>
         </member>
+        <member name="P:WorldSailorsDuality.AIAgent.AtrMinWindAngle">
+            <summary>
+            How low will the AI go Downwind
+            45° is Downwind
+            135° is Upwind
+            </summary>
+        </member>
         <member name="P:WorldSailorsDuality.AIAgent.AtrUpwindTagDistance">
             <summary>
             At what distance to the Target, seen Perpendicular to the wind,
@@ -97,6 +104,16 @@
         <member name="P:WorldSailorsDuality.AIAgent.AtrSailContAmpl">
             <summary>
             Amplification of the Sail Controller
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.AIAgent.AtrPathTargetRadius">
+            <summary>
+            Radius of Targets when pathfinding
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.AIAgent.AtrPathGenParameters">
+            <summary>
+            Parameters for Pathfinding
             </summary>
         </member>
         <member name="P:WorldSailorsDuality.AITarget.Radius">
@@ -438,6 +455,11 @@
             </summary>
         </member>
         <member name="M:WorldSailorsDuality.PathFinder.FindPath(Duality.Vector2,Duality.Vector2)">
+            <summary>
+            null if no path found
+            </summary>
+        </member>
+        <member name="M:WorldSailorsDuality.PathFinder.FindPath(Duality.Vector2,Duality.Vector2,WorldSailorsDuality.PathGenParameters)">
             <summary>
             null if no path found
             </summary>

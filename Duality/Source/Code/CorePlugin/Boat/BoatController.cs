@@ -110,6 +110,8 @@ namespace WorldSailorsDuality
                 if (IsBeached)
                     SetLinearDamping(maxDrag*10);
             }
+
+            
         
             //Check for Damage
             if (Hull != null && Sail != null)
@@ -119,6 +121,18 @@ namespace WorldSailorsDuality
                 RigidBody sBody = Sail.GetComponent<RigidBody>();
                 if(hBody!=null && sBody!=null)
                 {
+                    //Hinges not setup
+                    List<JointInfo> sailJoints = sBody.Joints.ToList();
+                    bool jointsOK = true;
+                    foreach(JointInfo j in sailJoints)
+                        if (j.OtherBody == null)
+                            jointsOK = false;
+                    if (!jointsOK)
+                        sBody.ClearJoints();
+                        foreach (JointInfo j in sailJoints)
+                            sBody.AddJoint(j, hBody);
+
+                    //Link broken
                     List<JointInfo> joints = new List<JointInfo>();
                     joints.AddRange(hBody.Joints);
                     joints.AddRange(sBody.Joints);
@@ -228,6 +242,18 @@ namespace WorldSailorsDuality
                     return sailFoil.FluidSpeed;
             }
             return new Vector2(0,0);
+        }
+
+        public Vector2 GetApperantWind()
+        {
+            if (Sail != null)
+            {
+                if (sailFoil == null)
+                    sailFoil = Sail.GetComponent<FoilController>();
+                if (sailFoil != null)
+                    return sailFoil.ApperantSpeed;
+            }
+            return new Vector2(0, 0);
         }
 
         public Vector2 GetSailOperatingPoint()

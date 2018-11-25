@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Duality.Drawing;
+using System.Diagnostics;
 
 namespace WorldSailorsDuality
 {
@@ -18,7 +19,7 @@ namespace WorldSailorsDuality
         public float WaitAfterStart { get; set; } = 20f;
         public int Laps { get; set; } = 1;
         public string Name { get; set; } = "Race!";
-
+        
         [DontSerialize]
         float startTime;
         [DontSerialize]
@@ -26,7 +27,7 @@ namespace WorldSailorsDuality
         [DontSerialize]
         List<RaceParticipant> participants;
 
-
+        
         public void startRace(Agent agent)
         {
             participants = new List<RaceParticipant>();
@@ -35,7 +36,8 @@ namespace WorldSailorsDuality
             foreach (AIAgent ai in AIParticipants)
                 participants.Add(new RaceParticipant(ai));
 
-            participants.Add(new RaceParticipant(agent));
+            if (agent != null)
+                participants.Add(new RaceParticipant(agent));
 
             foreach(RaceParticipant p in participants)
                 p.agent.SetTarget(WaitArea);
@@ -48,7 +50,10 @@ namespace WorldSailorsDuality
         {
             currentTime = (float)Time.GameTimer.TotalSeconds;
 
-            if(State == RaceState.IDLE)
+            if (State == RaceState.FORCE_START)
+                startRace(null);
+
+            if (State == RaceState.IDLE)
             {
                 List<AIAgent> AIParticipants = GameObj.GetComponentsInChildren<AIAgent>().ToList();
                 foreach (AIAgent ai in AIParticipants)
@@ -207,6 +212,7 @@ namespace WorldSailorsDuality
         IDLE,
         WAITING,
         RUNNING,
-        FINISHED
+        FINISHED,
+        FORCE_START
     }
 }

@@ -105,6 +105,7 @@
           <gameobj dataType="ObjectRef">3252799587</gameobj>
         </item>
         <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="485377126">
+          <_x003C_ApperantSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
           <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
             <X dataType="Float">16</X>
             <Y dataType="Float">0</Y>

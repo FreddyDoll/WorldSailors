@@ -64,8 +64,27 @@
                   <_items dataType="Array" type="Duality.Components.Physics.ShapeInfo[]" id="1957440648">
                     <item dataType="Struct" type="Duality.Components.Physics.PolyShapeInfo" id="449699692">
                       <convexPolygons dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Vector2[]]]" id="3807430500">
-                        <_items dataType="Array" type="Duality.Vector2[][]" id="2692686788" length="4" />
-                        <_size dataType="Int">0</_size>
+                        <_items dataType="Array" type="Duality.Vector2[][]" id="2692686788" length="4">
+                          <item dataType="Array" type="Duality.Vector2[]" id="1268202820">
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">-167.555817</X>
+                              <Y dataType="Float">-331.172119</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">164.976852</X>
+                              <Y dataType="Float">-333.749878</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">160.237534</X>
+                              <Y dataType="Float">264.505463</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">-168.375824</X>
+                              <Y dataType="Float">268.480621</Y>
+                            </item>
+                          </item>
+                        </_items>
+                        <_size dataType="Int">1</_size>
                       </convexPolygons>
                       <density dataType="Float">1</density>
                       <friction dataType="Float">0.3</friction>
@@ -122,10 +141,11 @@
                 <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="574580525">
+                <_x003C_ApperantSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                 <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                 <_x003C_maxSpeed_x003E_k__BackingField dataType="Float">30</_x003C_maxSpeed_x003E_k__BackingField>
                 <_x003C_ScreenString_x003E_k__BackingField dataType="String">AI Hull</_x003C_ScreenString_x003E_k__BackingField>
-                <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.2</_x003C_StatDrag_x003E_k__BackingField>
+                <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.15</_x003C_StatDrag_x003E_k__BackingField>
                 <_x003C_StatLift_x003E_k__BackingField dataType="Float">30</_x003C_StatLift_x003E_k__BackingField>
                 <_x003C_TargetMedium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="WATER" value="1" />
                 <active dataType="Bool">true</active>
@@ -227,8 +247,26 @@
                 <ignoreGravity dataType="Bool">false</ignoreGravity>
                 <joints dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Components.Physics.JointInfo]]" id="2053580279">
                   <_items dataType="Array" type="Duality.Components.Physics.JointInfo[]" id="1330647694">
-                    <item dataType="Struct" type="Duality.Components.Physics.RevoluteJointInfo" id="2377554128">
-                      <breakPoint dataType="Float">1000</breakPoint>
+                    <item dataType="Struct" type="Duality.Components.Physics.DistanceJointInfo" id="2377554128">
+                      <breakPoint dataType="Float">3000</breakPoint>
+                      <collide dataType="Bool">false</collide>
+                      <dampingRatio dataType="Float">0.8</dampingRatio>
+                      <enabled dataType="Bool">true</enabled>
+                      <frequency dataType="Float">2</frequency>
+                      <length dataType="Float">0</length>
+                      <localAnchorA dataType="Struct" type="Duality.Vector2">
+                        <X dataType="Float">0</X>
+                        <Y dataType="Float">200</Y>
+                      </localAnchorA>
+                      <localAnchorB dataType="Struct" type="Duality.Vector2">
+                        <X dataType="Float">0</X>
+                        <Y dataType="Float">200</Y>
+                      </localAnchorB>
+                      <otherBody />
+                      <parentBody dataType="ObjectRef">3930114967</parentBody>
+                    </item>
+                    <item dataType="Struct" type="Duality.Components.Physics.RevoluteJointInfo" id="1233420910">
+                      <breakPoint dataType="Float">3000</breakPoint>
                       <collide dataType="Bool">false</collide>
                       <enabled dataType="Bool">true</enabled>
                       <limitEnabled dataType="Bool">false</limitEnabled>
@@ -244,28 +282,10 @@
                       <maxMotorTorque dataType="Float">0</maxMotorTorque>
                       <motorEnabled dataType="Bool">false</motorEnabled>
                       <motorSpeed dataType="Float">0</motorSpeed>
-                      <otherBody dataType="ObjectRef">2876932474</otherBody>
+                      <otherBody />
                       <parentBody dataType="ObjectRef">3930114967</parentBody>
                       <refAngle dataType="Float">0</refAngle>
                       <upperLimit dataType="Float">0</upperLimit>
-                    </item>
-                    <item dataType="Struct" type="Duality.Components.Physics.DistanceJointInfo" id="1233420910">
-                      <breakPoint dataType="Float">1000</breakPoint>
-                      <collide dataType="Bool">false</collide>
-                      <dampingRatio dataType="Float">0.8</dampingRatio>
-                      <enabled dataType="Bool">true</enabled>
-                      <frequency dataType="Float">2</frequency>
-                      <length dataType="Float">0</length>
-                      <localAnchorA dataType="Struct" type="Duality.Vector2">
-                        <X dataType="Float">0</X>
-                        <Y dataType="Float">200</Y>
-                      </localAnchorA>
-                      <localAnchorB dataType="Struct" type="Duality.Vector2">
-                        <X dataType="Float">0</X>
-                        <Y dataType="Float">200</Y>
-                      </localAnchorB>
-                      <otherBody dataType="ObjectRef">2876932474</otherBody>
-                      <parentBody dataType="ObjectRef">3930114967</parentBody>
                     </item>
                   </_items>
                   <_size dataType="Int">2</_size>
@@ -277,8 +297,27 @@
                   <_items dataType="Array" type="Duality.Components.Physics.ShapeInfo[]" id="1702415165">
                     <item dataType="Struct" type="Duality.Components.Physics.PolyShapeInfo" id="191316518">
                       <convexPolygons dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Vector2[]]]" id="2314125568">
-                        <_items dataType="Array" type="Duality.Vector2[][]" id="1370370716" length="4" />
-                        <_size dataType="Int">0</_size>
+                        <_items dataType="Array" type="Duality.Vector2[][]" id="1370370716" length="4">
+                          <item dataType="Array" type="Duality.Vector2[]" id="1462401988">
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">38.4874535</X>
+                              <Y dataType="Float">214.46051</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">-44.4245262</X>
+                              <Y dataType="Float">215.435883</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">-40.77972</X>
+                              <Y dataType="Float">-262.291321</Y>
+                            </item>
+                            <item dataType="Struct" type="Duality.Vector2">
+                              <X dataType="Float">39.63626</X>
+                              <Y dataType="Float">-263.440155</Y>
+                            </item>
+                          </item>
+                        </_items>
+                        <_size dataType="Int">1</_size>
                       </convexPolygons>
                       <density dataType="Float">1</density>
                       <friction dataType="Float">0.3</friction>
@@ -335,11 +374,12 @@
                 <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="1627763018">
+                <_x003C_ApperantSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                 <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                 <_x003C_maxSpeed_x003E_k__BackingField dataType="Float">30</_x003C_maxSpeed_x003E_k__BackingField>
                 <_x003C_ScreenString_x003E_k__BackingField dataType="String">AI Sail</_x003C_ScreenString_x003E_k__BackingField>
-                <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.1</_x003C_StatDrag_x003E_k__BackingField>
-                <_x003C_StatLift_x003E_k__BackingField dataType="Float">6</_x003C_StatLift_x003E_k__BackingField>
+                <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.03</_x003C_StatDrag_x003E_k__BackingField>
+                <_x003C_StatLift_x003E_k__BackingField dataType="Float">4</_x003C_StatLift_x003E_k__BackingField>
                 <_x003C_TargetMedium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="AIR" value="2" />
                 <active dataType="Bool">true</active>
                 <gameobj dataType="ObjectRef">100218183</gameobj>

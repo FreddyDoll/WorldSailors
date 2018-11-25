@@ -64,6 +64,12 @@ namespace WorldSailorsDuality
         /// </summary>
         public float AtrMaxWindAngle { get; set; } = 1.8f;
         /// <summary>
+        /// How low will the AI go Downwind
+        /// 45° is Downwind
+        /// 135° is Upwind
+        /// </summary>
+        public float AtrMinWindAngle { get; set; } = 1f;
+        /// <summary>
         /// At what distance to the Target, seen Perpendicular to the wind,
         /// will the AI do a Tag.
         /// Only used in UPWIND mode
@@ -95,7 +101,15 @@ namespace WorldSailorsDuality
         /// Amplification of the Sail Controller
         /// </summary>
         [EditorHintDecimalPlaces(4)]
-        public float AtrSailContAmpl { get; set; } = 0.005f;
+        public float AtrSailContAmpl { get; set; } = 0.05f;
+        /// <summary>
+        /// Radius of Targets when pathfinding
+        /// </summary>
+        public float AtrPathTargetRadius { get; set; } = 5000f;
+        /// <summary>
+        /// Parameters for Pathfinding
+        /// </summary>
+        public PathGenParameters AtrPathGenParameters { get; set; } = new PathGenParameters();
 
         [DontSerialize]
         private float targetSailAngle = 0.1f;
@@ -111,6 +125,10 @@ namespace WorldSailorsDuality
         private Vector2 wind;
         [DontSerialize]
         private float windAngle;
+        [DontSerialize]
+        private Vector2 aparentWind;
+        [DontSerialize]
+        private float aparentWindAngle;
         [DontSerialize]
         private float offsetagainstWind;
         [DontSerialize]
@@ -128,6 +146,9 @@ namespace WorldSailorsDuality
 
             if (targetBoat != null)
             {
+                aparentWind = targetBoat.GetApperantWind();
+                aparentWindAngle = aparentWind.Angle;
+
                 wind = targetBoat.GetWind();
                 windAngle = wind.Angle;
                 offsetagainstWind = Vector2.Dot(wind.PerpendicularLeft.Normalized, PositionError);
@@ -166,7 +187,7 @@ namespace WorldSailorsDuality
                             Vector2 lingerPosition = LingerBuffer.Position + MathF.Rnd.NextVector2()*AtrMaxLingerDistance;
                             GameObject t = NavTargetPrefab.Res.Instantiate(new Vector3(lingerPosition.X, lingerPosition.Y,0));
                             t.Parent = this.GameObj;
-                            t.GetComponent<AITarget>().Radius = 1000;
+                            t.GetComponent<AITarget>().Radius = AtrPathTargetRadius;
                             t.GetComponent<AITarget>().Temporary = true;
                             t.Transform.Pos = new Vector3(t.Transform.Pos.X, t.Transform.Pos.Y, 1);
                             StraightTarget = t.GetComponent<AITarget>();
@@ -200,11 +221,16 @@ namespace WorldSailorsDuality
                     movementState = MovementControllerState.UPWIND;
                 if (movementState == MovementControllerState.UPWIND && !UpwindNeeded(StraightModeChangeHysteresis))
                     movementState = MovementControllerState.DIRECT;
+                if (movementState == MovementControllerState.DIRECT && DownwindNeeded(0))
+                    movementState = MovementControllerState.DOWNWIND;
+                if (movementState == MovementControllerState.DOWNWIND && !DownwindNeeded(StraightModeChangeHysteresis))
+                    movementState = MovementControllerState.DIRECT;
 
                 switch (movementState)
                 {
                     case MovementControllerState.DIRECT: DirectController(); break;
                     case MovementControllerState.UPWIND: UpwindController(); break;
+                    case MovementControllerState.DOWNWIND: DownwindController(); break;
                 }
 
                 //Heading Controller
@@ -214,13 +240,10 @@ namespace WorldSailorsDuality
                 //Aplly Torque
                 targetBoat.ApplySteering(HeadingError * AtrSteeringAmplification - targetBoat.GetTurnRate() * AtrTurnDamping);
                 //SetSail
-                float currentAA = targetBoat.Sail.GetComponent<FoilController>().GetAngleOfAttack();
-                float error = AtrTargetAngleOfAttack - currentAA;
-                if (currentAA < 0)
-                    error = AtrTargetAngleOfAttack + currentAA;
-
-                //if(forceCloseTimer<=0)
-                    //targetSailAngle -= error * AtrSailContAmpl;
+                float offsettoWind = FindDiff(targetHeading, aparentWindAngle);
+                if (offsettoWind < 0)
+                    offsettoWind *= -1;
+                targetSailAngle = offsettoWind * AtrSailContAmpl;
 
                 if (targetSailAngle < 0)
                     targetSailAngle = 0;
@@ -231,10 +254,11 @@ namespace WorldSailorsDuality
                     forceCloseTimer -= Time.TimeMult*Time.SPFMult;
                 if (targetBoat.GetSailOperatingPoint().Y > wind.Length/3f) //force Close Sail if going the wrong way
                 {
-                    targetBoat.SetSail(0);
                     forceCloseTimer = 1;
                 }
-                else if (forceCloseTimer <= 0)
+                if(forceCloseTimer>0)
+                    targetBoat.SetSail(0);
+                else 
                     targetBoat.SetSail(targetSailAngle);
             }
         }
@@ -261,7 +285,7 @@ namespace WorldSailorsDuality
 
 
 
-                List<MyPathNode> path = NavMap.FindPath(targetBoat.Position, NavTarget.Position);
+                List<MyPathNode> path = NavMap.FindPath(targetBoat.Position, NavTarget.Position,AtrPathGenParameters);
                 StraightTargetList = new List<AITarget>();
                 if (path != null)
                 {
@@ -269,7 +293,7 @@ namespace WorldSailorsDuality
                     {
                         GameObject t = NavTargetPrefab.Res.Instantiate(node.Position);
                         t.Parent = this.GameObj;
-                        t.GetComponent<AITarget>().Radius = 5000;
+                        t.GetComponent<AITarget>().Radius = AtrPathTargetRadius;
                         t.GetComponent<AITarget>().Temporary = true;
                         t.Transform.Pos = new Vector3(t.Transform.Pos.X, t.Transform.Pos.Y, 1);
                         StraightTargetList.Add(t.GetComponent<AITarget>());
@@ -294,13 +318,14 @@ namespace WorldSailorsDuality
            return WindAngleToTarget > AtrMaxWindAngle - hys || WindAngleToTarget < -AtrMaxWindAngle + hys;
         }
 
+        private bool DownwindNeeded(float hys)
+        {
+            return WindAngleToTarget < AtrMinWindAngle + hys && WindAngleToTarget > -AtrMinWindAngle - hys;
+        }
+
         private void DirectController()
         {
             targetHeading = PositionError.Angle;
-            float offsettoWind = FindDiff(targetHeading, windAngle);
-            if (offsettoWind < 0)
-                offsettoWind *= -1;
-            targetSailAngle = offsettoWind*0.3f;
         }
         
         private void UpwindController()
@@ -324,9 +349,33 @@ namespace WorldSailorsDuality
                 targetHeading = possibleLeftFootForward;
             else
                 targetHeading = possibleRightFootForward;
-            targetSailAngle = 0.1f;
+            //targetSailAngle = 0f;
         }
-        
+
+        private void DownwindController()
+        {
+            float possibleLeftFootForward = windAngle + AtrMinWindAngle;
+            float possibleRightFootForward = windAngle - AtrMinWindAngle;
+
+            if (goingLeftFootForward && offsetagainstWind > AtrUpwindTagDistance) //Check for Tag
+            {
+                goingLeftFootForward = false;
+                forceCloseTimer = 2;
+            }
+
+            if (!goingLeftFootForward && offsetagainstWind < -AtrUpwindTagDistance) //Check for Tag
+            {
+                goingLeftFootForward = true;
+                forceCloseTimer = 2;
+            }
+
+            if (goingLeftFootForward)
+                targetHeading = possibleLeftFootForward;
+            else
+                targetHeading = possibleRightFootForward;
+            // targetSailAngle = 0f;
+        }
+
         private float FindDiff(float target, float current)
         {
             float diff = target-current;
@@ -362,8 +411,13 @@ namespace WorldSailorsDuality
         public override List<string> GenerateBodyText()
         {
             List<string> bodyText = base.GenerateBodyText();
+            bodyText.Add("Mode " + movementState.ToString());
             bodyText.Add("TargetSailAngle " + MathF.Round(targetSailAngle,3).ToString());
             bodyText.Add("ForceClose " + MathF.Round(forceCloseTimer, 2).ToString());
+            bodyText.Add("DownWIndNeeded " + DownwindNeeded(0).ToString());
+            bodyText.Add("UpWIndNeeded " + UpwindNeeded(0).ToString());
+            bodyText.Add("Heading " + MathF.Round(targetHeading,2).ToString());
+            bodyText.Add("AwindAngle " + MathF.Round(aparentWindAngle,2).ToString());
             return bodyText;
         }
 
