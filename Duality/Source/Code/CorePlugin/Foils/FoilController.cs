@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace WorldSailorsDuality
 {
     [RequiredComponent(typeof(RigidBody)), RequiredComponent(typeof(Transform))]
-    public class FoilController : Component, Ihudstring, IUpgradeable
+    public class FoilController : Component, Ihudstring
     {
         public float StatLift { get; set; }
         public MediumType TargetMedium { get; set; } = MediumType.INACTIVE;

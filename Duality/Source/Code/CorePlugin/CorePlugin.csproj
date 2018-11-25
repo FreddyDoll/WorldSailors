@@ -62,10 +62,14 @@
     <Compile Include="Agents\AITarget.cs" />
     <Compile Include="Agents\Agent.cs" />
     <Compile Include="Agents\PlayerAgent.cs" />
+    <Compile Include="Boat\BoatPrototype.cs" />
+    <Compile Include="Environment\Map\HeightMapRiver.cs" />
+    <Compile Include="Environment\Map\HeightMapSimpleX.cs" />
+    <Compile Include="Environment\Map\HeightMapSimple.cs" />
+    <Compile Include="Environment\Map\HeightMapPerlin.cs" />
     <Compile Include="Helpers\AStar\PriorityQueue.cs" />
     <Compile Include="Helpers\AStar\SpatialAStar.cs" />
     <Compile Include="Boat\BoatFactory.cs" />
-    <Compile Include="Boat\IUpgradeable.cs" />
     <Compile Include="Boat\RudderController.cs" />
     <Compile Include="Boat\SailController.cs" />
     <Compile Include="Foils\MediumParticleRenderer.cs" />

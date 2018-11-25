@@ -83,6 +83,8 @@ namespace WorldSailorsDuality
         private SailController sailCont;
         [DontSerialize]
         private FoilController sailFoil;
+        [DontSerialize]
+        private FoilController hullFoil;
 
         void ICmpUpdatable.OnUpdate()
         {
@@ -230,6 +232,18 @@ namespace WorldSailorsDuality
                 return 0;
 
             return trans.Angle;
+        }
+
+        public Vector2 GetCurrent()
+        {
+            if (Hull != null)
+            {
+                if (hullFoil == null)
+                    hullFoil = Hull.GetComponent<FoilController>();
+                if (hullFoil != null)
+                    return hullFoil.FluidSpeed;
+            }
+            return new Vector2(0, 0);
         }
 
         public Vector2 GetWind()

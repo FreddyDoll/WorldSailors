@@ -11,8 +11,9 @@ using System.Diagnostics;
 
 namespace WorldSailorsDuality
 {
-    public class RaceController:Component,ICmpUpdatable,Ihudstring,IQuest
+    public class RaceController:Component,ICmpUpdatable,ICmpInitializable,Ihudstring,IQuest
     {
+        public ContentRef<Prefab> AIPrefab { get; set; }
         public List<AITarget> Targets { get; set; } = new List<AITarget>();
         public AITarget WaitArea { get; set; }
         public RaceState State { get; set; } = RaceState.IDLE;
@@ -27,11 +28,12 @@ namespace WorldSailorsDuality
         [DontSerialize]
         List<RaceParticipant> participants;
 
-        
+
         public void startRace(Agent agent)
         {
+            
             participants = new List<RaceParticipant>();
-
+            
             List<AIAgent> AIParticipants = GameObj.GetComponentsInChildren<AIAgent>().ToList();
             foreach (AIAgent ai in AIParticipants)
                 participants.Add(new RaceParticipant(ai));
@@ -179,6 +181,36 @@ namespace WorldSailorsDuality
         public AITarget GetStartPoint()
         {
              return WaitArea;
+        }
+
+        public void OnInit(InitContext context)
+        {
+            if (context == InitContext.Loaded && AIPrefab.Res != null && DualityApp.ExecContext != DualityApp.ExecutionContext.Editor)
+            {
+                List<GameObject> spawnedAIs = new List<GameObject>();
+                List<GameObject> initPos = new List<GameObject>();
+                foreach (GameObject o in GameObj.Children)
+                    if (o.Active && o.Name == "ref_InitialPosition")
+                    {
+                        GameObject ai = AIPrefab.Res.Instantiate();
+                        initPos.Add(o);
+                        spawnedAIs.Add(ai);
+                    }
+
+                for (int n = 0; n < spawnedAIs.Count; n++)
+                {
+                    spawnedAIs[n].GetComponent<Agent>().InitPos = initPos[n].Transform.Pos.Xy;
+                    initPos[n].Active = false;
+
+                    spawnedAIs[n].Parent = this.GameObj;
+                    spawnedAIs[n].Active = true;
+                }
+
+            }
+        }
+
+        public void OnShutdown(ShutdownContext context)
+        {
         }
         #endregion
 

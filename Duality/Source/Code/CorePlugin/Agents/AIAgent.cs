@@ -149,7 +149,7 @@ namespace WorldSailorsDuality
                 aparentWind = targetBoat.GetApperantWind();
                 aparentWindAngle = aparentWind.Angle;
 
-                wind = targetBoat.GetWind();
+                wind = targetBoat.GetWind() - targetBoat.GetCurrent();
                 windAngle = wind.Angle;
                 offsetagainstWind = Vector2.Dot(wind.PerpendicularLeft.Normalized, PositionError);
                 
