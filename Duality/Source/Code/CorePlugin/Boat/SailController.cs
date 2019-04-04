@@ -21,6 +21,35 @@ namespace WorldSailorsDuality
     {
         public float maxLenSailDist { get; set; } = 0;
 
+        /// <summary>
+        /// Get Sail angle
+        /// </summary>
+        /// <returns>0 to Pi/</returns>
+        public float GetSail()
+        {
+            RigidBody hbody = GameObj.GetComponent<RigidBody>();
+            if (hbody == null)
+                return 0;
+            if (hbody.Joints.ToArray().Count() < 2)
+                return 0;
+            JointInfo dJoint = hbody.Joints.ToArray()[1];
+            JointInfo rJoint = hbody.Joints.ToArray()[0];
+            if (dJoint is DistanceJointInfo && rJoint is RevoluteJointInfo)
+            {
+                DistanceJointInfo distjoint = (DistanceJointInfo)dJoint;
+                RevoluteJointInfo revJoint = (RevoluteJointInfo)rJoint;
+                maxLenSailDist = (revJoint.LocalAnchorA - distjoint.LocalAnchorA).Length * 5.5f;
+                //float len = (distjoint.LocalAnchorB - distjoint.LocalAnchorB).Length;
+                float len = distjoint.TargetDistance;
+                return (len * 2f * MathF.Pi / maxLenSailDist);
+            }
+            return 0;
+        }
+
+        /// <summary>
+        /// Set Sail Angle
+        /// </summary>
+        /// <param name="angle">0 to Pi/2</param>
         public void SetSail(float angle)
         {
             if (angle < 0)
@@ -30,7 +59,7 @@ namespace WorldSailorsDuality
 
             float dist = maxLenSailDist * angle/2f/(float)Math.PI;
             
-                RigidBody hbody = GameObj.GetComponent<RigidBody>();
+            RigidBody hbody = GameObj.GetComponent<RigidBody>();
             if (hbody == null)
                 return;
             if (hbody.Joints.ToArray().Count() < 2)

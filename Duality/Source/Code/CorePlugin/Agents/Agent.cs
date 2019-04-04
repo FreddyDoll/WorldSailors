@@ -57,6 +57,7 @@ namespace WorldSailorsDuality
                 bodyText.Add("Boat Name " + targetBoat.name);
                 bodyText.Add("Boat Speed " + Math.Round(targetBoat.GetSpeed().Length, 2).ToString());
                 bodyText.Add("Boat Upwind " + Math.Round(targetBoat.GetUpwindSpeed(), 2).ToString());
+                bodyText.Add("Sail Angle " + Math.Round(targetBoat.GetSailAngle(), 2).ToString());
                 bodyText.Add("True Wind " + Math.Round(targetBoat.GetWind().Length, 2).ToString());
             }
             return bodyText;
@@ -64,6 +65,12 @@ namespace WorldSailorsDuality
 
         public virtual void DrawAgentWindow(Canvas c, Rect area)
         {
+            CanvasState mainState = c.State.Clone();
+            c.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha, mainState.Material.MainColor.ToHsva().WithValue(0.8f).WithAlpha(0.2f).ToRgba()));
+            c.FillRect(area.X, area.Y, area.W, area.H);
+            c.State = mainState;
+
+
             if (targetBoat != null && targetBoat.IsDestroyed)
             {
                 string Text = "Your Boat is Destroyed, Respawning in: " + MathF.Round(respawnTimer).ToString();

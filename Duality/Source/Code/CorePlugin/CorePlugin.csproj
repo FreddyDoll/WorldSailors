@@ -62,6 +62,7 @@
     <Compile Include="Agents\AITarget.cs" />
     <Compile Include="Agents\Agent.cs" />
     <Compile Include="Agents\PlayerAgent.cs" />
+    <Compile Include="Boat\BoatSpriteController.cs" />
     <Compile Include="Helpers\AStar\PriorityQueue.cs" />
     <Compile Include="Helpers\AStar\SpatialAStar.cs" />
     <Compile Include="Boat\BoatFactory.cs" />

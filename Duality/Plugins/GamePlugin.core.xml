@@ -164,6 +164,18 @@
             -Each must be targeted at the same Parent (usually Hull) 
             </summary>
         </member>
+        <member name="M:WorldSailorsDuality.SailController.GetSail">
+            <summary>
+            Get Sail angle
+            </summary>
+            <returns>0 to Pi/</returns>
+        </member>
+        <member name="M:WorldSailorsDuality.SailController.SetSail(System.Single)">
+            <summary>
+            Set Sail Angle
+            </summary>
+            <param name="angle">0 to Pi/2</param>
+        </member>
         <member name="P:WorldSailorsDuality.MediumParticleRenderer.SpawnArea">
             <summary>
             If Set to != null the Area where the particles are spawned is kept constant.

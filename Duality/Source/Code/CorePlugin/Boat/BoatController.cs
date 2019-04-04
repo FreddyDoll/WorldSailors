@@ -180,6 +180,16 @@ namespace WorldSailorsDuality
                 sailCont.SetSail(angle);
         }
 
+        public float GetSailAngle()
+        {
+            if (sailCont == null)
+                sailCont = Sail.GetComponent<SailController>();
+            if (sailCont != null)
+                return sailCont.GetSail();
+
+            return 0f;
+        }
+
         public Vector2 GetSpeed()
         {
             if (Hull == null)

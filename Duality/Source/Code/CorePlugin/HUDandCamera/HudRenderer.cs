@@ -179,8 +179,15 @@ namespace WorldSailorsDuality
                 float border = 20;
                 Vector2 pos = new Vector2(canvas.Width - size - border, border);
 
+                
+
                 foreach (FoilController f in foils)
                 {
+                    CanvasState mainState = canvas.State.Clone();
+                    canvas.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha, mainState.Material.MainColor.ToHsva().WithValue(0.8f).WithAlpha(0.2f).ToRgba()));
+                    canvas.FillRect(pos.X, pos.Y, size, size);
+                    canvas.State = mainState;
+
                     canvas.DrawRect(pos.X, pos.Y, size, size);
                     canvas.DrawText(f.ScreenString, pos.X+5, pos.Y+size-35);
                     canvas.DrawText("L/D " + Math.Round(f.GetLiftToDrag(),2).ToString(), pos.X + 5, pos.Y + size - 15);

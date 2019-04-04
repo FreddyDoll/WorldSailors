@@ -84,6 +84,11 @@ namespace WorldSailorsDuality
 
         public void Draw(Canvas c, Rect area)
         {
+            CanvasState mainState = c.State.Clone();
+            c.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha, mainState.Material.MainColor.ToHsva().WithValue(0.8f).WithAlpha(0.2f).ToRgba()));
+            c.FillRect(area.X, area.Y, area.W, area.H);
+            c.State = mainState;
+
             if (ActiveQuest != null && ActiveQuest.GetState() == QuestState.IDLE)
             {
                 string Text = "Press [B] to start " + ActiveQuest.screenName();
