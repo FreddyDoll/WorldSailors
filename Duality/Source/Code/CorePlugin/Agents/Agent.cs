@@ -153,11 +153,15 @@ namespace WorldSailorsDuality
                     respawn = false;
                     if (targetBoat.IsBeached)
                     {
+                        CollectedUpgrades.RemoveAll(x => x.Upgrade is HullDragUpgrade);
+                        CollectedUpgrades.RemoveAll(x => x.Upgrade is HullLiftUpgrade);
                         Vector2 gra = -targetBoat.map.ProbeGradient(GetPosition()).Normalized;
                         targetBoat.Position = targetBoat.Position + gra*10000;
                     }
                     else
                     {
+                        CollectedUpgrades.RemoveAll(x => x.Upgrade is SailDragUpgrade);
+                        CollectedUpgrades.RemoveAll(x => x.Upgrade is SailLiftUpgrade);
                         BoatFactory factory = GameObj.GetComponent<BoatFactory>();
                         if (factory != null)
                             factory.CreateBoat();

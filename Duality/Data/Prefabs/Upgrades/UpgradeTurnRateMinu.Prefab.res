@@ -57,20 +57,20 @@
           <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
             <contentPath dataType="String">Data\Textures\Upgrades\TurnMinus.Material.res</contentPath>
           </sharedMat>
-          <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
+          <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
         </item>
         <item dataType="Struct" type="WorldSailorsDuality.AITarget" id="2536371647">
           <_x003C_activeColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
             <A dataType="Byte">255</A>
-            <B dataType="Byte">53</B>
-            <G dataType="Byte">207</G>
-            <R dataType="Byte">255</R>
+            <B dataType="Byte">211</B>
+            <G dataType="Byte">211</G>
+            <R dataType="Byte">211</R>
           </_x003C_activeColor_x003E_k__BackingField>
           <_x003C_inactiveColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
             <A dataType="Byte">255</A>
-            <B dataType="Byte">255</B>
-            <G dataType="Byte">255</G>
-            <R dataType="Byte">255</R>
+            <B dataType="Byte">110</B>
+            <G dataType="Byte">110</G>
+            <R dataType="Byte">110</R>
           </_x003C_inactiveColor_x003E_k__BackingField>
           <_x003C_MinRenderRadius_x003E_k__BackingField dataType="Float">400</_x003C_MinRenderRadius_x003E_k__BackingField>
           <_x003C_Temporary_x003E_k__BackingField dataType="Bool">false</_x003C_Temporary_x003E_k__BackingField>

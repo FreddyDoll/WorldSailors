@@ -12,6 +12,10 @@ namespace WorldSailorsDuality
     [RequiredComponent(typeof(RigidBody)), RequiredComponent(typeof(Transform))]
     public class FoilController : Component, Ihudstring, IUpgradeable
     {
+        public float waveDragSpeed { get; set; } = 0;
+        public float froudNr { get; set; } = 0;
+        public float maxWaveDrag { get; set; } = 0;
+        public bool hasWaveDrag { get; set; } = false;
         public float StatLift { get; set; }
         public MediumType TargetMedium { get; set; } = MediumType.INACTIVE;
         public float StatDrag { get; set; }
@@ -55,7 +59,10 @@ namespace WorldSailorsDuality
         
         public string GetHudString()
         {
-            return ScreenString + " Lift: " + Math.Round(StatLift, 2).ToString() + " ; Drag: " + Math.Round(StatDrag, 2).ToString();
+            string ret = ScreenString + " Lift:" + Math.Round(StatLift, 2).ToString() + " Drag:" + Math.Round(StatDrag, 2).ToString();
+            if (hasWaveDrag)
+                ret += " FroudNr:" + MathF.Round(froudNr, 2).ToString();
+            return ret;
         }
                 
         private Vector2 GetForce(Vector2 workingPoint)
@@ -65,6 +72,20 @@ namespace WorldSailorsDuality
             Vector2 quadSpeed = workingPoint * workingPoint.Length; //Quadrieren
             ret.X = -quadSpeed.X * StatLift; //Lift
             ret.Y = -quadSpeed.Y * StatDrag; //Drag
+            //wave Drag
+            //Wolfram: Plot[Piecewise[{{x^2, x < 1}, {((x-1.5)/(1.5 - 1))^2, x > 1}}], {x, 0, 1.5}]
+            if (hasWaveDrag)
+            {
+                froudNr = Math.Abs(workingPoint.Y) / waveDragSpeed;
+                float noDrag = 1.5f;
+                float normDrag = 0;
+                if (froudNr > 0 && froudNr < 1)
+                    normDrag = MathF.Pow(froudNr, 2);
+                else if (froudNr < noDrag)
+                    normDrag = MathF.Pow(((froudNr - noDrag) / (noDrag - 1)), 2);
+                ret.Y -= MathF.Sign(quadSpeed.Y) * normDrag * maxWaveDrag;
+            }
+
 
             return ret;
         }

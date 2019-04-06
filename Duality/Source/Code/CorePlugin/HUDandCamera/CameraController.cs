@@ -23,6 +23,24 @@ namespace WorldSailorsDuality
             Transform t = this.GameObj.GetComponent<Transform>();
             Camera c = this.GameObj.GetComponent<Camera>();
 
+            if (TrackedAgent != null && TrackedAgent.CollectedUpgrades != null)
+            {
+                List<UpgradeTarget> allUpgrades = this.GameObj.ParentScene.FindComponents<UpgradeTarget>().ToList();
+                List<UpgradeTarget> agentUpgrades = TrackedAgent.CollectedUpgrades;
+                foreach(UpgradeTarget ta in allUpgrades)
+                {
+                    if (c.IsCoordInView(new Vector3(ta.Target.Position,0)))
+                    {
+                        if (agentUpgrades.Any(x => x == ta))
+                            ta.Target.render.ColorTint = ta.Target.inactiveColor;
+                        else
+                            ta.Target.render.ColorTint = ta.Target.activeColor;
+                    }
+
+                }
+            }
+
+
             if (t != null && AcceptUserInput) //Camera follows
             {
                 float deltaHeight = 0;

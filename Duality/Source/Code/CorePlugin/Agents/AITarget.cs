@@ -20,7 +20,7 @@ namespace WorldSailorsDuality
         [DontSerialize]
         private Transform trans = null;
         [DontSerialize]
-        private SpriteRenderer render = null;
+        public SpriteRenderer render = null;
         [DontSerialize]
         private Vector2 pos = new Vector2();
         [DontSerialize]

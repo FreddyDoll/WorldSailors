@@ -23,13 +23,16 @@ namespace WorldSailorsDuality
             GameObject BoatGameObj = BoatPrefab.Res.Instantiate();
             BoatGameObj.Parent = this.GameObj;
             BoatController c = BoatGameObj.GetComponent<BoatController>();
-            List<IUpgradeable> upgrades = BoatGameObj.GetComponentsDeep<IUpgradeable>().ToList();
             
-
             if (ParentAgent == null)
                 ParentAgent = GameObj.GetComponent<Agent>();
             if (ParentAgent != null)
             {
+                if(ParentAgent.CollectedUpgrades != null)
+                {
+                    foreach(UpgradeTarget u in ParentAgent.CollectedUpgrades)
+                        u.AdjustLevel(c);
+                }
                 if(ParentAgent.targetBoat!= null)
                     GameObj.ParentScene.RemoveObject(ParentAgent.targetBoat.GameObj);
                 Vector2 pos = ParentAgent.GetPosition();
