@@ -16,9 +16,10 @@ namespace WorldSailorsDuality
         public Agent TrackedAgent { get; set; }
         public bool AcceptUserInput { get; set; } = true;
         public Vector2 ZoomLimit { get; set; } = new Vector2(-20000,1000);
+        Vector2 CameraOffset = new Vector2();
 
         public void OnUpdate()
-        {   
+        {
             Transform t = this.GameObj.GetComponent<Transform>();
             Camera c = this.GameObj.GetComponent<Camera>();
 
@@ -43,7 +44,7 @@ namespace WorldSailorsDuality
                 if (c.Perspective == PerspectiveMode.Parallax)
                     deltaHeight += t.Pos.Z;
                 else
-                { 
+                {
                     c.FocusDist *= (float)Math.Pow(c.FocusDist, deltaHeight / 10000f);
                     deltaHeight = t.Pos.Z;
                 }
@@ -55,9 +56,12 @@ namespace WorldSailorsDuality
                     deltaHeight = ZoomLimit.X;
                 t.MoveTo(new Vector3(t.Pos.X, t.Pos.Y, deltaHeight));
             }
-            
-            if(TrackedAgent != null)
-                t.MoveTo(new Vector3(TrackedAgent.GetPosition().X, TrackedAgent.GetPosition().Y, t.Pos.Z));
+
+            if (DualityApp.Gamepads[0].ButtonReleased(GamepadButton.RightStick)) 
+                CameraOffset = new Vector2();
+            CameraOffset += new Vector2(StaticHelpers.ApplyStickDeadZone(DualityApp.Gamepads[0].RightThumbstick.X), StaticHelpers.ApplyStickDeadZone(DualityApp.Gamepads[0].RightThumbstick.Y)) * 80;
+            if (TrackedAgent != null)
+                t.MoveTo(new Vector3(TrackedAgent.GetPosition().X + CameraOffset.X, TrackedAgent.GetPosition().Y + CameraOffset.Y, t.Pos.Z));
         }
     }
 }

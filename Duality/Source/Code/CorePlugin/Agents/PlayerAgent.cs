@@ -35,6 +35,8 @@ namespace WorldSailorsDuality
                 else //Just to fix display of Control Torque Only LAST ApplySteering ist displayed 
                 {
                     float turn = StaticHelpers.ApplyStickDeadZone(DualityApp.Gamepads[0].LeftThumbstick.X);
+                    if (DualityApp.Gamepads[0].ButtonReleased(GamepadButton.LeftStick)) //Reset Trim
+                        trimPoint = 0;
                     if (DualityApp.Gamepads[0].ButtonPressed(GamepadButton.A) && !trimming) //start trimming
                     {
                         trimPoint += turn;
@@ -52,7 +54,7 @@ namespace WorldSailorsDuality
                     {
                         trimming = false;
                     }
-                    targetBoat.ApplySteering((turn + trimPoint) * 0.001f);
+                    targetBoat.ApplySteering((turn + trimPoint) * targetBoat.TurnRate);
                 }
 
                 //Sail Setting
@@ -60,16 +62,15 @@ namespace WorldSailorsDuality
                     targetSailDist += 0.02f * Time.TimeMult;
                 else if (DualityApp.Keyboard[Key.Down])
                     targetSailDist -= 0.02f * Time.TimeMult;
-                float trimAdjust = StaticHelpers.ApplyStickDeadZone(DualityApp.Gamepads[0].RightThumbstick.X);
+                float trimAdjust = (DualityApp.Gamepads[0].RightTrigger - DualityApp.Gamepads[0].LeftTrigger) * 1;
                 targetSailDist -= trimAdjust * Time.TimeMult * 0.01f; //Sail Trim
-                float SailDistOverr = (DualityApp.Gamepads[0].LeftTrigger - DualityApp.Gamepads[0].RightTrigger) * 3;
 
                 if (targetSailDist < 0)
                     targetSailDist = 0;
                 if (targetSailDist > (float)Math.PI / 2f)
                     targetSailDist = (float)Math.PI / 2f;
 
-                targetBoat.SetSail(targetSailDist + SailDistOverr);
+                targetBoat.SetSail(targetSailDist);
             }
 
         }

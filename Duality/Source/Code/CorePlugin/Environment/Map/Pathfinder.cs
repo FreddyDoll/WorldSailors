@@ -111,7 +111,7 @@ namespace WorldSailorsDuality
                 spacing = 1000;
 
             gridsize = new Point2((int)MathF.Ceiling(map.CompleteArea.W / spacing), (int)MathF.Ceiling(map.CompleteArea.H / spacing));
-            offset = new Vector2(-map.CompleteArea.X, -map.CompleteArea.X); // make sure Grid is centered
+            offset = new Vector2(map.CompleteArea.X, map.CompleteArea.Y); // make sure Grid is centered
             MyPathNode[,] grid = new MyPathNode[gridsize.X, gridsize.Y];
             map.GenerateMap(offset, new Vector2(spacing, spacing),ref grid, minTravelHeight);
             MyPathNode.Distance1Height = maxSpeedHeight;

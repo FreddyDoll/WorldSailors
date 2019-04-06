@@ -22,13 +22,13 @@
                   <ignoreParent dataType="Bool">true</ignoreParent>
                   <parentTransform />
                   <pos dataType="Struct" type="Duality.Vector3">
-                    <X dataType="Float">499.88147</X>
-                    <Y dataType="Float">-3085.99756</Y>
+                    <X dataType="Float">-27177.34</X>
+                    <Y dataType="Float">-13090.9395</Y>
                     <Z dataType="Float">-0.1</Z>
                   </pos>
                   <posAbs dataType="Struct" type="Duality.Vector3">
-                    <X dataType="Float">499.88147</X>
-                    <Y dataType="Float">-3085.99756</Y>
+                    <X dataType="Float">-27177.34</X>
+                    <Y dataType="Float">-13090.9395</Y>
                     <Z dataType="Float">-0.1</Z>
                   </posAbs>
                   <scale dataType="Float">2.5</scale>
@@ -115,6 +115,7 @@
       <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="1879176232">
         <_items dataType="Array" type="Duality.Component[]" id="1621514031" length="4">
           <item dataType="Struct" type="WorldSailorsDuality.PlayerAgent" id="1720751284">
+            <_x003C_CollectedUpgrades_x003E_k__BackingField />
             <_x003C_currentTarget_x003E_k__BackingField />
             <_x003C_Name_x003E_k__BackingField dataType="String">Freddy</_x003C_Name_x003E_k__BackingField>
             <_x003C_NavTargetPrefab_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
@@ -122,9 +123,9 @@
             </_x003C_NavTargetPrefab_x003E_k__BackingField>
             <_x003C_PrimaryColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
               <A dataType="Byte">255</A>
-              <B dataType="Byte">68</B>
-              <G dataType="Byte">82</G>
-              <R dataType="Byte">71</R>
+              <B dataType="Byte">198</B>
+              <G dataType="Byte">255</G>
+              <R dataType="Byte">211</R>
             </_x003C_PrimaryColor_x003E_k__BackingField>
             <_x003C_respawnAfterSecond_x003E_k__BackingField dataType="Float">10</_x003C_respawnAfterSecond_x003E_k__BackingField>
             <_x003C_targetBoat_x003E_k__BackingField />
@@ -176,7 +177,7 @@
     <item dataType="Struct" type="Duality.GameObject" id="2203731994">
       <active dataType="Bool">true</active>
       <children dataType="Struct" type="System.Collections.Generic.List`1[[Duality.GameObject]]" id="300882500">
-        <_items dataType="Array" type="Duality.GameObject[]" id="3588237892">
+        <_items dataType="Array" type="Duality.GameObject[]" id="3588237892" length="8">
           <item dataType="Struct" type="Duality.GameObject" id="1927754364">
             <active dataType="Bool">true</active>
             <children dataType="Struct" type="System.Collections.Generic.List`1[[Duality.GameObject]]" id="3048109548">
@@ -297,7 +298,7 @@
                   <_x003C_ParticleMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                     <contentPath dataType="String">Data\Textures\Particle.Material.res</contentPath>
                   </_x003C_ParticleMaterial_x003E_k__BackingField>
-                  <_x003C_ParticlesPerFrame_x003E_k__BackingField dataType="Int">1</_x003C_ParticlesPerFrame_x003E_k__BackingField>
+                  <_x003C_ParticlesPerFrame_x003E_k__BackingField dataType="Int">4</_x003C_ParticlesPerFrame_x003E_k__BackingField>
                   <_x003C_ParticlesScale_x003E_k__BackingField dataType="Int">4</_x003C_ParticlesScale_x003E_k__BackingField>
                   <_x003C_ParticlesVisible_x003E_k__BackingField dataType="Int">10000</_x003C_ParticlesVisible_x003E_k__BackingField>
                   <_x003C_RenderHead_x003E_k__BackingField dataType="Bool">true</_x003C_RenderHead_x003E_k__BackingField>
@@ -352,7 +353,7 @@
             <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="1631501312">
               <_items dataType="Array" type="Duality.Component[]" id="3809980531" length="8">
                 <item dataType="Struct" type="WorldSailorsDuality.HeightMap" id="3389403723">
-                  <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">4</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
+                  <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
                   <_x003C_CompleteArea_x003E_k__BackingField dataType="Struct" type="Duality.Rect">
                     <H dataType="Float">2000000</H>
@@ -361,13 +362,13 @@
                     <Y dataType="Float">-1000000</Y>
                   </_x003C_CompleteArea_x003E_k__BackingField>
                   <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MapGenerationType" name="PERLIN" value="0" />
-                  <_x003C_GridOffset_x003E_k__BackingField dataType="Float">500</_x003C_GridOffset_x003E_k__BackingField>
-                  <_x003C_Offset_x003E_k__BackingField dataType="Float">-5000</_x003C_Offset_x003E_k__BackingField>
+                  <_x003C_GridOffset_x003E_k__BackingField dataType="Float">5000</_x003C_GridOffset_x003E_k__BackingField>
+                  <_x003C_Offset_x003E_k__BackingField dataType="Float">-500</_x003C_Offset_x003E_k__BackingField>
                   <_x003C_PerlinFrequency_x003E_k__BackingField dataType="Double">60000</_x003C_PerlinFrequency_x003E_k__BackingField>
                   <_x003C_PerlinOctave_x003E_k__BackingField dataType="Int">3</_x003C_PerlinOctave_x003E_k__BackingField>
                   <_x003C_PerlinPersistance_x003E_k__BackingField dataType="Float">0.8</_x003C_PerlinPersistance_x003E_k__BackingField>
                   <_x003C_PerlinSeed_x003E_k__BackingField dataType="Int">3</_x003C_PerlinSeed_x003E_k__BackingField>
-                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">0</_x003C_PointsGenerated_x003E_k__BackingField>
+                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">160000</_x003C_PointsGenerated_x003E_k__BackingField>
                   <_x003C_ScaleZ_x003E_k__BackingField dataType="Float">1400</_x003C_ScaleZ_x003E_k__BackingField>
                   <_x003C_SimpleFreqX_x003E_k__BackingField dataType="Float">5000</_x003C_SimpleFreqX_x003E_k__BackingField>
                   <_x003C_SimpleFreqY_x003E_k__BackingField dataType="Float">8000</_x003C_SimpleFreqY_x003E_k__BackingField>
@@ -379,7 +380,7 @@
                 </item>
                 <item dataType="Struct" type="WorldSailorsDuality.LandRendererShaded" id="2996869631">
                   <_x003C_LandMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                    <contentPath dataType="String">Data\TerrainRendering\LandMatBright.Material.res</contentPath>
+                    <contentPath dataType="String">Data\TerrainRendering\LandMatNew.Material.res</contentPath>
                   </_x003C_LandMaterial_x003E_k__BackingField>
                   <_x003C_LUTheight_x003E_k__BackingField dataType="Struct" type="WorldSailorsDuality.ColorLUT" id="3863823341">
                     <_x003C_LUTcolors_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Drawing.ColorRgba]]" id="3693714150">
@@ -441,10 +442,10 @@
                     </_x003C_LUTvalues_x003E_k__BackingField>
                   </_x003C_LUTheight_x003E_k__BackingField>
                   <_x003C_map_x003E_k__BackingField dataType="ObjectRef">3389403723</_x003C_map_x003E_k__BackingField>
-                  <active dataType="Bool">false</active>
+                  <active dataType="Bool">true</active>
                   <dataGroup0 dataType="Struct" type="WorldSailorsDuality.LandRendererShaded+RenderDataSettings" id="1539738872">
-                    <sizeX dataType="Int">120</sizeX>
-                    <sizeY dataType="Int">70</sizeY>
+                    <sizeX dataType="Int">60</sizeX>
+                    <sizeY dataType="Int">35</sizeY>
                   </dataGroup0>
                   <dataGroup1 dataType="Struct" type="WorldSailorsDuality.LandRendererShaded+RenderDataSettings" id="912789255">
                     <sizeX dataType="Int">3</sizeX>
@@ -706,13 +707,13 @@
                         <ignoreParent dataType="Bool">false</ignoreParent>
                         <parentTransform />
                         <pos dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">0</X>
-                          <Y dataType="Float">0</Y>
+                          <X dataType="Float">23.1552734</X>
+                          <Y dataType="Float">-9.148926</Y>
                           <Z dataType="Float">0.1</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">0</X>
-                          <Y dataType="Float">0</Y>
+                          <X dataType="Float">23.1552734</X>
+                          <Y dataType="Float">-9.148926</Y>
                           <Z dataType="Float">0.1</Z>
                         </posAbs>
                         <scale dataType="Float">1.1</scale>
@@ -918,7 +919,7 @@
             <prefabLink />
           </item>
           <item dataType="Struct" type="Duality.GameObject" id="319653017">
-            <active dataType="Bool">true</active>
+            <active dataType="Bool">false</active>
             <children />
             <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3081470309">
               <_items dataType="Array" type="Duality.Component[]" id="2288548758" length="4">
@@ -992,8 +993,88 @@
             <parent dataType="ObjectRef">2203731994</parent>
             <prefabLink />
           </item>
+          <item dataType="Struct" type="Duality.GameObject" id="638178698">
+            <active dataType="Bool">true</active>
+            <children dataType="Struct" type="System.Collections.Generic.List`1[[Duality.GameObject]]" id="3134909930">
+              <_items dataType="Array" type="Duality.GameObject[]" id="4107766048" length="2048" />
+              <_size dataType="Int">0</_size>
+            </children>
+            <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="2849500122">
+              <_items dataType="Array" type="Duality.Component[]" id="2817502928" length="4">
+                <item dataType="Struct" type="WorldSailorsDuality.UpgradeGenerator" id="3181894192">
+                  <_x003C_CompleteArea_x003E_k__BackingField dataType="Struct" type="Duality.Rect">
+                    <H dataType="Float">2000000</H>
+                    <W dataType="Float">2000000</W>
+                    <X dataType="Float">-1000000</X>
+                    <Y dataType="Float">-1000000</Y>
+                  </_x003C_CompleteArea_x003E_k__BackingField>
+                  <_x003C_Targets_x003E_k__BackingField dataType="Int">2000</_x003C_Targets_x003E_k__BackingField>
+                  <_x003C_UpgradeTargets_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[Duality.ContentRef`1[[Duality.Resources.Prefab]]]]" id="2015447744">
+                    <_items dataType="Array" type="Duality.ContentRef`1[[Duality.Resources.Prefab]][]" id="3928691996" length="16">
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeHullDragMinus.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeHullDragPlus.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeHullLiftMinus.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeHullLiftPlus.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeSailDragMinus.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeSailDragPlus.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeSailLiftMinus.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeSailLiftPlus.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeTurnRateMinu.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeTurnRatePlus.Prefab.res</contentPath>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">10</_size>
+                  </_x003C_UpgradeTargets_x003E_k__BackingField>
+                  <active dataType="Bool">true</active>
+                  <gameobj dataType="ObjectRef">638178698</gameobj>
+                </item>
+              </_items>
+              <_size dataType="Int">1</_size>
+            </compList>
+            <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="3908401738" surrogate="true">
+              <header />
+              <body>
+                <keys dataType="Array" type="System.Object[]" id="1870018496">
+                  <item dataType="Type" id="3377242908" value="WorldSailorsDuality.UpgradeGenerator" />
+                </keys>
+                <values dataType="Array" type="System.Object[]" id="1785814094">
+                  <item dataType="ObjectRef">3181894192</item>
+                </values>
+              </body>
+            </compMap>
+            <compTransform />
+            <identifier dataType="Struct" type="System.Guid" surrogate="true">
+              <header>
+                <data dataType="Array" type="System.Byte[]" id="552790876">oHH2EPlmxUuN2oyNlzcJMQ==</data>
+              </header>
+              <body />
+            </identifier>
+            <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+            <name dataType="String">Generators</name>
+            <parent dataType="ObjectRef">2203731994</parent>
+            <prefabLink />
+          </item>
         </_items>
-        <_size dataType="Int">4</_size>
+        <_size dataType="Int">5</_size>
       </children>
       <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3638086294">
         <_items dataType="Array" type="Duality.Component[]" id="697650126" length="0" />
@@ -1870,6 +1951,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -2050,6 +2132,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -2230,6 +2313,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -2410,6 +2494,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -3063,6 +3148,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -3243,6 +3329,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -3887,6 +3974,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -4067,6 +4155,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -5232,6 +5321,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -5412,6 +5502,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -5592,6 +5683,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -5772,6 +5864,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -5952,6 +6045,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -6132,6 +6226,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -6312,6 +6407,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -6492,6 +6588,7 @@
                         <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
                         <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
                         <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+                        <_x003C_CollectedUpgrades_x003E_k__BackingField />
                         <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
                         <_x003C_NavMap_x003E_k__BackingField />
                         <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -8070,8 +8167,698 @@
               </prefab>
             </prefabLink>
           </item>
+          <item dataType="Struct" type="Duality.GameObject" id="1240638615">
+            <active dataType="Bool">true</active>
+            <children dataType="Struct" type="System.Collections.Generic.List`1[[Duality.GameObject]]" id="2362355687">
+              <_items dataType="Array" type="Duality.GameObject[]" id="1638040910" length="16">
+                <item dataType="Struct" type="Duality.GameObject" id="2516783011">
+                  <active dataType="Bool">false</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="1025949155">
+                    <_items dataType="Array" type="Duality.Component[]" id="2624806118">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="2574060229">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2516783011</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="3985402291">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2516783011</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.AITarget" id="3363962351">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2516783011</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.UpgradeTarget" id="1474327713">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2516783011</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">4</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="2668968696" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="2117974665">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">2924415894</item>
+                        <item dataType="ObjectRef">461315560</item>
+                        <item dataType="Type" id="2541176718" value="WorldSailorsDuality.UpgradeTarget" />
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="1668900672">
+                        <item dataType="ObjectRef">2574060229</item>
+                        <item dataType="ObjectRef">3985402291</item>
+                        <item dataType="ObjectRef">3363962351</item>
+                        <item dataType="ObjectRef">1474327713</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">2574060229</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="1345456171">NZOCoshmJk2iGwMl5jbUWQ==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">UpgradeHullDragMinus</name>
+                  <parent dataType="ObjectRef">1240638615</parent>
+                  <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="3671275849">
+                    <changes />
+                    <obj dataType="ObjectRef">2516783011</obj>
+                    <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                      <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeHullDragMinus.Prefab.res</contentPath>
+                    </prefab>
+                  </prefabLink>
+                </item>
+                <item dataType="Struct" type="Duality.GameObject" id="485254688">
+                  <active dataType="Bool">false</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3874012780">
+                    <_items dataType="Array" type="Duality.Component[]" id="3657605988">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="542531906">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">485254688</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="1953873968">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">485254688</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.AITarget" id="1332434028">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">485254688</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.UpgradeTarget" id="3737766686">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">485254688</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">4</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="4032041014" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="1659667110">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">2924415894</item>
+                        <item dataType="ObjectRef">461315560</item>
+                        <item dataType="ObjectRef">2541176718</item>
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="199548858">
+                        <item dataType="ObjectRef">542531906</item>
+                        <item dataType="ObjectRef">1953873968</item>
+                        <item dataType="ObjectRef">1332434028</item>
+                        <item dataType="ObjectRef">3737766686</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">542531906</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="2914667686">/OM+9g19fEWEKubJrgEyQA==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">UpgradeHullDragPlus</name>
+                  <parent dataType="ObjectRef">1240638615</parent>
+                  <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="3031719736">
+                    <changes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Resources.PrefabLink+VarMod]]" id="4149522552">
+                      <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="1493071212" length="4">
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1868308904">
+                            <_items dataType="Array" type="System.Int32[]" id="3002900140"></_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType dataType="ObjectRef">2541176718</componentType>
+                          <prop dataType="MemberInfo" id="3260198814" value="P:WorldSailorsDuality.UpgradeTarget:Upgrade" />
+                          <val dataType="Struct" type="WorldSailorsDuality.HullDragUpgrade" id="3322043284" />
+                        </item>
+                      </_items>
+                      <_size dataType="Int">1</_size>
+                    </changes>
+                    <obj dataType="ObjectRef">485254688</obj>
+                    <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                      <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeHullDragPlus.Prefab.res</contentPath>
+                    </prefab>
+                  </prefabLink>
+                </item>
+                <item dataType="Struct" type="Duality.GameObject" id="2289988750">
+                  <active dataType="Bool">false</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3891374594">
+                    <_items dataType="Array" type="Duality.Component[]" id="327086480">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="2347265968">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2289988750</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="3758608030">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2289988750</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.AITarget" id="3137168090">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2289988750</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.UpgradeTarget" id="1247533452">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2289988750</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">4</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="2390617994" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="2409794008">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">2924415894</item>
+                        <item dataType="ObjectRef">461315560</item>
+                        <item dataType="ObjectRef">2541176718</item>
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="2147167902">
+                        <item dataType="ObjectRef">2347265968</item>
+                        <item dataType="ObjectRef">3758608030</item>
+                        <item dataType="ObjectRef">3137168090</item>
+                        <item dataType="ObjectRef">1247533452</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">2347265968</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="4026504580">xof9ohZeA0m27u1kNBl2hg==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">UpgradeHullLiftMinus</name>
+                  <parent dataType="ObjectRef">1240638615</parent>
+                  <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="3692935282">
+                    <changes />
+                    <obj dataType="ObjectRef">2289988750</obj>
+                    <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                      <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeHullLiftMinus.Prefab.res</contentPath>
+                    </prefab>
+                  </prefabLink>
+                </item>
+                <item dataType="Struct" type="Duality.GameObject" id="2576057451">
+                  <active dataType="Bool">false</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3332030187">
+                    <_items dataType="Array" type="Duality.Component[]" id="4224419958">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="2633334669">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2576057451</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="4044676731">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2576057451</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.AITarget" id="3423236791">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2576057451</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.UpgradeTarget" id="1533602153">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2576057451</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">4</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="500800200" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="2955913025">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">2924415894</item>
+                        <item dataType="ObjectRef">461315560</item>
+                        <item dataType="ObjectRef">2541176718</item>
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="2176704992">
+                        <item dataType="ObjectRef">2633334669</item>
+                        <item dataType="ObjectRef">4044676731</item>
+                        <item dataType="ObjectRef">3423236791</item>
+                        <item dataType="ObjectRef">1533602153</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">2633334669</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="2995080595">4YMWo3fR6k+e3+3O6gS+hQ==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">UpgradeHullLiftPlus</name>
+                  <parent dataType="ObjectRef">1240638615</parent>
+                  <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="2992170465">
+                    <changes />
+                    <obj dataType="ObjectRef">2576057451</obj>
+                    <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                      <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeHullLiftPlus.Prefab.res</contentPath>
+                    </prefab>
+                  </prefabLink>
+                </item>
+                <item dataType="Struct" type="Duality.GameObject" id="867834503">
+                  <active dataType="Bool">false</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3915187575">
+                    <_items dataType="Array" type="Duality.Component[]" id="1642481550">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="925111721">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">867834503</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="2336453783">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">867834503</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.AITarget" id="1715013843">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">867834503</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.UpgradeTarget" id="4120346501">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">867834503</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">4</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="1984718656" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="319413437">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">2924415894</item>
+                        <item dataType="ObjectRef">461315560</item>
+                        <item dataType="ObjectRef">2541176718</item>
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="105190584">
+                        <item dataType="ObjectRef">925111721</item>
+                        <item dataType="ObjectRef">2336453783</item>
+                        <item dataType="ObjectRef">1715013843</item>
+                        <item dataType="ObjectRef">4120346501</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">925111721</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="2653504663">qL2JphBwgkyL7awEZf/8+Q==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">UpgradeSailDragMinus</name>
+                  <parent dataType="ObjectRef">1240638615</parent>
+                  <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="3464345557">
+                    <changes />
+                    <obj dataType="ObjectRef">867834503</obj>
+                    <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                      <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeSailDragMinus.Prefab.res</contentPath>
+                    </prefab>
+                  </prefabLink>
+                </item>
+                <item dataType="Struct" type="Duality.GameObject" id="332268781">
+                  <active dataType="Bool">false</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="404068493">
+                    <_items dataType="Array" type="Duality.Component[]" id="1304004902">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="389545999">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">332268781</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="1800888061">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">332268781</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.AITarget" id="1179448121">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">332268781</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.UpgradeTarget" id="3584780779">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">332268781</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">4</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="3478605752" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="3374259687">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">2924415894</item>
+                        <item dataType="ObjectRef">461315560</item>
+                        <item dataType="ObjectRef">2541176718</item>
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="2147629952">
+                        <item dataType="ObjectRef">389545999</item>
+                        <item dataType="ObjectRef">1800888061</item>
+                        <item dataType="ObjectRef">1179448121</item>
+                        <item dataType="ObjectRef">3584780779</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">389545999</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="279104421">7s3pk5Pvy0u/hYItJ70s/w==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">UpgradeSailDragPlus</name>
+                  <parent dataType="ObjectRef">1240638615</parent>
+                  <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="305601383">
+                    <changes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Resources.PrefabLink+VarMod]]" id="1225162772">
+                      <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="2539535972" length="4">
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3488162504">
+                            <_items dataType="ObjectRef">3002900140</_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType dataType="ObjectRef">2541176718</componentType>
+                          <prop dataType="ObjectRef">3260198814</prop>
+                          <val dataType="Struct" type="WorldSailorsDuality.SailDragUpgrade" id="30197470" />
+                        </item>
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2290519860">
+                            <_items dataType="ObjectRef">3002900140</_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType />
+                          <prop dataType="ObjectRef">3106872434</prop>
+                          <val dataType="String">UpgradeSailDragPlus</val>
+                        </item>
+                      </_items>
+                      <_size dataType="Int">2</_size>
+                    </changes>
+                    <obj dataType="ObjectRef">332268781</obj>
+                    <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                      <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeSailDragPlus.Prefab.res</contentPath>
+                    </prefab>
+                  </prefabLink>
+                </item>
+                <item dataType="Struct" type="Duality.GameObject" id="4082710078">
+                  <active dataType="Bool">false</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3610442962">
+                    <_items dataType="Array" type="Duality.Component[]" id="1583431504">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="4139987296">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">4082710078</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="1256362062">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">4082710078</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.AITarget" id="634922122">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">4082710078</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.UpgradeTarget" id="3040254780">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">4082710078</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">4</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="432666826" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="1187760136">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">2924415894</item>
+                        <item dataType="ObjectRef">461315560</item>
+                        <item dataType="ObjectRef">2541176718</item>
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="2288878046">
+                        <item dataType="ObjectRef">4139987296</item>
+                        <item dataType="ObjectRef">1256362062</item>
+                        <item dataType="ObjectRef">634922122</item>
+                        <item dataType="ObjectRef">3040254780</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">4139987296</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="561944564">nebDFt1j1ES9gUtB36/q+A==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">UpgradeSailLiftMinus</name>
+                  <parent dataType="ObjectRef">1240638615</parent>
+                  <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="2363445602">
+                    <changes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Resources.PrefabLink+VarMod]]" id="1991029280">
+                      <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="150533084" length="4">
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1953682888">
+                            <_items dataType="ObjectRef">3002900140</_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType dataType="ObjectRef">2541176718</componentType>
+                          <prop dataType="ObjectRef">3260198814</prop>
+                          <val dataType="Struct" type="WorldSailorsDuality.SailLiftUpgrade" id="3946487518" />
+                        </item>
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1732222004">
+                            <_items dataType="ObjectRef">3002900140</_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType dataType="ObjectRef">2541176718</componentType>
+                          <prop dataType="MemberInfo" id="569745186" value="P:WorldSailorsDuality.UpgradeTarget:deltaLVL" />
+                          <val dataType="Int">-1</val>
+                        </item>
+                      </_items>
+                      <_size dataType="Int">2</_size>
+                    </changes>
+                    <obj dataType="ObjectRef">4082710078</obj>
+                    <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                      <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeSailLiftMinus.Prefab.res</contentPath>
+                    </prefab>
+                  </prefabLink>
+                </item>
+                <item dataType="Struct" type="Duality.GameObject" id="273531282">
+                  <active dataType="Bool">false</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3269993526">
+                    <_items dataType="Array" type="Duality.Component[]" id="3949142368">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="330808500">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">273531282</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="1742150562">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">273531282</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.AITarget" id="1120710622">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">273531282</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.UpgradeTarget" id="3526043280">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">273531282</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">4</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="400152730" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="2291788036">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">2924415894</item>
+                        <item dataType="ObjectRef">461315560</item>
+                        <item dataType="ObjectRef">2541176718</item>
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="3957570966">
+                        <item dataType="ObjectRef">330808500</item>
+                        <item dataType="ObjectRef">1742150562</item>
+                        <item dataType="ObjectRef">1120710622</item>
+                        <item dataType="ObjectRef">3526043280</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">330808500</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="4234744768">TH3GOAqwNk61jgpGE7rNNA==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">UpgradeSailLiftPlus</name>
+                  <parent dataType="ObjectRef">1240638615</parent>
+                  <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="1849575638">
+                    <changes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Resources.PrefabLink+VarMod]]" id="509080896">
+                      <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="633902364" length="4">
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2180483272">
+                            <_items dataType="ObjectRef">3002900140</_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType dataType="ObjectRef">2541176718</componentType>
+                          <prop dataType="ObjectRef">3260198814</prop>
+                          <val dataType="Struct" type="WorldSailorsDuality.SailLiftUpgrade" id="3819447006" />
+                        </item>
+                      </_items>
+                      <_size dataType="Int">1</_size>
+                    </changes>
+                    <obj dataType="ObjectRef">273531282</obj>
+                    <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                      <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeSailLiftPlus.Prefab.res</contentPath>
+                    </prefab>
+                  </prefabLink>
+                </item>
+                <item dataType="Struct" type="Duality.GameObject" id="3733736547">
+                  <active dataType="Bool">false</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3649988131">
+                    <_items dataType="Array" type="Duality.Component[]" id="1828046950">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="3791013765">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3733736547</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="907388531">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3733736547</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.AITarget" id="285948591">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3733736547</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.UpgradeTarget" id="2691281249">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3733736547</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">4</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="2038956152" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="473009993">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">2924415894</item>
+                        <item dataType="ObjectRef">461315560</item>
+                        <item dataType="ObjectRef">2541176718</item>
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="37712704">
+                        <item dataType="ObjectRef">3791013765</item>
+                        <item dataType="ObjectRef">907388531</item>
+                        <item dataType="ObjectRef">285948591</item>
+                        <item dataType="ObjectRef">2691281249</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">3791013765</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="2609454443">8VM/RYNw806HBDaE5/WQDg==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">UpgradeTurnRateMinu</name>
+                  <parent dataType="ObjectRef">1240638615</parent>
+                  <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="2922793097">
+                    <changes />
+                    <obj dataType="ObjectRef">3733736547</obj>
+                    <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                      <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeTurnRateMinu.Prefab.res</contentPath>
+                    </prefab>
+                  </prefabLink>
+                </item>
+                <item dataType="Struct" type="Duality.GameObject" id="2735842793">
+                  <active dataType="Bool">false</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="639664921">
+                    <_items dataType="Array" type="Duality.Component[]" id="1590024526">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="2793120011">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2735842793</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="4204462073">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2735842793</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.AITarget" id="3583022133">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2735842793</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.UpgradeTarget" id="1693387495">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">2735842793</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">4</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="2259691392" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="4270650931">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">2924415894</item>
+                        <item dataType="ObjectRef">461315560</item>
+                        <item dataType="ObjectRef">2541176718</item>
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="3716851896">
+                        <item dataType="ObjectRef">2793120011</item>
+                        <item dataType="ObjectRef">4204462073</item>
+                        <item dataType="ObjectRef">3583022133</item>
+                        <item dataType="ObjectRef">1693387495</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">2793120011</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="4242964569">F7THDFvhOUC6MV2XtuPXFw==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">UpgradeTurnRatePlus</name>
+                  <parent dataType="ObjectRef">1240638615</parent>
+                  <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="560591195">
+                    <changes />
+                    <obj dataType="ObjectRef">2735842793</obj>
+                    <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                      <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeTurnRatePlus.Prefab.res</contentPath>
+                    </prefab>
+                  </prefabLink>
+                </item>
+              </_items>
+              <_size dataType="Int">10</_size>
+            </children>
+            <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="2917925760">
+              <_items dataType="Array" type="Duality.Component[]" id="4225848525" length="0" />
+              <_size dataType="Int">0</_size>
+            </compList>
+            <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="2119934373" surrogate="true">
+              <header />
+              <body>
+                <keys dataType="Array" type="System.Object[]" id="3891674708" length="0" />
+                <values dataType="Array" type="System.Object[]" id="3247889334" length="0" />
+              </body>
+            </compMap>
+            <compTransform />
+            <identifier dataType="Struct" type="System.Guid" surrogate="true">
+              <header>
+                <data dataType="Array" type="System.Byte[]" id="3376878960">g91tDo6AdUG0FX7koCEmeg==</data>
+              </header>
+              <body />
+            </identifier>
+            <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+            <name dataType="String">Upgrades</name>
+            <parent dataType="ObjectRef">1751361107</parent>
+            <prefabLink />
+          </item>
         </_items>
-        <_size dataType="Int">6</_size>
+        <_size dataType="Int">7</_size>
       </children>
       <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="1401305632">
         <_items dataType="Array" type="Duality.Component[]" id="2891995371" length="0" />
@@ -8319,6 +9106,7 @@
             <_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField dataType="Float">8</_x003C_AtrTargetAngleOfAttack_x003E_k__BackingField>
             <_x003C_AtrTurnDamping_x003E_k__BackingField dataType="Float">0.06</_x003C_AtrTurnDamping_x003E_k__BackingField>
             <_x003C_AtrUpwindTagDistance_x003E_k__BackingField dataType="Float">4000</_x003C_AtrUpwindTagDistance_x003E_k__BackingField>
+            <_x003C_CollectedUpgrades_x003E_k__BackingField />
             <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
             <_x003C_NavMap_x003E_k__BackingField />
             <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
@@ -8458,6 +9246,7 @@
                     <Y dataType="Float">-100</Y>
                   </_x003C_ZoomLimit_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
+                  <CameraOffset dataType="Struct" type="Duality.Vector2" />
                   <gameobj dataType="ObjectRef">2441687343</gameobj>
                 </item>
               </_items>
@@ -8633,8 +9422,8 @@
                   <_x003C_AddFPSToStrings_x003E_k__BackingField dataType="Bool">true</_x003C_AddFPSToStrings_x003E_k__BackingField>
                   <_x003C_hudstrings_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.Ihudstring]]" id="1347105707">
                     <_items dataType="Array" type="WorldSailorsDuality.Ihudstring[]" id="3433356534" length="8">
-                      <item dataType="ObjectRef">2080249702</item>
-                      <item dataType="ObjectRef">327049340</item>
+                      <item />
+                      <item />
                       <item dataType="ObjectRef">3389403723</item>
                     </_items>
                     <_size dataType="Int">3</_size>
@@ -8693,6 +9482,7 @@
     <item dataType="ObjectRef">2542847861</item>
     <item dataType="ObjectRef">410715791</item>
     <item dataType="ObjectRef">319653017</item>
+    <item dataType="ObjectRef">638178698</item>
     <item dataType="ObjectRef">2524748989</item>
     <item dataType="ObjectRef">2511450147</item>
     <item dataType="ObjectRef">326196417</item>
@@ -8703,6 +9493,7 @@
     <item dataType="ObjectRef">2590713311</item>
     <item dataType="ObjectRef">2096362543</item>
     <item dataType="ObjectRef">750860492</item>
+    <item dataType="ObjectRef">1240638615</item>
     <item dataType="ObjectRef">2708057532</item>
     <item dataType="ObjectRef">2058033062</item>
     <item dataType="ObjectRef">2441687343</item>
@@ -8760,6 +9551,16 @@
     <item dataType="ObjectRef">1552678765</item>
     <item dataType="ObjectRef">4162699365</item>
     <item dataType="ObjectRef">124107816</item>
+    <item dataType="ObjectRef">2516783011</item>
+    <item dataType="ObjectRef">485254688</item>
+    <item dataType="ObjectRef">2289988750</item>
+    <item dataType="ObjectRef">2576057451</item>
+    <item dataType="ObjectRef">867834503</item>
+    <item dataType="ObjectRef">332268781</item>
+    <item dataType="ObjectRef">4082710078</item>
+    <item dataType="ObjectRef">273531282</item>
+    <item dataType="ObjectRef">3733736547</item>
+    <item dataType="ObjectRef">2735842793</item>
     <item dataType="ObjectRef">1712223325</item>
     <item dataType="ObjectRef">3689654641</item>
     <item dataType="ObjectRef">2484718384</item>

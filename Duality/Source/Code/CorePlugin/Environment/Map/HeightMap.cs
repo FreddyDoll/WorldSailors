@@ -134,7 +134,18 @@ namespace WorldSailorsDuality
             GridCoord.Y = MathF.Floor(GridCoord.Y);
 
             return GetWorldCoord(GridCoord);
+        }
 
+        public Vector2 findTopLeftGridPoint(Vector2 p,int divider)
+        {
+            Vector2 GridCoord = GetGridCoord(p);
+
+            GridCoord.X = MathF.Floor(GridCoord.X);
+            GridCoord.X -= GridCoord.X % divider;
+            GridCoord.Y = MathF.Floor(GridCoord.Y);
+            GridCoord.Y -= GridCoord.Y % divider;
+
+            return GetWorldCoord(GridCoord);
         }
 
         public Vector2 findBottomRightGridPoint(Vector2 p)
@@ -143,6 +154,18 @@ namespace WorldSailorsDuality
 
             GridCoord.X = MathF.Ceiling(GridCoord.X);
             GridCoord.Y = MathF.Ceiling(GridCoord.Y);
+
+            return GetWorldCoord(GridCoord);
+
+        }
+        public Vector2 findBottomRightGridPoint(Vector2 p,int divider)
+        {
+            Vector2 GridCoord = GetGridCoord(p);
+
+            GridCoord.X = MathF.Ceiling(GridCoord.X);
+            GridCoord.X += GridCoord.X % divider;
+            GridCoord.Y = MathF.Ceiling(GridCoord.Y);
+            GridCoord.Y += GridCoord.Y % divider;
 
             return GetWorldCoord(GridCoord);
 
@@ -160,6 +183,7 @@ namespace WorldSailorsDuality
                     Vector2 UpperLeft = new Vector2(x * spacing.X + offset.X, y * spacing.Y + offset.Y);
                     Vector2 point = UpperLeft + spacing / 2f;
                     map[x][y] = Probe(point);
+                    
                 }
             }
         }

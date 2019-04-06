@@ -1,5 +1,5 @@
 #extension GL_EXT_gpu_shader4 : enable
-
+uniform int lod;
 uniform float WaterLevel;
 uniform float blendOut;
 uniform float WaveEnd;
@@ -9,7 +9,6 @@ uniform int Seed;
 uniform int Octave;
 uniform float Frequency;
 uniform float Persistance;
-uniform float Exponent;
 float height;
 vec4 input;
 
@@ -64,7 +63,6 @@ void calcHeight()
 		
 		freq*=2;
 	}
-	height=pow(height,Exponent);
 }
 
 float rand(vec2 co)
@@ -77,39 +75,47 @@ void main()
 	vec4 programTexCoord = gl_TexCoord[0];
 	vec4 fragColor = vec4(0,0,0,0);
 	calcHeight();
+	//height = (gl_TexCoord[0].z+5000)/4000.0 + (height-0.5)*0.2;
+	//height = (gl_TexCoord[0].z+8000)/5000.0;
+	height = (gl_TexCoord[0].z+2000)/3000.0 + (height-0.5)*0.03;
+	//height = (gl_TexCoord[0].z+2000)/3000.0 ;
+	
 
-	int stepsHeightLines = 2400;
-	int lineFracHeightLines =50;
+	float lodScale = 0.2;
+	int stepsHeightLines = 2400.0/sqrt(lod/lod);
+	int lineFracHeightLines =50.0/sqrt(lod);
 	int heightStepHeightLines = int(height * stepsHeightLines);
 	float alpha = 1.0;
 	
     float c3Adjust = 0.6*(height - blendOut)/(WaterLevel-blendOut);
-	
 	float c1Adjust = 0.05*(height - WaveEnd)/(WaterLevel - WaveEnd)+0.7;
     float c2Adjust = 0.3*(height - WaveEnd)/(WaterLevel - WaveEnd);
 	
+	
+	vec2 programTexCoord_cor = vec2(programTexCoord.x/20000000.0,programTexCoord.y/20000000.0);
+	
 	float amp = c2Adjust*0.00002;
 	float freq = 2000;
-	float yShift = amp*sin(programTexCoord.x*freq + GameTime*0.1);
+	float yShift = amp*sin(programTexCoord_cor.x*freq + GameTime*0.1);
 	
 	for(int n = 0;n<4;n++)
 	{
 		amp *= 0.8+c2Adjust*0.3;
 		freq *= 2;
 		
-		float phase = rand(vec2(n,1)) + n*programTexCoord.y+ GameTime*0.00001*n*n*pow(1.0,float(-n));
-		yShift += amp*sin((programTexCoord.x+phase)*freq);
+		float phase = rand(vec2(n,1)) + n*programTexCoord_cor.y+ GameTime*0.00001*n*n*pow(1.0,float(-n));
+		yShift += amp*sin((programTexCoord_cor.x+phase)*freq);
 	}
-	
-	
-	vec2 programTexCoord_cor = vec2(programTexCoord.x,programTexCoord.y+yShift);
-	int stepsWaterLine = 1000000;
-	int lineFracWaterLine =16;
+	//yShift = 0;
+	programTexCoord_cor = vec2(programTexCoord_cor.x,programTexCoord_cor.y+yShift);
+	int stepsWaterLine = 200000;
+	int lineFracWaterLine =8;
 	int heightStepWaterLine = int(programTexCoord_cor.y * stepsWaterLine);	
 	
 	if(height<WaterLevel)
 	{
 		fragColor = vec4(c1Adjust, c1Adjust, c1Adjust, 1.0);
+		fragColor = mix(fragColor, new vec4(0.2,0.4,1,1), 0.2);
 		
 		if(heightStepWaterLine%lineFracWaterLine == 0 && (c2Adjust > 0))
 			fragColor = vec4(fragColor.x-c2Adjust, fragColor.y-c2Adjust, fragColor.z-c2Adjust, 1.0);
@@ -130,4 +136,8 @@ void main()
 	}
 	gl_FragColor = fragColor*0.7;
 	
+	/*if(height>0)
+		gl_FragColor = vec4(1, 0, 0, 1)*height;
+	if(height>1)
+		gl_FragColor = vec4(0, 1, 1, 1);*/
 }

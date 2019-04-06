@@ -63,6 +63,9 @@
     <Compile Include="Agents\Agent.cs" />
     <Compile Include="Agents\PlayerAgent.cs" />
     <Compile Include="Boat\BoatSpriteController.cs" />
+    <Compile Include="Environment\Map\RaceGenerato.cs" />
+    <Compile Include="Environment\Map\UpgradeGenerator.cs" />
+    <Compile Include="Agents\UpgradeTarget.cs" />
     <Compile Include="Helpers\AStar\PriorityQueue.cs" />
     <Compile Include="Helpers\AStar\SpatialAStar.cs" />
     <Compile Include="Boat\BoatFactory.cs" />

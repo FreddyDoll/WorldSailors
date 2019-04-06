@@ -63,24 +63,24 @@ namespace WorldSailorsDuality
 
             //Find The right spot in the screen for our Verteces
             Vector3 TopLeftWorld = device.GetSpaceCoord(new Vector3(0, 0, 0));
-            Vector3 TopLeftWorldGrid = new Vector3(map.findTopLeftGridPoint(TopLeftWorld.Xy), TopLeftWorld.Z);
             Vector3 BottomRightWorld = device.GetSpaceCoord(new Vector3(device.TargetSize.X, device.TargetSize.Y, 0));
-            Vector3 BottomRightWorldGrid = new Vector3(map.findBottomRightGridPoint(BottomRightWorld.Xy), BottomRightWorld.Z);
+            Vector3 WorldArea = (BottomRightWorld - TopLeftWorld);
 
-            //Vector3 WorldArea = (BottomRightWorld - TopLeftWorld);
-            Vector3 WorldArea = (BottomRightWorldGrid- TopLeftWorldGrid);
-            //Vector3 WorldOffset = TopLeftWorld;
+            int xGridsMin = (int)MathF.Ceiling(WorldArea.X / map.GridOffset);
+            int yGridsMin = (int)MathF.Ceiling(WorldArea.Y / map.GridOffset);
+
+            int lodScale = 1;
+            while (xGridsMin > data.sizeX * lodScale - 2*lodScale || yGridsMin > data.sizeY * lodScale - 2*lodScale)
+                lodScale++;
+
+            Vector3 TopLeftWorldGrid = new Vector3(map.findTopLeftGridPoint(TopLeftWorld.Xy,lodScale), TopLeftWorld.Z);
+            Vector3 BottomRightWorldGrid = new Vector3(map.findBottomRightGridPoint(BottomRightWorld.Xy, lodScale), BottomRightWorld.Z);
             Vector3 WorldOffset = TopLeftWorldGrid;
             WorldOffset.Z = 0;
 
             //define Parameters Off Grid
-            float spacingX = WorldArea.X / (data.sizeX - 1);
-            float spacingY = WorldArea.Y / (data.sizeY - 1);
-            if (spacingX < map.GridOffset && spacingY < map.GridOffset)
-            {
-                spacingX = map.GridOffset;
-                spacingY = map.GridOffset;
-            }
+            float spacingX = map.GridOffset * lodScale;
+            float spacingY = map.GridOffset * lodScale;
 
             //Generate Height Map
             map.GenerateMap(WorldOffset.Xy, new Vector2(spacingX, spacingY), ref data.heights);
@@ -122,8 +122,9 @@ namespace WorldSailorsDuality
                     data.Quads[4 * (y * (data.sizeX - 1) + x) + 3] = data.Vertices[(y + 1) * data.sizeX + x];
                 }
             }
-
             device.AddVertices(LandMaterial, VertexMode.Quads, data.Quads);
+            
+            LandMaterial.Res.SetUniform("lod", (float)lodScale);
 
         }
            

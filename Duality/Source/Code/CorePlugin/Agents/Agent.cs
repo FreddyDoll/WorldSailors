@@ -22,6 +22,8 @@ namespace WorldSailorsDuality
         public virtual BoatController targetBoat { get; set; }
         public virtual ContentRef<Prefab> NavTargetPrefab { get; set; }
 
+        public virtual List<UpgradeTarget> CollectedUpgrades { get; set; }
+
         public virtual Vector2 GetPosition()
         {
             if (targetBoat != null)
@@ -56,9 +58,12 @@ namespace WorldSailorsDuality
             {
                 bodyText.Add("Boat Name " + targetBoat.name);
                 bodyText.Add("Boat Speed " + Math.Round(targetBoat.GetSpeed().Length, 2).ToString());
+                bodyText.Add("True Wind " + Math.Round(targetBoat.GetWind().Length, 2).ToString());
                 bodyText.Add("Boat Upwind " + Math.Round(targetBoat.GetUpwindSpeed(), 2).ToString());
                 bodyText.Add("Sail Angle " + Math.Round(targetBoat.GetSailAngle(), 2).ToString());
-                bodyText.Add("True Wind " + Math.Round(targetBoat.GetWind().Length, 2).ToString());
+                bodyText.Add("Under Keel " + Math.Round(targetBoat.CurrentHeight, 2).ToString());
+                bodyText.Add(targetBoat.Sail.GetComponent<FoilController>().GetHudString());
+                bodyText.Add(targetBoat.Hull.GetComponent<FoilController>().GetHudString());
             }
             return bodyText;
         }
@@ -106,6 +111,22 @@ namespace WorldSailorsDuality
 
         public virtual void OnUpdate()
         {
+            if (CollectedUpgrades == null)
+                CollectedUpgrades = new List<UpgradeTarget>();
+
+            foreach(UpgradeTarget ug in GameObj.ParentScene.FindComponents<UpgradeTarget>())
+            {
+
+                if (targetBoat != null && ug.Target.CheckReached(targetBoat.Position))
+                {
+                    if (!CollectedUpgrades.Any(x => x == ug))
+                    {
+                        CollectedUpgrades.Add(ug);
+                        ug.AdjustLevel(targetBoat);
+                    }
+                }
+            }
+
             if (targetBoat == null)
             {
                 BoatFactory factory = GameObj.GetComponent<BoatFactory>();

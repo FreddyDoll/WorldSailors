@@ -104,6 +104,38 @@
             cant be set to 0
             </summary>
         </member>
+        <member name="P:WorldSailorsDuality.RaceGenerato.StepLen">
+            <summary>
+            Distance between Race Points
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.RaceGenerato.Targets">
+            <summary>
+            Nr of Races
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.RaceGenerato.CompleteArea">
+            <summary>
+            Area where races are created
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.UpgradeGenerator.Targets">
+            <summary>
+            Nr of Update Targets
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.UpgradeGenerator.CompleteArea">
+            <summary>
+            Area where targets are created
+            </summary>
+        </member>
+        <member name="M:WorldSailorsDuality.IUpgrade.AdjustLevel(System.Object,System.Int32)">
+            <summary>
+            returns true if Upgrade was sucessfully applied
+            </summary>
+            <param name="delta">added to the level</param>
+            <returns></returns>
+        </member>
         <member name="M:WorldSailorsDuality.PriorityQueue`1.Push(`0)">
             <summary>
             Push an object onto the PQ
@@ -239,6 +271,11 @@
             -FirstJoint: DistanceJointInfo (Opens and closes the Sail)
             -SecondJoint: RevoluteJointInfo (Turn Axis of the sail)
             -Each must be targeted at the same Parent (usually Hull) 
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.BoatController.TurnRate">
+            <summary>
+            How quickly the boat can turn
             </summary>
         </member>
         <member name="P:WorldSailorsDuality.BoatController.Position">

@@ -47,6 +47,10 @@ namespace WorldSailorsDuality
         /// -Each must be targeted at the same Parent (usually Hull) 
         /// </summary>
         public GameObject Rudder { get; set; }
+        /// <summary>
+        /// How quickly the boat can turn
+        /// </summary>
+        public float TurnRate { get; set; } = 0.0006f;
         public float ControlTorque { get; set; }
         public string name { get; set; } = "boat";
         /// <summary>
@@ -75,6 +79,11 @@ namespace WorldSailorsDuality
             }
         }
 
+        public float maxDrag { get; set; } = 2;
+        public float minHeight { get; set; } = -20;
+        public float noDragHeight { get; set; } = -80;
+        public float CurrentHeight { get; private set; }
+
         [DontSerialize]
         private RigidBody hullBody;
         [DontSerialize]
@@ -97,20 +106,19 @@ namespace WorldSailorsDuality
             //Map Collision
             if (map != null)
             {
-                float maxDrag = 2;
-                float minHeight = -20;
-                float noDragHeight = -80;
-                float height = map.Probe(Position);
-                
-                IsBeached = (height > 0);
+                CurrentHeight = map.Probe(Position);
 
-                float v = (height - noDragHeight) / (minHeight - noDragHeight);
+                IsBeached = (CurrentHeight > 0);
+
+                float v = (CurrentHeight - noDragHeight) / (minHeight - noDragHeight);
                 SetLinearDamping(StaticHelpers.lerp(0, maxDrag, v));
 
                 if (IsBeached)
-                    SetLinearDamping(maxDrag*10);
+                    SetLinearDamping(maxDrag * 10);
             }
-        
+            else
+                CurrentHeight = noDragHeight;
+
             //Check for Damage
             if (Hull != null && Sail != null)
             {
@@ -200,6 +208,8 @@ namespace WorldSailorsDuality
 
             return hbody.LinearVelocity;
         }
+
+       
 
         public float GetUpwindSpeed()
         {

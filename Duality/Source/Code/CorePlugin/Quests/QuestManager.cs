@@ -51,14 +51,14 @@ namespace WorldSailorsDuality
             {
                 SelectedQuest++;
                 if (SelectedQuest > AllQuests.Count)
-                    SelectedQuest = -1;
+                    SelectedQuest = 0;
             }
 
             if (DualityApp.Gamepads[0].ButtonHit(GamepadButton.DPadUp))
             {
                 SelectedQuest--;
-                if (SelectedQuest < -1)
-                    SelectedQuest = -1;
+                if (SelectedQuest < 0)
+                    SelectedQuest = AllQuests.Count;
             }
 
             if ((DualityApp.Keyboard[Key.Y] || DualityApp.Gamepads[0].ButtonHit(GamepadButton.Y)) && ActiveQuest != null)
