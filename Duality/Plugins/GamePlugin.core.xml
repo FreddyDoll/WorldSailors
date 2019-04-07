@@ -491,6 +491,11 @@
             null if no path found
             </summary>
         </member>
+        <member name="M:WorldSailorsDuality.PathFinder.FindPath(Duality.Vector2,Duality.Vector2,WorldSailorsDuality.PathGenParameters)">
+            <summary>
+            null if no path found
+            </summary>
+        </member>
         <member name="T:WorldSailorsDuality.QuadTreeLib.IHasRect">
             <summary>
             An interface that defines and object with a rectangle
