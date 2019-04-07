@@ -141,6 +141,7 @@
                 <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="2940130196">
+                <_x003C_ApperantSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                 <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                 <_x003C_froudNr_x003E_k__BackingField dataType="Float">0</_x003C_froudNr_x003E_k__BackingField>
                 <_x003C_hasWaveDrag_x003E_k__BackingField dataType="Bool">true</_x003C_hasWaveDrag_x003E_k__BackingField>
@@ -148,6 +149,8 @@
                 <_x003C_maxWaveDrag_x003E_k__BackingField dataType="Float">200</_x003C_maxWaveDrag_x003E_k__BackingField>
                 <_x003C_ScreenString_x003E_k__BackingField dataType="String">AI Hull</_x003C_ScreenString_x003E_k__BackingField>
                 <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.2</_x003C_StatDrag_x003E_k__BackingField>
+                <_x003C_ScreenString_x003E_k__BackingField dataType="String">Player Hull</_x003C_ScreenString_x003E_k__BackingField>
+                <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.3</_x003C_StatDrag_x003E_k__BackingField>
                 <_x003C_StatLift_x003E_k__BackingField dataType="Float">30</_x003C_StatLift_x003E_k__BackingField>
                 <_x003C_TargetMedium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="WATER" value="1" />
                 <_x003C_waveDragSpeed_x003E_k__BackingField dataType="Float">30</_x003C_waveDragSpeed_x003E_k__BackingField>
@@ -278,7 +281,7 @@
                 <joints dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Components.Physics.JointInfo]]" id="1184096581">
                   <_items dataType="Array" type="Duality.Components.Physics.JointInfo[]" id="4192010454">
                     <item dataType="Struct" type="Duality.Components.Physics.RevoluteJointInfo" id="81004832">
-                      <breakPoint dataType="Float">1000</breakPoint>
+                      <breakPoint dataType="Float">3000</breakPoint>
                       <collide dataType="Bool">false</collide>
                       <enabled dataType="Bool">true</enabled>
                       <limitEnabled dataType="Bool">false</limitEnabled>
@@ -294,17 +297,17 @@
                       <maxMotorTorque dataType="Float">0</maxMotorTorque>
                       <motorEnabled dataType="Bool">false</motorEnabled>
                       <motorSpeed dataType="Float">0</motorSpeed>
-                      <otherBody dataType="ObjectRef">947514849</otherBody>
+                      <otherBody />
                       <parentBody dataType="ObjectRef">3735180773</parentBody>
                       <refAngle dataType="Float">0</refAngle>
                       <upperLimit dataType="Float">0</upperLimit>
                     </item>
                     <item dataType="Struct" type="Duality.Components.Physics.DistanceJointInfo" id="3314470798">
-                      <breakPoint dataType="Float">1000</breakPoint>
+                      <breakPoint dataType="Float">3000</breakPoint>
                       <collide dataType="Bool">false</collide>
                       <dampingRatio dataType="Float">0.8</dampingRatio>
                       <enabled dataType="Bool">true</enabled>
-                      <frequency dataType="Float">2</frequency>
+                      <frequency dataType="Float">3.5</frequency>
                       <length dataType="Float">0</length>
                       <localAnchorA dataType="Struct" type="Duality.Vector2">
                         <X dataType="Float">0</X>
@@ -314,7 +317,7 @@
                         <X dataType="Float">0</X>
                         <Y dataType="Float">200</Y>
                       </localAnchorB>
-                      <otherBody dataType="ObjectRef">947514849</otherBody>
+                      <otherBody />
                       <parentBody dataType="ObjectRef">3735180773</parentBody>
                     </item>
                   </_items>
@@ -404,6 +407,7 @@
                 <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="1432828824">
+                <_x003C_ApperantSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                 <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                 <_x003C_froudNr_x003E_k__BackingField dataType="Float">0</_x003C_froudNr_x003E_k__BackingField>
                 <_x003C_hasWaveDrag_x003E_k__BackingField dataType="Bool">false</_x003C_hasWaveDrag_x003E_k__BackingField>
@@ -411,7 +415,7 @@
                 <_x003C_maxWaveDrag_x003E_k__BackingField dataType="Float">0</_x003C_maxWaveDrag_x003E_k__BackingField>
                 <_x003C_ScreenString_x003E_k__BackingField dataType="String">AI Sail</_x003C_ScreenString_x003E_k__BackingField>
                 <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.1</_x003C_StatDrag_x003E_k__BackingField>
-                <_x003C_StatLift_x003E_k__BackingField dataType="Float">6</_x003C_StatLift_x003E_k__BackingField>
+                <_x003C_StatLift_x003E_k__BackingField dataType="Float">3</_x003C_StatLift_x003E_k__BackingField>
                 <_x003C_TargetMedium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="AIR" value="2" />
                 <_x003C_waveDragSpeed_x003E_k__BackingField dataType="Float">0</_x003C_waveDragSpeed_x003E_k__BackingField>
                 <active dataType="Bool">true</active>
@@ -500,7 +504,7 @@
       <body />
     </identifier>
     <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
-    <name dataType="String">PlayerBoat</name>
+    <name dataType="String">BoatStrongWind</name>
     <parent />
     <prefabLink />
   </objTree>

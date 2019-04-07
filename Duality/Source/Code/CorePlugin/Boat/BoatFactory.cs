@@ -20,10 +20,10 @@ namespace WorldSailorsDuality
 
         public void CreateBoat()
         {
-            GameObject BoatGameObj = BoatPrefab.Res.Instantiate();
+            GameObject BoatGameObj = ParentAgent.BoatInventory[ParentAgent.BoatInventory_selected].InstantiateBoat();
             BoatGameObj.Parent = this.GameObj;
             BoatController c = BoatGameObj.GetComponent<BoatController>();
-            
+
             if (ParentAgent == null)
                 ParentAgent = GameObj.GetComponent<Agent>();
             if (ParentAgent != null)
@@ -33,7 +33,11 @@ namespace WorldSailorsDuality
                     foreach(UpgradeTarget u in ParentAgent.CollectedUpgrades)
                         u.AdjustLevel(c);
                 }
-                if(ParentAgent.targetBoat!= null)
+                List<PathRenderer> p = BoatGameObj.GetComponentsDeep<PathRenderer>().ToList();
+                foreach(PathRenderer pa in p)
+                    pa.MainColor = ParentAgent.PrimaryColor;
+
+                if (ParentAgent.targetBoat!= null)
                     GameObj.ParentScene.RemoveObject(ParentAgent.targetBoat.GameObj);
                 Vector2 pos = ParentAgent.GetPosition();
                 c.Position = pos;

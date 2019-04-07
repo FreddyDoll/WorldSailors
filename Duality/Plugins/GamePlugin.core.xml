@@ -61,6 +61,13 @@
             135° is Upwind
             </summary>
         </member>
+        <member name="P:WorldSailorsDuality.AIAgent.AtrMinWindAngle">
+            <summary>
+            How low will the AI go Downwind
+            45° is Downwind
+            135° is Upwind
+            </summary>
+        </member>
         <member name="P:WorldSailorsDuality.AIAgent.AtrUpwindTagDistance">
             <summary>
             At what distance to the Target, seen Perpendicular to the wind,
@@ -99,6 +106,16 @@
             Amplification of the Sail Controller
             </summary>
         </member>
+        <member name="P:WorldSailorsDuality.AIAgent.AtrPathTargetRadius">
+            <summary>
+            Radius of Targets when pathfinding
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.AIAgent.AtrPathGenParameters">
+            <summary>
+            Parameters for Pathfinding
+            </summary>
+        </member>
         <member name="P:WorldSailorsDuality.AITarget.Radius">
             <summary>
             cant be set to 0
@@ -135,6 +152,63 @@
             </summary>
             <param name="delta">added to the level</param>
             <returns></returns>
+        <member name="P:WorldSailorsDuality.HeightMapSimpleX.SimplexSeed">
+            <summary>
+            Change Value -> new Map for Simplex mode
+            integer
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMapSimpleX.SimplexOctave">
+            <summary>
+            Generate Map with doubled frequency (persistence used for higher frequencys)
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMapSimpleX.SimplexPersistance">
+            <summary>
+            Scaling of Simplex Noise
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMapSimpleX.SimplexFreq">
+            <summary>
+            Scaling of Simplex Noise
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMapSimple.SimpleFreqX">
+            <summary>
+            Parameter for SIMPLE mode
+            Frequency in X-Direction
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMapSimple.SimpleFreqY">
+            <summary>
+            Parameter for SIMPLE mode
+            Frequency in Y-Direction
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMapPerlin.PerlinFrequency">
+            <summary>
+            Parameter for PERLIN mode
+            How close are the islands together
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMapPerlin.PerlinPersistance">
+            <summary>
+            Parameter for PERLIN mode
+            Only used if PerlinOctave > 1,
+            Factor for higher Octaves
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMapPerlin.PerlinOctave">
+            <summary>
+            Parameter for PERLIN mode
+            Run the Algorithm multiple times, 
+            each time doubling Frequency and multiplying with PerlinPersistance
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.HeightMapPerlin.PerlinSeed">
+            <summary>
+            Change Value -> new Map
+            </summary>
         </member>
         <member name="M:WorldSailorsDuality.PriorityQueue`1.Push(`0)">
             <summary>
@@ -288,64 +362,6 @@
             The map is only Generated for a Grid of Points other Points are interpolated
             </summary>
         </member>
-        <member name="P:WorldSailorsDuality.HeightMap.PerlinFrequency">
-            <summary>
-            Parameter for PERLIN mode
-            How close are the islands together
-            </summary>
-        </member>
-        <member name="P:WorldSailorsDuality.HeightMap.PerlinPersistance">
-            <summary>
-            Parameter for PERLIN mode
-            Only used if PerlinOctave > 1,
-            Factor for higher Octaves
-            </summary>
-        </member>
-        <member name="P:WorldSailorsDuality.HeightMap.PerlinOctave">
-            <summary>
-            Parameter for PERLIN mode
-            Run the Algorithm multiple times, 
-            each time doubling Frequency and multiplying with PerlinPersistance
-            </summary>
-        </member>
-        <member name="P:WorldSailorsDuality.HeightMap.PerlinSeed">
-            <summary>
-            Change Value -> new Map
-            </summary>
-        </member>
-        <member name="P:WorldSailorsDuality.HeightMap.SimplexSeed">
-            <summary>
-            Change Value -> new Map for Simplex mode
-            integer
-            </summary>
-        </member>
-        <member name="P:WorldSailorsDuality.HeightMap.SimplexOctave">
-            <summary>
-            Generate Map with doubled frequency (persistence used for higher frequencys)
-            </summary>
-        </member>
-        <member name="P:WorldSailorsDuality.HeightMap.SimplexPersistance">
-            <summary>
-            Scaling of Simplex Noise
-            </summary>
-        </member>
-        <member name="P:WorldSailorsDuality.HeightMap.SimplexFreq">
-            <summary>
-            Scaling of Simplex Noise
-            </summary>
-        </member>
-        <member name="P:WorldSailorsDuality.HeightMap.SimpleFreqX">
-            <summary>
-            Parameter for SIMPLE mode
-            Frequency in X-Direction
-            </summary>
-        </member>
-        <member name="P:WorldSailorsDuality.HeightMap.SimpleFreqY">
-            <summary>
-            Parameter for SIMPLE mode
-            Frequency in Y-Direction
-            </summary>
-        </member>
         <member name="P:WorldSailorsDuality.HeightMap.Offset">
             <summary>
             Parameter for every mode
@@ -360,11 +376,6 @@
             </summary>
         </member>
         <member name="P:WorldSailorsDuality.HeightMap.GridSize">
-            <summary>
-            Choose Map Generation mode
-            </summary>
-        </member>
-        <member name="P:WorldSailorsDuality.HeightMap.GenType">
             <summary>
             Choose Map Generation mode
             </summary>
@@ -487,6 +498,11 @@
             </summary>
         </member>
         <member name="M:WorldSailorsDuality.PathFinder.FindPath(Duality.Vector2,Duality.Vector2)">
+            <summary>
+            null if no path found
+            </summary>
+        </member>
+        <member name="M:WorldSailorsDuality.PathFinder.FindPath(Duality.Vector2,Duality.Vector2,WorldSailorsDuality.PathGenParameters)">
             <summary>
             null if no path found
             </summary>

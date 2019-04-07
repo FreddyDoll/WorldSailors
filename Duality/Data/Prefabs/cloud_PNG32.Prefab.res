@@ -34,6 +34,31 @@
           <vel dataType="Struct" type="Duality.Vector3" />
           <velAbs dataType="Struct" type="Duality.Vector3" />
         </item>
+        <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="426451571">
+          <active dataType="Bool">true</active>
+          <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
+            <A dataType="Byte">0</A>
+            <B dataType="Byte">255</B>
+            <G dataType="Byte">255</G>
+            <R dataType="Byte">255</R>
+          </colorTint>
+          <customMat />
+          <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
+          <gameobj dataType="ObjectRef">3252799587</gameobj>
+          <offset dataType="Int">0</offset>
+          <pixelGrid dataType="Bool">false</pixelGrid>
+          <rect dataType="Struct" type="Duality.Rect">
+            <H dataType="Float">328</H>
+            <W dataType="Float">749</W>
+            <X dataType="Float">-374.5</X>
+            <Y dataType="Float">-164</Y>
+          </rect>
+          <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
+          <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
+            <contentPath dataType="String">Data\Textures\cloud_PNG32.Material.res</contentPath>
+          </sharedMat>
+          <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
+        </item>
         <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="2787729075">
           <active dataType="Bool">true</active>
           <allowParent dataType="Bool">false</allowParent>
@@ -72,31 +97,6 @@
             <_size dataType="Int">1</_size>
           </shapes>
         </item>
-        <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="426451571">
-          <active dataType="Bool">true</active>
-          <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
-            <A dataType="Byte">0</A>
-            <B dataType="Byte">255</B>
-            <G dataType="Byte">255</G>
-            <R dataType="Byte">255</R>
-          </colorTint>
-          <customMat />
-          <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
-          <gameobj dataType="ObjectRef">3252799587</gameobj>
-          <offset dataType="Int">0</offset>
-          <pixelGrid dataType="Bool">false</pixelGrid>
-          <rect dataType="Struct" type="Duality.Rect">
-            <H dataType="Float">328</H>
-            <W dataType="Float">749</W>
-            <X dataType="Float">-374.5</X>
-            <Y dataType="Float">-164</Y>
-          </rect>
-          <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
-          <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-            <contentPath dataType="String">Data\Textures\cloud_PNG32.Material.res</contentPath>
-          </sharedMat>
-          <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
-        </item>
         <item dataType="Struct" type="WorldSailorsDuality.CloudController" id="3438750437">
           <_x003C_fadeFrac_x003E_k__BackingField dataType="Float">0.1</_x003C_fadeFrac_x003E_k__BackingField>
           <_x003C_LifeTime_x003E_k__BackingField dataType="Float">800</_x003C_LifeTime_x003E_k__BackingField>
@@ -105,6 +105,7 @@
           <gameobj dataType="ObjectRef">3252799587</gameobj>
         </item>
         <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="485377126">
+          <_x003C_ApperantSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
           <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
             <X dataType="Float">16</X>
             <Y dataType="Float">0</Y>
