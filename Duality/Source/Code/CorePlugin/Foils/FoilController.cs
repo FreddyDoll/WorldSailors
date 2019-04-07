@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace WorldSailorsDuality
 {
     [RequiredComponent(typeof(RigidBody)), RequiredComponent(typeof(Transform))]
-    public class FoilController : Component, Ihudstring
+    public class FoilController : Component, Ihudstring, IUpgradeable
     {
         public float waveDragSpeed { get; set; } = 0;
         public float froudNr { get; set; } = 0;
@@ -23,7 +23,6 @@ namespace WorldSailorsDuality
         public string ScreenString { get; set; } //for drawing purpose
         public Vector2 CurrentWorkingPoint { get { return currentWP; } }
         public Vector2 FluidSpeed { get; set; } = new Vector2();
-        public Vector2 ApperantSpeed { get; set; } = new Vector2();
         public Vector2 Position
         {
             get
@@ -98,9 +97,8 @@ namespace WorldSailorsDuality
             RigidBody body = this.GameObj.GetComponent<RigidBody>();
             Transform pos = this.GameObj.GetComponent<Transform>();
 
-            //Vector2 ApperantSpeed = pos.Vel.Xy - FluidSpeed;
-            ApperantSpeed = body.LinearVelocity - FluidSpeed;
-            Vector2 workingPoint = pos.GetLocalVector(ApperantSpeed);
+            Vector2 trueSpeed = pos.Vel.Xy - FluidSpeed;
+            Vector2 workingPoint = pos.GetLocalVector(trueSpeed);
             Vector2 localForce = GetForce(workingPoint);
             currentWP = workingPoint;
 
@@ -116,7 +114,7 @@ namespace WorldSailorsDuality
             if (angleOfAttack > 180)
                 angleOfAttack -= 360;
 
-            if (ApperantSpeed.Length < 100) //Limit needed after init
+            if (trueSpeed.Length < 50) //Limit needed after init
             {
                 body.ApplyLocalForce(localForce);
             }

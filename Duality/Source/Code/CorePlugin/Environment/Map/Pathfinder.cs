@@ -11,23 +11,10 @@ using Duality.Resources;
 
 namespace WorldSailorsDuality
 {
-
-    public class PathGenParameters
-    {
-        public static float fallbackMaxSpeedHeight  { get; set; } = -400;
-        public static float fallbackMaxSpeedFactor { get; set; } = 10;
-        public float maxSpeedHeight { get; set; }
-        public float maxSpeedFactor { get; set; }
-        public PathGenParameters()
-        {
-            maxSpeedFactor = fallbackMaxSpeedFactor;
-            maxSpeedHeight = fallbackMaxSpeedHeight;
-        }
-    }
-
     //This could need some cleanup....
     public class MyPathNode : IPathNode<Object>
     {
+        public static float Distance1Height = -1000;
         public static float Distance10Height = 0;
         public Vector3 Position;
         public Boolean IsWall { get; set; }
@@ -39,11 +26,7 @@ namespace WorldSailorsDuality
 
         public float nodeLength(Object inUserContext)
         {
-            PathGenParameters p = new PathGenParameters();
-            if (inUserContext is PathGenParameters)
-                p = (PathGenParameters)inUserContext;
-
-            float length = StaticHelpers.lerp(new Vector2(p.maxSpeedHeight,1), new Vector2(Distance10Height,p.maxSpeedFactor),Position.Z);
+            float length = StaticHelpers.lerp(new Vector2(Distance1Height,1), new Vector2(Distance10Height,10),Position.Z);
             if (length < 1)
                 length = 1;
             return length;
@@ -73,7 +56,7 @@ namespace WorldSailorsDuality
     {
         public int spacing { get; set; } = 2000;
         public float minTravelHeight { get; set; } = -100;
-        public PathGenParameters FallBackParmeters { get; set; } = new PathGenParameters();
+        public float maxSpeedHeight { get; set; } = -1000;
         public Point2 GridSize { get { return gridsize; } }
 
         [DontSerialize]
@@ -84,14 +67,11 @@ namespace WorldSailorsDuality
         private Point2 gridsize;
         [DontSerialize]
         private MySolver<MyPathNode, Object> aStar;
-        [DontSerialize]
-        private Vector2 TrueSpacing;
+        
 
-
-        private Point2 convertToGrid(Vector2 inp)
+        private int convertToGrid(float inp)
         {
-            Vector2 res = (inp - offset) / TrueSpacing;
-            return new Point2((int)MathF.Round(res.X), (int)MathF.Round(res.Y));
+            return (int)Math.Round((inp- offset.X) / spacing);
         }
 
         /// <summary>
@@ -99,19 +79,12 @@ namespace WorldSailorsDuality
         /// </summary>
         public List<MyPathNode> FindPath(Vector2 start, Vector2 end)
         {
-            PathGenParameters.fallbackMaxSpeedHeight = FallBackParmeters.maxSpeedHeight;
-            PathGenParameters.fallbackMaxSpeedFactor = FallBackParmeters.maxSpeedFactor;
-
-            return FindPath(start, end, FallBackParmeters);
-        }
-
-        /// <summary>
-        /// null if no path found
-        /// </summary>
-        public List<MyPathNode> FindPath(Vector2 start, Vector2 end,PathGenParameters parameters)
-        {
-            Point2 s = convertToGrid(start);
-            Point2 e = convertToGrid(end);
+            Point2 s = new Point2();
+            s.X = convertToGrid(start.X);
+            s.Y = convertToGrid(start.Y);
+            Point2 e = new Point2();
+            e.X = convertToGrid(end.X);
+            e.Y = convertToGrid(end.Y);
 
             if (s.X >= gridsize.X || s.X < 0)
                 return null;
@@ -121,7 +94,7 @@ namespace WorldSailorsDuality
                 return null;
             if (e.Y >= gridsize.Y || e.Y < 0)
                 return null;
-            var p = aStar.Search(s, e, parameters);
+            var p = aStar.Search(s, e, null);
             if (p == null)
                 return null;
             List<MyPathNode> path = p.ToList();
@@ -138,10 +111,10 @@ namespace WorldSailorsDuality
                 spacing = 1000;
 
             gridsize = new Point2((int)MathF.Ceiling(map.CompleteArea.W / spacing), (int)MathF.Ceiling(map.CompleteArea.H / spacing));
-            TrueSpacing = new Vector2(map.CompleteArea.W/(float)gridsize.X, map.CompleteArea.H / (float)gridsize.Y);
             offset = new Vector2(map.CompleteArea.X, map.CompleteArea.Y); // make sure Grid is centered
             MyPathNode[,] grid = new MyPathNode[gridsize.X, gridsize.Y];
-            map.GenerateMap(offset, TrueSpacing, ref grid, minTravelHeight);
+            map.GenerateMap(offset, new Vector2(spacing, spacing),ref grid, minTravelHeight);
+            MyPathNode.Distance1Height = maxSpeedHeight;
             MyPathNode.Distance10Height = minTravelHeight;
             aStar = new MySolver<MyPathNode, Object>(grid);
         }

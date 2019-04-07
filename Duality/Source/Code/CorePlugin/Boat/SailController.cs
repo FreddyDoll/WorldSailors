@@ -63,32 +63,20 @@ namespace WorldSailorsDuality
             if (hbody == null)
                 return;
             if (hbody.Joints.ToArray().Count() < 2)
-				return;
-
-            RigidBody sbody = GameObj.GetComponent<RigidBody>();
-            if (sbody == null)
                 return;
-
-            DistanceJointInfo distJoint = null;
-            RevoluteJointInfo rotJoint = null;
-            foreach (JointInfo j in sbody.Joints)
+            JointInfo distJoint = hbody.Joints.ToArray()[1];
+            JointInfo rotJoint = hbody.Joints.ToArray()[0];
+            if (distJoint is DistanceJointInfo && rotJoint is RevoluteJointInfo)
             {
-                if (j is DistanceJointInfo)
-                    distJoint = (DistanceJointInfo)j;
-                if (j is RevoluteJointInfo)
-                    rotJoint = (RevoluteJointInfo)j;
+                DistanceJointInfo distjoint = (DistanceJointInfo)distJoint;
+                RevoluteJointInfo revJoint = (RevoluteJointInfo)rotJoint;
+                if (dist < 0)
+                    dist = 0;
+                maxLenSailDist = (revJoint.LocalAnchorA - distjoint.LocalAnchorA).Length * 5.5f;
+                if (dist > maxLenSailDist)
+                    dist = maxLenSailDist;
+                distjoint.TargetDistance = dist;
             }
-            if (distJoint == null || rotJoint == null)
-                return;
-
-            maxLenSailDist = (rotJoint.LocalAnchorA - distJoint.LocalAnchorA).Length * 5.5f;
-            float dist = maxLenSailDist * angle / 2f / (float)Math.PI;
-            
-            if (dist < 0)
-                dist = 0;
-            if (dist > maxLenSailDist)
-                dist = maxLenSailDist;
-            distJoint.TargetDistance = dist;
         }
     }
 }

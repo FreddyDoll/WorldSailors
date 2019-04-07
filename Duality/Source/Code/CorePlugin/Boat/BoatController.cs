@@ -92,8 +92,6 @@ namespace WorldSailorsDuality
         private SailController sailCont;
         [DontSerialize]
         private FoilController sailFoil;
-        [DontSerialize]
-        private FoilController hullFoil;
 
         void ICmpUpdatable.OnUpdate()
         {
@@ -129,18 +127,6 @@ namespace WorldSailorsDuality
                 RigidBody sBody = Sail.GetComponent<RigidBody>();
                 if(hBody!=null && sBody!=null)
                 {
-                    //Hinges not setup
-                    List<JointInfo> sailJoints = sBody.Joints.ToList();
-                    bool jointsOK = true;
-                    foreach(JointInfo j in sailJoints)
-                        if (j.OtherBody == null)
-                            jointsOK = false;
-                    if (!jointsOK)
-                        sBody.ClearJoints();
-                        foreach (JointInfo j in sailJoints)
-                            sBody.AddJoint(j, hBody);
-
-                    //Link broken
                     List<JointInfo> joints = new List<JointInfo>();
                     joints.AddRange(hBody.Joints);
                     joints.AddRange(sBody.Joints);
@@ -252,18 +238,6 @@ namespace WorldSailorsDuality
             return trans.Angle;
         }
 
-        public Vector2 GetCurrent()
-        {
-            if (Hull != null)
-            {
-                if (hullFoil == null)
-                    hullFoil = Hull.GetComponent<FoilController>();
-                if (hullFoil != null)
-                    return hullFoil.FluidSpeed;
-            }
-            return new Vector2(0, 0);
-        }
-
         public Vector2 GetWind()
         {
             if(Sail!=null)
@@ -274,18 +248,6 @@ namespace WorldSailorsDuality
                     return sailFoil.FluidSpeed;
             }
             return new Vector2(0,0);
-        }
-
-        public Vector2 GetApperantWind()
-        {
-            if (Sail != null)
-            {
-                if (sailFoil == null)
-                    sailFoil = Sail.GetComponent<FoilController>();
-                if (sailFoil != null)
-                    return sailFoil.ApperantSpeed;
-            }
-            return new Vector2(0, 0);
         }
 
         public Vector2 GetSailOperatingPoint()

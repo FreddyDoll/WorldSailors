@@ -18,12 +18,60 @@ namespace WorldSailorsDuality
         SIMPLEX
     }
     
-    public abstract class HeightMap : Component,ICmpUpdatable,Ihudstring
+    public class HeightMap : Component, ICmpInitializable,ICmpUpdatable,Ihudstring
     {
         /// <summary>
         /// The map is only Generated for a Grid of Points other Points are interpolated
         /// </summary>
         public float GridOffset { get; set; } = 1000;
+        /// <summary>
+        /// Parameter for PERLIN mode
+        /// How close are the islands together
+        /// </summary>
+        public double PerlinFrequency { get; set; } = 10000; //Needs to be double!!
+        /// <summary>
+        /// Parameter for PERLIN mode
+        /// Only used if PerlinOctave > 1,
+        /// Factor for higher Octaves
+        /// </summary>
+        public float PerlinPersistance { get; set; } = 0.5f;
+        /// <summary>
+        /// Parameter for PERLIN mode
+        /// Run the Algorithm multiple times, 
+        /// each time doubling Frequency and multiplying with PerlinPersistance
+        /// </summary>
+        public int PerlinOctave { get; set; } = 2;
+        /// <summary>
+        /// Change Value -> new Map
+        /// </summary>
+        public int PerlinSeed { get; set; } = 0;
+        /// <summary>
+        /// Change Value -> new Map for Simplex mode
+        /// integer
+        /// </summary>
+        public int SimplexSeed { get { return simplexSeed; } set { simplexSeed = value; Simplex.Noise.Seed = simplexSeed; } }
+        /// <summary>
+        /// Generate Map with doubled frequency (persistence used for higher frequencys)
+        /// </summary>
+        public int SimplexOctave { get; set; } = 1;
+        /// <summary>
+        /// Scaling of Simplex Noise
+        /// </summary>
+        public float SimplexPersistance { get; set; } = 0.5f;
+        /// <summary>
+        /// Scaling of Simplex Noise
+        /// </summary>
+        public int SimplexFreq { get; set; } = 0;
+        /// <summary>
+        /// Parameter for SIMPLE mode
+        /// Frequency in X-Direction
+        /// </summary>
+        public float SimpleFreqX { get; set; } = 5000f;
+        /// <summary>
+        /// Parameter for SIMPLE mode
+        /// Frequency in Y-Direction
+        /// </summary>
+        public float SimpleFreqY { get; set; } = 8000f;
         /// <summary>
         /// Parameter for every mode
         /// gets added after Generation
@@ -39,6 +87,10 @@ namespace WorldSailorsDuality
         /// Choose Map Generation mode
         /// </summary>
         public Point2 GridSize { get { return gridSize; } }
+        /// <summary>
+        /// Choose Map Generation mode
+        /// </summary>
+        public MapGenerationType GenType { get; set; } = MapGenerationType.PERLIN;
         /// <summary>
         /// Area of the Height Map
         /// </summary>
@@ -65,13 +117,13 @@ namespace WorldSailorsDuality
         public int GridPointsCount { get { return GridSize.X * GridSize.Y; } }
 
         [DontSerialize]
+        private int simplexSeed = 0;
+        [DontSerialize]
         private GridPoint[] grid = null;
         [DontSerialize]
         Point2 gridSize;
         [DontSerialize]
         List<Task> backroundGenerators = new List<Task>();
-        
-        protected abstract float GetNoisePoint(Vector2 p);
 
         #region MapGeneration
         public Vector2 findTopLeftGridPoint(Vector2 p)
@@ -268,6 +320,44 @@ namespace WorldSailorsDuality
         }
         #endregion
 
+        private float GetNoisePoint(Vector2 p)
+        {
+            switch (GenType)
+            {
+                case MapGenerationType.PERLIN: return ProbePerlin(p);
+                case MapGenerationType.SIMPLE: return ProbeSimple(p);
+                case MapGenerationType.SIMPLEX: return ProbeSimplex(p);
+            }
+            return 0;
+        }
+
+        private float ProbePerlin(Vector2 point)
+        {
+            return (float)StaticHelpers.Perlin.OctavePerlin(point.X / PerlinFrequency + 10000, point.Y / PerlinFrequency + 10000, PerlinSeed, PerlinOctave, PerlinPersistance) * ScaleZ + Offset;
+        }
+
+        private float ProbeSimple(Vector2 point)
+        {
+            return (float)(ScaleZ * Math.Sin(point.X / SimpleFreqX) + ScaleZ * Math.Sin(point.Y / SimpleFreqY)) / 2f + Offset;
+        }
+
+        private float ProbeSimplex(Vector2 point)
+        {
+            float ret = 0;
+            float freq = SimplexFreq;
+            float per = SimplexPersistance;
+
+            for (int n = 0; n < SimplexOctave; n++)
+            {
+                float Generated = Simplex.Noise.Generate((point.X / freq + 10000), (point.Y / freq + 10000));
+                ret += Generated * per * ScaleZ + Offset;
+                freq *= 0.7f;
+                per *= per;
+            }
+
+            return ret;// * ScaleZ + Offset;
+        }
+
         private void InitArray()
         {
             //End all Backround Workers
@@ -321,7 +411,13 @@ namespace WorldSailorsDuality
             backroundGenerators = n;
         }
         
-        
+        public void OnInit(InitContext context)
+        {
+            if (context == InitContext.Activate)
+            {
+                Simplex.Noise.Seed = SimplexSeed;
+            }
+        }
         
         public void OnShutdown(ShutdownContext context)
         {

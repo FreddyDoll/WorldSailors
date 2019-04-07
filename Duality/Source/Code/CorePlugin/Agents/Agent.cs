@@ -23,9 +23,6 @@ namespace WorldSailorsDuality
         public virtual ContentRef<Prefab> NavTargetPrefab { get; set; }
 
         public virtual List<UpgradeTarget> CollectedUpgrades { get; set; }
-        public virtual List<BoatPrototype> BoatInventory { get; set; } = new List<BoatPrototype>();
-        public virtual int BoatInventory_selected { get; set; } = 0;
-        public virtual Vector2 InitPos { get; set; }
 
         public virtual Vector2 GetPosition()
         {
@@ -44,12 +41,10 @@ namespace WorldSailorsDuality
                         return trans.Pos.Xy;
                     }
                 }
-                if (InitPos != null)
-                    return InitPos;
                 return new Vector2();
             }
         }
-        
+
         [DontSerialize]
         private float respawnTimer = -1;
         [DontSerialize]

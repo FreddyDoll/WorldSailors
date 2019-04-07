@@ -133,7 +133,7 @@
           </item>
           <item dataType="Struct" type="WorldSailorsDuality.BoatFactory" id="147805666">
             <_x003C_BoatPrefab_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
-              <contentPath dataType="String">Data\Prefabs\BoatStrongWind.Prefab.res</contentPath>
+              <contentPath dataType="String">Data\Prefabs\PlayerBoat.Prefab.res</contentPath>
             </_x003C_BoatPrefab_x003E_k__BackingField>
             <_x003C_ParentAgent_x003E_k__BackingField />
             <active dataType="Bool">true</active>
@@ -348,7 +348,7 @@
             <children />
             <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="1665722457">
               <_items dataType="Array" type="Duality.Component[]" id="514402254" length="8">
-                <item dataType="Struct" type="WorldSailorsDuality.HeightMapPerlin" id="2887479125">
+                <item dataType="Struct" type="WorldSailorsDuality.HeightMap" id="3389403723">
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">2</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
                   <_x003C_CompleteArea_x003E_k__BackingField dataType="Struct" type="Duality.Rect">
@@ -357,14 +357,20 @@
                     <X dataType="Float">-100000</X>
                     <Y dataType="Float">-100000</Y>
                   </_x003C_CompleteArea_x003E_k__BackingField>
+                  <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MapGenerationType" name="PERLIN" value="0" />
                   <_x003C_GridOffset_x003E_k__BackingField dataType="Float">500</_x003C_GridOffset_x003E_k__BackingField>
                   <_x003C_Offset_x003E_k__BackingField dataType="Float">-500</_x003C_Offset_x003E_k__BackingField>
                   <_x003C_PerlinFrequency_x003E_k__BackingField dataType="Double">60000</_x003C_PerlinFrequency_x003E_k__BackingField>
                   <_x003C_PerlinOctave_x003E_k__BackingField dataType="Int">3</_x003C_PerlinOctave_x003E_k__BackingField>
                   <_x003C_PerlinPersistance_x003E_k__BackingField dataType="Float">0.8</_x003C_PerlinPersistance_x003E_k__BackingField>
                   <_x003C_PerlinSeed_x003E_k__BackingField dataType="Int">3</_x003C_PerlinSeed_x003E_k__BackingField>
-                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">0</_x003C_PointsGenerated_x003E_k__BackingField>
-                  <_x003C_ScaleZ_x003E_k__BackingField dataType="Float">2000</_x003C_ScaleZ_x003E_k__BackingField>
+                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">49643</_x003C_PointsGenerated_x003E_k__BackingField>
+                  <_x003C_ScaleZ_x003E_k__BackingField dataType="Float">1400</_x003C_ScaleZ_x003E_k__BackingField>
+                  <_x003C_SimpleFreqX_x003E_k__BackingField dataType="Float">5000</_x003C_SimpleFreqX_x003E_k__BackingField>
+                  <_x003C_SimpleFreqY_x003E_k__BackingField dataType="Float">8000</_x003C_SimpleFreqY_x003E_k__BackingField>
+                  <_x003C_SimplexFreq_x003E_k__BackingField dataType="Int">100000</_x003C_SimplexFreq_x003E_k__BackingField>
+                  <_x003C_SimplexOctave_x003E_k__BackingField dataType="Int">1</_x003C_SimplexOctave_x003E_k__BackingField>
+                  <_x003C_SimplexPersistance_x003E_k__BackingField dataType="Float">0.65</_x003C_SimplexPersistance_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <gameobj dataType="ObjectRef">2542847861</gameobj>
                 </item>
@@ -431,7 +437,7 @@
                       <_size dataType="Int">8</_size>
                     </_x003C_LUTvalues_x003E_k__BackingField>
                   </_x003C_LUTheight_x003E_k__BackingField>
-                  <_x003C_map_x003E_k__BackingField />
+                  <_x003C_map_x003E_k__BackingField dataType="ObjectRef">3389403723</_x003C_map_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <dataGroup0 dataType="Struct" type="WorldSailorsDuality.LandRendererShaded+RenderDataSettings" id="275252832">
                     <sizeX dataType="Int">160</sizeX>
@@ -444,10 +450,7 @@
                   <gameobj dataType="ObjectRef">2542847861</gameobj>
                 </item>
                 <item dataType="Struct" type="WorldSailorsDuality.PathFinder" id="359605017">
-                  <_x003C_FallBackParmeters_x003E_k__BackingField dataType="Struct" type="WorldSailorsDuality.PathGenParameters" id="3814693097">
-                    <_x003C_maxSpeedFactor_x003E_k__BackingField dataType="Float">10</_x003C_maxSpeedFactor_x003E_k__BackingField>
-                    <_x003C_maxSpeedHeight_x003E_k__BackingField dataType="Float">-400</_x003C_maxSpeedHeight_x003E_k__BackingField>
-                  </_x003C_FallBackParmeters_x003E_k__BackingField>
+                  <_x003C_maxSpeedHeight_x003E_k__BackingField dataType="Float">-400</_x003C_maxSpeedHeight_x003E_k__BackingField>
                   <_x003C_minTravelHeight_x003E_k__BackingField dataType="Float">-100</_x003C_minTravelHeight_x003E_k__BackingField>
                   <_x003C_spacing_x003E_k__BackingField dataType="Int">5000</_x003C_spacing_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
@@ -460,14 +463,14 @@
               <header />
               <body>
                 <keys dataType="Array" type="System.Object[]" id="3809980531">
-                  <item dataType="Type" id="1469878566" value="WorldSailorsDuality.PathFinder" />
-                  <item dataType="Type" id="1012689594" value="WorldSailorsDuality.LandRendererShaded" />
-                  <item dataType="Type" id="2082490918" value="WorldSailorsDuality.HeightMapPerlin" />
+                  <item dataType="Type" id="1469878566" value="WorldSailorsDuality.HeightMap" />
+                  <item dataType="Type" id="1012689594" value="WorldSailorsDuality.PathFinder" />
+                  <item dataType="Type" id="2082490918" value="WorldSailorsDuality.LandRendererShaded" />
                 </keys>
                 <values dataType="Array" type="System.Object[]" id="4097480632">
+                  <item dataType="ObjectRef">3389403723</item>
                   <item dataType="ObjectRef">359605017</item>
                   <item dataType="ObjectRef">2996869631</item>
-                  <item dataType="ObjectRef">2887479125</item>
                 </values>
               </body>
             </compMap>
@@ -971,10 +974,6 @@
                   <vel dataType="Struct" type="Duality.Vector3" />
                   <velAbs dataType="Struct" type="Duality.Vector3" />
                 </item>
-                <item dataType="Struct" type="Duality.Components.SoundListener" id="179372574">
-                  <active dataType="Bool">true</active>
-                  <gameobj dataType="ObjectRef">2441687343</gameobj>
-                </item>
                 <item dataType="Struct" type="Duality.Components.Camera" id="3988073820">
                   <active dataType="Bool">true</active>
                   <farZ dataType="Float">2000000</farZ>
@@ -1007,6 +1006,10 @@
                   <perspective dataType="Enum" type="Duality.Drawing.PerspectiveMode" name="Parallax" value="1" />
                   <priority dataType="Int">0</priority>
                   <visibilityMask dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
+                </item>
+                <item dataType="Struct" type="Duality.Components.SoundListener" id="179372574">
+                  <active dataType="Bool">true</active>
+                  <gameobj dataType="ObjectRef">2441687343</gameobj>
                 </item>
                 <item dataType="Struct" type="WorldSailorsDuality.CameraController" id="3180310343">
                   <_x003C_AcceptUserInput_x003E_k__BackingField dataType="Bool">true</_x003C_AcceptUserInput_x003E_k__BackingField>
@@ -1192,13 +1195,6 @@
                   <_x003C_hudstrings_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.Ihudstring]]" id="1347105707">
                     <_items dataType="Array" type="WorldSailorsDuality.Ihudstring[]" id="3433356534" length="8">
                       <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="2080249702">
-                        <_x003C_ApperantSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-                        <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-                        <_x003C_maxSpeed_x003E_k__BackingField dataType="Float">0</_x003C_maxSpeed_x003E_k__BackingField>
-                        <_x003C_ScreenString_x003E_k__BackingField />
-                        <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0</_x003C_StatDrag_x003E_k__BackingField>
-                        <_x003C_StatLift_x003E_k__BackingField dataType="Float">0</_x003C_StatLift_x003E_k__BackingField>
-                        <_x003C_TargetMedium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="INACTIVE" value="0" />
                         <active dataType="Bool">true</active>
                         <gameobj dataType="Struct" type="Duality.GameObject" id="552704867">
                           <active dataType="Bool">true</active>
@@ -1207,80 +1203,18 @@
                             <_items dataType="Array" type="Duality.Component[]" id="3564230502" length="8">
                               <item dataType="Struct" type="Duality.Components.Transform" id="609982085">
                                 <active dataType="Bool">true</active>
-                                <angle dataType="Float">0</angle>
-                                <angleAbs dataType="Float">0</angleAbs>
-                                <angleVel dataType="Float">0</angleVel>
-                                <angleVelAbs dataType="Float">0</angleVelAbs>
-                                <deriveAngle dataType="Bool">true</deriveAngle>
                                 <gameobj dataType="ObjectRef">552704867</gameobj>
-                                <ignoreParent dataType="Bool">false</ignoreParent>
-                                <parentTransform />
-                                <pos dataType="Struct" type="Duality.Vector3" />
-                                <posAbs dataType="Struct" type="Duality.Vector3" />
-                                <scale dataType="Float">1</scale>
-                                <scaleAbs dataType="Float">1</scaleAbs>
-                                <vel dataType="Struct" type="Duality.Vector3" />
-                                <velAbs dataType="Struct" type="Duality.Vector3" />
                               </item>
                               <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="87634355">
                                 <active dataType="Bool">true</active>
-                                <allowParent dataType="Bool">false</allowParent>
-                                <angularDamp dataType="Float">0.3</angularDamp>
-                                <angularVel dataType="Float">0</angularVel>
-                                <bodyType dataType="Enum" type="Duality.Components.Physics.BodyType" name="Dynamic" value="1" />
-                                <colCat dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="Cat1" value="1" />
-                                <colFilter />
-                                <colWith dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="All" value="2147483647" />
-                                <continous dataType="Bool">false</continous>
-                                <explicitInertia dataType="Float">0</explicitInertia>
-                                <explicitMass dataType="Float">0</explicitMass>
-                                <fixedAngle dataType="Bool">false</fixedAngle>
                                 <gameobj dataType="ObjectRef">552704867</gameobj>
-                                <ignoreGravity dataType="Bool">false</ignoreGravity>
-                                <joints />
-                                <linearDamp dataType="Float">0.3</linearDamp>
-                                <linearVel dataType="Struct" type="Duality.Vector2" />
-                                <revolutions dataType="Float">0</revolutions>
-                                <shapes />
                               </item>
                               <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="2021324147">
                                 <active dataType="Bool">true</active>
-                                <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
-                                  <A dataType="Byte">255</A>
-                                  <B dataType="Byte">255</B>
-                                  <G dataType="Byte">255</G>
-                                  <R dataType="Byte">255</R>
-                                </colorTint>
-                                <customMat />
-                                <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
                                 <gameobj dataType="ObjectRef">552704867</gameobj>
-                                <offset dataType="Int">0</offset>
-                                <pixelGrid dataType="Bool">false</pixelGrid>
-                                <rect dataType="Struct" type="Duality.Rect">
-                                  <H dataType="Float">256</H>
-                                  <W dataType="Float">256</W>
-                                  <X dataType="Float">-128</X>
-                                  <Y dataType="Float">-128</Y>
-                                </rect>
-                                <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
-                                <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                                  <contentPath dataType="String">Default:Material:DualityIcon</contentPath>
-                                </sharedMat>
-                                <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
                               </item>
                               <item dataType="ObjectRef">2080249702</item>
                               <item dataType="Struct" type="WorldSailorsDuality.PathRenderer" id="3064532780">
-                                <_x003C_Delay_x003E_k__BackingField dataType="Float">1</_x003C_Delay_x003E_k__BackingField>
-                                <_x003C_MainColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
-                                  <A dataType="Byte">255</A>
-                                  <B dataType="Byte">0</B>
-                                  <G dataType="Byte">255</G>
-                                  <R dataType="Byte">0</R>
-                                </_x003C_MainColor_x003E_k__BackingField>
-                                <_x003C_maxLength_x003E_k__BackingField dataType="Int">1000</_x003C_maxLength_x003E_k__BackingField>
-                                <_x003C_TrailMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                                  <contentPath dataType="String">Default:Material:SolidBlack</contentPath>
-                                </_x003C_TrailMaterial_x003E_k__BackingField>
                                 <active dataType="Bool">true</active>
                                 <gameobj dataType="ObjectRef">552704867</gameobj>
                               </item>
@@ -1327,80 +1261,21 @@
                                     <_items dataType="Array" type="Duality.Component[]" id="2834449958" length="8">
                                       <item dataType="Struct" type="Duality.Components.Transform" id="3151749019">
                                         <active dataType="Bool">true</active>
-                                        <angle dataType="Float">0</angle>
-                                        <angleAbs dataType="Float">0</angleAbs>
-                                        <angleVel dataType="Float">0</angleVel>
-                                        <angleVelAbs dataType="Float">0</angleVelAbs>
-                                        <deriveAngle dataType="Bool">true</deriveAngle>
                                         <gameobj dataType="ObjectRef">3094471801</gameobj>
-                                        <ignoreParent dataType="Bool">false</ignoreParent>
-                                        <parentTransform />
-                                        <pos dataType="Struct" type="Duality.Vector3" />
-                                        <posAbs dataType="Struct" type="Duality.Vector3" />
-                                        <scale dataType="Float">1</scale>
-                                        <scaleAbs dataType="Float">1</scaleAbs>
-                                        <vel dataType="Struct" type="Duality.Vector3" />
-                                        <velAbs dataType="Struct" type="Duality.Vector3" />
                                       </item>
                                       <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="2629401289">
                                         <active dataType="Bool">true</active>
-                                        <allowParent dataType="Bool">false</allowParent>
-                                        <angularDamp dataType="Float">0.3</angularDamp>
-                                        <angularVel dataType="Float">0</angularVel>
-                                        <bodyType dataType="Enum" type="Duality.Components.Physics.BodyType" name="Dynamic" value="1" />
-                                        <colCat dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="Cat1" value="1" />
-                                        <colFilter />
-                                        <colWith dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="All" value="2147483647" />
-                                        <continous dataType="Bool">false</continous>
-                                        <explicitInertia dataType="Float">0</explicitInertia>
-                                        <explicitMass dataType="Float">0</explicitMass>
-                                        <fixedAngle dataType="Bool">false</fixedAngle>
                                         <gameobj dataType="ObjectRef">3094471801</gameobj>
-                                        <ignoreGravity dataType="Bool">false</ignoreGravity>
-                                        <joints />
-                                        <linearDamp dataType="Float">0.3</linearDamp>
-                                        <linearVel dataType="Struct" type="Duality.Vector2" />
-                                        <revolutions dataType="Float">0</revolutions>
-                                        <shapes />
                                       </item>
                                       <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="268123785">
                                         <active dataType="Bool">true</active>
-                                        <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
-                                          <A dataType="Byte">255</A>
-                                          <B dataType="Byte">255</B>
-                                          <G dataType="Byte">255</G>
-                                          <R dataType="Byte">255</R>
-                                        </colorTint>
-                                        <customMat />
-                                        <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
                                         <gameobj dataType="ObjectRef">3094471801</gameobj>
-                                        <offset dataType="Int">0</offset>
-                                        <pixelGrid dataType="Bool">false</pixelGrid>
-                                        <rect dataType="Struct" type="Duality.Rect">
-                                          <H dataType="Float">256</H>
-                                          <W dataType="Float">256</W>
-                                          <X dataType="Float">-128</X>
-                                          <Y dataType="Float">-128</Y>
-                                        </rect>
-                                        <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
-                                        <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                                          <contentPath dataType="String">Default:Material:DualityIcon</contentPath>
-                                        </sharedMat>
-                                        <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
                                       </item>
                                       <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="327049340">
-                                        <_x003C_ApperantSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-                                        <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-                                        <_x003C_maxSpeed_x003E_k__BackingField dataType="Float">0</_x003C_maxSpeed_x003E_k__BackingField>
-                                        <_x003C_ScreenString_x003E_k__BackingField />
-                                        <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0</_x003C_StatDrag_x003E_k__BackingField>
-                                        <_x003C_StatLift_x003E_k__BackingField dataType="Float">0</_x003C_StatLift_x003E_k__BackingField>
-                                        <_x003C_TargetMedium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="INACTIVE" value="0" />
                                         <active dataType="Bool">true</active>
                                         <gameobj dataType="ObjectRef">3094471801</gameobj>
                                       </item>
                                       <item dataType="Struct" type="WorldSailorsDuality.SailController" id="2112922241">
-                                        <_x003C_maxLenSailDist_x003E_k__BackingField dataType="Float">0</_x003C_maxLenSailDist_x003E_k__BackingField>
                                         <active dataType="Bool">true</active>
                                         <gameobj dataType="ObjectRef">3094471801</gameobj>
                                       </item>
@@ -1445,70 +1320,17 @@
                                     <_items dataType="Array" type="Duality.Component[]" id="1423120654" length="8">
                                       <item dataType="Struct" type="Duality.Components.Transform" id="618778565">
                                         <active dataType="Bool">true</active>
-                                        <angle dataType="Float">0</angle>
-                                        <angleAbs dataType="Float">0</angleAbs>
-                                        <angleVel dataType="Float">0</angleVel>
-                                        <angleVelAbs dataType="Float">0</angleVelAbs>
-                                        <deriveAngle dataType="Bool">true</deriveAngle>
                                         <gameobj dataType="ObjectRef">561501347</gameobj>
-                                        <ignoreParent dataType="Bool">false</ignoreParent>
-                                        <parentTransform />
-                                        <pos dataType="Struct" type="Duality.Vector3" />
-                                        <posAbs dataType="Struct" type="Duality.Vector3" />
-                                        <scale dataType="Float">1</scale>
-                                        <scaleAbs dataType="Float">1</scaleAbs>
-                                        <vel dataType="Struct" type="Duality.Vector3" />
-                                        <velAbs dataType="Struct" type="Duality.Vector3" />
                                       </item>
                                       <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="96430835">
                                         <active dataType="Bool">true</active>
-                                        <allowParent dataType="Bool">false</allowParent>
-                                        <angularDamp dataType="Float">0.3</angularDamp>
-                                        <angularVel dataType="Float">0</angularVel>
-                                        <bodyType dataType="Enum" type="Duality.Components.Physics.BodyType" name="Dynamic" value="1" />
-                                        <colCat dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="Cat1" value="1" />
-                                        <colFilter />
-                                        <colWith dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="All" value="2147483647" />
-                                        <continous dataType="Bool">false</continous>
-                                        <explicitInertia dataType="Float">0</explicitInertia>
-                                        <explicitMass dataType="Float">0</explicitMass>
-                                        <fixedAngle dataType="Bool">false</fixedAngle>
                                         <gameobj dataType="ObjectRef">561501347</gameobj>
-                                        <ignoreGravity dataType="Bool">false</ignoreGravity>
-                                        <joints />
-                                        <linearDamp dataType="Float">0.3</linearDamp>
-                                        <linearVel dataType="Struct" type="Duality.Vector2" />
-                                        <revolutions dataType="Float">0</revolutions>
-                                        <shapes />
                                       </item>
                                       <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="2030120627">
                                         <active dataType="Bool">true</active>
-                                        <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
-                                          <A dataType="Byte">255</A>
-                                          <B dataType="Byte">255</B>
-                                          <G dataType="Byte">255</G>
-                                          <R dataType="Byte">255</R>
-                                        </colorTint>
-                                        <customMat />
-                                        <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
                                         <gameobj dataType="ObjectRef">561501347</gameobj>
-                                        <offset dataType="Int">0</offset>
-                                        <pixelGrid dataType="Bool">false</pixelGrid>
-                                        <rect dataType="Struct" type="Duality.Rect">
-                                          <H dataType="Float">256</H>
-                                          <W dataType="Float">256</W>
-                                          <X dataType="Float">-128</X>
-                                          <Y dataType="Float">-128</Y>
-                                        </rect>
-                                        <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
-                                        <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                                          <contentPath dataType="String">Default:Material:DualityIcon</contentPath>
-                                        </sharedMat>
-                                        <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
                                       </item>
                                       <item dataType="Struct" type="WorldSailorsDuality.RudderController" id="2403401082">
-                                        <_x003C_maxOffset_x003E_k__BackingField dataType="Float">0</_x003C_maxOffset_x003E_k__BackingField>
-                                        <_x003C_neutralDistance_x003E_k__BackingField dataType="Float">0</_x003C_neutralDistance_x003E_k__BackingField>
                                         <active dataType="Bool">false</active>
                                         <gameobj dataType="ObjectRef">561501347</gameobj>
                                       </item>
@@ -1550,14 +1372,6 @@
                             <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="2860312538">
                               <_items dataType="Array" type="Duality.Component[]" id="2866501072" length="4">
                                 <item dataType="Struct" type="WorldSailorsDuality.BoatController" id="581201408">
-                                  <_x003C_ControlTorque_x003E_k__BackingField dataType="Float">0</_x003C_ControlTorque_x003E_k__BackingField>
-                                  <_x003C_Hull_x003E_k__BackingField />
-                                  <_x003C_IsBeached_x003E_k__BackingField dataType="Bool">false</_x003C_IsBeached_x003E_k__BackingField>
-                                  <_x003C_IsDestroyed_x003E_k__BackingField dataType="Bool">false</_x003C_IsDestroyed_x003E_k__BackingField>
-                                  <_x003C_map_x003E_k__BackingField />
-                                  <_x003C_name_x003E_k__BackingField dataType="String">boat</_x003C_name_x003E_k__BackingField>
-                                  <_x003C_Rudder_x003E_k__BackingField />
-                                  <_x003C_Sail_x003E_k__BackingField />
                                   <active dataType="Bool">true</active>
                                   <gameobj dataType="ObjectRef">3721956329</gameobj>
                                 </item>
@@ -1599,90 +1413,21 @@
                                             <_items dataType="Array" type="Duality.Component[]" id="3193405792" length="8">
                                               <item dataType="Struct" type="Duality.Components.Transform" id="3369295816">
                                                 <active dataType="Bool">true</active>
-                                                <angle dataType="Float">0</angle>
-                                                <angleAbs dataType="Float">0</angleAbs>
-                                                <angleVel dataType="Float">0</angleVel>
-                                                <angleVelAbs dataType="Float">0</angleVelAbs>
-                                                <deriveAngle dataType="Bool">true</deriveAngle>
                                                 <gameobj dataType="ObjectRef">3312018598</gameobj>
-                                                <ignoreParent dataType="Bool">false</ignoreParent>
-                                                <parentTransform />
-                                                <pos dataType="Struct" type="Duality.Vector3" />
-                                                <posAbs dataType="Struct" type="Duality.Vector3" />
-                                                <scale dataType="Float">1</scale>
-                                                <scaleAbs dataType="Float">1</scaleAbs>
-                                                <vel dataType="Struct" type="Duality.Vector3" />
-                                                <velAbs dataType="Struct" type="Duality.Vector3" />
                                               </item>
                                               <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="2846948086">
                                                 <active dataType="Bool">true</active>
-                                                <allowParent dataType="Bool">false</allowParent>
-                                                <angularDamp dataType="Float">0.3</angularDamp>
-                                                <angularVel dataType="Float">0</angularVel>
-                                                <bodyType dataType="Enum" type="Duality.Components.Physics.BodyType" name="Dynamic" value="1" />
-                                                <colCat dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="Cat1" value="1" />
-                                                <colFilter />
-                                                <colWith dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="All" value="2147483647" />
-                                                <continous dataType="Bool">false</continous>
-                                                <explicitInertia dataType="Float">0</explicitInertia>
-                                                <explicitMass dataType="Float">0</explicitMass>
-                                                <fixedAngle dataType="Bool">false</fixedAngle>
                                                 <gameobj dataType="ObjectRef">3312018598</gameobj>
-                                                <ignoreGravity dataType="Bool">false</ignoreGravity>
-                                                <joints />
-                                                <linearDamp dataType="Float">0.3</linearDamp>
-                                                <linearVel dataType="Struct" type="Duality.Vector2" />
-                                                <revolutions dataType="Float">0</revolutions>
-                                                <shapes />
                                               </item>
                                               <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="485670582">
                                                 <active dataType="Bool">true</active>
-                                                <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
-                                                  <A dataType="Byte">255</A>
-                                                  <B dataType="Byte">255</B>
-                                                  <G dataType="Byte">255</G>
-                                                  <R dataType="Byte">255</R>
-                                                </colorTint>
-                                                <customMat />
-                                                <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
                                                 <gameobj dataType="ObjectRef">3312018598</gameobj>
-                                                <offset dataType="Int">0</offset>
-                                                <pixelGrid dataType="Bool">false</pixelGrid>
-                                                <rect dataType="Struct" type="Duality.Rect">
-                                                  <H dataType="Float">256</H>
-                                                  <W dataType="Float">256</W>
-                                                  <X dataType="Float">-128</X>
-                                                  <Y dataType="Float">-128</Y>
-                                                </rect>
-                                                <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
-                                                <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                                                  <contentPath dataType="String">Default:Material:DualityIcon</contentPath>
-                                                </sharedMat>
-                                                <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
                                               </item>
                                               <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="544596137">
-                                                <_x003C_ApperantSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-                                                <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-                                                <_x003C_maxSpeed_x003E_k__BackingField dataType="Float">0</_x003C_maxSpeed_x003E_k__BackingField>
-                                                <_x003C_ScreenString_x003E_k__BackingField />
-                                                <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0</_x003C_StatDrag_x003E_k__BackingField>
-                                                <_x003C_StatLift_x003E_k__BackingField dataType="Float">0</_x003C_StatLift_x003E_k__BackingField>
-                                                <_x003C_TargetMedium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="INACTIVE" value="0" />
                                                 <active dataType="Bool">true</active>
                                                 <gameobj dataType="ObjectRef">3312018598</gameobj>
                                               </item>
                                               <item dataType="Struct" type="WorldSailorsDuality.PathRenderer" id="1528879215">
-                                                <_x003C_Delay_x003E_k__BackingField dataType="Float">1</_x003C_Delay_x003E_k__BackingField>
-                                                <_x003C_MainColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
-                                                  <A dataType="Byte">255</A>
-                                                  <B dataType="Byte">0</B>
-                                                  <G dataType="Byte">255</G>
-                                                  <R dataType="Byte">0</R>
-                                                </_x003C_MainColor_x003E_k__BackingField>
-                                                <_x003C_maxLength_x003E_k__BackingField dataType="Int">1000</_x003C_maxLength_x003E_k__BackingField>
-                                                <_x003C_TrailMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                                                  <contentPath dataType="String">Default:Material:SolidBlack</contentPath>
-                                                </_x003C_TrailMaterial_x003E_k__BackingField>
                                                 <active dataType="Bool">true</active>
                                                 <gameobj dataType="ObjectRef">3312018598</gameobj>
                                               </item>
@@ -1727,80 +1472,21 @@
                                             <_items dataType="Array" type="Duality.Component[]" id="2149480302" length="8">
                                               <item dataType="Struct" type="Duality.Components.Transform" id="1770733347">
                                                 <active dataType="Bool">true</active>
-                                                <angle dataType="Float">0</angle>
-                                                <angleAbs dataType="Float">0</angleAbs>
-                                                <angleVel dataType="Float">0</angleVel>
-                                                <angleVelAbs dataType="Float">0</angleVelAbs>
-                                                <deriveAngle dataType="Bool">true</deriveAngle>
                                                 <gameobj dataType="ObjectRef">1713456129</gameobj>
-                                                <ignoreParent dataType="Bool">false</ignoreParent>
-                                                <parentTransform />
-                                                <pos dataType="Struct" type="Duality.Vector3" />
-                                                <posAbs dataType="Struct" type="Duality.Vector3" />
-                                                <scale dataType="Float">1</scale>
-                                                <scaleAbs dataType="Float">1</scaleAbs>
-                                                <vel dataType="Struct" type="Duality.Vector3" />
-                                                <velAbs dataType="Struct" type="Duality.Vector3" />
                                               </item>
                                               <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="1248385617">
                                                 <active dataType="Bool">true</active>
-                                                <allowParent dataType="Bool">false</allowParent>
-                                                <angularDamp dataType="Float">0.3</angularDamp>
-                                                <angularVel dataType="Float">0</angularVel>
-                                                <bodyType dataType="Enum" type="Duality.Components.Physics.BodyType" name="Dynamic" value="1" />
-                                                <colCat dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="Cat1" value="1" />
-                                                <colFilter />
-                                                <colWith dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="All" value="2147483647" />
-                                                <continous dataType="Bool">false</continous>
-                                                <explicitInertia dataType="Float">0</explicitInertia>
-                                                <explicitMass dataType="Float">0</explicitMass>
-                                                <fixedAngle dataType="Bool">false</fixedAngle>
                                                 <gameobj dataType="ObjectRef">1713456129</gameobj>
-                                                <ignoreGravity dataType="Bool">false</ignoreGravity>
-                                                <joints />
-                                                <linearDamp dataType="Float">0.3</linearDamp>
-                                                <linearVel dataType="Struct" type="Duality.Vector2" />
-                                                <revolutions dataType="Float">0</revolutions>
-                                                <shapes />
                                               </item>
                                               <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="3182075409">
                                                 <active dataType="Bool">true</active>
-                                                <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
-                                                  <A dataType="Byte">255</A>
-                                                  <B dataType="Byte">255</B>
-                                                  <G dataType="Byte">255</G>
-                                                  <R dataType="Byte">255</R>
-                                                </colorTint>
-                                                <customMat />
-                                                <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
                                                 <gameobj dataType="ObjectRef">1713456129</gameobj>
-                                                <offset dataType="Int">0</offset>
-                                                <pixelGrid dataType="Bool">false</pixelGrid>
-                                                <rect dataType="Struct" type="Duality.Rect">
-                                                  <H dataType="Float">256</H>
-                                                  <W dataType="Float">256</W>
-                                                  <X dataType="Float">-128</X>
-                                                  <Y dataType="Float">-128</Y>
-                                                </rect>
-                                                <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
-                                                <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                                                  <contentPath dataType="String">Default:Material:DualityIcon</contentPath>
-                                                </sharedMat>
-                                                <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
                                               </item>
                                               <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="3241000964">
-                                                <_x003C_ApperantSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-                                                <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-                                                <_x003C_maxSpeed_x003E_k__BackingField dataType="Float">0</_x003C_maxSpeed_x003E_k__BackingField>
-                                                <_x003C_ScreenString_x003E_k__BackingField />
-                                                <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0</_x003C_StatDrag_x003E_k__BackingField>
-                                                <_x003C_StatLift_x003E_k__BackingField dataType="Float">0</_x003C_StatLift_x003E_k__BackingField>
-                                                <_x003C_TargetMedium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="INACTIVE" value="0" />
                                                 <active dataType="Bool">true</active>
                                                 <gameobj dataType="ObjectRef">1713456129</gameobj>
                                               </item>
                                               <item dataType="Struct" type="WorldSailorsDuality.SailController" id="731906569">
-                                                <_x003C_maxLenSailDist_x003E_k__BackingField dataType="Float">0</_x003C_maxLenSailDist_x003E_k__BackingField>
                                                 <active dataType="Bool">true</active>
                                                 <gameobj dataType="ObjectRef">1713456129</gameobj>
                                               </item>
@@ -1845,70 +1531,17 @@
                                             <_items dataType="Array" type="Duality.Component[]" id="2548921196">
                                               <item dataType="Struct" type="Duality.Components.Transform" id="345777566">
                                                 <active dataType="Bool">true</active>
-                                                <angle dataType="Float">0</angle>
-                                                <angleAbs dataType="Float">0</angleAbs>
-                                                <angleVel dataType="Float">0</angleVel>
-                                                <angleVelAbs dataType="Float">0</angleVelAbs>
-                                                <deriveAngle dataType="Bool">true</deriveAngle>
                                                 <gameobj dataType="ObjectRef">288500348</gameobj>
-                                                <ignoreParent dataType="Bool">false</ignoreParent>
-                                                <parentTransform />
-                                                <pos dataType="Struct" type="Duality.Vector3" />
-                                                <posAbs dataType="Struct" type="Duality.Vector3" />
-                                                <scale dataType="Float">1</scale>
-                                                <scaleAbs dataType="Float">1</scaleAbs>
-                                                <vel dataType="Struct" type="Duality.Vector3" />
-                                                <velAbs dataType="Struct" type="Duality.Vector3" />
                                               </item>
                                               <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="4118397132">
                                                 <active dataType="Bool">true</active>
-                                                <allowParent dataType="Bool">false</allowParent>
-                                                <angularDamp dataType="Float">0.3</angularDamp>
-                                                <angularVel dataType="Float">0</angularVel>
-                                                <bodyType dataType="Enum" type="Duality.Components.Physics.BodyType" name="Dynamic" value="1" />
-                                                <colCat dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="Cat1" value="1" />
-                                                <colFilter />
-                                                <colWith dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="All" value="2147483647" />
-                                                <continous dataType="Bool">false</continous>
-                                                <explicitInertia dataType="Float">0</explicitInertia>
-                                                <explicitMass dataType="Float">0</explicitMass>
-                                                <fixedAngle dataType="Bool">false</fixedAngle>
                                                 <gameobj dataType="ObjectRef">288500348</gameobj>
-                                                <ignoreGravity dataType="Bool">false</ignoreGravity>
-                                                <joints />
-                                                <linearDamp dataType="Float">0.3</linearDamp>
-                                                <linearVel dataType="Struct" type="Duality.Vector2" />
-                                                <revolutions dataType="Float">0</revolutions>
-                                                <shapes />
                                               </item>
                                               <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="1757119628">
                                                 <active dataType="Bool">true</active>
-                                                <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
-                                                  <A dataType="Byte">255</A>
-                                                  <B dataType="Byte">255</B>
-                                                  <G dataType="Byte">255</G>
-                                                  <R dataType="Byte">255</R>
-                                                </colorTint>
-                                                <customMat />
-                                                <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
                                                 <gameobj dataType="ObjectRef">288500348</gameobj>
-                                                <offset dataType="Int">0</offset>
-                                                <pixelGrid dataType="Bool">false</pixelGrid>
-                                                <rect dataType="Struct" type="Duality.Rect">
-                                                  <H dataType="Float">256</H>
-                                                  <W dataType="Float">256</W>
-                                                  <X dataType="Float">-128</X>
-                                                  <Y dataType="Float">-128</Y>
-                                                </rect>
-                                                <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
-                                                <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                                                  <contentPath dataType="String">Default:Material:DualityIcon</contentPath>
-                                                </sharedMat>
-                                                <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
                                               </item>
                                               <item dataType="Struct" type="WorldSailorsDuality.RudderController" id="2130400083">
-                                                <_x003C_maxOffset_x003E_k__BackingField dataType="Float">0</_x003C_maxOffset_x003E_k__BackingField>
-                                                <_x003C_neutralDistance_x003E_k__BackingField dataType="Float">0</_x003C_neutralDistance_x003E_k__BackingField>
                                                 <active dataType="Bool">false</active>
                                                 <gameobj dataType="ObjectRef">288500348</gameobj>
                                               </item>
@@ -1950,14 +1583,6 @@
                                     <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="909515464">
                                       <_items dataType="Array" type="Duality.Component[]" id="712667871" length="4">
                                         <item dataType="Struct" type="WorldSailorsDuality.BoatController" id="217695196">
-                                          <_x003C_ControlTorque_x003E_k__BackingField dataType="Float">0</_x003C_ControlTorque_x003E_k__BackingField>
-                                          <_x003C_Hull_x003E_k__BackingField />
-                                          <_x003C_IsBeached_x003E_k__BackingField dataType="Bool">false</_x003C_IsBeached_x003E_k__BackingField>
-                                          <_x003C_IsDestroyed_x003E_k__BackingField dataType="Bool">false</_x003C_IsDestroyed_x003E_k__BackingField>
-                                          <_x003C_map_x003E_k__BackingField />
-                                          <_x003C_name_x003E_k__BackingField dataType="String">boat</_x003C_name_x003E_k__BackingField>
-                                          <_x003C_Rudder_x003E_k__BackingField />
-                                          <_x003C_Sail_x003E_k__BackingField />
                                           <active dataType="Bool">true</active>
                                           <gameobj dataType="ObjectRef">3358450117</gameobj>
                                         </item>
@@ -2775,6 +2400,7 @@
                         </gameobj>
                       </item>
                       <item dataType="ObjectRef">327049340</item>
+                      <item dataType="ObjectRef">3389403723</item>
                     </_items>
                     <_size dataType="Int">3</_size>
                   </_x003C_hudstrings_x003E_k__BackingField>

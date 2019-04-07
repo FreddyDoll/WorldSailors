@@ -7,20 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Duality.Drawing;
-using System.Diagnostics;
 
 namespace WorldSailorsDuality
 {
-    public class RaceController:Component,ICmpUpdatable,ICmpInitializable,Ihudstring,IQuest
+    public class RaceController:Component,ICmpUpdatable,Ihudstring,IQuest
     {
-        public ContentRef<Prefab> AIPrefab { get; set; }
         public List<AITarget> Targets { get; set; } = new List<AITarget>();
         public AITarget WaitArea { get; set; }
         public RaceState State { get; set; } = RaceState.IDLE;
         public float WaitAfterStart { get; set; } = 20f;
         public int Laps { get; set; } = 1;
         public string Name { get; set; } = "Race!";
-        
+
         [DontSerialize]
         float startTime;
         [DontSerialize]
@@ -31,15 +29,13 @@ namespace WorldSailorsDuality
 
         public void startRace(Agent agent)
         {
-            
             participants = new List<RaceParticipant>();
-            
+
             List<AIAgent> AIParticipants = GameObj.GetComponentsInChildren<AIAgent>().ToList();
             foreach (AIAgent ai in AIParticipants)
                 participants.Add(new RaceParticipant(ai));
 
-            if (agent != null)
-                participants.Add(new RaceParticipant(agent));
+            participants.Add(new RaceParticipant(agent));
 
             foreach(RaceParticipant p in participants)
                 p.agent.SetTarget(WaitArea);
@@ -52,10 +48,7 @@ namespace WorldSailorsDuality
         {
             currentTime = (float)Time.GameTimer.TotalSeconds;
 
-            if (State == RaceState.FORCE_START)
-                startRace(null);
-
-            if (State == RaceState.IDLE)
+            if(State == RaceState.IDLE)
             {
                 List<AIAgent> AIParticipants = GameObj.GetComponentsInChildren<AIAgent>().ToList();
                 foreach (AIAgent ai in AIParticipants)
@@ -182,36 +175,6 @@ namespace WorldSailorsDuality
         {
              return WaitArea;
         }
-
-        public void OnInit(InitContext context)
-        {
-            if (context == InitContext.Loaded && AIPrefab.Res != null && DualityApp.ExecContext != DualityApp.ExecutionContext.Editor)
-            {
-                List<GameObject> spawnedAIs = new List<GameObject>();
-                List<GameObject> initPos = new List<GameObject>();
-                foreach (GameObject o in GameObj.Children)
-                    if (o.Active && o.Name == "ref_InitialPosition")
-                    {
-                        GameObject ai = AIPrefab.Res.Instantiate();
-                        initPos.Add(o);
-                        spawnedAIs.Add(ai);
-                    }
-
-                for (int n = 0; n < spawnedAIs.Count; n++)
-                {
-                    spawnedAIs[n].GetComponent<Agent>().InitPos = initPos[n].Transform.Pos.Xy;
-                    initPos[n].Active = false;
-
-                    spawnedAIs[n].Parent = this.GameObj;
-                    spawnedAIs[n].Active = true;
-                }
-
-            }
-        }
-
-        public void OnShutdown(ShutdownContext context)
-        {
-        }
         #endregion
 
         class RaceParticipant
@@ -244,7 +207,6 @@ namespace WorldSailorsDuality
         IDLE,
         WAITING,
         RUNNING,
-        FINISHED,
-        FORCE_START
+        FINISHED
     }
 }
