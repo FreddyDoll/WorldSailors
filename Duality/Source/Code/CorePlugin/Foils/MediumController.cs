@@ -22,6 +22,8 @@ namespace WorldSailorsDuality
         public float MaxSpeed { get; set; } = 20;//for drawing purpose
         public string ScreenString{ get; set; } = "Medium";//for drawing purpose
         public string InfoString { get { return ScreenString +" " + Math.Round(speed.Length, 2).ToString(); } }
+        public float RadiusExponent { get; set; } = 0.5f;
+        public float RadusSpeed { get; set; } = 10000f;
 
         public void OnUpdate()
         {
@@ -43,6 +45,14 @@ namespace WorldSailorsDuality
             Vector2 speedOut = speed;
             if (GenType == GenerationType.SINE_OFFSET)
                 speedOut = GenerateSineOffset(pos);
+            if (GenType == GenerationType.MOUNTAIN)
+                speedOut = GenerateMountain(pos);
+            if (GenType == GenerationType.TORNADO)
+                speedOut = GenerateTornado(pos);
+            if (GenType == GenerationType.ROUNDABOUT)
+                speedOut = GenerateRoundabout(pos);
+            if (GenType == GenerationType.FUNCTION_PATH)
+                speedOut = GenerateFunctionPath(pos);
             return speedOut;
         }
 
@@ -50,6 +60,39 @@ namespace WorldSailorsDuality
         {
             Vector2 offset = speed.PerpendicularLeft.Normalized;
             return speed + offset * MathF.Sin(pos.X/ GenSineParameter.X) * speed.Length * pos.Y / GenSineParameter.Y;
+        }
+
+        private Vector2 GenerateMountain(Vector2 pos)
+        {
+            float len = speed.Length;
+            float strength = len * MathF.Pow(pos.Length/ RadusSpeed, RadiusExponent);
+            if (strength < len)
+                strength = len;
+            return pos.Normalized*strength;
+        }
+
+        private Vector2 GenerateTornado(Vector2 pos)
+        {
+            float len = speed.Length;
+            float strength = len * MathF.Pow(pos.Length / RadusSpeed, RadiusExponent);
+            if (strength < len)
+                strength = len;
+            return pos.PerpendicularLeft.Normalized * strength;
+        }
+
+        private Vector2 GenerateRoundabout(Vector2 pos)
+        {
+            float strength = speed.Length;
+            return pos.PerpendicularLeft.Normalized * strength;
+        }
+        private Vector2 GenerateFunctionPath(Vector2 pos)
+        {
+            float val = pos.Y - 40000f*MathF.Sin(pos.X / 40000f);
+            float strength = Math.Abs(val) / 3000f;
+            float len = speed.Length;
+            if (strength < len)
+                strength = len;
+            return speed.Normalized * strength;
         }
     }
 
@@ -65,6 +108,10 @@ namespace WorldSailorsDuality
     public enum GenerationType
     {
         DIRECT,
+        MOUNTAIN,
+        TORNADO,
+        ROUNDABOUT,
+        FUNCTION_PATH,
         SINE_OFFSET
     }
 }

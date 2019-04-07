@@ -178,7 +178,7 @@ namespace WorldSailorsDuality
                 if (LifeTime <= 0)
                     return false;
 
-                Transform.Pos = Transform.Pos + new Vector3(Speed.X, Speed.Y, 0) * Time.TimeMult;
+                Transform.Pos = Transform.Pos + new Vector3(Speed.X, Speed.Y, 0) * Time.TimeMult/2;
                 return true;
             }
 

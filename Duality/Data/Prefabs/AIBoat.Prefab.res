@@ -123,31 +123,60 @@
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="574580525">
                 <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
+                <_x003C_froudNr_x003E_k__BackingField dataType="Float">0</_x003C_froudNr_x003E_k__BackingField>
+                <_x003C_hasWaveDrag_x003E_k__BackingField dataType="Bool">true</_x003C_hasWaveDrag_x003E_k__BackingField>
                 <_x003C_maxSpeed_x003E_k__BackingField dataType="Float">30</_x003C_maxSpeed_x003E_k__BackingField>
+                <_x003C_maxWaveDrag_x003E_k__BackingField dataType="Float">200</_x003C_maxWaveDrag_x003E_k__BackingField>
                 <_x003C_ScreenString_x003E_k__BackingField dataType="String">AI Hull</_x003C_ScreenString_x003E_k__BackingField>
                 <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.2</_x003C_StatDrag_x003E_k__BackingField>
                 <_x003C_StatLift_x003E_k__BackingField dataType="Float">30</_x003C_StatLift_x003E_k__BackingField>
                 <_x003C_TargetMedium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="WATER" value="1" />
+                <_x003C_waveDragSpeed_x003E_k__BackingField dataType="Float">30</_x003C_waveDragSpeed_x003E_k__BackingField>
                 <active dataType="Bool">true</active>
                 <gameobj dataType="ObjectRef">3342002986</gameobj>
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.PathRenderer" id="1558863603">
-                <_x003C_Delay_x003E_k__BackingField dataType="Float">0.2</_x003C_Delay_x003E_k__BackingField>
+                <_x003C_Delay_x003E_k__BackingField dataType="Float">0.1</_x003C_Delay_x003E_k__BackingField>
                 <_x003C_MainColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
                   <A dataType="Byte">164</A>
                   <B dataType="Byte">0</B>
                   <G dataType="Byte">168</G>
                   <R dataType="Byte">221</R>
                 </_x003C_MainColor_x003E_k__BackingField>
-                <_x003C_maxLength_x003E_k__BackingField dataType="Int">100</_x003C_maxLength_x003E_k__BackingField>
+                <_x003C_maxLength_x003E_k__BackingField dataType="Int">200</_x003C_maxLength_x003E_k__BackingField>
+                <_x003C_Offset_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
+                  <X dataType="Float">-120</X>
+                  <Y dataType="Float">150</Y>
+                </_x003C_Offset_x003E_k__BackingField>
                 <_x003C_TrailMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                  <contentPath dataType="String">Data\Textures\ParticleTrail.Material.res</contentPath>
+                  <contentPath dataType="String">Data\TrailRendering\TrailMaterial.Material.res</contentPath>
                 </_x003C_TrailMaterial_x003E_k__BackingField>
+                <_x003C_WidthModifier_x003E_k__BackingField dataType="Float">0.5</_x003C_WidthModifier_x003E_k__BackingField>
+                <active dataType="Bool">true</active>
+                <gameobj dataType="ObjectRef">3342002986</gameobj>
+              </item>
+              <item dataType="Struct" type="WorldSailorsDuality.PathRenderer+SecondPathRenderer" id="1164623348">
+                <_x003C_Delay_x003E_k__BackingField dataType="Float">0.1</_x003C_Delay_x003E_k__BackingField>
+                <_x003C_MainColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
+                  <A dataType="Byte">255</A>
+                  <B dataType="Byte">0</B>
+                  <G dataType="Byte">255</G>
+                  <R dataType="Byte">0</R>
+                </_x003C_MainColor_x003E_k__BackingField>
+                <_x003C_maxLength_x003E_k__BackingField dataType="Int">200</_x003C_maxLength_x003E_k__BackingField>
+                <_x003C_Offset_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
+                  <X dataType="Float">120</X>
+                  <Y dataType="Float">150</Y>
+                </_x003C_Offset_x003E_k__BackingField>
+                <_x003C_TrailMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
+                  <contentPath dataType="String">Data\TrailRendering\TrailMaterial.Material.res</contentPath>
+                </_x003C_TrailMaterial_x003E_k__BackingField>
+                <_x003C_WidthModifier_x003E_k__BackingField dataType="Float">0.5</_x003C_WidthModifier_x003E_k__BackingField>
                 <active dataType="Bool">true</active>
                 <gameobj dataType="ObjectRef">3342002986</gameobj>
               </item>
             </_items>
-            <_size dataType="Int">5</_size>
+            <_size dataType="Int">6</_size>
           </compList>
           <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="3837423770" surrogate="true">
             <header />
@@ -158,6 +187,7 @@
                 <item dataType="Type" id="3689290088" value="Duality.Components.Physics.RigidBody" />
                 <item dataType="Type" id="1764359026" value="WorldSailorsDuality.FoilController" />
                 <item dataType="Type" id="853776404" value="WorldSailorsDuality.PathRenderer" />
+                <item dataType="Type" id="3749954830" value="WorldSailorsDuality.PathRenderer+SecondPathRenderer" />
               </keys>
               <values dataType="Array" type="System.Object[]" id="2102108014">
                 <item dataType="ObjectRef">3399280204</item>
@@ -165,6 +195,7 @@
                 <item dataType="ObjectRef">2876932474</item>
                 <item dataType="ObjectRef">574580525</item>
                 <item dataType="ObjectRef">1558863603</item>
+                <item dataType="ObjectRef">1164623348</item>
               </values>
             </body>
           </compMap>
@@ -336,11 +367,15 @@
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="1627763018">
                 <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
+                <_x003C_froudNr_x003E_k__BackingField dataType="Float">0</_x003C_froudNr_x003E_k__BackingField>
+                <_x003C_hasWaveDrag_x003E_k__BackingField dataType="Bool">false</_x003C_hasWaveDrag_x003E_k__BackingField>
                 <_x003C_maxSpeed_x003E_k__BackingField dataType="Float">30</_x003C_maxSpeed_x003E_k__BackingField>
+                <_x003C_maxWaveDrag_x003E_k__BackingField dataType="Float">0</_x003C_maxWaveDrag_x003E_k__BackingField>
                 <_x003C_ScreenString_x003E_k__BackingField dataType="String">AI Sail</_x003C_ScreenString_x003E_k__BackingField>
                 <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.1</_x003C_StatDrag_x003E_k__BackingField>
                 <_x003C_StatLift_x003E_k__BackingField dataType="Float">6</_x003C_StatLift_x003E_k__BackingField>
                 <_x003C_TargetMedium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="AIR" value="2" />
+                <_x003C_waveDragSpeed_x003E_k__BackingField dataType="Float">0</_x003C_waveDragSpeed_x003E_k__BackingField>
                 <active dataType="Bool">true</active>
                 <gameobj dataType="ObjectRef">100218183</gameobj>
               </item>
@@ -579,13 +614,18 @@
       <_items dataType="Array" type="Duality.Component[]" id="853198486" length="4">
         <item dataType="Struct" type="WorldSailorsDuality.BoatController" id="3433360014">
           <_x003C_ControlTorque_x003E_k__BackingField dataType="Float">0</_x003C_ControlTorque_x003E_k__BackingField>
+          <_x003C_CurrentHeight_x003E_k__BackingField dataType="Float">0</_x003C_CurrentHeight_x003E_k__BackingField>
           <_x003C_Hull_x003E_k__BackingField dataType="ObjectRef">3342002986</_x003C_Hull_x003E_k__BackingField>
           <_x003C_IsBeached_x003E_k__BackingField dataType="Bool">false</_x003C_IsBeached_x003E_k__BackingField>
           <_x003C_IsDestroyed_x003E_k__BackingField dataType="Bool">false</_x003C_IsDestroyed_x003E_k__BackingField>
           <_x003C_map_x003E_k__BackingField />
+          <_x003C_maxDrag_x003E_k__BackingField dataType="Float">2</_x003C_maxDrag_x003E_k__BackingField>
+          <_x003C_minHeight_x003E_k__BackingField dataType="Float">-20</_x003C_minHeight_x003E_k__BackingField>
           <_x003C_name_x003E_k__BackingField dataType="String">AI Boat</_x003C_name_x003E_k__BackingField>
+          <_x003C_noDragHeight_x003E_k__BackingField dataType="Float">-80</_x003C_noDragHeight_x003E_k__BackingField>
           <_x003C_Rudder_x003E_k__BackingField dataType="ObjectRef">3150613161</_x003C_Rudder_x003E_k__BackingField>
           <_x003C_Sail_x003E_k__BackingField dataType="ObjectRef">100218183</_x003C_Sail_x003E_k__BackingField>
+          <_x003C_TurnRate_x003E_k__BackingField dataType="Float">0.0006</_x003C_TurnRate_x003E_k__BackingField>
           <active dataType="Bool">true</active>
           <gameobj dataType="ObjectRef">2279147639</gameobj>
         </item>

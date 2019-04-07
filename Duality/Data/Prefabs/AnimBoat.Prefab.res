@@ -32,8 +32,16 @@
                   <gameobj dataType="ObjectRef">2166055711</gameobj>
                   <ignoreParent dataType="Bool">false</ignoreParent>
                   <parentTransform />
-                  <pos dataType="Struct" type="Duality.Vector3" />
-                  <posAbs dataType="Struct" type="Duality.Vector3" />
+                  <pos dataType="Struct" type="Duality.Vector3">
+                    <X dataType="Float">0</X>
+                    <Y dataType="Float">0</Y>
+                    <Z dataType="Float">-1</Z>
+                  </pos>
+                  <posAbs dataType="Struct" type="Duality.Vector3">
+                    <X dataType="Float">0</X>
+                    <Y dataType="Float">0</Y>
+                    <Z dataType="Float">-1</Z>
+                  </posAbs>
                   <scale dataType="Float">1</scale>
                   <scaleAbs dataType="Float">1</scaleAbs>
                   <vel dataType="Struct" type="Duality.Vector3" />
@@ -47,7 +55,7 @@
                 <posAbs dataType="Struct" type="Duality.Vector3">
                   <X dataType="Float">0</X>
                   <Y dataType="Float">0</Y>
-                  <Z dataType="Float">-1</Z>
+                  <Z dataType="Float">-2</Z>
                 </posAbs>
                 <scale dataType="Float">1</scale>
                 <scaleAbs dataType="Float">1</scaleAbs>
@@ -151,9 +159,9 @@
                 <_x003C_froudNr_x003E_k__BackingField dataType="Float">0</_x003C_froudNr_x003E_k__BackingField>
                 <_x003C_hasWaveDrag_x003E_k__BackingField dataType="Bool">true</_x003C_hasWaveDrag_x003E_k__BackingField>
                 <_x003C_maxSpeed_x003E_k__BackingField dataType="Float">30</_x003C_maxSpeed_x003E_k__BackingField>
-                <_x003C_maxWaveDrag_x003E_k__BackingField dataType="Float">200</_x003C_maxWaveDrag_x003E_k__BackingField>
+                <_x003C_maxWaveDrag_x003E_k__BackingField dataType="Float">180</_x003C_maxWaveDrag_x003E_k__BackingField>
                 <_x003C_ScreenString_x003E_k__BackingField dataType="String">Player Hull</_x003C_ScreenString_x003E_k__BackingField>
-                <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.2</_x003C_StatDrag_x003E_k__BackingField>
+                <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.05</_x003C_StatDrag_x003E_k__BackingField>
                 <_x003C_StatLift_x003E_k__BackingField dataType="Float">30</_x003C_StatLift_x003E_k__BackingField>
                 <_x003C_TargetMedium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="WATER" value="1" />
                 <_x003C_waveDragSpeed_x003E_k__BackingField dataType="Float">20</_x003C_waveDragSpeed_x003E_k__BackingField>
@@ -161,16 +169,16 @@
                 <gameobj dataType="ObjectRef">3929919211</gameobj>
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.PathRenderer" id="2146779828">
-                <_x003C_Delay_x003E_k__BackingField dataType="Float">0.2</_x003C_Delay_x003E_k__BackingField>
+                <_x003C_Delay_x003E_k__BackingField dataType="Float">0.1</_x003C_Delay_x003E_k__BackingField>
                 <_x003C_MainColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
                   <A dataType="Byte">188</A>
                   <B dataType="Byte">0</B>
                   <G dataType="Byte">234</G>
                   <R dataType="Byte">0</R>
                 </_x003C_MainColor_x003E_k__BackingField>
-                <_x003C_maxLength_x003E_k__BackingField dataType="Int">500</_x003C_maxLength_x003E_k__BackingField>
+                <_x003C_maxLength_x003E_k__BackingField dataType="Int">200</_x003C_maxLength_x003E_k__BackingField>
                 <_x003C_TrailMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                  <contentPath dataType="String">Data\Textures\ParticleTrail.Material.res</contentPath>
+                  <contentPath dataType="String">Data\TrailRendering\TrailMaterial.Material.res</contentPath>
                 </_x003C_TrailMaterial_x003E_k__BackingField>
                 <active dataType="Bool">true</active>
                 <gameobj dataType="ObjectRef">3929919211</gameobj>
@@ -227,12 +235,12 @@
                 <pos dataType="Struct" type="Duality.Vector3">
                   <X dataType="Float">0</X>
                   <Y dataType="Float">0</Y>
-                  <Z dataType="Float">-1.1</Z>
+                  <Z dataType="Float">-1.0999999</Z>
                 </pos>
                 <posAbs dataType="Struct" type="Duality.Vector3">
                   <X dataType="Float">0</X>
                   <Y dataType="Float">0</Y>
-                  <Z dataType="Float">-1.1</Z>
+                  <Z dataType="Float">-2.1</Z>
                 </posAbs>
                 <scale dataType="Float">1</scale>
                 <scaleAbs dataType="Float">1</scaleAbs>
@@ -404,11 +412,7 @@
                 <gameobj dataType="ObjectRef">1060209428</gameobj>
                 <ignoreParent dataType="Bool">true</ignoreParent>
                 <parentTransform dataType="ObjectRef">2223332929</parentTransform>
-                <pos dataType="Struct" type="Duality.Vector3">
-                  <X dataType="Float">0</X>
-                  <Y dataType="Float">0</Y>
-                  <Z dataType="Float">-1</Z>
-                </pos>
+                <pos dataType="Struct" type="Duality.Vector3" />
                 <posAbs dataType="Struct" type="Duality.Vector3">
                   <X dataType="Float">0</X>
                   <Y dataType="Float">0</Y>
