@@ -238,13 +238,17 @@ namespace WorldSailorsDuality
             return StaticHelpers.BilinearInterpolation(pInt,new Vector2(GridOffset,GridOffset), vals);
         }
 
+        public Vector2 ProbeGradient(Vector2 point,float distance)
+        {
+            float center = Probe(point);
+            Vector2 ProbeOffset = new Vector2(Probe(new Vector2(distance, 0) + point), Probe(new Vector2(0, distance) + point));
+
+            return new Vector2((ProbeOffset.X - center) / distance, (ProbeOffset.Y - center) / distance);
+        }
+
         public Vector2 ProbeGradient(Vector2 point)
         {
-            float offset = 1;
-            float center = Probe(point);
-            Vector2 ProbeOffset = new Vector2(Probe(new Vector2(offset, 0) + point), Probe(new Vector2(0, offset) + point));
-
-            return new Vector2((ProbeOffset.X - center) / offset, (ProbeOffset.Y - center) / offset);
+            return ProbeGradient(point, 1);
         }
         #endregion
 

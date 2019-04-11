@@ -70,7 +70,7 @@ namespace WorldSailorsDuality
             Vector3 TopLeftWorld = device.GetSpaceCoord(new Vector3(0, 0, 0));
             Vector3 BottomRightWorld = device.GetSpaceCoord(new Vector3(device.TargetSize.X, device.TargetSize.Y, 0));
 
-            for (int n = visibleCounter; n < visibleCounter + ParticlesPerFrame; n++)
+            for (int n = 0; n < 0 + ParticlesPerFrame && particles.Count < ParticlesVisible; n++)
             {
                 Vector3 pos = new Vector3();
                 if (SpawnArea == null || SpawnArea.Length < 1)
@@ -133,6 +133,7 @@ namespace WorldSailorsDuality
             public VertexC1P3T2[] Quad { get; set; }
             public VertexC1P3[] trail { get; set; }
             public int LifeTime { get; set; }
+            public int TotalLife { get; set; }
             public Transform Transform { get; set; }
             public Vector2 Speed { get; set; }
             public ColorLUT colorFromSpeed { get; set; }
@@ -150,6 +151,7 @@ namespace WorldSailorsDuality
             {
                 Quad = new VertexC1P3T2[4];
                 LifeTime = lifetime;
+                TotalLife = lifetime;
                 Transform = new Transform();
                 Transform.Pos = position;
                 Transform.Scale = scale;
@@ -197,7 +199,7 @@ namespace WorldSailorsDuality
                 //Color Generation
                 ColorRgba LifeColor = ColorRgba.Black;
                 if (colorFromLifetime != null)
-                    LifeColor = colorFromLifetime.GetColor(LifeTime);
+                    LifeColor = colorFromLifetime.GetColor((float)LifeTime /(float)TotalLife);
                 ColorRgba SpeedColor = ColorRgba.Green;
                 if (colorFromSpeed != null)
                     SpeedColor = colorFromSpeed.GetColor(Speed.Length);

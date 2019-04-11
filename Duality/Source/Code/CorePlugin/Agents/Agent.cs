@@ -21,6 +21,7 @@ namespace WorldSailorsDuality
         public virtual ColorRgba PrimaryColor { get; set; } = ColorRgba.Green;
         public virtual BoatController targetBoat { get; set; }
         public virtual ContentRef<Prefab> NavTargetPrefab { get; set; }
+        public virtual Vector2 InitPos { get; set; }
 
         public virtual List<UpgradeTarget> CollectedUpgrades { get; set; }
 
@@ -30,17 +31,19 @@ namespace WorldSailorsDuality
                 return targetBoat.Position;
             else
             {
-                GameObject initialPosition =  GameObj.ChildByName("ref_InitialPosition");
-                if (initialPosition != null && DualityApp.ExecContext!=DualityApp.ExecutionContext.Editor) //Stop Target from disapearing in editor
+                GameObject initialPosition = GameObj.ChildByName("ref_InitialPosition");
+                if (initialPosition != null && DualityApp.ExecContext != DualityApp.ExecutionContext.Editor) //Stop Target from disapearing in editor
                 {
                     Transform trans = initialPosition.Transform;
-                    if (trans!=null)
+                    if (trans != null)
                     {
 
                         initialPosition.Active = false;
                         return trans.Pos.Xy;
                     }
                 }
+                if (InitPos != null)
+                    return InitPos;
                 return new Vector2();
             }
         }
@@ -114,15 +117,18 @@ namespace WorldSailorsDuality
             if (CollectedUpgrades == null)
                 CollectedUpgrades = new List<UpgradeTarget>();
 
-            foreach(UpgradeTarget ug in GameObj.ParentScene.FindComponents<UpgradeTarget>())
+            if (this is PlayerAgent)
             {
-
-                if (targetBoat != null && ug.Target.CheckReached(targetBoat.Position))
+                foreach (UpgradeTarget ug in GameObj.ParentScene.FindComponents<UpgradeTarget>())
                 {
-                    if (!CollectedUpgrades.Any(x => x == ug))
+
+                    if (targetBoat != null && ug.Target.CheckReached(targetBoat.Position))
                     {
-                        CollectedUpgrades.Add(ug);
-                        ug.AdjustLevel(targetBoat);
+                        if (!CollectedUpgrades.Any(x => x == ug))
+                        {
+                            CollectedUpgrades.Add(ug);
+                            ug.AdjustLevel(targetBoat);
+                        }
                     }
                 }
             }

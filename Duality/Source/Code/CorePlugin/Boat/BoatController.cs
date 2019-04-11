@@ -92,6 +92,8 @@ namespace WorldSailorsDuality
         private SailController sailCont;
         [DontSerialize]
         private FoilController sailFoil;
+        [DontSerialize]
+        private FoilController hullFoil;
 
         void ICmpUpdatable.OnUpdate()
         {
@@ -238,16 +240,40 @@ namespace WorldSailorsDuality
             return trans.Angle;
         }
 
+        public Vector2 GetCurrent()
+        {
+            if (Hull != null)
+            {
+                if (hullFoil == null)
+                    hullFoil = Hull.GetComponent<FoilController>();
+                if (hullFoil != null)
+                    return hullFoil.FluidSpeed;
+            }
+            return new Vector2(0, 0);
+        }
+
         public Vector2 GetWind()
         {
-            if(Sail!=null)
+            if (Sail != null)
             {
                 if (sailFoil == null)
-                    sailFoil= Sail.GetComponent<FoilController>();
+                    sailFoil = Sail.GetComponent<FoilController>();
                 if (sailFoil != null)
                     return sailFoil.FluidSpeed;
             }
-            return new Vector2(0,0);
+            return new Vector2(0, 0);
+        }
+
+        public Vector2 GetApperantWind()
+        {
+            if (Sail != null)
+            {
+                if (sailFoil == null)
+                    sailFoil = Sail.GetComponent<FoilController>();
+                if (sailFoil != null)
+                    return sailFoil.ApperantSpeed;
+            }
+            return new Vector2(0, 0);
         }
 
         public Vector2 GetSailOperatingPoint()

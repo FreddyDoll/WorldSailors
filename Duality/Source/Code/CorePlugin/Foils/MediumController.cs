@@ -53,6 +53,8 @@ namespace WorldSailorsDuality
                 speedOut = GenerateRoundabout(pos);
             if (GenType == GenerationType.FUNCTION_PATH)
                 speedOut = GenerateFunctionPath(pos);
+            if (GenType == GenerationType.MAP_BASED)
+                speedOut = GenerateMapBased(pos);
             return speedOut;
         }
 
@@ -94,6 +96,18 @@ namespace WorldSailorsDuality
                 strength = len;
             return speed.Normalized * strength;
         }
+        [DontSerialize]
+        HeightMap map;
+        private Vector2 GenerateMapBased(Vector2 pos)
+        {
+            if (map == null)
+                map = GameObj.ParentScene.FindComponent<HeightMap>();
+            if (map == null)
+                return speed;
+            Vector2 gradient = map.ProbeGradient(pos,map.GridOffset*10)*15*speed.Length;
+
+            return gradient.PerpendicularLeft + speed;
+        }
     }
 
 
@@ -112,6 +126,7 @@ namespace WorldSailorsDuality
         TORNADO,
         ROUNDABOUT,
         FUNCTION_PATH,
+        MAP_BASED,
         SINE_OFFSET
     }
 }

@@ -50,6 +50,8 @@ namespace WorldSailorsDuality
 
         public void OnInit(InitContext context)
         {
+            if (context != InitContext.Activate)
+                return;
             if (DualityApp.ExecContext == DualityApp.ExecutionContext.Editor)
                 return;
             if (map == null)
@@ -68,16 +70,25 @@ namespace WorldSailorsDuality
 
             for (; currentCount < Targets; currentCount++)
             {
+                int maxRaceSize = 4;
+                int minTaceSize = 1;
+                int raceSize = rand.Next(minTaceSize, maxRaceSize + 1);
+                ColorHsva raceColor = new ColorHsva(rand.NextFloat(0, 1), 0.6f, 0.8f, 1f);
                 //Set Up GameObject
-                GameObject gameO = new GameObject("AutoRace", this.GameObj);
-                gameO.Active = true;
+                GameObject gameO = new GameObject("", this.GameObj);
 
                 RaceController controller = new RaceController();
+                controller.Active = false;
                 gameO.AddComponent(controller);
-                controller.Name = "AutoRace";
-                controller.Laps = 1;
-                controller.WaitAfterStart = 1;
-                
+                controller.AIPrefab = Challengers;
+                controller.Laps = rand.Next(1,maxRaceSize-raceSize+2);
+                controller.WaitAfterStart = 5;
+                controller.SpawnAditionalAI = rand.Next(1,raceSize + 1);
+                string raceName = GetRaceName(raceSize, controller.Laps, controller.SpawnAditionalAI);
+                controller.Name = GetRaceName(raceSize,controller.Laps,controller.SpawnAditionalAI);
+                gameO.Name = raceName;
+                //gameO.Active = true;
+
                 //find Start Point
                 Vector2 start;
                 int overflow = 0;
@@ -88,9 +99,11 @@ namespace WorldSailorsDuality
                 controller.WaitArea = instantiateTarget(start, gameO,"Start Target");
                 if (controller.WaitArea == null)
                     return;
-                controller.WaitArea.activeColor = ColorRgba.FromHsva(new ColorHsva(0.5f, 0.5f, 0.7f));
-                controller.WaitArea.inactiveColor = ColorRgba.FromHsva(new ColorHsva(0.5f, 0.5f, 0.2f));
-                controller.WaitArea.Radius = 1000;
+                controller.WaitArea.activeColor = raceColor.ToRgba();
+                controller.WaitArea.inactiveColor = raceColor.WithValue(0.6f).ToRgba();
+                controller.WaitArea.Radius = 1000*raceSize;
+                controller.WaitArea.GameObj.Active = false;
+                controller.WaitArea.GameObj.Active = true;
 
                 //Loop through Points
                 controller.Targets = new List<AITarget>();
@@ -100,18 +113,23 @@ namespace WorldSailorsDuality
                 {
                     Vector2 next;
                     overflow=0;
-                    do { overflow++; ; next = rand.NextVector2(StepLen); } while (map.Probe(CurrPos+next) > -200 && overflow < overflowLimit);
+                    do { overflow++; ; next = rand.NextVector2(StepLen*raceSize*rand.NextFloat(0.5f,2.0f)); } while (map.Probe(CurrPos+next) > -200 && overflow < overflowLimit);
                     if (overflow >= overflowLimit)
                         overflow = 0;
                     CurrPos = CurrPos + next;
 
                     AITarget nextTarget = instantiateTarget(CurrPos, gameO,"Target" + n.ToString());
-                    nextTarget.Radius = 500;
+                    nextTarget.Radius = 500*raceSize;
+                    ColorRgba targetColor = raceColor.WithSaturation(0.3f).WithValue(0.6f).ToRgba();
+                    nextTarget.activeColor = raceColor.ToRgba();
+                    nextTarget.inactiveColor = raceColor.WithValue(0.4f).ToRgba();
+                    nextTarget.GameObj.Active = false;
+                    nextTarget.GameObj.Active = true;
                     controller.Targets.Add(nextTarget);
                 }
 
                 //Set Up Enemies
-
+                controller.Active = true;
 
                 //Start Everything
             }
@@ -138,6 +156,44 @@ namespace WorldSailorsDuality
         public void OnShutdown(ShutdownContext context)
         {
             ClearCreated();
+        }
+
+        private string GetRaceName(int raceSize,int laps, int challengers)
+        {
+            List<string> adjectives;
+            switch (raceSize)
+            {
+                case 1: adjectives = new List<string>() {"Quick", "Simple" }; break;
+                case 2: adjectives = new List<string>() {"Adequate", "Reasonable","Speedy" }; break;
+                case 3: adjectives = new List<string>() {"Large","Expanded" }; break;
+                default: adjectives = new List<string>() {"Epic","Incredible","Brutal" }; break;
+            }
+
+            List<string> nouns;
+            switch (laps)
+            {
+                case 1: nouns = new List<string>() { "Sprint", "Jump", "Hop" }; break;
+                case 2: nouns = new List<string>() { "Twins"}; break;
+                case 3: nouns = new List<string>() { "Rally", "Triforce" }; break;
+                default: nouns = new List<string>() { "Whirlwind", "Twister","Marathon" }; break;
+            }
+
+            List<string> ob;
+            switch (challengers)
+            {
+                case 1: ob = new List<string>() { "Duelling", "Challenging" }; break;
+                case 2: ob = new List<string>() { "Speeding", "Running" }; break;
+                case 3: ob = new List<string>() { "Swerving", "Evading" }; break;
+                default: ob = new List<string>() { "Bashing", "Crashing" }; break;
+            }
+
+            string name = adjectives[rand.Next(0,adjectives.Count-1)] + " " + nouns[rand.Next(0, nouns.Count - 1)];
+            if (rand.NextBool())
+                name += " of " + ob[rand.Next(0, ob.Count - 1)];
+
+            return name;
+
+
         }
 
     }

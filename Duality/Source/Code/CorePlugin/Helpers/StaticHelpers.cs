@@ -10,6 +10,27 @@ namespace WorldSailorsDuality
 {
     public static class StaticHelpers
     {
+        public static Random Rand = new Random(0);
+
+        public static string GenerateName(int len)
+        {
+            string[] consonants = { "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "l", "n", "p", "r", "s", "t", "v", "w", "x" };
+            string[] vowels = { "a", "e", "i", "o", "u", "y" };
+            string Name = "";
+            Name += consonants[Rand.Next(consonants.Length)].ToUpperInvariant();
+            Name += vowels[Rand.Next(vowels.Length)];
+            int b = 2; //b tells how many times a new letter has been added. It's 2 right now because the first two letters are already in the name.
+            while (b < len)
+            {
+                Name += consonants[Rand.Next(consonants.Length)];
+                b++;
+                Name += vowels[Rand.Next(vowels.Length)];
+                b++;
+            }
+
+            return Name;
+        }
+
         public static float StickDeadzone = 0.15f;
         public static float ApplyStickDeadZone(float inp)
         {

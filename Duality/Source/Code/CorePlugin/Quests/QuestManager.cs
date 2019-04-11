@@ -47,6 +47,9 @@ namespace WorldSailorsDuality
             if (owner == null)
                 return;
 
+            allQuests = new List<IQuest>();
+            allQuests.AddRange(GameObj.ParentScene.FindComponents<IQuest>());
+
             if (DualityApp.Gamepads[0].ButtonHit(GamepadButton.DPadDown) || DualityApp.Keyboard.KeyHit(Key.Tab))
             {
                 SelectedQuest++;
@@ -120,8 +123,9 @@ namespace WorldSailorsDuality
                     {
                         c.DrawRect(area.X + 2, y, area.W - 4, 14);
                         AITarget t = q.GetStartPoint();
-                        if(t!=null)
-                        owner.SetTarget(t);
+                        AITarget ownerT = owner.GetTarget();
+                        if (t != null && (ownerT == null|| ownerT.Position != t.Position))
+                            owner.SetTarget(t);
                     }
                     y += lineHeigt;
                     questCounter++;

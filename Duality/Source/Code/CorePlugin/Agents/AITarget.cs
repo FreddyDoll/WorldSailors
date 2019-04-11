@@ -118,7 +118,14 @@ namespace WorldSailorsDuality
             trans = GameObj.Transform;
             render = GameObj.GetComponent<SpriteRenderer>();
             if (render != null && trans != null)
+            {
                 radius = (Math.Min(render.Rect.W, render.Rect.H) * trans.Scale) / 2f;
+                if (Active)
+                    render.ColorTint = activeColor;
+                else
+                    render.ColorTint = inactiveColor;
+
+            }
         }
 
         public void OnShutdown(ShutdownContext context)
