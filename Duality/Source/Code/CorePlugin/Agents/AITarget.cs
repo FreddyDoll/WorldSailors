@@ -16,11 +16,11 @@ namespace WorldSailorsDuality
         public float MinRenderRadius { get; set; } = 400;
         public ColorRgba activeColor { get; set; } = ColorRgba.Red;
         public ColorRgba inactiveColor { get; set; } = ColorRgba.White;
+        public SpriteRenderer render { get; set; } = null;
+
         public bool Temporary { get; set; } = false;
         [DontSerialize]
         private Transform trans = null;
-        [DontSerialize]
-        public SpriteRenderer render = null;
         [DontSerialize]
         private Vector2 pos = new Vector2();
         [DontSerialize]

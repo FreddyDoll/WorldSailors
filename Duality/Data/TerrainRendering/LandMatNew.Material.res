@@ -2,7 +2,7 @@
   <assetInfo />
   <info dataType="Struct" type="Duality.Drawing.BatchInfo" id="427169525">
     <dirtyFlag dataType="Enum" type="Duality.Drawing.BatchInfo+DirtyFlag" name="None" value="0" />
-    <hashCode dataType="Int">1522900971</hashCode>
+    <hashCode dataType="Int">-1888089427</hashCode>
     <mainColor dataType="Struct" type="Duality.Drawing.ColorRgba">
       <A dataType="Byte">255</A>
       <B dataType="Byte">255</B>
@@ -25,9 +25,11 @@
         <blendOut dataType="Array" type="System.Single[]" id="1352645666">0.4</blendOut>
         <WaterLevel dataType="Array" type="System.Single[]" id="3754462812">0.6666666</WaterLevel>
         <Octave dataType="Array" type="System.Single[]" id="3208881918">2</Octave>
-        <Frequency dataType="Array" type="System.Single[]" id="1006437560">0.0004</Frequency>
+        <Frequency dataType="Array" type="System.Single[]" id="1006437560">1E-07</Frequency>
         <Persistance dataType="Array" type="System.Single[]" id="2490082154">0.3</Persistance>
-        <lod dataType="Array" type="System.Single[]" id="1576707764">8</lod>
+        <lod dataType="Array" type="System.Single[]" id="1576707764">1</lod>
+        <WaterColor dataType="Array" type="System.Single[]" id="2379716230">0.15, 0.6, 0.6, 1</WaterColor>
+        <LandColor dataType="Array" type="System.Single[]" id="1363995184">0, 0, 0, 0</LandColor>
       </body>
     </uniforms>
   </info>

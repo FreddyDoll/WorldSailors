@@ -115,6 +115,9 @@ namespace WorldSailorsDuality
         /// How Many Grid Points are there
         /// </summary>
         public int GridPointsCount { get { return GridSize.X * GridSize.Y; } }
+        /// How Many Grid Points are there
+        /// </summary>
+        public DeathWave activeDeathWave { get; set; } = new DeathWave();
 
         [DontSerialize]
         private int simplexSeed = 0;
@@ -235,15 +238,22 @@ namespace WorldSailorsDuality
             pInt.X *= GridOffset;
             pInt.Y *= GridOffset;
 
-            return StaticHelpers.BilinearInterpolation(pInt,new Vector2(GridOffset,GridOffset), vals);
+            float ret = StaticHelpers.BilinearInterpolation(pInt, new Vector2(GridOffset, GridOffset), vals);
+            if (activeDeathWave != null)
+            {
+                ret += activeDeathWave.getHeightOffset(point);
+            }
+            return ret;
         }
 
         public Vector2 ProbeGradient(Vector2 point,float distance)
         {
-            float center = Probe(point);
-            Vector2 ProbeOffset = new Vector2(Probe(new Vector2(distance, 0) + point), Probe(new Vector2(0, distance) + point));
+            float x1 = Probe(point + new Vector2(-distance,0));
+            float x2 = Probe(point + new Vector2(distance, 0));
+            float y1 = Probe(point + new Vector2(0, -distance));
+            float y2 = Probe(point + new Vector2(0, distance));
 
-            return new Vector2((ProbeOffset.X - center) / distance, (ProbeOffset.Y - center) / distance);
+            return new Vector2((x2 - x1) / distance, (y2 - y1) / distance);
         }
 
         public Vector2 ProbeGradient(Vector2 point)
@@ -420,6 +430,10 @@ namespace WorldSailorsDuality
             if (context == InitContext.Activate)
             {
                 Simplex.Noise.Seed = SimplexSeed;
+            }
+            if(activeDeathWave != null)
+            {
+                activeDeathWave.ResetTime();
             }
         }
         

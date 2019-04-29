@@ -100,13 +100,22 @@ namespace WorldSailorsDuality
         HeightMap map;
         private Vector2 GenerateMapBased(Vector2 pos)
         {
-            if (map == null)
+            /*if (map == null)
                 map = GameObj.ParentScene.FindComponent<HeightMap>();
             if (map == null)
                 return speed;
-            Vector2 gradient = map.ProbeGradient(pos,map.GridOffset*10)*15*speed.Length;
+            //Vector2 gradient = map.ProbeGradient(pos, map.GridOffset * 10)*15*speed.Length;
+            Vector2 gradient = -map.ProbeGradient(pos, 10000)*100;//*15*speed.Length;
+            Vector2 gradientLong = -map.ProbeGradient(pos, 1000000)*2000;// * 15 * speed.Length;
 
-            return gradient.PerpendicularLeft + speed;
+            //return gradient.PerpendicularLeft + speed;
+            float heightLimLow = -1000;
+            float heightLimHigh = 1000;
+            float heightFactir = (map.Probe(pos) - heightLimLow)/(heightLimHigh- heightLimLow);
+            if (heightFactir < 0)
+                heightFactir = 0;
+            return gradientLong + heightFactir*gradient;*/
+            return speed;
         }
     }
 

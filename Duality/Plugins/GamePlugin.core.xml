@@ -416,6 +416,7 @@
             How Many Grid Points are there
             </summary>
         </member>
+        <!-- Ungültiger XML-Kommentar wurde für den Member "P:WorldSailorsDuality.HeightMap.activeDeathWave" ignoriert -->
         <member name="P:WorldSailorsDuality.LandRendererShaded.RenderDataSettings.GridSizeX">
             <summary>
             Screen gets split into Grid for Coloring/Texturing

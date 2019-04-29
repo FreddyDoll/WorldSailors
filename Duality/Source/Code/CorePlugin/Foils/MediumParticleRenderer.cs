@@ -83,7 +83,8 @@ namespace WorldSailorsDuality
                     Vector2 ScreenCenter = device.RefCoord.Xy;
                     pos = new Vector3(MathF.Rnd.NextVector2(new Rect(-SpawnArea.X/2f, -SpawnArea.Y / 2f, SpawnArea.X, SpawnArea.Y))+ScreenCenter, 0);
                 }
-                pos.Z = zHeight.X + (zHeight.Y - zHeight.X) * MathF.Rnd.NextFloat();
+                //pos.Z = zHeight.X + (zHeight.Y - zHeight.X) * MathF.Rnd.NextFloat();
+                pos.Z = -1000;
                 MediumParticle aParticle = new MediumParticle(pos, ParticlesScale, ParticleLife, ParticleMaterial.Res);
                 particles.Add(aParticle);
                 

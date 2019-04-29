@@ -28,6 +28,9 @@ namespace WorldSailorsDuality
         }
         private Agent trackedAgent;
         public Agent TrackedAgent { get { return trackedAgent; } set {trackedAgent = value; QManager = null; } }
+        public float DepthMeterHeightBlue { get; set; } = -400;
+        public float DepthMeterHeightRed { get; set; } = -100;
+        public ContentRef<Material> DepthMeterMat { get; set; }
 
         private ContentRef<Font> font = null;
         [DontSerialize]
@@ -75,8 +78,9 @@ namespace WorldSailorsDuality
                 canvas.State.ColorTint = TrackedAgent.PrimaryColor;
             else
             canvas.State.ColorTint = ColorRgba.Green.WithAlpha(0.8f);
-            canvas.State.TextFont = this.font;            
-           
+            canvas.State.TextFont = this.font;
+
+            DrawDepthMeter(canvas);
             DrawHudStrings(canvas);
             DrawAllFoilWorkingPoint(canvas);
             DrawMediums(canvas);
@@ -89,6 +93,22 @@ namespace WorldSailorsDuality
             else
                 DrawQuestManager(canvas, xOffset);
         }
+
+        void DrawDepthMeter(Canvas canvas)
+        {
+            CanvasState mainState = canvas.State.Clone();
+            canvas.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha, mainState.Material.MainColor.ToHsva().WithValue(0.8f).WithAlpha(0.8f).ToRgba()));
+            canvas.FillRect(20, 200, 50, 500);
+            canvas.State = mainState;
+            //canvas.State.SetMaterial();
+
+
+        //public float DepthMeterHeightBlue { get; set; } = -400;
+        //public float DepthMeterHeightRed { get; set; } = -100;
+
+        //canvas.DrawRect(pos.X, pos.Y, size, size);
+        //canvas.DrawText(f.ScreenString, pos.X + 5, pos.Y + size - 35);
+    }
 
         float DrawAgent(Canvas canvas, float xOffset)
         {

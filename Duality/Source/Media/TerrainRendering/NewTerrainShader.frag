@@ -9,6 +9,8 @@ uniform int Seed;
 uniform int Octave;
 uniform float Frequency;
 uniform float Persistance;
+uniform vec4 WaterColor;
+uniform vec4 LandColor;
 float height;
 vec4 input;
 
@@ -50,7 +52,7 @@ vec2 AdjustedNoisCoordinates(float freq)
 
 void calcHeight()
 {	
-	float freq = Frequency;
+	float freq = Frequency*1000.0;
 	vec2 coordAdjust = AdjustedNoisCoordinates(freq);
 	height = noise(coordAdjust);
 	
@@ -82,7 +84,7 @@ void main()
 	
 
 	float lodScale = 0.2;
-	int stepsHeightLines = 2400.0/sqrt(lod/lod);
+	int stepsHeightLines = 600.0/sqrt(lod/lod);
 	int lineFracHeightLines =50.0/sqrt(lod);
 	int heightStepHeightLines = int(height * stepsHeightLines);
 	float alpha = 1.0;
@@ -115,7 +117,8 @@ void main()
 	if(height<WaterLevel)
 	{
 		fragColor = vec4(c1Adjust, c1Adjust, c1Adjust, 1.0);
-		fragColor = mix(fragColor, new vec4(0.2,0.4,1,1), 0.2);
+		//fragColor = vec4(0, 0, 0, 1.0);
+		fragColor = mix(fragColor, WaterColor, 0.8);
 		
 		if(heightStepWaterLine%lineFracWaterLine == 0 && (c2Adjust > 0))
 			fragColor = vec4(fragColor.x-c2Adjust, fragColor.y-c2Adjust, fragColor.z-c2Adjust, 1.0);
@@ -123,7 +126,8 @@ void main()
 	
 	if(height>blendOut)
 	{
-		input = vec4(height, height, height, alpha);
+		//input = ;
+		input = mix(vec4(height, height, height, alpha), new vec4(0.1,0.4,0.1,1), 0.2);
 		
 		if(heightStepHeightLines%lineFracHeightLines == 0)
 			input = vec4(0.0, 0.0, 0.0, alpha);
@@ -134,7 +138,8 @@ void main()
 		else
 			fragColor = input;
 	}
-	gl_FragColor = fragColor*0.7;
+	//gl_FragColor = fragColor*0.7;
+	gl_FragColor = fragColor;
 	
 	/*if(height>0)
 		gl_FragColor = vec4(1, 0, 0, 1)*height;
