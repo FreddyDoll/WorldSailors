@@ -20,7 +20,7 @@ namespace WorldSailorsDuality
         public void ResetTime()
         {
             TimeOffset = 0;
-            //TimeOffset = -time;
+            TimeOffset = -time;
         }
 
         public float getHeightOffset(Vector2 point)

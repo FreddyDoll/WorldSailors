@@ -100,7 +100,7 @@ namespace WorldSailorsDuality
         HeightMap map;
         private Vector2 GenerateMapBased(Vector2 pos)
         {
-            /*if (map == null)
+            if (map == null)
                 map = GameObj.ParentScene.FindComponent<HeightMap>();
             if (map == null)
                 return speed;
@@ -114,8 +114,7 @@ namespace WorldSailorsDuality
             float heightFactir = (map.Probe(pos) - heightLimLow)/(heightLimHigh- heightLimLow);
             if (heightFactir < 0)
                 heightFactir = 0;
-            return gradientLong + heightFactir*gradient;*/
-            return speed;
+            return gradientLong + heightFactir*gradient;
         }
     }
 
