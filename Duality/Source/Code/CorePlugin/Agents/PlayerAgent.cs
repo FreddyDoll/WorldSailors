@@ -13,6 +13,7 @@ namespace WorldSailorsDuality
     public class PlayerAgent : Agent
     {
         public AITarget currentTarget { get; set; }
+        public float maxSailAngle { get; set; } = MathF.Pi / 2f;
 
         [DontSerialize]
         private float targetSailDist = 0;
@@ -67,8 +68,8 @@ namespace WorldSailorsDuality
 
                 if (targetSailDist < 0)
                     targetSailDist = 0;
-                if (targetSailDist > (float)Math.PI / 2f)
-                    targetSailDist = (float)Math.PI / 2f;
+                if (targetSailDist > maxSailAngle)
+                    targetSailDist = maxSailAngle;
 
                 targetBoat.SetSail(targetSailDist);
             }

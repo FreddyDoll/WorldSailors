@@ -30,6 +30,7 @@ namespace WorldSailorsDuality
         public Agent TrackedAgent { get { return trackedAgent; } set {trackedAgent = value; QManager = null; } }
         public float DepthMeterHeightBlue { get; set; } = -400;
         public float DepthMeterHeightRed { get; set; } = -100;
+        public float DepthMeterMinHeight { get; set; } = -2000;
         public ContentRef<Material> DepthMeterMat { get; set; }
 
         private ContentRef<Font> font = null;
@@ -96,19 +97,48 @@ namespace WorldSailorsDuality
 
         void DrawDepthMeter(Canvas canvas)
         {
+            Rect area = new Rect(25, 200, 30, 500);
+            float heightToScreen = area.H / DepthMeterMinHeight;
+
+            float screenRed = heightToScreen * DepthMeterHeightRed;
+            float screenBlue = heightToScreen * DepthMeterHeightBlue;
+            float screenDepth = DepthMeterMinHeight;
+            if (TrackedAgent != null && TrackedAgent.targetBoat != null && TrackedAgent.targetBoat.CurrentHeight>DepthMeterMinHeight)
+                screenDepth = TrackedAgent.targetBoat.CurrentHeight;
+            screenDepth *= heightToScreen;
+
+
             CanvasState mainState = canvas.State.Clone();
-            canvas.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha, mainState.Material.MainColor.ToHsva().WithValue(0.8f).WithAlpha(0.8f).ToRgba()));
-            canvas.FillRect(20, 200, 50, 500);
+            canvas.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha, mainState.Material.MainColor.ToHsva().WithValue(0.6f).WithAlpha(0.8f).ToRgba()));
+
+
+            float border = 5;
+            Rect areaBorder = new Rect(area.X - border, area.Y - border, area.W + 2 * border, area.H + 2 * border);
+            canvas.FillRect(areaBorder.X, areaBorder.Y, areaBorder.W, areaBorder.H);
+
+            //Red Area (highest to screenRed)
+            canvas.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha,ColorRgba.Red.WithAlpha(0.5f)));
+            canvas.FillRect(area.X, area.Y, area.W, screenDepth);
+
+            if (screenDepth > screenRed)
+            {
+                //Blue Area (screenRed to screenBlue)
+                canvas.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha, ColorRgba.Blue.WithAlpha(0.5f)));
+                canvas.FillRect(area.X, area.Y + screenRed, area.W, screenDepth - screenRed);
+            }
+
+            if (screenDepth > screenBlue)
+            {
+                //Grean Area (screenBlue to lowest)
+                canvas.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha, ColorRgba.Green.WithAlpha(0.5f)));
+                canvas.FillRect(area.X, area.Y + screenBlue, area.W, screenDepth - screenBlue);
+            }
+            
+            //canvas.DrawRect(pos.X, pos.Y, size, size);
+            //canvas.DrawText(f.ScreenString, pos.X + 5, pos.Y + size - 35);
+
             canvas.State = mainState;
-            //canvas.State.SetMaterial();
-
-
-        //public float DepthMeterHeightBlue { get; set; } = -400;
-        //public float DepthMeterHeightRed { get; set; } = -100;
-
-        //canvas.DrawRect(pos.X, pos.Y, size, size);
-        //canvas.DrawText(f.ScreenString, pos.X + 5, pos.Y + size - 35);
-    }
+        }
 
         float DrawAgent(Canvas canvas, float xOffset)
         {

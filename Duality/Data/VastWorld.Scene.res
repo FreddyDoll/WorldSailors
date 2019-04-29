@@ -119,6 +119,7 @@
             <_x003C_CollectedUpgrades_x003E_k__BackingField />
             <_x003C_currentTarget_x003E_k__BackingField />
             <_x003C_InitPos_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
+            <_x003C_maxSailAngle_x003E_k__BackingField dataType="Float">0.7</_x003C_maxSailAngle_x003E_k__BackingField>
             <_x003C_Name_x003E_k__BackingField dataType="String">Freddy</_x003C_Name_x003E_k__BackingField>
             <_x003C_NavTargetPrefab_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
               <contentPath dataType="String">Data\Prefabs\Target.Prefab.res</contentPath>
@@ -194,21 +195,21 @@
                       <_items dataType="Array" type="Duality.Drawing.ColorRgba[]" id="170323908" length="4">
                         <item dataType="Struct" type="Duality.Drawing.ColorRgba">
                           <A dataType="Byte">255</A>
-                          <B dataType="Byte">255</B>
-                          <G dataType="Byte">61</G>
+                          <B dataType="Byte">142</B>
+                          <G dataType="Byte">34</G>
                           <R dataType="Byte">0</R>
                         </item>
                         <item dataType="Struct" type="Duality.Drawing.ColorRgba">
                           <A dataType="Byte">255</A>
-                          <B dataType="Byte">0</B>
-                          <G dataType="Byte">208</G>
-                          <R dataType="Byte">25</R>
+                          <B dataType="Byte">101</B>
+                          <G dataType="Byte">215</G>
+                          <R dataType="Byte">115</R>
                         </item>
                         <item dataType="Struct" type="Duality.Drawing.ColorRgba">
                           <A dataType="Byte">255</A>
                           <B dataType="Byte">0</B>
                           <G dataType="Byte">0</G>
-                          <R dataType="Byte">255</R>
+                          <R dataType="Byte">136</R>
                         </item>
                       </_items>
                       <_size dataType="Int">3</_size>
@@ -339,7 +340,7 @@
                       <X dataType="Float">-100000</X>
                       <Y dataType="Float">-100000</Y>
                     </_x003C_StartPos_x003E_k__BackingField>
-                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-5.74820375</_x003C_TimeOffset_x003E_k__BackingField>
+                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-222.609756</_x003C_TimeOffset_x003E_k__BackingField>
                   </_x003C_activeDeathWave_x003E_k__BackingField>
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
