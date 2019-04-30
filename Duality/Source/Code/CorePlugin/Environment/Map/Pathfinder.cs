@@ -32,6 +32,16 @@ namespace WorldSailorsDuality
         public Vector3 Position;
         public Boolean IsWall { get; set; }
 
+        public MyPathNode()
+        {
+        }
+
+        public MyPathNode(Vector2 Pos)
+        {
+            Position = new Vector3(Pos, 0);
+            IsWall = false;
+        }
+
         public bool IsWalkable(Object inUserContext)
         {
             return !IsWall;

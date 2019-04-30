@@ -64,9 +64,19 @@ namespace WorldSailorsDuality
                 return;
             if (!Target.IsAvailable)
                 return;
+            
 
             ClearCreated();
-            int overflowLimit = 1000;
+            int overflowLimit = 4000;
+
+            float StartMaxDist = 200000;
+            float currentStartPoint = -StartMaxDist;
+            float stepStart = (StartMaxDist * 2f) / Targets;
+            float baseLength = 300000;
+
+            Vector2 waveDir = new Vector2(1, 0);
+            if (map.activeDeathWave != null)
+                waveDir = map.activeDeathWave.DirectionSpeed.Normalized;
 
             for (; currentCount < Targets; currentCount++)
             {
@@ -88,14 +98,18 @@ namespace WorldSailorsDuality
                 controller.Name = GetRaceName(raceSize,controller.Laps,controller.SpawnAditionalAI);
                 gameO.Name = raceName;
                 //gameO.Active = true;
-
+                
                 //find Start Point
+                Vector2 startBase = new Vector2() + waveDir.PerpendicularLeft * currentStartPoint;
+                currentStartPoint += stepStart;
+
                 Vector2 start;
                 int overflow = 0;
-                do { overflow++;  start = GetRandPoint(); } while (map.Probe(start) > -300 && overflow<overflowLimit);
+                do { overflow++;  start = GetRandPoint(startBase); } while (map.Probe(start) > -1000 && overflow<overflowLimit);
                 if (overflow >= overflowLimit)
                     overflow = 0;
-                
+
+
                 controller.WaitArea = instantiateTarget(start, gameO,"Start Target");
                 if (controller.WaitArea == null)
                     return;
@@ -105,18 +119,29 @@ namespace WorldSailorsDuality
                 controller.WaitArea.GameObj.Active = false;
                 controller.WaitArea.GameObj.Active = true;
 
+           
+                int nrTargets = raceSize*3;
+                Vector2 finalPointBase = start +  waveDir * baseLength * raceSize;
+                Vector2 finalPoint;
+                overflow = 0;
+                do { overflow++; finalPoint = GetRandPoint(finalPointBase); } while (map.Probe(finalPoint) > -1000 && overflow < overflowLimit);
+                List<MyPathNode> path = finder.FindPath(start, finalPoint);
+                if (path == null)
+                {
+                    path = new List<MyPathNode>();
+                    path.Add(new MyPathNode(finalPoint));
+                    raceSize = 1;
+                    nrTargets = 1;
+                }
+                int pathIncrement = path.Count / nrTargets;
+                int pathIndex = pathIncrement-1;
+
                 //Loop through Points
                 controller.Targets = new List<AITarget>();
-                int nrTargets = rand.Next(2, 4);
-                Vector2 CurrPos = start;
                 for (int n = 0;n<nrTargets;n++)
                 {
-                    Vector2 next;
-                    overflow=0;
-                    do { overflow++; ; next = rand.NextVector2(StepLen*raceSize*rand.NextFloat(0.5f,2.0f)); } while (map.Probe(CurrPos+next) > -200 && overflow < overflowLimit);
-                    if (overflow >= overflowLimit)
-                        overflow = 0;
-                    CurrPos = CurrPos + next;
+                    Vector2 CurrPos = path[pathIndex].Position.Xy;
+                    pathIndex += pathIncrement;
 
                     AITarget nextTarget = instantiateTarget(CurrPos, gameO,"Target" + n.ToString());
                     nextTarget.Radius = 500*raceSize;
@@ -148,9 +173,9 @@ namespace WorldSailorsDuality
             return ret;
         }
 
-        private Vector2 GetRandPoint()
+        private Vector2 GetRandPoint(Vector2 offset)
         {
-            return new Vector2(rand.NextFloat(0,1) * CompleteArea.W + CompleteArea.X, rand.NextFloat(0, 1) * CompleteArea.H + CompleteArea.Y);
+            return new Vector2(rand.NextFloat(0,1) * CompleteArea.W + CompleteArea.X, rand.NextFloat(0, 1) * CompleteArea.H + CompleteArea.Y)+offset;
         }
 
         public void OnShutdown(ShutdownContext context)

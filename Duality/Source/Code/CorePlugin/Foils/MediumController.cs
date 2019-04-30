@@ -106,7 +106,7 @@ namespace WorldSailorsDuality
                 return speed;
             //Vector2 gradient = map.ProbeGradient(pos, map.GridOffset * 10)*15*speed.Length;
             Vector2 gradient = -map.ProbeGradient(pos, 10000)*100;//*15*speed.Length;
-            Vector2 gradientLong = -map.ProbeGradient(pos, 1000000)*2000;// * 15 * speed.Length;
+            Vector2 gradientLong = -map.ProbeGradient(pos, 1000000)*1800;// * 15 * speed.Length;
 
             //return gradient.PerpendicularLeft + speed;
             float heightLimLow = -1000;
