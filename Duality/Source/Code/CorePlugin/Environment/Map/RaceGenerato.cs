@@ -91,8 +91,8 @@ namespace WorldSailorsDuality
                 controller.Active = false;
                 gameO.AddComponent(controller);
                 controller.AIPrefab = Challengers;
-                controller.Laps = rand.Next(1,maxRaceSize-raceSize+2);
-                controller.WaitAfterStart = 5;
+                controller.Laps = 1;//rand.Next(1,maxRaceSize-raceSize+2);
+                controller.WaitAfterStart = 0;
                 controller.SpawnAditionalAI = rand.Next(1,raceSize + 1);
                 string raceName = GetRaceName(raceSize, controller.Laps, controller.SpawnAditionalAI);
                 controller.Name = GetRaceName(raceSize,controller.Laps,controller.SpawnAditionalAI);
