@@ -24,6 +24,7 @@ namespace WorldSailorsDuality
         public string InfoString { get { return ScreenString +" " + Math.Round(speed.Length, 2).ToString(); } }
         public float RadiusExponent { get; set; } = 0.5f;
         public float RadusSpeed { get; set; } = 10000f;
+        public float MapBasedFactor { get; set; } = 100f;
 
         public void OnUpdate()
         {
@@ -105,8 +106,8 @@ namespace WorldSailorsDuality
             if (map == null)
                 return speed;
             //Vector2 gradient = map.ProbeGradient(pos, map.GridOffset * 10)*15*speed.Length;
-            Vector2 gradient = -map.ProbeGradient(pos, 10000)*100;//*15*speed.Length;
-            Vector2 gradientLong = -map.ProbeGradient(pos, 1000000)*1800;// * 15 * speed.Length;
+            Vector2 gradient = -map.ProbeGradient(pos, 10000)*MapBasedFactor;//*15*speed.Length;
+            Vector2 gradientLong = -map.ProbeGradient(pos, 1000000)*18* MapBasedFactor;// * 15 * speed.Length;
 
             //return gradient.PerpendicularLeft + speed;
             float heightLimLow = -1000;
