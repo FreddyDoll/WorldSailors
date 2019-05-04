@@ -88,7 +88,7 @@ namespace WorldSailorsDuality
         public void Draw(Canvas c, Rect area)
         {
             CanvasState mainState = c.State.Clone();
-            c.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha, mainState.Material.MainColor.ToHsva().WithValue(0.8f).WithAlpha(0.2f).ToRgba()));
+            c.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha, mainState.Material.MainColor.ToHsva().WithValue(0.4f).WithAlpha(0.7f).ToRgba()));
             c.FillRect(area.X, area.Y, area.W, area.H);
             c.State = mainState;
 
@@ -101,9 +101,10 @@ namespace WorldSailorsDuality
 
 
             c.DrawRect(area.X, area.Y, area.W, area.H);
-            int NameBoxHeight = 20;
-            int textPadding = 5;
+            int NameBoxHeight = 40;
+            int textPadding = 10;
             c.DrawLine(area.X, area.Y + NameBoxHeight, area.X + area.W, area.Y + NameBoxHeight);
+            c.State.TransformScale = new Vector2(1.7f, 1.7f);
             string header = "Available Quests";
             if (ActiveQuest != null)
                 header = ActiveQuest.screenName() + " [Y] to cancel";
@@ -111,7 +112,7 @@ namespace WorldSailorsDuality
             List<string> bodyText = new List<string>();
             if (ActiveQuest == null)
             {
-                float lineHeigt = 12;
+                float lineHeigt = 20;
                 float y = area.Y + NameBoxHeight + textPadding;
                 int questCounter = 0;
 

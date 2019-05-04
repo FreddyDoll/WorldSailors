@@ -24,6 +24,7 @@ namespace WorldSailorsDuality
         public bool DrawAgentWindow { get; set; } = true;
         public bool DrawQuestWindow { get; set; } = true;
         public bool DrawDepthMeterWindow { get; set; } = true;
+        public bool DrawHudstringsWindow { get; set; } = true;
         public float BoxHeight { get; set; } = 250;
         public float BoxWidth { get; set; } = 200;
         public float BoxOffset { get; set; } = 20;
@@ -81,7 +82,9 @@ namespace WorldSailorsDuality
             canvas.State.ColorTint = ColorRgba.Green.WithAlpha(0.8f);
             canvas.State.TextFont = this.font;
 
-            DrawHudStrings(canvas);
+            if(DrawHudstringsWindow)
+                DrawHudStrings(canvas);
+
             DrawAllFoilWorkingPoint(canvas);
             DrawMediums(canvas);
 
@@ -106,7 +109,7 @@ namespace WorldSailorsDuality
 
         void DrawDepthMeter(Canvas canvas)
         {
-            Rect area = new Rect(25, 200, 30, 500);
+            Rect area = new Rect(25, 200, 30, 300);
             float heightToScreen = area.H / DepthMeterMinHeight;
 
             float screenRed = heightToScreen * DepthMeterHeightRed;

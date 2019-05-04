@@ -421,7 +421,7 @@ namespace WorldSailorsDuality
 
         public override List<string> GenerateBodyText()
         {
-            List<string> bodyText = base.GenerateBodyText();
+            List<string> bodyText = new List<string>();
             bodyText.Add("Mode " + movementState.ToString());
             bodyText.Add("TargetSailAngle " + MathF.Round(TargetSailAngle, 3).ToString());
             bodyText.Add("ForceClose " + MathF.Round(forceCloseTimer, 2).ToString());

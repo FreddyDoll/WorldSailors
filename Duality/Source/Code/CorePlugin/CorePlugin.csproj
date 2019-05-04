@@ -97,6 +97,7 @@
     <Compile Include="Helpers\QuadTree\IHasRect.cs" />
     <Compile Include="Helpers\QuadTree\QuadTree.cs" />
     <Compile Include="Helpers\QuadTree\QuadTreeNode.cs" />
+    <Compile Include="HUDandCamera\TitleController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Foils\MediumController.cs" />
     <Compile Include="Quests\IQuest.cs" />

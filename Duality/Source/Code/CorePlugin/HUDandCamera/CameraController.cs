@@ -16,7 +16,24 @@ namespace WorldSailorsDuality
         public Agent TrackedAgent { get; set; }
         public bool AcceptUserInput { get; set; } = true;
         public Vector2 ZoomLimit { get; set; } = new Vector2(-20000,1000);
-        Vector2 CameraOffset = new Vector2();
+        public Vector2 CameraOffset { get; set; }  = new Vector2();
+
+        public float CameraHeight
+        {
+            get
+            {
+                Transform t = this.GameObj.GetComponent<Transform>();
+                if (t != null)
+                    return t.Pos.Z;
+                return 0;
+            }
+            set
+            {
+                Transform t = this.GameObj.GetComponent<Transform>();
+                if (t != null)
+                    t.Pos = new Vector3(t.Pos.X,t.Pos.Y,value);
+            }
+        }
 
         public void OnUpdate()
         {
@@ -73,13 +90,17 @@ namespace WorldSailorsDuality
                 if (deltaHeight < ZoomLimit.X)
                     deltaHeight = ZoomLimit.X;
                 t.MoveTo(new Vector3(t.Pos.X, t.Pos.Y, deltaHeight));
+
+                if (DualityApp.Gamepads[0].ButtonHit(GamepadButton.RightStick))
+                    CameraOffset = new Vector2();
+                CameraOffset += new Vector2(StaticHelpers.ApplyStickDeadZone(DualityApp.Gamepads[0].RightThumbstick.X), StaticHelpers.ApplyStickDeadZone(DualityApp.Gamepads[0].RightThumbstick.Y)) * 80;
             }
 
-            if (DualityApp.Gamepads[0].ButtonReleased(GamepadButton.RightStick)) 
-                CameraOffset = new Vector2();
-            CameraOffset += new Vector2(StaticHelpers.ApplyStickDeadZone(DualityApp.Gamepads[0].RightThumbstick.X), StaticHelpers.ApplyStickDeadZone(DualityApp.Gamepads[0].RightThumbstick.Y)) * 80;
             if (TrackedAgent != null)
                 t.MoveTo(new Vector3(TrackedAgent.GetPosition().X + CameraOffset.X, TrackedAgent.GetPosition().Y + CameraOffset.Y, t.Pos.Z));
+
         }
     }
+
+    
 }

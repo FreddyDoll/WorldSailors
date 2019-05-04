@@ -22,12 +22,32 @@ namespace WorldSailorsDuality
         [DontSerialize]
         private bool trimming = false;
 
+        public override List<string> GenerateBodyText()
+        {
+            List<string> bodyText = new List<string>();
+
+            if (targetBoat != null)
+            {
+                bodyText.Add("Sail" + targetBoat.Sail.GetComponent<FoilController>().getStatString());
+                bodyText.Add("Hull" + targetBoat.Hull.GetComponent<FoilController>().getStatString());
+                bodyText.Add("");
+                bodyText.Add("Boat Speed  " + Math.Round(targetBoat.GetSpeed().Length, 2).ToString());
+                bodyText.Add("True Wind   " + Math.Round(targetBoat.GetWind().Length, 2).ToString());
+                bodyText.Add("Boat Upwind " + Math.Round(targetBoat.GetUpwindSpeed(), 2).ToString());
+                bodyText.Add("");
+                bodyText.Add("Sail Angle  " + Math.Round(targetBoat.GetSailAngle(), 2).ToString());
+                bodyText.Add("Under Keel  " + Math.Round(targetBoat.CurrentHeight, 2).ToString());
+            }
+            return bodyText;
+        }
+
         public override void OnUpdate()
         {
             base.OnUpdate();
 
             if (targetBoat != null)
             {
+
                 //Turning
                 if (DualityApp.Keyboard[Key.Left])
                     targetBoat.ApplySteering(-0.001f);

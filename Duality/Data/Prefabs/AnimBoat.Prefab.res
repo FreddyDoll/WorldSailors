@@ -122,9 +122,9 @@
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.Boat.BoatSpriteController" id="2738118603">
                 <active dataType="Bool">true</active>
-                <animDuration dataType="Float">10</animDuration>
+                <animDuration dataType="Float">5</animDuration>
                 <animFirstFrame dataType="Int">0</animFirstFrame>
-                <animFrameCount dataType="Int">300</animFrameCount>
+                <animFrameCount dataType="Int">50</animFrameCount>
                 <animLoopMode dataType="Enum" type="Duality.Components.Renderers.AnimSpriteRenderer+LoopMode" name="FixedSingle" value="4" />
                 <animPaused dataType="Bool">false</animPaused>
                 <animTime dataType="Float">0</animTime>
@@ -357,7 +357,7 @@
                 <_x003C_maxSpeed_x003E_k__BackingField dataType="Float">50</_x003C_maxSpeed_x003E_k__BackingField>
                 <_x003C_maxWaveDrag_x003E_k__BackingField dataType="Float">0</_x003C_maxWaveDrag_x003E_k__BackingField>
                 <_x003C_ScreenString_x003E_k__BackingField dataType="String">Player Sail</_x003C_ScreenString_x003E_k__BackingField>
-                <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.1</_x003C_StatDrag_x003E_k__BackingField>
+                <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.2</_x003C_StatDrag_x003E_k__BackingField>
                 <_x003C_StatLift_x003E_k__BackingField dataType="Float">4</_x003C_StatLift_x003E_k__BackingField>
                 <_x003C_TargetMedium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="AIR" value="2" />
                 <_x003C_waveDragSpeed_x003E_k__BackingField dataType="Float">0</_x003C_waveDragSpeed_x003E_k__BackingField>

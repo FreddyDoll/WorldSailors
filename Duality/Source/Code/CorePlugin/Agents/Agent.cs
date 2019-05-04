@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace WorldSailorsDuality
 {
-    public abstract class Agent:Component,ICmpUpdatable
+    public abstract class Agent:Component,ICmpUpdatable,ICmpInitializable
     {
         public abstract void SetTarget(AITarget target);
         public abstract void RemoveTarget();
@@ -24,6 +24,9 @@ namespace WorldSailorsDuality
         public virtual Vector2 InitPos { get; set; }
 
         public virtual List<UpgradeTarget> CollectedUpgrades { get; set; }
+
+        [DontSerialize]
+        private float lastInit = 0;
 
         public virtual Vector2 GetPosition()
         {
@@ -49,32 +52,17 @@ namespace WorldSailorsDuality
         }
 
         [DontSerialize]
-        private float respawnTimer = -1;
+        protected float respawnTimer = -1;
         [DontSerialize]
         private bool respawn = false;
 
-        public virtual List<string> GenerateBodyText()
-        {
-            List<string> bodyText = new List<string>();
-
-            if (targetBoat != null)
-            {
-                bodyText.Add("Boat Name " + targetBoat.name);
-                bodyText.Add("Boat Speed " + Math.Round(targetBoat.GetSpeed().Length, 2).ToString());
-                bodyText.Add("True Wind " + Math.Round(targetBoat.GetWind().Length, 2).ToString());
-                bodyText.Add("Boat Upwind " + Math.Round(targetBoat.GetUpwindSpeed(), 2).ToString());
-                bodyText.Add("Sail Angle " + Math.Round(targetBoat.GetSailAngle(), 2).ToString());
-                bodyText.Add("Under Keel " + Math.Round(targetBoat.CurrentHeight, 2).ToString());
-                bodyText.Add(targetBoat.Sail.GetComponent<FoilController>().GetHudString());
-                bodyText.Add(targetBoat.Hull.GetComponent<FoilController>().GetHudString());
-            }
-            return bodyText;
-        }
+        public abstract List<string> GenerateBodyText();
+        
 
         public virtual void DrawAgentWindow(Canvas c, Rect area)
         {
             CanvasState mainState = c.State.Clone();
-            c.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha, mainState.Material.MainColor.ToHsva().WithValue(0.8f).WithAlpha(0.2f).ToRgba()));
+            c.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha, mainState.Material.MainColor.ToHsva().WithValue(0.4f).WithAlpha(0.7f).ToRgba()));
             c.FillRect(area.X, area.Y, area.W, area.H);
             c.State = mainState;
 
@@ -95,21 +83,25 @@ namespace WorldSailorsDuality
 
 
             c.DrawRect(area.X, area.Y, area.W, area.H);
-            int NameBoxHeight = 20;
-            int textPadding = 5;
+            int NameBoxHeight = 40;
+            int textPadding = 10;
             c.DrawLine(area.X, area.Y + NameBoxHeight, area.X + area.W, area.Y + NameBoxHeight);
+            c.State.TransformScale = new Vector2(1.7f, 1.7f);
             string header = Name;
+            if (targetBoat != null)
+                header = targetBoat.name;
             c.DrawText(header, area.X + textPadding, area.Y + textPadding);
 
             List<string> bodyText = GenerateBodyText();
 
-            float lineHeigt = 10;
+            float lineHeigt = 20;
             float y = area.Y + NameBoxHeight + textPadding;
             foreach (string s in bodyText)
             {
                 c.DrawText(s, area.X + textPadding, y);
                 y += lineHeigt;
             }
+            c.State.TransformScale = new Vector2(1, 1);
         }
 
         public virtual void OnUpdate()
@@ -144,9 +136,13 @@ namespace WorldSailorsDuality
                 if (targetBoat == null)
                     return;
             }
+            
+                if (lastInit + 5 > (float)Time.GameTimer.TotalSeconds)
+                {
+                    respawnTimer = 0;
+                }
 
-
-            if (targetBoat.IsDestroyed || targetBoat.IsBeached)
+                if (targetBoat.IsDestroyed || targetBoat.IsBeached)
             {
                 if (respawn == false)
                 {
@@ -183,6 +179,15 @@ namespace WorldSailorsDuality
             if (targetBoat != null)
                 return targetBoat.ControlTorque;
             return 0;
+        }
+
+        public void OnInit(InitContext context)
+        {
+            lastInit = (float)Time.GameTimer.TotalSeconds;
+        }
+
+        public void OnShutdown(ShutdownContext context)
+        {
         }
     }
 }

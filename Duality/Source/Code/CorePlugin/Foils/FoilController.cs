@@ -28,8 +28,8 @@ namespace WorldSailorsDuality
         {
             get
             {
-                if(GameObj.Transform!= null)
-                return GameObj.Transform.Pos.Xy;
+                if (GameObj.Transform != null)
+                    return GameObj.Transform.Pos.Xy;
                 return new Vector2();
             }
         }
@@ -57,14 +57,17 @@ namespace WorldSailorsDuality
         {
             return lastLocalForce;
         }
-        
+
         public string GetHudString()
         {
-            string ret = ScreenString + " Lift:" + Math.Round(StatLift, 2).ToString() + " Drag:" + Math.Round(StatDrag, 2).ToString();
-            if (hasWaveDrag)
-                ret += " FroudNr:" + MathF.Round(froudNr, 2).ToString();
-            return ret;
+            return ScreenString + getStatString() + " FroudNr:" + MathF.Round(froudNr, 2).ToString(); ;
         }
+
+        public string getStatString()
+        {
+            return " Lift:" + Math.Round(StatLift, 2).ToString() + " Drag:" + Math.Round(StatDrag, 2).ToString();
+        }
+    
                 
         private Vector2 GetForce(Vector2 workingPoint)
         {

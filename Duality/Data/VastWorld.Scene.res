@@ -341,7 +341,7 @@
                       <X dataType="Float">-100000</X>
                       <Y dataType="Float">-100000</Y>
                     </_x003C_StartPos_x003E_k__BackingField>
-                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-19.05057</_x003C_TimeOffset_x003E_k__BackingField>
+                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-1969.52429</_x003C_TimeOffset_x003E_k__BackingField>
                   </_x003C_activeDeathWave_x003E_k__BackingField>
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
@@ -1584,8 +1584,19 @@
                     <prop dataType="ObjectRef">3958759886</prop>
                     <val dataType="Float">0.2</val>
                   </item>
+                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="837105734">
+                      <_items dataType="Array" type="System.Int32[]" id="1713566618">0, 0, 0, 0</_items>
+                      <_size dataType="Int">1</_size>
+                    </childIndex>
+                    <componentType dataType="ObjectRef">716590618</componentType>
+                    <prop dataType="MemberInfo" id="1947011972" value="P:Duality.Components.Renderers.SpriteRenderer:SharedMaterial" />
+                    <val dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
+                      <contentPath dataType="String">Data\Textures\BoatPixmap.Material.res</contentPath>
+                    </val>
+                  </item>
                 </_items>
-                <_size dataType="Int">13</_size>
+                <_size dataType="Int">14</_size>
               </changes>
               <obj dataType="ObjectRef">750860492</obj>
               <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
@@ -3450,13 +3461,13 @@
                 </item>
                 <item dataType="Struct" type="WorldSailorsDuality.CameraController" id="3180310343">
                   <_x003C_AcceptUserInput_x003E_k__BackingField dataType="Bool">true</_x003C_AcceptUserInput_x003E_k__BackingField>
+                  <_x003C_CameraOffset_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                   <_x003C_TrackedAgent_x003E_k__BackingField dataType="ObjectRef">1720751284</_x003C_TrackedAgent_x003E_k__BackingField>
                   <_x003C_ZoomLimit_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">-30000</X>
                     <Y dataType="Float">-100</Y>
                   </_x003C_ZoomLimit_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
-                  <CameraOffset dataType="Struct" type="Duality.Vector2" />
                   <gameobj dataType="ObjectRef">2441687343</gameobj>
                 </item>
               </_items>
@@ -3631,13 +3642,14 @@
                   <_x003C_AddFPSToStrings_x003E_k__BackingField dataType="Bool">true</_x003C_AddFPSToStrings_x003E_k__BackingField>
                   <_x003C_BoxHeight_x003E_k__BackingField dataType="Float">250</_x003C_BoxHeight_x003E_k__BackingField>
                   <_x003C_BoxOffset_x003E_k__BackingField dataType="Float">20</_x003C_BoxOffset_x003E_k__BackingField>
-                  <_x003C_BoxWidth_x003E_k__BackingField dataType="Float">200</_x003C_BoxWidth_x003E_k__BackingField>
+                  <_x003C_BoxWidth_x003E_k__BackingField dataType="Float">350</_x003C_BoxWidth_x003E_k__BackingField>
                   <_x003C_DepthMeterHeightBlue_x003E_k__BackingField dataType="Float">-400</_x003C_DepthMeterHeightBlue_x003E_k__BackingField>
                   <_x003C_DepthMeterHeightRed_x003E_k__BackingField dataType="Float">-100</_x003C_DepthMeterHeightRed_x003E_k__BackingField>
                   <_x003C_DepthMeterMat_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]" />
                   <_x003C_DepthMeterMinHeight_x003E_k__BackingField dataType="Float">-2000</_x003C_DepthMeterMinHeight_x003E_k__BackingField>
                   <_x003C_DrawAgentWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawAgentWindow_x003E_k__BackingField>
                   <_x003C_DrawDepthMeterWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawDepthMeterWindow_x003E_k__BackingField>
+                  <_x003C_DrawHudstringsWindow_x003E_k__BackingField dataType="Bool">false</_x003C_DrawHudstringsWindow_x003E_k__BackingField>
                   <_x003C_DrawQuestWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawQuestWindow_x003E_k__BackingField>
                   <_x003C_hudstrings_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.Ihudstring]]" id="1347105707">
                     <_items dataType="Array" type="WorldSailorsDuality.Ihudstring[]" id="3433356534" length="8">
