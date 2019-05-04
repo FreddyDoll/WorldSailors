@@ -166,7 +166,7 @@
                       <X dataType="Float">-10000</X>
                       <Y dataType="Float">-10000</Y>
                     </_x003C_StartPos_x003E_k__BackingField>
-                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-421.358643</_x003C_TimeOffset_x003E_k__BackingField>
+                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-72.3218</_x003C_TimeOffset_x003E_k__BackingField>
                   </_x003C_activeDeathWave_x003E_k__BackingField>
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
@@ -3794,7 +3794,9 @@
                   <_x003C_DepthMeterMat_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]" />
                   <_x003C_DepthMeterMinHeight_x003E_k__BackingField dataType="Float">-2000</_x003C_DepthMeterMinHeight_x003E_k__BackingField>
                   <_x003C_DrawAgentWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawAgentWindow_x003E_k__BackingField>
+                  <_x003C_DrawAirfoilWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawAirfoilWindow_x003E_k__BackingField>
                   <_x003C_DrawDepthMeterWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawDepthMeterWindow_x003E_k__BackingField>
+                  <_x003C_DrawHudstringsWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawHudstringsWindow_x003E_k__BackingField>
                   <_x003C_DrawQuestWindow_x003E_k__BackingField dataType="Bool">false</_x003C_DrawQuestWindow_x003E_k__BackingField>
                   <_x003C_hudstrings_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.Ihudstring]]" id="1347105707">
                     <_items dataType="Array" type="WorldSailorsDuality.Ihudstring[]" id="3433356534" length="8">
@@ -3868,9 +3870,20 @@
               </_items>
               <_size dataType="Int">3</_size>
             </_x003C_AnimationPool_x003E_k__BackingField>
+            <_x003C_BoatList_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[Duality.ContentRef`1[[Duality.Resources.Prefab]]]]" id="3206114744">
+              <_items dataType="Array" type="Duality.ContentRef`1[[Duality.Resources.Prefab]][]" id="3610899479" length="4">
+                <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                  <contentPath dataType="String">Data\Prefabs\AnimBoat.Prefab.res</contentPath>
+                </item>
+                <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                  <contentPath dataType="String">Data\Prefabs\AIBoat.Prefab.res</contentPath>
+                </item>
+              </_items>
+              <_size dataType="Int">2</_size>
+            </_x003C_BoatList_x003E_k__BackingField>
             <_x003C_CurrentAnimation_x003E_k__BackingField dataType="ObjectRef">4038876416</_x003C_CurrentAnimation_x003E_k__BackingField>
             <_x003C_nextScene_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
-              <contentPath dataType="String">Data\VastWorld.Scene.res</contentPath>
+              <contentPath dataType="String">Data\ShipEditor.Scene.res</contentPath>
             </_x003C_nextScene_x003E_k__BackingField>
             <active dataType="Bool">true</active>
             <gameobj dataType="ObjectRef">3379412982</gameobj>
@@ -3923,9 +3936,9 @@
     <item dataType="ObjectRef">2441687343</item>
     <item dataType="ObjectRef">1736672299</item>
     <item dataType="ObjectRef">1143163520</item>
+    <item dataType="ObjectRef">1757149766</item>
     <item dataType="ObjectRef">2424367744</item>
     <item dataType="ObjectRef">3047880503</item>
-    <item dataType="ObjectRef">1757149766</item>
     <item dataType="ObjectRef">2909901496</item>
     <item dataType="ObjectRef">1552678765</item>
     <item dataType="ObjectRef">4162699365</item>

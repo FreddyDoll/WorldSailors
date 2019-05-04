@@ -50,6 +50,7 @@
                     <Y dataType="Float">30000</Y>
                   </_x003C_GenSineParameter_x003E_k__BackingField>
                   <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.GenerationType" name="DIRECT" value="0" />
+                  <_x003C_MapBasedFactor_x003E_k__BackingField dataType="Float">100</_x003C_MapBasedFactor_x003E_k__BackingField>
                   <_x003C_MaxSpeed_x003E_k__BackingField dataType="Float">20</_x003C_MaxSpeed_x003E_k__BackingField>
                   <_x003C_Medium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="AIR" value="2" />
                   <_x003C_RadiusExponent_x003E_k__BackingField dataType="Float">0.5</_x003C_RadiusExponent_x003E_k__BackingField>
@@ -282,6 +283,7 @@
                     <Y dataType="Float">100000</Y>
                   </_x003C_GenSineParameter_x003E_k__BackingField>
                   <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.GenerationType" name="DIRECT" value="0" />
+                  <_x003C_MapBasedFactor_x003E_k__BackingField dataType="Float">100</_x003C_MapBasedFactor_x003E_k__BackingField>
                   <_x003C_MaxSpeed_x003E_k__BackingField dataType="Float">5</_x003C_MaxSpeed_x003E_k__BackingField>
                   <_x003C_Medium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="WATER" value="1" />
                   <_x003C_RadiusExponent_x003E_k__BackingField dataType="Float">0.5</_x003C_RadiusExponent_x003E_k__BackingField>
@@ -416,6 +418,7 @@
                 </item>
                 <item dataType="Struct" type="WorldSailorsDuality.CameraController" id="3180310343">
                   <_x003C_AcceptUserInput_x003E_k__BackingField dataType="Bool">false</_x003C_AcceptUserInput_x003E_k__BackingField>
+                  <_x003C_CameraOffset_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                   <_x003C_TrackedAgent_x003E_k__BackingField dataType="Struct" type="WorldSailorsDuality.PlayerAgent" id="3208465517">
                     <_x003C_CollectedUpgrades_x003E_k__BackingField />
                     <_x003C_currentTarget_x003E_k__BackingField />
@@ -590,7 +593,6 @@
                     <Y dataType="Float">-100</Y>
                   </_x003C_ZoomLimit_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
-                  <CameraOffset dataType="Struct" type="Duality.Vector2" />
                   <gameobj dataType="ObjectRef">2441687343</gameobj>
                 </item>
               </_items>
@@ -632,6 +634,20 @@
               <_items dataType="Array" type="Duality.Component[]" id="3909360206" length="4">
                 <item dataType="Struct" type="WorldSailorsDuality.EditorController" id="542884417">
                   <_x003C_boat_x003E_k__BackingField />
+                  <_x003C_BoatList_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[Duality.ContentRef`1[[Duality.Resources.Prefab]]]]" id="419155441">
+                    <_items dataType="Array" type="Duality.ContentRef`1[[Duality.Resources.Prefab]][]" id="3916790702" length="4">
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\AnimBoat.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\AIBoat.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\PlayerBoat.Prefab.res</contentPath>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">3</_size>
+                  </_x003C_BoatList_x003E_k__BackingField>
                   <_x003C_Gui_x003E_k__BackingField dataType="Struct" type="WorldSailorsDuality.GUIOverlay" id="1669343309">
                     <_x003C_BackgroundMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                       <contentPath dataType="String">Data\GUI\BackroundMat.Material.res</contentPath>
@@ -836,10 +852,47 @@
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="3457497788">
                                 <AssociatedObject />
                                 <ElementHit dataType="Delegate" type="System.EventHandler" id="558449220" multi="true">
-                                  <method dataType="MemberInfo" id="3568609860" value="M:WorldSailorsDuality.EditorController:Done(System.Object,System.EventArgs)" />
+                                  <method dataType="MemberInfo" id="3568609860" value="M:WorldSailorsDuality.EditorController:BoatMinus(System.Object,System.EventArgs)" />
                                   <target dataType="ObjectRef">542884417</target>
                                   <invocationList dataType="Array" type="System.Delegate[]" id="864545430">
                                     <item dataType="ObjectRef">558449220</item>
+                                  </invocationList>
+                                </ElementHit>
+                                <Name dataType="String">-</Name>
+                                <Width dataType="Float">1</Width>
+                              </item>
+                              <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="366887574">
+                                <AssociatedObject />
+                                <ElementHit />
+                                <Name dataType="String">Boat</Name>
+                                <Width dataType="Float">5</Width>
+                              </item>
+                              <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="3660740200">
+                                <AssociatedObject />
+                                <ElementHit dataType="Delegate" type="System.EventHandler" id="1596195544" multi="true">
+                                  <method dataType="MemberInfo" id="2557063084" value="M:WorldSailorsDuality.EditorController:BoatPlus(System.Object,System.EventArgs)" />
+                                  <target dataType="ObjectRef">542884417</target>
+                                  <invocationList dataType="Array" type="System.Delegate[]" id="3406113718">
+                                    <item dataType="ObjectRef">1596195544</item>
+                                  </invocationList>
+                                </ElementHit>
+                                <Name dataType="String">+</Name>
+                                <Width dataType="Float">1</Width>
+                              </item>
+                            </_items>
+                            <_size dataType="Int">3</_size>
+                          </Elements>
+                        </item>
+                        <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Line" id="2944361216">
+                          <Elements dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.GUIOverlay+Element]]" id="4120593808">
+                            <_items dataType="Array" type="WorldSailorsDuality.GUIOverlay+Element[]" id="1570113852" length="4">
+                              <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="4096626500">
+                                <AssociatedObject />
+                                <ElementHit dataType="Delegate" type="System.EventHandler" id="681549380" multi="true">
+                                  <method dataType="MemberInfo" id="2471328324" value="M:WorldSailorsDuality.EditorController:Done(System.Object,System.EventArgs)" />
+                                  <target dataType="ObjectRef">542884417</target>
+                                  <invocationList dataType="Array" type="System.Delegate[]" id="3275770518">
+                                    <item dataType="ObjectRef">681549380</item>
                                   </invocationList>
                                 </ElementHit>
                                 <Name dataType="String">Done</Name>
@@ -850,7 +903,7 @@
                           </Elements>
                         </item>
                       </_items>
-                      <_size dataType="Int">6</_size>
+                      <_size dataType="Int">7</_size>
                     </_x003C_Lines_x003E_k__BackingField>
                     <_x003C_LineSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
                       <X dataType="Float">0.3</X>
@@ -939,13 +992,15 @@
                   <_x003C_AddFPSToStrings_x003E_k__BackingField dataType="Bool">false</_x003C_AddFPSToStrings_x003E_k__BackingField>
                   <_x003C_BoxHeight_x003E_k__BackingField dataType="Float">250</_x003C_BoxHeight_x003E_k__BackingField>
                   <_x003C_BoxOffset_x003E_k__BackingField dataType="Float">20</_x003C_BoxOffset_x003E_k__BackingField>
-                  <_x003C_BoxWidth_x003E_k__BackingField dataType="Float">200</_x003C_BoxWidth_x003E_k__BackingField>
+                  <_x003C_BoxWidth_x003E_k__BackingField dataType="Float">400</_x003C_BoxWidth_x003E_k__BackingField>
                   <_x003C_DepthMeterHeightBlue_x003E_k__BackingField dataType="Float">-400</_x003C_DepthMeterHeightBlue_x003E_k__BackingField>
                   <_x003C_DepthMeterHeightRed_x003E_k__BackingField dataType="Float">-100</_x003C_DepthMeterHeightRed_x003E_k__BackingField>
                   <_x003C_DepthMeterMat_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]" />
                   <_x003C_DepthMeterMinHeight_x003E_k__BackingField dataType="Float">-2000</_x003C_DepthMeterMinHeight_x003E_k__BackingField>
                   <_x003C_DrawAgentWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawAgentWindow_x003E_k__BackingField>
+                  <_x003C_DrawAirfoilWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawAirfoilWindow_x003E_k__BackingField>
                   <_x003C_DrawDepthMeterWindow_x003E_k__BackingField dataType="Bool">false</_x003C_DrawDepthMeterWindow_x003E_k__BackingField>
+                  <_x003C_DrawHudstringsWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawHudstringsWindow_x003E_k__BackingField>
                   <_x003C_DrawQuestWindow_x003E_k__BackingField dataType="Bool">false</_x003C_DrawQuestWindow_x003E_k__BackingField>
                   <_x003C_hudstrings_x003E_k__BackingField />
                   <_x003C_mediums_x003E_k__BackingField />

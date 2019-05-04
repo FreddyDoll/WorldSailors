@@ -136,20 +136,20 @@ namespace WorldSailorsDuality
                 if (targetBoat == null)
                     return;
             }
-            
-                if (lastInit + 5 > (float)Time.GameTimer.TotalSeconds)
-                {
-                    respawnTimer = 0;
-                }
 
-                if (targetBoat.IsDestroyed || targetBoat.IsBeached)
+            if (lastInit + 5 > (float)Time.GameTimer.TotalSeconds)
+            {
+                respawnTimer = 0;
+            }
+
+            if (targetBoat.IsDestroyed || targetBoat.IsBeached)
             {
                 if (respawn == false)
                 {
                     respawnTimer = respawnAfterSecond;
                     respawn = true;
                 }
-                else if (respawnTimer<=0) //respawn
+                else if (respawnTimer <= 0) //respawn
                 {
                     respawnTimer = -1;
                     respawn = false;
@@ -158,22 +158,28 @@ namespace WorldSailorsDuality
                         CollectedUpgrades.RemoveAll(x => x.Upgrade is HullDragUpgrade);
                         CollectedUpgrades.RemoveAll(x => x.Upgrade is HullLiftUpgrade);
                         Vector2 gra = -targetBoat.map.ProbeGradient(GetPosition()).Normalized;
-                        targetBoat.Position = targetBoat.Position + gra*10000;
+                        targetBoat.Position = targetBoat.Position + gra * 10000;
                     }
                     else
                     {
                         CollectedUpgrades.RemoveAll(x => x.Upgrade is SailDragUpgrade);
                         CollectedUpgrades.RemoveAll(x => x.Upgrade is SailLiftUpgrade);
-                        BoatFactory factory = GameObj.GetComponent<BoatFactory>();
-                        if (factory != null)
-                            factory.CreateBoat();
+                        Respawn();
                     }
                 }
-                
+
                 respawnTimer -= Time.TimeMult * Time.SPFMult;
             }
         }
-        
+
+        public virtual void Respawn()
+        {
+            BoatFactory factory = GameObj.GetComponent<BoatFactory>();
+            if (factory != null)
+                factory.CreateBoat();
+        }
+
+
         public virtual float GetControlTorque()
         {
             if (targetBoat != null)

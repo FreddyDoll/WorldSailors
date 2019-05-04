@@ -341,7 +341,7 @@
                       <X dataType="Float">-100000</X>
                       <Y dataType="Float">-100000</Y>
                     </_x003C_StartPos_x003E_k__BackingField>
-                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-1969.52429</_x003C_TimeOffset_x003E_k__BackingField>
+                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-0</_x003C_TimeOffset_x003E_k__BackingField>
                   </_x003C_activeDeathWave_x003E_k__BackingField>
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
@@ -1590,7 +1590,7 @@
                       <_size dataType="Int">1</_size>
                     </childIndex>
                     <componentType dataType="ObjectRef">716590618</componentType>
-                    <prop dataType="MemberInfo" id="1947011972" value="P:Duality.Components.Renderers.SpriteRenderer:SharedMaterial" />
+                    <prop dataType="ObjectRef">1802205844</prop>
                     <val dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                       <contentPath dataType="String">Data\Textures\BoatPixmap.Material.res</contentPath>
                     </val>
@@ -3648,6 +3648,7 @@
                   <_x003C_DepthMeterMat_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]" />
                   <_x003C_DepthMeterMinHeight_x003E_k__BackingField dataType="Float">-2000</_x003C_DepthMeterMinHeight_x003E_k__BackingField>
                   <_x003C_DrawAgentWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawAgentWindow_x003E_k__BackingField>
+                  <_x003C_DrawAirfoilWindow_x003E_k__BackingField dataType="Bool">false</_x003C_DrawAirfoilWindow_x003E_k__BackingField>
                   <_x003C_DrawDepthMeterWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawDepthMeterWindow_x003E_k__BackingField>
                   <_x003C_DrawHudstringsWindow_x003E_k__BackingField dataType="Bool">false</_x003C_DrawHudstringsWindow_x003E_k__BackingField>
                   <_x003C_DrawQuestWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawQuestWindow_x003E_k__BackingField>

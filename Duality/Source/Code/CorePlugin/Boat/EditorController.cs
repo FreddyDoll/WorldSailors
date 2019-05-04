@@ -11,9 +11,34 @@ namespace WorldSailorsDuality
 {
     public class EditorController : Component, ICmpInitializable
     {
+        public List<ContentRef<Prefab>> BoatList { get; set; }
         public GUIOverlay Gui { get; set; }
         public BoatController boat { get; set; }
         public ContentRef<Scene> NextMap { get; set; }
+        [DontSerialize]
+        private int bID = 0;
+        public int BoatID
+        {
+            get { return bID; }
+            set
+            {
+                if (BoatList == null || BoatList.Count == 0)
+                    bID = 0;
+                else
+                {
+                    bID = value;
+                    bID %= BoatList.Count;
+                    if(bID<0) bID = BoatList.Count-1;
+                    BoatFactory fact = this.GameObj.ParentScene.FindComponent<BoatFactory>();
+                    Agent ag = fact.GameObj.GetComponent<Agent>();
+                    if (fact != null && ag != null)
+                    {
+                        fact.BoatPrefab = BoatList[bID];
+                        ag.Respawn();
+                    }
+                }
+            }
+        }
 
         public void OnInit(InitContext context)
         {
@@ -30,14 +55,41 @@ namespace WorldSailorsDuality
             SetUpSlider(typeof(SailLiftUpgrade));
             SetUpSlider(typeof(TurnUpgrade));
 
+            //Boat Select
+            Gui.Lines.Add(new Line(new List<Element> { new Element("-", 1), new Element("Boat", 5), new Element("+", 1) }));
+            Gui.Lines.Last().Elements[0].ElementHit += BoatMinus;
+            Gui.Lines.Last().Elements[2].ElementHit += BoatPlus; ;
+
             Gui.Lines.Add(new Line(new List<Element> { new Element("Done", 1) }));
             Gui.Lines.Last().Elements[0].ElementHit += Done;
         }
 
+        private void BoatPlus(object sender, EventArgs e)
+        {
+            BoatID++;
+        }
+
+        private void BoatMinus(object sender, EventArgs e)
+        {
+            BoatID++;
+        }
+
         private void Done(object sender, EventArgs e)
         {
-            if (NextMap != null)
-                Scene.SwitchTo(NextMap);
+            PlayerAgent ag = NextMap.Res.FindComponent<PlayerAgent>();
+            if (ag != null)
+            {
+                BoatFactory fact = ag.GameObj.GetComponent<BoatFactory>();
+
+                if (fact != null)
+                {
+                    //if (fact.BoatPrefab != null)
+                        //fact.BoatPrefab.Res.Inject(boat.GameObj);
+                    fact.BoatPrefab = BoatList[bID];
+                }
+            }
+
+            Scene.SwitchTo(NextMap);
         }
 
         private void SetUpSlider(Type upgradeType)

@@ -25,6 +25,7 @@ namespace WorldSailorsDuality
         public bool DrawQuestWindow { get; set; } = true;
         public bool DrawDepthMeterWindow { get; set; } = true;
         public bool DrawHudstringsWindow { get; set; } = true;
+        public bool DrawAirfoilWindow { get; set; } = true;
         public float BoxHeight { get; set; } = 250;
         public float BoxWidth { get; set; } = 200;
         public float BoxOffset { get; set; } = 20;
@@ -84,8 +85,8 @@ namespace WorldSailorsDuality
 
             if(DrawHudstringsWindow)
                 DrawHudStrings(canvas);
-
-            DrawAllFoilWorkingPoint(canvas);
+            if(DrawAirfoilWindow)
+                DrawAllFoilWorkingPoint(canvas);
             DrawMediums(canvas);
 
             if (DrawDepthMeterWindow)
