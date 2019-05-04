@@ -46,10 +46,20 @@ namespace WorldSailorsDuality
         /// <param name="delta">added to the level</param>
         /// <returns></returns>
         bool AdjustLevel(object target, int delta);
+
+        string Name { get; }
     }
 
     public class HullDragUpgrade : IUpgrade
     {
+        public string Name
+        {
+            get
+            {
+                return "Hull Drag";
+            }
+        }
+
         public bool AdjustLevel(object target, int delta)
         {
             if (!(target is BoatController))
@@ -66,6 +76,14 @@ namespace WorldSailorsDuality
 
     public class HullLiftUpgrade : IUpgrade
     {
+        public string Name
+        {
+            get
+            {
+                return "Hull Lift";
+            }
+        }
+
         public bool AdjustLevel(object target,int delta)
         {
             if (!(target is BoatController))
@@ -82,6 +100,14 @@ namespace WorldSailorsDuality
 
     public class SailDragUpgrade : IUpgrade
     {
+        public string Name
+        {
+            get
+            {
+                return "Sail Drag";
+            }
+        }
+
         public bool AdjustLevel(object target, int delta)
         {
             if (!(target is BoatController))
@@ -96,8 +122,17 @@ namespace WorldSailorsDuality
         }
     }
 
+
     public class SailLiftUpgrade : IUpgrade
     {
+        public string Name
+        {
+            get
+            {
+                return "Sail Lift";
+            }
+        }
+
         public bool AdjustLevel(object target, int delta)
         {
             if (!(target is BoatController))
@@ -106,7 +141,7 @@ namespace WorldSailorsDuality
             if (sail == null)
                 return false;
 
-            sail.StatDrag = sail.StatDrag * MathF.Pow(1.1f, delta);
+            sail.StatLift = sail.StatLift * MathF.Pow(1.1f, delta);
 
             return true;
         }
@@ -114,6 +149,15 @@ namespace WorldSailorsDuality
 
     public class TurnUpgrade : IUpgrade
     {
+
+        public string Name
+        {
+            get
+            {
+                return "Turn Torque";
+            }
+        }
+
         public bool AdjustLevel(object target, int delta)
         {
             if (!(target is BoatController))

@@ -340,7 +340,7 @@
                       <X dataType="Float">-100000</X>
                       <Y dataType="Float">-100000</Y>
                     </_x003C_StartPos_x003E_k__BackingField>
-                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-2672.14014</_x003C_TimeOffset_x003E_k__BackingField>
+                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-2.6409905</_x003C_TimeOffset_x003E_k__BackingField>
                   </_x003C_activeDeathWave_x003E_k__BackingField>
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
@@ -3598,7 +3598,7 @@
         <_size dataType="Int">2</_size>
       </children>
       <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="4233758862">
-        <_items dataType="Array" type="Duality.Component[]" id="849044402" length="4">
+        <_items dataType="Array" type="Duality.Component[]" id="849044402">
           <item dataType="Struct" type="Duality.Components.Diagnostics.ProfileRenderer" id="894796662">
             <active dataType="Bool">false</active>
             <counterGraphs dataType="Struct" type="System.Collections.Generic.List`1[[System.String]]" id="3014228042">
@@ -3631,6 +3631,9 @@
                   <_x003C_DepthMeterHeightRed_x003E_k__BackingField dataType="Float">-100</_x003C_DepthMeterHeightRed_x003E_k__BackingField>
                   <_x003C_DepthMeterMat_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]" />
                   <_x003C_DepthMeterMinHeight_x003E_k__BackingField dataType="Float">-2000</_x003C_DepthMeterMinHeight_x003E_k__BackingField>
+                  <_x003C_DrawAgentWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawAgentWindow_x003E_k__BackingField>
+                  <_x003C_DrawDepthMeterWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawDepthMeterWindow_x003E_k__BackingField>
+                  <_x003C_DrawQuestWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawQuestWindow_x003E_k__BackingField>
                   <_x003C_hudstrings_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.Ihudstring]]" id="1347105707">
                     <_items dataType="Array" type="WorldSailorsDuality.Ihudstring[]" id="3433356534" length="8">
                       <item dataType="ObjectRef">3219591529</item>
@@ -3657,9 +3660,22 @@
             <active dataType="Bool">true</active>
             <gameobj dataType="ObjectRef">3379412982</gameobj>
           </item>
+          <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay" id="2890241912">
+            <_x003C_BackgroundMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
+              <contentPath dataType="String">Data\GUI\BackroundMat.Material.res</contentPath>
+            </_x003C_BackgroundMaterial_x003E_k__BackingField>
+            <_x003C_ControlMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
+              <contentPath dataType="String">Data\GUI\ControlMat.Material.res</contentPath>
+            </_x003C_ControlMaterial_x003E_k__BackingField>
+            <_x003C_DrawBackground_x003E_k__BackingField dataType="Bool">true</_x003C_DrawBackground_x003E_k__BackingField>
+            <_x003C_Font_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Font]]" />
+            <_x003C_Visible_x003E_k__BackingField dataType="Bool">false</_x003C_Visible_x003E_k__BackingField>
+            <active dataType="Bool">true</active>
+            <gameobj dataType="ObjectRef">3379412982</gameobj>
+          </item>
           <item dataType="ObjectRef">4079431515</item>
         </_items>
-        <_size dataType="Int">3</_size>
+        <_size dataType="Int">4</_size>
       </compList>
       <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="2192820604" surrogate="true">
         <header />
@@ -3668,11 +3684,13 @@
             <item dataType="Type" id="3496425836" value="WorldSailorsDuality.HudRenderer" />
             <item dataType="Type" id="3587668022" value="WorldSailorsDuality.AgentSwitcher" />
             <item dataType="Type" id="1749950520" value="Duality.Components.Diagnostics.ProfileRenderer" />
+            <item dataType="Type" id="425338130" value="WorldSailorsDuality.GUIOverlay" />
           </keys>
           <values dataType="Array" type="System.Object[]" id="4096465374">
             <item dataType="ObjectRef">4079431515</item>
             <item dataType="ObjectRef">2578067603</item>
             <item dataType="ObjectRef">894796662</item>
+            <item dataType="ObjectRef">2890241912</item>
           </values>
         </body>
       </compMap>

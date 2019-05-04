@@ -13,7 +13,7 @@ namespace WorldSailorsDuality
     public class PlayerAgent : Agent
     {
         public AITarget currentTarget { get; set; }
-        public float maxSailAngle { get; set; } = MathF.Pi / 2f;
+        public float maxSailAngle { get; set; } = 0.7f;
 
         [DontSerialize]
         private float targetSailDist = 0;

@@ -116,6 +116,16 @@
             Parameters for Pathfinding
             </summary>
         </member>
+        <member name="P:WorldSailorsDuality.AIAgent.TargetHeading">
+            <summary>
+            Target Value for Rotation Control
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.AIAgent.TargetSailAngle">
+            <summary>
+            Target for Sail Controller
+            </summary>
+        </member>
         <member name="P:WorldSailorsDuality.AITarget.Radius">
             <summary>
             cant be set to 0

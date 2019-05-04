@@ -110,13 +110,18 @@ namespace WorldSailorsDuality
         /// Parameters for Pathfinding
         /// </summary>
         public PathGenParameters AtrPathGenParameters { get; set; } = new PathGenParameters();
+        /// <summary>
+        /// Target Value for Rotation Control
+        /// </summary>
+        public float TargetHeading { get; set; } = 0;
+        /// <summary>
+        /// Target for Sail Controller
+        /// </summary>
+        public float TargetSailAngle { get; set; } = 0.1f;
+
 
         [DontSerialize]
-        private float targetSailAngle = 0.1f;
-        [DontSerialize]
         private float HeadingError = 0;
-        [DontSerialize]
-        private float targetHeading = 0;
         [DontSerialize]
         private Vector2 PositionError = new Vector2();
         [DontSerialize]
@@ -226,29 +231,35 @@ namespace WorldSailorsDuality
                 if (movementState == MovementControllerState.DOWNWIND && !DownwindNeeded(StraightModeChangeHysteresis))
                     movementState = MovementControllerState.DIRECT;
 
-                switch (movementState)
+                if (NavMode != NavigationMode.HOLD)
                 {
-                    case MovementControllerState.DIRECT: DirectController(); break;
-                    case MovementControllerState.UPWIND: UpwindController(); break;
-                    case MovementControllerState.DOWNWIND: DownwindController(); break;
+                    switch (movementState)
+                    {
+                        case MovementControllerState.DIRECT: DirectController(); break;
+                        case MovementControllerState.UPWIND: UpwindController(); break;
+                        case MovementControllerState.DOWNWIND: DownwindController(); break;
+                    }
                 }
 
                 //Heading Controller
                 //Uses targetHeading sets Heading Error
                 //Find Offset Angle
-                HeadingError = FindDiff(targetHeading, targetBoat.GetHeading());
+                HeadingError = FindDiff(TargetHeading, targetBoat.GetHeading());
                 //Aplly Torque
                 targetBoat.ApplySteering(HeadingError * AtrSteeringAmplification - targetBoat.GetTurnRate() * AtrTurnDamping);
                 //SetSail
-                float offsettoWind = FindDiff(targetHeading, aparentWindAngle);
-                if (offsettoWind < 0)
-                    offsettoWind *= -1;
-                targetSailAngle = offsettoWind * AtrSailContAmpl;
+                if (NavMode != NavigationMode.HOLD)
+                {
+                    float offsettoWind = FindDiff(TargetHeading, aparentWindAngle);
+                    if (offsettoWind < 0)
+                        offsettoWind *= -1;
+                    TargetSailAngle = offsettoWind * AtrSailContAmpl;
+                }
 
-                if (targetSailAngle < 0)
-                    targetSailAngle = 0;
-                if (targetSailAngle > MathF.PiOver2)
-                    targetSailAngle = MathF.PiOver2;
+                if (TargetSailAngle < 0)
+                    TargetSailAngle = 0;
+                if (TargetSailAngle > MathF.PiOver2)
+                    TargetSailAngle = MathF.PiOver2;
 
                 if (forceCloseTimer > 0)
                     forceCloseTimer -= Time.TimeMult * Time.SPFMult;
@@ -259,7 +270,7 @@ namespace WorldSailorsDuality
                 if (forceCloseTimer > 0)
                     targetBoat.SetSail(0);
                 else
-                    targetBoat.SetSail(targetSailAngle);
+                    targetBoat.SetSail(TargetSailAngle);
             }
         }
 
@@ -325,7 +336,7 @@ namespace WorldSailorsDuality
 
         private void DirectController()
         {
-            targetHeading = PositionError.Angle;
+            TargetHeading = PositionError.Angle;
         }
 
         private void UpwindController()
@@ -346,9 +357,9 @@ namespace WorldSailorsDuality
             }
 
             if (goingLeftFootForward)
-                targetHeading = possibleLeftFootForward;
+                TargetHeading = possibleLeftFootForward;
             else
-                targetHeading = possibleRightFootForward;
+                TargetHeading = possibleRightFootForward;
             //targetSailAngle = 0f;
         }
 
@@ -370,9 +381,9 @@ namespace WorldSailorsDuality
             }
 
             if (goingLeftFootForward)
-                targetHeading = possibleLeftFootForward;
+                TargetHeading = possibleLeftFootForward;
             else
-                targetHeading = possibleRightFootForward;
+                TargetHeading = possibleRightFootForward;
             // targetSailAngle = 0f;
         }
 
@@ -412,11 +423,11 @@ namespace WorldSailorsDuality
         {
             List<string> bodyText = base.GenerateBodyText();
             bodyText.Add("Mode " + movementState.ToString());
-            bodyText.Add("TargetSailAngle " + MathF.Round(targetSailAngle, 3).ToString());
+            bodyText.Add("TargetSailAngle " + MathF.Round(TargetSailAngle, 3).ToString());
             bodyText.Add("ForceClose " + MathF.Round(forceCloseTimer, 2).ToString());
             bodyText.Add("DownWIndNeeded " + DownwindNeeded(0).ToString());
             bodyText.Add("UpWIndNeeded " + UpwindNeeded(0).ToString());
-            bodyText.Add("Heading " + MathF.Round(targetHeading, 2).ToString());
+            bodyText.Add("Heading " + MathF.Round(TargetHeading, 2).ToString());
             bodyText.Add("AwindAngle " + MathF.Round(aparentWindAngle, 2).ToString());
             return bodyText;
         }
@@ -438,6 +449,7 @@ namespace WorldSailorsDuality
             INIT,
             NAVIGATE,
             LINGER,
+            HOLD,
             INACTIVE
         }
 

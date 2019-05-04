@@ -21,6 +21,12 @@ namespace WorldSailorsDuality
         public List<Ihudstring> hudstrings { get; set; } = new List<Ihudstring>();
         public List<MediumController> mediums { get; set; } = new List<MediumController>();
         public bool AddFPSToStrings { get; set; } = true;
+        public bool DrawAgentWindow { get; set; } = true;
+        public bool DrawQuestWindow { get; set; } = true;
+        public bool DrawDepthMeterWindow { get; set; } = true;
+        public float BoxHeight { get; set; } = 250;
+        public float BoxWidth { get; set; } = 200;
+        public float BoxOffset { get; set; } = 20;
         public ContentRef<Font> Font
         {
             get { return this.font; }
@@ -38,12 +44,6 @@ namespace WorldSailorsDuality
         private CanvasBuffer buffer = null;
         [DontSerialize]
         private QuestManager QManager;
-        [DontSerialize]
-        private float BoxHeight = 250;
-        [DontSerialize]
-        private float BoxWidth = 200;
-        [DontSerialize]
-        private float BoxOffset = 20;
 
         float ICmpRenderer.BoundRadius
         {
@@ -81,18 +81,27 @@ namespace WorldSailorsDuality
             canvas.State.ColorTint = ColorRgba.Green.WithAlpha(0.8f);
             canvas.State.TextFont = this.font;
 
-            DrawDepthMeter(canvas);
             DrawHudStrings(canvas);
             DrawAllFoilWorkingPoint(canvas);
             DrawMediums(canvas);
 
-            float xOffset = 0;
-            xOffset += DrawAgent(canvas, xOffset);
+            if (DrawDepthMeterWindow)
+                DrawDepthMeter(canvas);
 
-            if(mediums==null || mediums.Count == 0)
-                DrawQuestManager(canvas, canvas.Width-BoxWidth-BoxOffset*2);
-            else
-                DrawQuestManager(canvas, xOffset);
+            float xOffset = 0;
+
+            if (DrawAgentWindow)
+            {
+                xOffset += DrawAgent(canvas, xOffset);
+            }
+
+            if (DrawQuestWindow)
+            {
+                if (mediums == null || mediums.Count == 0)
+                    DrawQuestManager(canvas, canvas.Width - BoxWidth - BoxOffset * 2);
+                else
+                    DrawQuestManager(canvas, xOffset);
+            }
         }
 
         void DrawDepthMeter(Canvas canvas)

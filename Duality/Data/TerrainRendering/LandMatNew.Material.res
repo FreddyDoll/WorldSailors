@@ -2,7 +2,7 @@
   <assetInfo />
   <info dataType="Struct" type="Duality.Drawing.BatchInfo" id="427169525">
     <dirtyFlag dataType="Enum" type="Duality.Drawing.BatchInfo+DirtyFlag" name="None" value="0" />
-    <hashCode dataType="Int">-1888089427</hashCode>
+    <hashCode dataType="Int">0</hashCode>
     <mainColor dataType="Struct" type="Duality.Drawing.ColorRgba">
       <A dataType="Byte">255</A>
       <B dataType="Byte">255</B>
@@ -28,7 +28,7 @@
         <Frequency dataType="Array" type="System.Single[]" id="1006437560">1E-07</Frequency>
         <Persistance dataType="Array" type="System.Single[]" id="2490082154">0.3</Persistance>
         <lod dataType="Array" type="System.Single[]" id="1576707764">1</lod>
-        <WaterColor dataType="Array" type="System.Single[]" id="2379716230">0.15, 0.6, 0.6, 1</WaterColor>
+        <WaterColor dataType="Array" type="System.Single[]" id="2379716230">0.4, 0.8, 0.7, 1</WaterColor>
         <LandColor dataType="Array" type="System.Single[]" id="1363995184">0, 0, 0, 0</LandColor>
       </body>
     </uniforms>
