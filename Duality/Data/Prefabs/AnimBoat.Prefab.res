@@ -122,9 +122,9 @@
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.Boat.BoatSpriteController" id="2738118603">
                 <active dataType="Bool">true</active>
-                <animDuration dataType="Float">5</animDuration>
+                <animDuration dataType="Float">10</animDuration>
                 <animFirstFrame dataType="Int">0</animFirstFrame>
-                <animFrameCount dataType="Int">50</animFrameCount>
+                <animFrameCount dataType="Int">300</animFrameCount>
                 <animLoopMode dataType="Enum" type="Duality.Components.Renderers.AnimSpriteRenderer+LoopMode" name="FixedSingle" value="4" />
                 <animPaused dataType="Bool">false</animPaused>
                 <animTime dataType="Float">0</animTime>
@@ -150,7 +150,7 @@
                 <roll dataType="Float">0</roll>
                 <sailAngle dataType="Float">0.99</sailAngle>
                 <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                  <contentPath dataType="String">Data\BoatPixmap.Material.res</contentPath>
+                  <contentPath dataType="String">Data\Textures\BoatPixmap.Material.res</contentPath>
                 </sharedMat>
                 <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
               </item>

@@ -33,7 +33,6 @@ namespace WorldSailorsDuality
     public interface IPathNode<TUserContext>
     {
         Boolean IsWalkable(TUserContext inContext);
-        float nodeLength(TUserContext inContext);
     }
 
     public interface IIndexedObject
@@ -70,11 +69,6 @@ namespace WorldSailorsDuality
             public Boolean IsWalkable(TUserContext inContext)
             {
                 return UserContext.IsWalkable(inContext);
-            }
-
-            public float nodeLength(TUserContext inContext)
-            {
-                return UserContext.nodeLength(inContext);
             }
 
             public int X { get; internal set; }

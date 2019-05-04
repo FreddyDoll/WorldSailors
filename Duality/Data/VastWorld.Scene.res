@@ -225,6 +225,7 @@
                     <Y dataType="Float">30000</Y>
                   </_x003C_GenSineParameter_x003E_k__BackingField>
                   <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.GenerationType" name="MAP_BASED" value="5" />
+                  <_x003C_MapBasedFactor_x003E_k__BackingField dataType="Float">100</_x003C_MapBasedFactor_x003E_k__BackingField>
                   <_x003C_MaxSpeed_x003E_k__BackingField dataType="Float">20</_x003C_MaxSpeed_x003E_k__BackingField>
                   <_x003C_Medium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="AIR" value="2" />
                   <_x003C_RadiusExponent_x003E_k__BackingField dataType="Float">0.5</_x003C_RadiusExponent_x003E_k__BackingField>
@@ -340,7 +341,7 @@
                       <X dataType="Float">-100000</X>
                       <Y dataType="Float">-100000</Y>
                     </_x003C_StartPos_x003E_k__BackingField>
-                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-2.6409905</_x003C_TimeOffset_x003E_k__BackingField>
+                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-19.05057</_x003C_TimeOffset_x003E_k__BackingField>
                   </_x003C_activeDeathWave_x003E_k__BackingField>
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
@@ -526,6 +527,7 @@
                     <Y dataType="Float">100000</Y>
                   </_x003C_GenSineParameter_x003E_k__BackingField>
                   <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.GenerationType" name="DIRECT" value="0" />
+                  <_x003C_MapBasedFactor_x003E_k__BackingField dataType="Float">100</_x003C_MapBasedFactor_x003E_k__BackingField>
                   <_x003C_MaxSpeed_x003E_k__BackingField dataType="Float">5</_x003C_MaxSpeed_x003E_k__BackingField>
                   <_x003C_Medium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="WATER" value="1" />
                   <_x003C_RadiusExponent_x003E_k__BackingField dataType="Float">0.5</_x003C_RadiusExponent_x003E_k__BackingField>
@@ -3627,6 +3629,9 @@
                 <item dataType="ObjectRef">3180310343</item>
                 <item dataType="Struct" type="WorldSailorsDuality.HudRenderer" id="4079431515">
                   <_x003C_AddFPSToStrings_x003E_k__BackingField dataType="Bool">true</_x003C_AddFPSToStrings_x003E_k__BackingField>
+                  <_x003C_BoxHeight_x003E_k__BackingField dataType="Float">250</_x003C_BoxHeight_x003E_k__BackingField>
+                  <_x003C_BoxOffset_x003E_k__BackingField dataType="Float">20</_x003C_BoxOffset_x003E_k__BackingField>
+                  <_x003C_BoxWidth_x003E_k__BackingField dataType="Float">200</_x003C_BoxWidth_x003E_k__BackingField>
                   <_x003C_DepthMeterHeightBlue_x003E_k__BackingField dataType="Float">-400</_x003C_DepthMeterHeightBlue_x003E_k__BackingField>
                   <_x003C_DepthMeterHeightRed_x003E_k__BackingField dataType="Float">-100</_x003C_DepthMeterHeightRed_x003E_k__BackingField>
                   <_x003C_DepthMeterMat_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]" />
@@ -3669,6 +3674,21 @@
             </_x003C_ControlMaterial_x003E_k__BackingField>
             <_x003C_DrawBackground_x003E_k__BackingField dataType="Bool">true</_x003C_DrawBackground_x003E_k__BackingField>
             <_x003C_Font_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Font]]" />
+            <_x003C_Lines_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.GUIOverlay+Line]]" id="4180230884">
+              <_items dataType="Array" type="WorldSailorsDuality.GUIOverlay+Line[]" id="3091859396" length="0" />
+              <_size dataType="Int">0</_size>
+            </_x003C_Lines_x003E_k__BackingField>
+            <_x003C_LineSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
+              <X dataType="Float">0.05</X>
+              <Y dataType="Float">0.05</Y>
+            </_x003C_LineSize_x003E_k__BackingField>
+            <_x003C_ScreenPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
+              <X dataType="Float">0.05</X>
+              <Y dataType="Float">0.05</Y>
+            </_x003C_ScreenPosition_x003E_k__BackingField>
+            <_x003C_SelectedControlMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]" />
+            <_x003C_selectedElement_x003E_k__BackingField dataType="Int">0</_x003C_selectedElement_x003E_k__BackingField>
+            <_x003C_selectedLine_x003E_k__BackingField dataType="Int">0</_x003C_selectedLine_x003E_k__BackingField>
             <_x003C_Visible_x003E_k__BackingField dataType="Bool">false</_x003C_Visible_x003E_k__BackingField>
             <active dataType="Bool">true</active>
             <gameobj dataType="ObjectRef">3379412982</gameobj>
@@ -3941,7 +3961,7 @@
             <_x003C_InitPos_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
             <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
             <_x003C_NavMap_x003E_k__BackingField />
-            <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
+            <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="4" />
             <_x003C_NavShowTargets_x003E_k__BackingField dataType="Bool">false</_x003C_NavShowTargets_x003E_k__BackingField>
             <_x003C_NavTarget_x003E_k__BackingField dataType="ObjectRef">3271547084</_x003C_NavTarget_x003E_k__BackingField>
             <_x003C_NavTargetPrefab_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
@@ -3960,6 +3980,8 @@
             <_x003C_StraightTargetsListID_x003E_k__BackingField dataType="Int">0</_x003C_StraightTargetsListID_x003E_k__BackingField>
             <_x003C_StraightTargetsMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+TargetListMode" name="LOOP" value="0" />
             <_x003C_targetBoat_x003E_k__BackingField />
+            <_x003C_TargetHeading_x003E_k__BackingField dataType="Float">0</_x003C_TargetHeading_x003E_k__BackingField>
+            <_x003C_TargetSailAngle_x003E_k__BackingField dataType="Float">0.1</_x003C_TargetSailAngle_x003E_k__BackingField>
             <active dataType="Bool">true</active>
             <gameobj dataType="ObjectRef">3034263453</gameobj>
           </item>

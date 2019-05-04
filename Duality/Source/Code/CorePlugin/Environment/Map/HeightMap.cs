@@ -193,6 +193,8 @@ namespace WorldSailorsDuality
 
         public void GenerateMap(Vector2 offset, Vector2 spacing, ref MyPathNode[,] map, float limit)
         {
+            MediumController wind = GameObj.ParentScene.FindComponents<MediumController>().First(x => x.Medium == MediumType.AIR);
+
             int sizeY = map.GetLength(1);
             int sizeX = map.GetLength(0);
 
@@ -208,6 +210,11 @@ namespace WorldSailorsDuality
                         map[x, y].IsWall = false;
                     else
                         map[x, y].IsWall = true;
+
+                    if (wind != null && activeDeathWave == null)
+                        map[x, y].WindDirection = wind.GetSpeedAtPosition(point);
+                    else
+                        map[x, y].WindDirection = activeDeathWave.DirectionSpeed;
                 }
             }
         }

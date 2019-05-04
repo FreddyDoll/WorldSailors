@@ -26,11 +26,12 @@ namespace WorldSailorsDuality
     }
 
     //This could need some cleanup....
-    public class MyPathNode : IPathNode<Object>
+    public class MyPathNode : IPathNode<PathGenParameters>
     {
         public static float Distance10Height = 0;
         public Vector3 Position;
         public Boolean IsWall { get; set; }
+        public Vector2 WindDirection { get; set; } = new Vector2();
 
         public MyPathNode()
         {
@@ -42,17 +43,13 @@ namespace WorldSailorsDuality
             IsWall = false;
         }
 
-        public bool IsWalkable(Object inUserContext)
+        public bool IsWalkable(PathGenParameters inUserContext)
         {
             return !IsWall;
         }
 
-        public float nodeLength(Object inUserContext)
+        public float SpeedFromHeight(PathGenParameters p)
         {
-            PathGenParameters p = new PathGenParameters();
-            if (inUserContext is PathGenParameters)
-                p = (PathGenParameters)inUserContext;
-
             float length = StaticHelpers.lerp(new Vector2(p.maxSpeedHeight, 1), new Vector2(Distance10Height, p.maxSpeedFactor), Position.Z);
             if (length < 1)
                 length = 1;
@@ -62,14 +59,23 @@ namespace WorldSailorsDuality
 
     public class MySolver<TPathNode, TUserContext> : SpatialAStar<TPathNode, TUserContext> where TPathNode : IPathNode<TUserContext>
     {
-        protected override Double Heuristic(PathNode inStart, PathNode inEnd)
-        {
-            return Math.Abs(inStart.X - inEnd.X) + Math.Abs(inStart.Y - inEnd.Y);
-        }
-
         protected override Double NeighborDistance(PathNode inStart, PathNode inEnd, TUserContext inContext)
         {
-            return Heuristic(inStart, inEnd) * (inStart.nodeLength(inContext) + inEnd.nodeLength(inContext)) / 2f;
+            MyPathNode start = (MyPathNode)Convert.ChangeType(inStart.UserContext, typeof(MyPathNode));
+            MyPathNode end = (MyPathNode)Convert.ChangeType(inEnd.UserContext, typeof(MyPathNode));
+            PathGenParameters param = (PathGenParameters)Convert.ChangeType(inContext, typeof(PathGenParameters));
+
+            float avgSpeedFromHeight = (start.SpeedFromHeight(param) + end.SpeedFromHeight(param)) / 2f;
+            Vector2 dir = end.Position.Xy - start.Position.Xy;
+            //Vector2 wind = (start.WindDirection + end.WindDirection) / 2.0f;
+            Vector2 wind = new Vector2(15,15);
+            float angle = Math.Abs(MathF.Acos(Vector2.Dot(dir.Normalized, wind.Normalized)));
+            float maxSpeedFactorBoat = 2;
+            float SpeedFromWind = (maxSpeedFactorBoat * angle / MathF.PiOver2 + 1) ; //0° - 90°
+            if(angle > MathF.PiOver2)
+                SpeedFromWind = StaticHelpers.lerp(new Vector2(MathF.PiOver2, 1+ maxSpeedFactorBoat), new Vector2(MathF.Pi, 0), angle);
+
+            return avgSpeedFromHeight * Heuristic(inStart, inEnd) / SpeedFromWind;
         }
 
         public MySolver(TPathNode[,] inGrid)
@@ -93,7 +99,7 @@ namespace WorldSailorsDuality
         [DontSerialize]
         private Point2 gridsize;
         [DontSerialize]
-        private MySolver<MyPathNode, Object> aStar;
+        private MySolver<MyPathNode, PathGenParameters> aStar;
         [DontSerialize]
         private Vector2 TrueSpacing;
 
@@ -153,7 +159,7 @@ namespace WorldSailorsDuality
             MyPathNode[,] grid = new MyPathNode[gridsize.X, gridsize.Y];
             map.GenerateMap(offset, TrueSpacing, ref grid, minTravelHeight);
             MyPathNode.Distance10Height = minTravelHeight;
-            aStar = new MySolver<MyPathNode, Object>(grid);
+            aStar = new MySolver<MyPathNode, PathGenParameters>(grid);
         }
 
         public void OnShutdown(ShutdownContext context)

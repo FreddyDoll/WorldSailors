@@ -166,7 +166,7 @@
                       <X dataType="Float">-10000</X>
                       <Y dataType="Float">-10000</Y>
                     </_x003C_StartPos_x003E_k__BackingField>
-                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-3376.534</_x003C_TimeOffset_x003E_k__BackingField>
+                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-5.33438873</_x003C_TimeOffset_x003E_k__BackingField>
                   </_x003C_activeDeathWave_x003E_k__BackingField>
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
@@ -182,7 +182,7 @@
                   <_x003C_PerlinFrequency_x003E_k__BackingField dataType="Double">200000</_x003C_PerlinFrequency_x003E_k__BackingField>
                   <_x003C_PerlinOctave_x003E_k__BackingField dataType="Int">4</_x003C_PerlinOctave_x003E_k__BackingField>
                   <_x003C_PerlinPersistance_x003E_k__BackingField dataType="Float">0.8</_x003C_PerlinPersistance_x003E_k__BackingField>
-                  <_x003C_PerlinSeed_x003E_k__BackingField dataType="Int">564</_x003C_PerlinSeed_x003E_k__BackingField>
+                  <_x003C_PerlinSeed_x003E_k__BackingField dataType="Int">5</_x003C_PerlinSeed_x003E_k__BackingField>
                   <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">160000</_x003C_PointsGenerated_x003E_k__BackingField>
                   <_x003C_ScaleZ_x003E_k__BackingField dataType="Float">1400</_x003C_ScaleZ_x003E_k__BackingField>
                   <_x003C_SimpleFreqX_x003E_k__BackingField dataType="Float">5000</_x003C_SimpleFreqX_x003E_k__BackingField>
@@ -3152,7 +3152,7 @@
                     <_x003C_AtrMinWindAngle_x003E_k__BackingField dataType="Float">0.8</_x003C_AtrMinWindAngle_x003E_k__BackingField>
                     <_x003C_AtrPathGenParameters_x003E_k__BackingField dataType="Struct" type="WorldSailorsDuality.PathGenParameters" id="1862739700">
                       <_x003C_maxSpeedFactor_x003E_k__BackingField dataType="Float">10</_x003C_maxSpeedFactor_x003E_k__BackingField>
-                      <_x003C_maxSpeedHeight_x003E_k__BackingField dataType="Float">-400</_x003C_maxSpeedHeight_x003E_k__BackingField>
+                      <_x003C_maxSpeedHeight_x003E_k__BackingField dataType="Float">-800</_x003C_maxSpeedHeight_x003E_k__BackingField>
                     </_x003C_AtrPathGenParameters_x003E_k__BackingField>
                     <_x003C_AtrPathTargetRadius_x003E_k__BackingField dataType="Float">5000</_x003C_AtrPathTargetRadius_x003E_k__BackingField>
                     <_x003C_AtrSailContAmpl_x003E_k__BackingField dataType="Float">0.005</_x003C_AtrSailContAmpl_x003E_k__BackingField>
@@ -3206,13 +3206,13 @@
                                 <ignoreParent dataType="Bool">true</ignoreParent>
                                 <parentTransform />
                                 <pos dataType="Struct" type="Duality.Vector3">
-                                  <X dataType="Float">40927.4063</X>
-                                  <Y dataType="Float">828395.5</Y>
+                                  <X dataType="Float">821217.8</X>
+                                  <Y dataType="Float">821217.8</Y>
                                   <Z dataType="Float">-0.1</Z>
                                 </pos>
                                 <posAbs dataType="Struct" type="Duality.Vector3">
-                                  <X dataType="Float">40927.4063</X>
-                                  <Y dataType="Float">828395.5</Y>
+                                  <X dataType="Float">821217.8</X>
+                                  <Y dataType="Float">821217.8</Y>
                                   <Z dataType="Float">-0.1</Z>
                                 </posAbs>
                                 <scale dataType="Float">2.5</scale>
@@ -3270,13 +3270,13 @@
                                         <ignoreParent dataType="Bool">true</ignoreParent>
                                         <parentTransform />
                                         <pos dataType="Struct" type="Duality.Vector3">
-                                          <X dataType="Float">0</X>
-                                          <Y dataType="Float">0</Y>
+                                          <X dataType="Float">-14973.8008</X>
+                                          <Y dataType="Float">20141.748</Y>
                                           <Z dataType="Float">-0.1</Z>
                                         </pos>
                                         <posAbs dataType="Struct" type="Duality.Vector3">
-                                          <X dataType="Float">0</X>
-                                          <Y dataType="Float">0</Y>
+                                          <X dataType="Float">-14973.8008</X>
+                                          <Y dataType="Float">20141.748</Y>
                                           <Z dataType="Float">-0.1</Z>
                                         </posAbs>
                                         <scale dataType="Float">2.5</scale>
