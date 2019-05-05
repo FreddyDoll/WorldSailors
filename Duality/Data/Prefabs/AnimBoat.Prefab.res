@@ -122,9 +122,9 @@
               </item>
               <item dataType="Struct" type="WorldSailorsDuality.Boat.BoatSpriteController" id="2738118603">
                 <active dataType="Bool">true</active>
-                <animDuration dataType="Float">5</animDuration>
+                <animDuration dataType="Float">10</animDuration>
                 <animFirstFrame dataType="Int">0</animFirstFrame>
-                <animFrameCount dataType="Int">50</animFrameCount>
+                <animFrameCount dataType="Int">300</animFrameCount>
                 <animLoopMode dataType="Enum" type="Duality.Components.Renderers.AnimSpriteRenderer+LoopMode" name="FixedSingle" value="4" />
                 <animPaused dataType="Bool">false</animPaused>
                 <animTime dataType="Float">0</animTime>
@@ -159,7 +159,7 @@
                 <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                 <_x003C_froudNr_x003E_k__BackingField dataType="Float">0</_x003C_froudNr_x003E_k__BackingField>
                 <_x003C_hasWaveDrag_x003E_k__BackingField dataType="Bool">true</_x003C_hasWaveDrag_x003E_k__BackingField>
-                <_x003C_maxSpeed_x003E_k__BackingField dataType="Float">50</_x003C_maxSpeed_x003E_k__BackingField>
+                <_x003C_maxSpeed_x003E_k__BackingField dataType="Float">60</_x003C_maxSpeed_x003E_k__BackingField>
                 <_x003C_maxWaveDrag_x003E_k__BackingField dataType="Float">180</_x003C_maxWaveDrag_x003E_k__BackingField>
                 <_x003C_ScreenString_x003E_k__BackingField dataType="String">Player Hull</_x003C_ScreenString_x003E_k__BackingField>
                 <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.1</_x003C_StatDrag_x003E_k__BackingField>
@@ -354,7 +354,7 @@
                 <_x003C_FluidSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                 <_x003C_froudNr_x003E_k__BackingField dataType="Float">0</_x003C_froudNr_x003E_k__BackingField>
                 <_x003C_hasWaveDrag_x003E_k__BackingField dataType="Bool">false</_x003C_hasWaveDrag_x003E_k__BackingField>
-                <_x003C_maxSpeed_x003E_k__BackingField dataType="Float">50</_x003C_maxSpeed_x003E_k__BackingField>
+                <_x003C_maxSpeed_x003E_k__BackingField dataType="Float">60</_x003C_maxSpeed_x003E_k__BackingField>
                 <_x003C_maxWaveDrag_x003E_k__BackingField dataType="Float">0</_x003C_maxWaveDrag_x003E_k__BackingField>
                 <_x003C_ScreenString_x003E_k__BackingField dataType="String">Player Sail</_x003C_ScreenString_x003E_k__BackingField>
                 <_x003C_StatDrag_x003E_k__BackingField dataType="Float">0.2</_x003C_StatDrag_x003E_k__BackingField>
@@ -566,6 +566,7 @@
       <_items dataType="Array" type="Duality.Component[]" id="1055573230" length="4">
         <item dataType="ObjectRef">2223332929</item>
         <item dataType="Struct" type="WorldSailorsDuality.BoatController" id="3320268086">
+          <_x003C_accumulatedUpgrades_x003E_k__BackingField />
           <_x003C_ControlTorque_x003E_k__BackingField dataType="Float">0</_x003C_ControlTorque_x003E_k__BackingField>
           <_x003C_CurrentHeight_x003E_k__BackingField dataType="Float">0</_x003C_CurrentHeight_x003E_k__BackingField>
           <_x003C_Hull_x003E_k__BackingField dataType="ObjectRef">3929919211</_x003C_Hull_x003E_k__BackingField>

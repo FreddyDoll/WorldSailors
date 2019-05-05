@@ -281,7 +281,7 @@
                   </_x003C_ParticleMaterial_x003E_k__BackingField>
                   <_x003C_ParticlesPerFrame_x003E_k__BackingField dataType="Int">4</_x003C_ParticlesPerFrame_x003E_k__BackingField>
                   <_x003C_ParticlesScale_x003E_k__BackingField dataType="Int">4</_x003C_ParticlesScale_x003E_k__BackingField>
-                  <_x003C_ParticlesVisible_x003E_k__BackingField dataType="Int">1000</_x003C_ParticlesVisible_x003E_k__BackingField>
+                  <_x003C_ParticlesVisible_x003E_k__BackingField dataType="Int">700</_x003C_ParticlesVisible_x003E_k__BackingField>
                   <_x003C_RenderHead_x003E_k__BackingField dataType="Bool">true</_x003C_RenderHead_x003E_k__BackingField>
                   <_x003C_ScreenAreaFraction_x003E_k__BackingField dataType="Float">2</_x003C_ScreenAreaFraction_x003E_k__BackingField>
                   <_x003C_SpawnArea_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
@@ -341,7 +341,7 @@
                       <X dataType="Float">-100000</X>
                       <Y dataType="Float">-100000</Y>
                     </_x003C_StartPos_x003E_k__BackingField>
-                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-0</_x003C_TimeOffset_x003E_k__BackingField>
+                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-642.515564</_x003C_TimeOffset_x003E_k__BackingField>
                   </_x003C_activeDeathWave_x003E_k__BackingField>
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
@@ -533,10 +533,7 @@
                   <_x003C_RadiusExponent_x003E_k__BackingField dataType="Float">0.5</_x003C_RadiusExponent_x003E_k__BackingField>
                   <_x003C_RadusSpeed_x003E_k__BackingField dataType="Float">10000</_x003C_RadusSpeed_x003E_k__BackingField>
                   <_x003C_ScreenString_x003E_k__BackingField dataType="String">Current</_x003C_ScreenString_x003E_k__BackingField>
-                  <_x003C_speed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                    <X dataType="Float">1</X>
-                    <Y dataType="Float">-1</Y>
-                  </_x003C_speed_x003E_k__BackingField>
+                  <_x003C_speed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                   <active dataType="Bool">true</active>
                   <gameobj dataType="ObjectRef">410715791</gameobj>
                 </item>
@@ -588,7 +585,7 @@
                     <contentPath dataType="String">Data\Textures\ParticleTrail.Material.res</contentPath>
                   </_x003C_TrailMaterial_x003E_k__BackingField>
                   <_x003C_zHeight_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-                  <active dataType="Bool">true</active>
+                  <active dataType="Bool">false</active>
                   <gameobj dataType="ObjectRef">410715791</gameobj>
                 </item>
               </_items>
@@ -777,7 +774,7 @@
     <item dataType="Struct" type="Duality.GameObject" id="1751361107">
       <active dataType="Bool">true</active>
       <children dataType="Struct" type="System.Collections.Generic.List`1[[Duality.GameObject]]" id="4150075233">
-        <_items dataType="Array" type="Duality.GameObject[]" id="915466094" length="8">
+        <_items dataType="Array" type="Duality.GameObject[]" id="915466094">
           <item dataType="Struct" type="Duality.GameObject" id="3402486709">
             <active dataType="Bool">false</active>
             <children />
@@ -1481,25 +1478,16 @@
                   </item>
                   <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                     <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="988506578">
-                      <_items dataType="Array" type="System.Int32[]" id="4267134742"></_items>
-                      <_size dataType="Int">0</_size>
-                    </childIndex>
-                    <componentType />
-                    <prop dataType="ObjectRef">3605728290</prop>
-                    <val dataType="Bool">false</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3908949992">
-                      <_items dataType="Array" type="System.Int32[]" id="3316728788">0, 0, 0, 0</_items>
+                      <_items dataType="Array" type="System.Int32[]" id="4267134742">0, 0, 0, 0</_items>
                       <_size dataType="Int">1</_size>
                     </childIndex>
                     <componentType dataType="ObjectRef">716590618</componentType>
-                    <prop dataType="MemberInfo" id="104008934" value="P:Duality.Components.Renderer:VisibilityGroup" />
+                    <prop dataType="MemberInfo" id="3908949992" value="P:Duality.Components.Renderer:VisibilityGroup" />
                     <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                   </item>
                   <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="304606116">
-                      <_items dataType="Array" type="System.Int32[]" id="4145537808"></_items>
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="104008934">
+                      <_items dataType="Array" type="System.Int32[]" id="593961274"></_items>
                       <_size dataType="Int">0</_size>
                     </childIndex>
                     <componentType dataType="ObjectRef">2739956540</componentType>
@@ -1511,82 +1499,64 @@
                     </val>
                   </item>
                   <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2789070602">
-                      <_items dataType="Array" type="System.Int32[]" id="261833902">0, 0, 0, 0</_items>
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="304606116">
+                      <_items dataType="Array" type="System.Int32[]" id="4145537808">0, 0, 0, 0</_items>
                       <_size dataType="Int">1</_size>
                     </childIndex>
                     <componentType dataType="ObjectRef">3253093622</componentType>
-                    <prop dataType="MemberInfo" id="2532548832" value="P:WorldSailorsDuality.PathRenderer:Delay" />
+                    <prop dataType="MemberInfo" id="2789070602" value="P:WorldSailorsDuality.PathRenderer:Delay" />
                     <val dataType="Float">0.1</val>
                   </item>
                   <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1542202494">
-                      <_items dataType="Array" type="System.Int32[]" id="3679401330">0, 0, 0, 0</_items>
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2532548832">
+                      <_items dataType="Array" type="System.Int32[]" id="560537484">0, 0, 0, 0</_items>
                       <_size dataType="Int">1</_size>
                     </childIndex>
                     <componentType dataType="ObjectRef">3253093622</componentType>
-                    <prop dataType="MemberInfo" id="4179937724" value="P:WorldSailorsDuality.PathRenderer:maxLength" />
+                    <prop dataType="MemberInfo" id="1542202494" value="P:WorldSailorsDuality.PathRenderer:maxLength" />
                     <val dataType="Int">200</val>
                   </item>
                   <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3669237154">
-                      <_items dataType="Array" type="System.Int32[]" id="851099526">0, 0, 0, 0</_items>
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="4179937724">
+                      <_items dataType="Array" type="System.Int32[]" id="390952392">0, 0, 0, 0</_items>
                       <_size dataType="Int">1</_size>
                     </childIndex>
                     <componentType dataType="ObjectRef">3253093622</componentType>
-                    <prop dataType="MemberInfo" id="3257066392" value="P:WorldSailorsDuality.PathRenderer:TrailMaterial" />
+                    <prop dataType="MemberInfo" id="3669237154" value="P:WorldSailorsDuality.PathRenderer:TrailMaterial" />
                     <val dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                       <contentPath dataType="String">Data\TrailRendering\TrailMaterial.Material.res</contentPath>
                     </val>
                   </item>
                   <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3528619958">
-                      <_items dataType="Array" type="System.Int32[]" id="1779475946">0, 0, 0, 0</_items>
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3257066392">
+                      <_items dataType="Array" type="System.Int32[]" id="3388211428">0, 0, 0, 0</_items>
                       <_size dataType="Int">1</_size>
                     </childIndex>
                     <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="MemberInfo" id="923136276" value="P:WorldSailorsDuality.FoilController:maxSpeed" />
-                    <val dataType="Float">50</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2677014042">
-                      <_items dataType="Array" type="System.Int32[]" id="2389361054">1, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="ObjectRef">923136276</prop>
-                    <val dataType="Float">50</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1340235536">
-                      <_items dataType="Array" type="System.Int32[]" id="1940331164">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="MemberInfo" id="3958759886" value="P:WorldSailorsDuality.FoilController:StatDrag" />
+                    <prop dataType="MemberInfo" id="3528619958" value="P:WorldSailorsDuality.FoilController:StatDrag" />
                     <val dataType="Float">0.1</val>
                   </item>
                   <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2289606764">
-                      <_items dataType="Array" type="System.Int32[]" id="111757976">1, 0, 0, 0</_items>
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="923136276">
+                      <_items dataType="Array" type="System.Int32[]" id="985949408">1, 0, 0, 0</_items>
                       <_size dataType="Int">1</_size>
                     </childIndex>
                     <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="MemberInfo" id="3947620274" value="P:WorldSailorsDuality.FoilController:StatLift" />
+                    <prop dataType="MemberInfo" id="2677014042" value="P:WorldSailorsDuality.FoilController:StatLift" />
                     <val dataType="Float">4</val>
                   </item>
                   <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3286473416">
-                      <_items dataType="Array" type="System.Int32[]" id="2457951156">1, 0, 0, 0</_items>
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1340235536">
+                      <_items dataType="Array" type="System.Int32[]" id="1940331164">1, 0, 0, 0</_items>
                       <_size dataType="Int">1</_size>
                     </childIndex>
                     <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="ObjectRef">3958759886</prop>
+                    <prop dataType="ObjectRef">3528619958</prop>
                     <val dataType="Float">0.2</val>
                   </item>
                   <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="837105734">
-                      <_items dataType="Array" type="System.Int32[]" id="1713566618">0, 0, 0, 0</_items>
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3958759886">
+                      <_items dataType="Array" type="System.Int32[]" id="658311138">0, 0, 0, 0</_items>
                       <_size dataType="Int">1</_size>
                     </childIndex>
                     <componentType dataType="ObjectRef">716590618</componentType>
@@ -1594,6 +1564,33 @@
                     <val dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                       <contentPath dataType="String">Data\Textures\BoatPixmap.Material.res</contentPath>
                     </val>
+                  </item>
+                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2289606764">
+                      <_items dataType="Array" type="System.Int32[]" id="111757976"></_items>
+                      <_size dataType="Int">0</_size>
+                    </childIndex>
+                    <componentType />
+                    <prop dataType="ObjectRef">3605728290</prop>
+                    <val dataType="Bool">false</val>
+                  </item>
+                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3947620274">
+                      <_items dataType="Array" type="System.Int32[]" id="2316142710">0, 0, 0, 0</_items>
+                      <_size dataType="Int">1</_size>
+                    </childIndex>
+                    <componentType dataType="ObjectRef">2729375690</componentType>
+                    <prop dataType="MemberInfo" id="3286473416" value="P:WorldSailorsDuality.FoilController:maxSpeed" />
+                    <val dataType="Float">60</val>
+                  </item>
+                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="837105734">
+                      <_items dataType="Array" type="System.Int32[]" id="1713566618">1, 0, 0, 0</_items>
+                      <_size dataType="Int">1</_size>
+                    </childIndex>
+                    <componentType dataType="ObjectRef">2729375690</componentType>
+                    <prop dataType="ObjectRef">3286473416</prop>
+                    <val dataType="Float">60</val>
                   </item>
                 </_items>
                 <_size dataType="Int">14</_size>
@@ -1696,7 +1693,7 @@
                             <_size dataType="Int">0</_size>
                           </childIndex>
                           <componentType dataType="ObjectRef">2924415894</componentType>
-                          <prop dataType="ObjectRef">104008934</prop>
+                          <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
                       </_items>
@@ -1769,7 +1766,9 @@
                           </childIndex>
                           <componentType dataType="ObjectRef">2541176718</componentType>
                           <prop dataType="MemberInfo" id="3260198814" value="P:WorldSailorsDuality.UpgradeTarget:Upgrade" />
-                          <val dataType="Struct" type="WorldSailorsDuality.HullDragUpgrade" id="3322043284" />
+                          <val dataType="Struct" type="WorldSailorsDuality.HullDragUpgrade" id="3322043284">
+                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">0</_x003C_LevelStorage_x003E_k__BackingField>
+                          </val>
                         </item>
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                           <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="4113952290">
@@ -1805,7 +1804,7 @@
                             <_size dataType="Int">0</_size>
                           </childIndex>
                           <componentType dataType="ObjectRef">2924415894</componentType>
-                          <prop dataType="ObjectRef">104008934</prop>
+                          <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
                       </_items>
@@ -1905,7 +1904,7 @@
                             <_size dataType="Int">0</_size>
                           </childIndex>
                           <componentType dataType="ObjectRef">2924415894</componentType>
-                          <prop dataType="ObjectRef">104008934</prop>
+                          <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
                       </_items>
@@ -2005,7 +2004,7 @@
                             <_size dataType="Int">0</_size>
                           </childIndex>
                           <componentType dataType="ObjectRef">2924415894</componentType>
-                          <prop dataType="ObjectRef">104008934</prop>
+                          <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
                       </_items>
@@ -2105,7 +2104,7 @@
                             <_size dataType="Int">0</_size>
                           </childIndex>
                           <componentType dataType="ObjectRef">2924415894</componentType>
-                          <prop dataType="ObjectRef">104008934</prop>
+                          <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
                       </_items>
@@ -2178,7 +2177,9 @@
                           </childIndex>
                           <componentType dataType="ObjectRef">2541176718</componentType>
                           <prop dataType="ObjectRef">3260198814</prop>
-                          <val dataType="Struct" type="WorldSailorsDuality.SailDragUpgrade" id="30197470" />
+                          <val dataType="Struct" type="WorldSailorsDuality.SailDragUpgrade" id="30197470">
+                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">0</_x003C_LevelStorage_x003E_k__BackingField>
+                          </val>
                         </item>
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                           <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2290519860">
@@ -2223,7 +2224,7 @@
                             <_size dataType="Int">0</_size>
                           </childIndex>
                           <componentType dataType="ObjectRef">2924415894</componentType>
-                          <prop dataType="ObjectRef">104008934</prop>
+                          <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
                       </_items>
@@ -2296,7 +2297,9 @@
                           </childIndex>
                           <componentType dataType="ObjectRef">2541176718</componentType>
                           <prop dataType="ObjectRef">3260198814</prop>
-                          <val dataType="Struct" type="WorldSailorsDuality.SailLiftUpgrade" id="3946487518" />
+                          <val dataType="Struct" type="WorldSailorsDuality.SailLiftUpgrade" id="3946487518">
+                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">0</_x003C_LevelStorage_x003E_k__BackingField>
+                          </val>
                         </item>
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                           <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1732222004">
@@ -2341,7 +2344,7 @@
                             <_size dataType="Int">0</_size>
                           </childIndex>
                           <componentType dataType="ObjectRef">2924415894</componentType>
-                          <prop dataType="ObjectRef">104008934</prop>
+                          <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
                       </_items>
@@ -2414,7 +2417,9 @@
                           </childIndex>
                           <componentType dataType="ObjectRef">2541176718</componentType>
                           <prop dataType="ObjectRef">3260198814</prop>
-                          <val dataType="Struct" type="WorldSailorsDuality.SailLiftUpgrade" id="3819447006" />
+                          <val dataType="Struct" type="WorldSailorsDuality.SailLiftUpgrade" id="3819447006">
+                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">0</_x003C_LevelStorage_x003E_k__BackingField>
+                          </val>
                         </item>
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                           <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="4247838004">
@@ -2450,7 +2455,7 @@
                             <_size dataType="Int">0</_size>
                           </childIndex>
                           <componentType dataType="ObjectRef">2924415894</componentType>
-                          <prop dataType="ObjectRef">104008934</prop>
+                          <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
                       </_items>
@@ -2550,7 +2555,7 @@
                             <_size dataType="Int">0</_size>
                           </childIndex>
                           <componentType dataType="ObjectRef">2924415894</componentType>
-                          <prop dataType="ObjectRef">104008934</prop>
+                          <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
                       </_items>
@@ -2650,7 +2655,7 @@
                             <_size dataType="Int">0</_size>
                           </childIndex>
                           <componentType dataType="ObjectRef">2924415894</componentType>
-                          <prop dataType="ObjectRef">104008934</prop>
+                          <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
                       </_items>
@@ -2687,272 +2692,6 @@
             <name dataType="String">Upgrades</name>
             <parent dataType="ObjectRef">1751361107</parent>
             <prefabLink />
-          </item>
-          <item dataType="Struct" type="Duality.GameObject" id="4095077118">
-            <active dataType="Bool">false</active>
-            <children dataType="Struct" type="System.Collections.Generic.List`1[[Duality.GameObject]]" id="1355939218">
-              <_items dataType="Array" type="Duality.GameObject[]" id="3875016272" length="4">
-                <item dataType="Struct" type="Duality.GameObject" id="1840312947">
-                  <active dataType="Bool">true</active>
-                  <children />
-                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="4254184103">
-                    <_items dataType="Array" type="Duality.Component[]" id="1983882190" length="8">
-                      <item dataType="Struct" type="Duality.Components.Transform" id="1897590165">
-                        <active dataType="Bool">true</active>
-                        <gameobj dataType="ObjectRef">1840312947</gameobj>
-                      </item>
-                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="3308932227">
-                        <active dataType="Bool">true</active>
-                        <gameobj dataType="ObjectRef">1840312947</gameobj>
-                      </item>
-                      <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="1375242435">
-                        <active dataType="Bool">true</active>
-                        <gameobj dataType="ObjectRef">1840312947</gameobj>
-                      </item>
-                      <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="3367857782">
-                        <active dataType="Bool">true</active>
-                        <gameobj dataType="ObjectRef">1840312947</gameobj>
-                      </item>
-                      <item dataType="Struct" type="WorldSailorsDuality.PathRenderer" id="57173564">
-                        <active dataType="Bool">true</active>
-                        <gameobj dataType="ObjectRef">1840312947</gameobj>
-                      </item>
-                      <item dataType="Struct" type="WorldSailorsDuality.PathRenderer+SecondPathRenderer" id="3957900605">
-                        <active dataType="Bool">true</active>
-                        <gameobj dataType="ObjectRef">1840312947</gameobj>
-                      </item>
-                    </_items>
-                    <_size dataType="Int">6</_size>
-                  </compList>
-                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="4029253632" surrogate="true">
-                    <header />
-                    <body>
-                      <keys dataType="Array" type="System.Object[]" id="4115630221">
-                        <item dataType="ObjectRef">2739956540</item>
-                        <item dataType="ObjectRef">2924415894</item>
-                        <item dataType="ObjectRef">3300963438</item>
-                        <item dataType="ObjectRef">2729375690</item>
-                        <item dataType="ObjectRef">3253093622</item>
-                        <item dataType="Type" id="1996286246" value="WorldSailorsDuality.PathRenderer+SecondPathRenderer" />
-                      </keys>
-                      <values dataType="Array" type="System.Object[]" id="764161976">
-                        <item dataType="ObjectRef">1897590165</item>
-                        <item dataType="ObjectRef">3308932227</item>
-                        <item dataType="ObjectRef">1375242435</item>
-                        <item dataType="ObjectRef">3367857782</item>
-                        <item dataType="ObjectRef">57173564</item>
-                        <item dataType="ObjectRef">3957900605</item>
-                      </values>
-                    </body>
-                  </compMap>
-                  <compTransform dataType="ObjectRef">1897590165</compTransform>
-                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
-                    <header>
-                      <data dataType="Array" type="System.Byte[]" id="3066456935">xDXT+dGB7E6EOdkwXIQ5mw==</data>
-                    </header>
-                    <body />
-                  </identifier>
-                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
-                  <name dataType="String">Hull</name>
-                  <parent dataType="ObjectRef">4095077118</parent>
-                  <prefabLink />
-                </item>
-                <item dataType="Struct" type="Duality.GameObject" id="1709997205">
-                  <active dataType="Bool">true</active>
-                  <children />
-                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3479117057">
-                    <_items dataType="Array" type="Duality.Component[]" id="942516526" length="8">
-                      <item dataType="Struct" type="Duality.Components.Transform" id="1767274423">
-                        <active dataType="Bool">true</active>
-                        <gameobj dataType="ObjectRef">1709997205</gameobj>
-                      </item>
-                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="3178616485">
-                        <active dataType="Bool">true</active>
-                        <gameobj dataType="ObjectRef">1709997205</gameobj>
-                      </item>
-                      <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="1244926693">
-                        <active dataType="Bool">true</active>
-                        <gameobj dataType="ObjectRef">1709997205</gameobj>
-                      </item>
-                      <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="3237542040">
-                        <active dataType="Bool">true</active>
-                        <gameobj dataType="ObjectRef">1709997205</gameobj>
-                      </item>
-                      <item dataType="Struct" type="WorldSailorsDuality.SailController" id="728447645">
-                        <active dataType="Bool">true</active>
-                        <gameobj dataType="ObjectRef">1709997205</gameobj>
-                      </item>
-                    </_items>
-                    <_size dataType="Int">5</_size>
-                  </compList>
-                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="3307653984" surrogate="true">
-                    <header />
-                    <body>
-                      <keys dataType="Array" type="System.Object[]" id="2169362123">
-                        <item dataType="ObjectRef">2739956540</item>
-                        <item dataType="ObjectRef">2924415894</item>
-                        <item dataType="ObjectRef">3300963438</item>
-                        <item dataType="ObjectRef">2729375690</item>
-                        <item dataType="ObjectRef">2488338662</item>
-                      </keys>
-                      <values dataType="Array" type="System.Object[]" id="3706087496">
-                        <item dataType="ObjectRef">1767274423</item>
-                        <item dataType="ObjectRef">3178616485</item>
-                        <item dataType="ObjectRef">1244926693</item>
-                        <item dataType="ObjectRef">3237542040</item>
-                        <item dataType="ObjectRef">728447645</item>
-                      </values>
-                    </body>
-                  </compMap>
-                  <compTransform dataType="ObjectRef">1767274423</compTransform>
-                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
-                    <header>
-                      <data dataType="Array" type="System.Byte[]" id="2537255297">wmma6pW8Tkq0nvrUbYUbzA==</data>
-                    </header>
-                    <body />
-                  </identifier>
-                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
-                  <name dataType="String">Sail</name>
-                  <parent dataType="ObjectRef">4095077118</parent>
-                  <prefabLink />
-                </item>
-              </_items>
-              <_size dataType="Int">2</_size>
-            </children>
-            <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="50759626">
-              <_items dataType="Array" type="Duality.Component[]" id="1789561288" length="4">
-                <item dataType="Struct" type="WorldSailorsDuality.BoatController" id="954322197">
-                  <active dataType="Bool">true</active>
-                  <gameobj dataType="ObjectRef">4095077118</gameobj>
-                </item>
-              </_items>
-              <_size dataType="Int">1</_size>
-            </compList>
-            <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="939647394" surrogate="true">
-              <header />
-              <body>
-                <keys dataType="Array" type="System.Object[]" id="2295264928">
-                  <item dataType="ObjectRef">1594124844</item>
-                </keys>
-                <values dataType="Array" type="System.Object[]" id="1210086542">
-                  <item dataType="ObjectRef">954322197</item>
-                </values>
-              </body>
-            </compMap>
-            <compTransform />
-            <identifier dataType="Struct" type="System.Guid" surrogate="true">
-              <header>
-                <data dataType="Array" type="System.Byte[]" id="1748950716">R2JdiD2DckWQIkmn1ATjCA==</data>
-              </header>
-              <body />
-            </identifier>
-            <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
-            <name dataType="String">PlayerBoat</name>
-            <parent dataType="ObjectRef">1751361107</parent>
-            <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="1072349018">
-              <changes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Resources.PrefabLink+VarMod]]" id="3596578136">
-                <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="2914784940" length="16">
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3157376040">
-                      <_items dataType="Array" type="System.Int32[]" id="2665743788">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">3253093622</componentType>
-                    <prop dataType="ObjectRef">2532548832</prop>
-                    <val dataType="Float">0.1</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3520754334">
-                      <_items dataType="Array" type="System.Int32[]" id="2285730282">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">3253093622</componentType>
-                    <prop dataType="ObjectRef">4179937724</prop>
-                    <val dataType="Int">200</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2307495188">
-                      <_items dataType="Array" type="System.Int32[]" id="2491444808">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">3253093622</componentType>
-                    <prop dataType="MemberInfo" id="626427938" value="P:WorldSailorsDuality.PathRenderer:MainColor" />
-                    <val dataType="Struct" type="Duality.Drawing.ColorRgba">
-                      <A dataType="Byte">164</A>
-                      <B dataType="Byte">0</B>
-                      <G dataType="Byte">221</G>
-                      <R dataType="Byte">42</R>
-                    </val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3776202464">
-                      <_items dataType="Array" type="System.Int32[]" id="964289204">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2924415894</componentType>
-                    <prop dataType="ObjectRef">1072406452</prop>
-                    <val dataType="Struct" type="Duality.Drawing.ColorRgba">
-                      <A dataType="Byte">255</A>
-                      <B dataType="Byte">87</B>
-                      <G dataType="Byte">255</G>
-                      <R dataType="Byte">53</R>
-                    </val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2433711942">
-                      <_items dataType="Array" type="System.Int32[]" id="2612628994">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">3253093622</componentType>
-                    <prop dataType="ObjectRef">3257066392</prop>
-                    <val dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                      <contentPath dataType="String">Data\TrailRendering\TrailMaterial.Material.res</contentPath>
-                    </val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2180181644">
-                      <_items dataType="Array" type="System.Int32[]" id="723291920"></_items>
-                      <_size dataType="Int">0</_size>
-                    </childIndex>
-                    <componentType />
-                    <prop dataType="ObjectRef">3605728290</prop>
-                    <val dataType="Bool">false</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="699511562">
-                      <_items dataType="Array" type="System.Int32[]" id="2035618310">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="ObjectRef">3947620274</prop>
-                    <val dataType="Float">25</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1330179096">
-                      <_items dataType="Array" type="System.Int32[]" id="1538628028">1, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="ObjectRef">3947620274</prop>
-                    <val dataType="Float">5</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1507944814">
-                      <_items dataType="Array" type="System.Int32[]" id="2792977306">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="ObjectRef">3958759886</prop>
-                    <val dataType="Float">0.5</val>
-                  </item>
-                </_items>
-                <_size dataType="Int">9</_size>
-              </changes>
-              <obj dataType="ObjectRef">4095077118</obj>
-              <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
-                <contentPath dataType="String">Data\Prefabs\PlayerBoat.Prefab.res</contentPath>
-              </prefab>
-            </prefabLink>
           </item>
           <item dataType="Struct" type="Duality.GameObject" id="3358450117">
             <active dataType="Bool">false</active>
@@ -2999,7 +2738,7 @@
                         <item dataType="ObjectRef">3300963438</item>
                         <item dataType="ObjectRef">2729375690</item>
                         <item dataType="ObjectRef">3253093622</item>
-                        <item dataType="ObjectRef">1996286246</item>
+                        <item dataType="Type" id="4134515004" value="WorldSailorsDuality.PathRenderer+SecondPathRenderer" />
                       </keys>
                       <values dataType="Array" type="System.Object[]" id="1258246894">
                         <item dataType="ObjectRef">3369295816</item>
@@ -3173,188 +2912,24 @@
                 <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="1730918382" length="32">
                   <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                     <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2890037260">
-                      <_items dataType="Array" type="System.Int32[]" id="229158052">1, 0, 0, 0</_items>
+                      <_items dataType="Array" type="System.Int32[]" id="229158052">0, 0, 0, 0</_items>
                       <_size dataType="Int">1</_size>
                     </childIndex>
-                    <componentType dataType="ObjectRef">2739956540</componentType>
-                    <prop dataType="ObjectRef">812441822</prop>
-                    <val dataType="Struct" type="Duality.Vector3">
-                      <X dataType="Float">-1000</X>
-                      <Y dataType="Float">0</Y>
-                      <Z dataType="Float">-2</Z>
-                    </val>
+                    <componentType dataType="ObjectRef">2729375690</componentType>
+                    <prop dataType="ObjectRef">3286473416</prop>
+                    <val dataType="Float">50</val>
                   </item>
                   <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                     <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1029143286">
-                      <_items dataType="Array" type="System.Int32[]" id="1778770054">2, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType />
-                    <prop dataType="ObjectRef">3605728290</prop>
-                    <val dataType="Bool">true</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1466033304">
-                      <_items dataType="Array" type="System.Int32[]" id="3637836792"></_items>
-                      <_size dataType="Int">0</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">1594124844</componentType>
-                    <prop dataType="MemberInfo" id="3099132562" value="P:WorldSailorsDuality.BoatController:Position" />
-                    <val dataType="Struct" type="Duality.Vector2" />
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="438221316">
-                      <_items dataType="Array" type="System.Int32[]" id="2354771420">0, 0, 0, 0</_items>
+                      <_items dataType="Array" type="System.Int32[]" id="1778770054">1, 0, 0, 0</_items>
                       <_size dataType="Int">1</_size>
                     </childIndex>
                     <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="ObjectRef">3947620274</prop>
-                    <val dataType="Float">30</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2244616590">
-                      <_items dataType="Array" type="System.Int32[]" id="1432423518">1, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="ObjectRef">3947620274</prop>
-                    <val dataType="Float">6</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2145917264">
-                      <_items dataType="Array" type="System.Int32[]" id="1816623856">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="ObjectRef">3241811334</prop>
-                    <val dataType="Enum" type="WorldSailorsDuality.MediumType" name="WATER" value="1" />
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="563364586">
-                      <_items dataType="Array" type="System.Int32[]" id="312860082">1, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="ObjectRef">3241811334</prop>
-                    <val dataType="Enum" type="WorldSailorsDuality.MediumType" name="AIR" value="2" />
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1282666364">
-                      <_items dataType="Array" type="System.Int32[]" id="2932024852">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">3253093622</componentType>
-                    <prop dataType="ObjectRef">626427938</prop>
-                    <val dataType="Struct" type="Duality.Drawing.ColorRgba">
-                      <A dataType="Byte">164</A>
-                      <B dataType="Byte">0</B>
-                      <G dataType="Byte">168</G>
-                      <R dataType="Byte">221</R>
-                    </val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="4191040422">
-                      <_items dataType="Array" type="System.Int32[]" id="2570985142"></_items>
-                      <_size dataType="Int">0</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">1594124844</componentType>
-                    <prop dataType="MemberInfo" id="2853674376" value="P:WorldSailorsDuality.BoatController:map" />
-                    <val />
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="540128962">
-                      <_items dataType="Array" type="System.Int32[]" id="885950794">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2924415894</componentType>
-                    <prop dataType="ObjectRef">104008934</prop>
-                    <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3609700980">
-                      <_items dataType="Array" type="System.Int32[]" id="1362359244">2, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2924415894</componentType>
-                    <prop dataType="ObjectRef">104008934</prop>
-                    <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3292373310">
-                      <_items dataType="Array" type="System.Int32[]" id="4229863310">1, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2924415894</componentType>
-                    <prop dataType="ObjectRef">104008934</prop>
-                    <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2163480384">
-                      <_items dataType="Array" type="System.Int32[]" id="3491004640">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">3253093622</componentType>
-                    <prop dataType="ObjectRef">2532548832</prop>
-                    <val dataType="Float">0.1</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1352591898">
-                      <_items dataType="Array" type="System.Int32[]" id="2533539938">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">3253093622</componentType>
-                    <prop dataType="ObjectRef">4179937724</prop>
-                    <val dataType="Int">200</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2831675116">
-                      <_items dataType="Array" type="System.Int32[]" id="1827445380">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">3253093622</componentType>
-                    <prop dataType="ObjectRef">3257066392</prop>
-                    <val dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                      <contentPath dataType="String">Data\TrailRendering\TrailMaterial.Material.res</contentPath>
-                    </val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1325920342">
-                      <_items dataType="ObjectRef">723291920</_items>
-                      <_size dataType="Int">0</_size>
-                    </childIndex>
-                    <componentType />
-                    <prop dataType="ObjectRef">3605728290</prop>
-                    <val dataType="Bool">false</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="4162842232">
-                      <_items dataType="Array" type="System.Int32[]" id="377553496">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="ObjectRef">3958759886</prop>
-                    <val dataType="Float">0.1</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2380310258">
-                      <_items dataType="Array" type="System.Int32[]" id="676850938">1, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="ObjectRef">3958759886</prop>
-                    <val dataType="Float">0.05</val>
-                  </item>
-                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="4114452196">
-                      <_items dataType="Array" type="System.Int32[]" id="110356284">0, 0, 0, 0</_items>
-                      <_size dataType="Int">1</_size>
-                    </childIndex>
-                    <componentType dataType="ObjectRef">2729375690</componentType>
-                    <prop dataType="MemberInfo" id="2654182638" value="P:WorldSailorsDuality.FoilController:waveDragSpeed" />
-                    <val dataType="Float">35</val>
+                    <prop dataType="ObjectRef">3286473416</prop>
+                    <val dataType="Float">50</val>
                   </item>
                 </_items>
-                <_size dataType="Int">19</_size>
+                <_size dataType="Int">2</_size>
               </changes>
               <obj dataType="ObjectRef">3358450117</obj>
               <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
@@ -3362,8 +2937,477 @@
               </prefab>
             </prefabLink>
           </item>
+          <item dataType="Struct" type="Duality.GameObject" id="2612189739">
+            <active dataType="Bool">false</active>
+            <children dataType="Struct" type="System.Collections.Generic.List`1[[Duality.GameObject]]" id="1902297515">
+              <_items dataType="Array" type="Duality.GameObject[]" id="3659162870" length="4">
+                <item dataType="Struct" type="Duality.GameObject" id="3080946741">
+                  <active dataType="Bool">true</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="117820869">
+                    <_items dataType="Array" type="Duality.Component[]" id="2186495702" length="8">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="3138223959">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3080946741</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="254598725">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3080946741</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="2615876229">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3080946741</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="313524280">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3080946741</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.PathRenderer" id="1297807358">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3080946741</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.PathRenderer+SecondPathRenderer" id="903567103">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3080946741</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">6</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="2015352360" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="2839817903">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">2924415894</item>
+                        <item dataType="ObjectRef">3300963438</item>
+                        <item dataType="ObjectRef">2729375690</item>
+                        <item dataType="ObjectRef">3253093622</item>
+                        <item dataType="ObjectRef">4134515004</item>
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="702878880">
+                        <item dataType="ObjectRef">3138223959</item>
+                        <item dataType="ObjectRef">254598725</item>
+                        <item dataType="ObjectRef">2615876229</item>
+                        <item dataType="ObjectRef">313524280</item>
+                        <item dataType="ObjectRef">1297807358</item>
+                        <item dataType="ObjectRef">903567103</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">3138223959</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="3139250749">rZ0SmggbXU2Sq7ooIFHIwg==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">Hull</name>
+                  <parent dataType="ObjectRef">2612189739</parent>
+                  <prefabLink />
+                </item>
+                <item dataType="Struct" type="Duality.GameObject" id="577280407">
+                  <active dataType="Bool">true</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="4146521655">
+                    <_items dataType="Array" type="Duality.Component[]" id="4239552142" length="8">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="634557625">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">577280407</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="2045899687">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">577280407</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="112209895">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">577280407</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="2104825242">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">577280407</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.SailController" id="3890698143">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">577280407</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">5</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="777374272" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="2120102525">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">2924415894</item>
+                        <item dataType="ObjectRef">3300963438</item>
+                        <item dataType="ObjectRef">2729375690</item>
+                        <item dataType="ObjectRef">2488338662</item>
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="1641746872">
+                        <item dataType="ObjectRef">634557625</item>
+                        <item dataType="ObjectRef">2045899687</item>
+                        <item dataType="ObjectRef">112209895</item>
+                        <item dataType="ObjectRef">2104825242</item>
+                        <item dataType="ObjectRef">3890698143</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">634557625</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="1298877271">G/cO+A5fu0aNCfxUi+oWAA==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">Sail</name>
+                  <parent dataType="ObjectRef">2612189739</parent>
+                  <prefabLink />
+                </item>
+                <item dataType="Struct" type="Duality.GameObject" id="681061655">
+                  <active dataType="Bool">true</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="4133487287">
+                    <_items dataType="Array" type="Duality.Component[]" id="556972942">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="738338873">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">681061655</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="2149680935">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">681061655</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="215991143">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">681061655</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.RudderController" id="2522961390">
+                        <active dataType="Bool">false</active>
+                        <gameobj dataType="ObjectRef">681061655</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">4</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="1135225664" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="3974826237">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">2924415894</item>
+                        <item dataType="ObjectRef">3300963438</item>
+                        <item dataType="ObjectRef">2979911504</item>
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="925230008">
+                        <item dataType="ObjectRef">738338873</item>
+                        <item dataType="ObjectRef">2149680935</item>
+                        <item dataType="ObjectRef">215991143</item>
+                        <item dataType="ObjectRef">2522961390</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">738338873</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="1740437463">cbynKcFt6kezmMd/Tgdx7A==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">Rudder</name>
+                  <parent dataType="ObjectRef">2612189739</parent>
+                  <prefabLink />
+                </item>
+              </_items>
+              <_size dataType="Int">3</_size>
+            </children>
+            <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="2198803784">
+              <_items dataType="Array" type="Duality.Component[]" id="3503715457" length="4">
+                <item dataType="Struct" type="WorldSailorsDuality.BoatController" id="3766402114">
+                  <active dataType="Bool">true</active>
+                  <gameobj dataType="ObjectRef">2612189739</gameobj>
+                </item>
+              </_items>
+              <_size dataType="Int">1</_size>
+            </compList>
+            <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="467510177" surrogate="true">
+              <header />
+              <body>
+                <keys dataType="Array" type="System.Object[]" id="1689739780">
+                  <item dataType="ObjectRef">1594124844</item>
+                </keys>
+                <values dataType="Array" type="System.Object[]" id="2224713622">
+                  <item dataType="ObjectRef">3766402114</item>
+                </values>
+              </body>
+            </compMap>
+            <compTransform />
+            <identifier dataType="Struct" type="System.Guid" surrogate="true">
+              <header>
+                <data dataType="Array" type="System.Byte[]" id="814170816">9ZTeMvnarUKPxTM2G0OR2A==</data>
+              </header>
+              <body />
+            </identifier>
+            <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+            <name dataType="String">PlayerBoat</name>
+            <parent dataType="ObjectRef">1751361107</parent>
+            <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="943326678">
+              <changes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Resources.PrefabLink+VarMod]]" id="1931578143">
+                <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="2240874350" length="8">
+                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3667628556">
+                      <_items dataType="Array" type="System.Int32[]" id="1203762340">0, 0, 0, 0</_items>
+                      <_size dataType="Int">1</_size>
+                    </childIndex>
+                    <componentType dataType="ObjectRef">2729375690</componentType>
+                    <prop dataType="ObjectRef">2677014042</prop>
+                    <val dataType="Float">20</val>
+                  </item>
+                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1906295542">
+                      <_items dataType="Array" type="System.Int32[]" id="3516576390">0, 0, 0, 0</_items>
+                      <_size dataType="Int">1</_size>
+                    </childIndex>
+                    <componentType dataType="ObjectRef">2729375690</componentType>
+                    <prop dataType="ObjectRef">3528619958</prop>
+                    <val dataType="Float">0.08</val>
+                  </item>
+                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2147926680">
+                      <_items dataType="Array" type="System.Int32[]" id="1669865464">1, 0, 0, 0</_items>
+                      <_size dataType="Int">1</_size>
+                    </childIndex>
+                    <componentType dataType="ObjectRef">2729375690</componentType>
+                    <prop dataType="ObjectRef">2677014042</prop>
+                    <val dataType="Float">4.5</val>
+                  </item>
+                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="951211666">
+                      <_items dataType="Array" type="System.Int32[]" id="749891098">0, 0, 0, 0</_items>
+                      <_size dataType="Int">1</_size>
+                    </childIndex>
+                    <componentType dataType="ObjectRef">2729375690</componentType>
+                    <prop dataType="ObjectRef">3286473416</prop>
+                    <val dataType="Float">120</val>
+                  </item>
+                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3903126532">
+                      <_items dataType="Array" type="System.Int32[]" id="3513930204">1, 0, 0, 0</_items>
+                      <_size dataType="Int">1</_size>
+                    </childIndex>
+                    <componentType dataType="ObjectRef">2729375690</componentType>
+                    <prop dataType="ObjectRef">3286473416</prop>
+                    <val dataType="Float">120</val>
+                  </item>
+                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2612882830">
+                      <_items dataType="Array" type="System.Int32[]" id="1332756062"></_items>
+                      <_size dataType="Int">0</_size>
+                    </childIndex>
+                    <componentType dataType="ObjectRef">1594124844</componentType>
+                    <prop dataType="MemberInfo" id="1735776080" value="P:WorldSailorsDuality.BoatController:name" />
+                    <val dataType="String">Maniac AI</val>
+                  </item>
+                </_items>
+                <_size dataType="Int">6</_size>
+              </changes>
+              <obj dataType="ObjectRef">2612189739</obj>
+              <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                <contentPath dataType="String">Data\Prefabs\PlayerBoat.Prefab.res</contentPath>
+              </prefab>
+            </prefabLink>
+          </item>
+          <item dataType="Struct" type="Duality.GameObject" id="3601591139">
+            <active dataType="Bool">false</active>
+            <children dataType="Struct" type="System.Collections.Generic.List`1[[Duality.GameObject]]" id="3213972899">
+              <_items dataType="Array" type="Duality.GameObject[]" id="1598658406" length="4">
+                <item dataType="Struct" type="Duality.GameObject" id="3610891368">
+                  <active dataType="Bool">true</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="1399751620">
+                    <_items dataType="Array" type="Duality.Component[]" id="2213543236" length="8">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="3668168586">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3610891368</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="3145820856">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3610891368</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.Boat.BoatSpriteController" id="2419090760">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3610891368</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="843468907">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3610891368</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.PathRenderer" id="1827751985">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">3610891368</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">5</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="213845398" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="1663556686">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">3300963438</item>
+                        <item dataType="ObjectRef">2729375690</item>
+                        <item dataType="ObjectRef">3253093622</item>
+                        <item dataType="ObjectRef">716590618</item>
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="2614485578">
+                        <item dataType="ObjectRef">3668168586</item>
+                        <item dataType="ObjectRef">3145820856</item>
+                        <item dataType="ObjectRef">843468907</item>
+                        <item dataType="ObjectRef">1827751985</item>
+                        <item dataType="ObjectRef">2419090760</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">3668168586</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="205339134">lyLGkEBslki2qm+T44yUHg==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">Hull</name>
+                  <parent dataType="ObjectRef">3601591139</parent>
+                  <prefabLink />
+                </item>
+                <item dataType="Struct" type="Duality.GameObject" id="4044957309">
+                  <active dataType="Bool">true</active>
+                  <children />
+                  <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="2458580205">
+                    <_items dataType="Array" type="Duality.Component[]" id="235187942">
+                      <item dataType="Struct" type="Duality.Components.Transform" id="4102234527">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">4044957309</gameobj>
+                      </item>
+                      <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="3579886797">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">4044957309</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.FoilController" id="1277534848">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">4044957309</gameobj>
+                      </item>
+                      <item dataType="Struct" type="WorldSailorsDuality.SailController" id="3063407749">
+                        <active dataType="Bool">true</active>
+                        <gameobj dataType="ObjectRef">4044957309</gameobj>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">4</_size>
+                  </compList>
+                  <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="3939078392" surrogate="true">
+                    <header />
+                    <body>
+                      <keys dataType="Array" type="System.Object[]" id="2942130823">
+                        <item dataType="ObjectRef">2739956540</item>
+                        <item dataType="ObjectRef">3300963438</item>
+                        <item dataType="ObjectRef">2729375690</item>
+                        <item dataType="ObjectRef">2488338662</item>
+                      </keys>
+                      <values dataType="Array" type="System.Object[]" id="3946798464">
+                        <item dataType="ObjectRef">4102234527</item>
+                        <item dataType="ObjectRef">3579886797</item>
+                        <item dataType="ObjectRef">1277534848</item>
+                        <item dataType="ObjectRef">3063407749</item>
+                      </values>
+                    </body>
+                  </compMap>
+                  <compTransform dataType="ObjectRef">4102234527</compTransform>
+                  <identifier dataType="Struct" type="System.Guid" surrogate="true">
+                    <header>
+                      <data dataType="Array" type="System.Byte[]" id="2507658629">7mluEO3lC0GnTy9A+fb/fw==</data>
+                    </header>
+                    <body />
+                  </identifier>
+                  <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+                  <name dataType="String">Sail</name>
+                  <parent dataType="ObjectRef">3601591139</parent>
+                  <prefabLink />
+                </item>
+              </_items>
+              <_size dataType="Int">2</_size>
+            </children>
+            <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="2589372280">
+              <_items dataType="Array" type="Duality.Component[]" id="1620946633" length="4">
+                <item dataType="Struct" type="Duality.Components.Transform" id="3658868357">
+                  <active dataType="Bool">true</active>
+                  <gameobj dataType="ObjectRef">3601591139</gameobj>
+                </item>
+                <item dataType="Struct" type="WorldSailorsDuality.BoatController" id="460836218">
+                  <active dataType="Bool">true</active>
+                  <gameobj dataType="ObjectRef">3601591139</gameobj>
+                </item>
+              </_items>
+              <_size dataType="Int">2</_size>
+            </compList>
+            <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="2262391305" surrogate="true">
+              <header />
+              <body>
+                <keys dataType="Array" type="System.Object[]" id="4274508180">
+                  <item dataType="ObjectRef">1594124844</item>
+                  <item dataType="ObjectRef">2739956540</item>
+                </keys>
+                <values dataType="Array" type="System.Object[]" id="2869440566">
+                  <item dataType="ObjectRef">460836218</item>
+                  <item dataType="ObjectRef">3658868357</item>
+                </values>
+              </body>
+            </compMap>
+            <compTransform dataType="ObjectRef">3658868357</compTransform>
+            <identifier dataType="Struct" type="System.Guid" surrogate="true">
+              <header>
+                <data dataType="Array" type="System.Byte[]" id="3255919664">XxU7brudsUuHk0L8yh1DGA==</data>
+              </header>
+              <body />
+            </identifier>
+            <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+            <name dataType="String">AnimManiac</name>
+            <parent dataType="ObjectRef">1751361107</parent>
+            <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="3077331238">
+              <changes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Resources.PrefabLink+VarMod]]" id="2125535127">
+                <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="2732607758" length="4">
+                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="845650572">
+                      <_items dataType="Array" type="System.Int32[]" id="214788516">0, 0, 0, 0</_items>
+                      <_size dataType="Int">1</_size>
+                    </childIndex>
+                    <componentType dataType="ObjectRef">2739956540</componentType>
+                    <prop dataType="ObjectRef">812441822</prop>
+                    <val dataType="Struct" type="Duality.Vector3">
+                      <X dataType="Float">0</X>
+                      <Y dataType="Float">0</Y>
+                      <Z dataType="Float">-1</Z>
+                    </val>
+                  </item>
+                  <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                    <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2749754358">
+                      <_items dataType="Array" type="System.Int32[]" id="754523142"></_items>
+                      <_size dataType="Int">0</_size>
+                    </childIndex>
+                    <componentType />
+                    <prop dataType="ObjectRef">3605728290</prop>
+                    <val dataType="Bool">false</val>
+                  </item>
+                </_items>
+                <_size dataType="Int">2</_size>
+              </changes>
+              <obj dataType="ObjectRef">3601591139</obj>
+              <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                <contentPath dataType="String">Data\Prefabs\AnimManiac.Prefab.res</contentPath>
+              </prefab>
+            </prefabLink>
+          </item>
         </_items>
-        <_size dataType="Int">7</_size>
+        <_size dataType="Int">8</_size>
       </children>
       <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="1401305632">
         <_items dataType="Array" type="Duality.Component[]" id="2891995371" length="0" />
@@ -3650,7 +3694,7 @@
                   <_x003C_DrawAgentWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawAgentWindow_x003E_k__BackingField>
                   <_x003C_DrawAirfoilWindow_x003E_k__BackingField dataType="Bool">false</_x003C_DrawAirfoilWindow_x003E_k__BackingField>
                   <_x003C_DrawDepthMeterWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawDepthMeterWindow_x003E_k__BackingField>
-                  <_x003C_DrawHudstringsWindow_x003E_k__BackingField dataType="Bool">false</_x003C_DrawHudstringsWindow_x003E_k__BackingField>
+                  <_x003C_DrawHudstringsWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawHudstringsWindow_x003E_k__BackingField>
                   <_x003C_DrawQuestWindow_x003E_k__BackingField dataType="Bool">true</_x003C_DrawQuestWindow_x003E_k__BackingField>
                   <_x003C_hudstrings_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.Ihudstring]]" id="1347105707">
                     <_items dataType="Array" type="WorldSailorsDuality.Ihudstring[]" id="3433356534" length="8">
@@ -4045,8 +4089,9 @@
     <item dataType="ObjectRef">2096362543</item>
     <item dataType="ObjectRef">750860492</item>
     <item dataType="ObjectRef">1240638615</item>
-    <item dataType="ObjectRef">4095077118</item>
     <item dataType="ObjectRef">3358450117</item>
+    <item dataType="ObjectRef">2612189739</item>
+    <item dataType="ObjectRef">3601591139</item>
     <item dataType="ObjectRef">2441687343</item>
     <item dataType="ObjectRef">1736672299</item>
     <item dataType="ObjectRef">2424367744</item>
@@ -4065,11 +4110,14 @@
     <item dataType="ObjectRef">273531282</item>
     <item dataType="ObjectRef">3733736547</item>
     <item dataType="ObjectRef">2735842793</item>
-    <item dataType="ObjectRef">1840312947</item>
-    <item dataType="ObjectRef">1709997205</item>
     <item dataType="ObjectRef">3312018598</item>
     <item dataType="ObjectRef">1713456129</item>
     <item dataType="ObjectRef">288500348</item>
+    <item dataType="ObjectRef">3080946741</item>
+    <item dataType="ObjectRef">577280407</item>
+    <item dataType="ObjectRef">681061655</item>
+    <item dataType="ObjectRef">3610891368</item>
+    <item dataType="ObjectRef">4044957309</item>
   </serializeObj>
   <visibilityStrategy dataType="Struct" type="Duality.Components.DefaultRendererVisibilityStrategy" id="2035693768" />
 </root>

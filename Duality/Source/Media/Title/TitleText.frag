@@ -33,9 +33,9 @@ float snoise(vec2 v){
 }
 
 
-vec4 GetColorTime(float time)
+vec4 GetColorTime(float time, vec2 offset)
 {
-	vec2 programTexCoord = vec2(gl_TexCoord[0].x,gl_TexCoord[0].y);
+	vec2 programTexCoord = vec2(gl_TexCoord[0].x,gl_TexCoord[0].y) + offset;
 	programTexCoord.y += sin(time + programTexCoord.x*30)*0.02;
 	
 	vec4 TexColor = texture2D(mainTex, programTexCoord);
@@ -60,6 +60,27 @@ vec4 GetColorTime(float time)
 	}
 }
 
+vec4 gausColor(float time, vec2 center, float step, int steps)
+{
+	vec4 sum = 0;
+	vec4 colorResult = vec4(0,0,0,0);
+	
+	float max = step*steps/2.0;
+	
+	for(int x = 0;x<steps;x++)
+	{
+		for(int y = 0;y<steps;y++)
+		{
+			vec2 offset = vec2((x-steps/2.0)*step, (y-steps/2.0)*step);
+			float factor = max / sqrt(offset.x*offset.x + offset.y*offset.y);
+			sum+=factor;
+			colorResult += vec4(0,0,0,0)*factor;
+		}
+	}
+	
+	return colorResult/sum;
+}
+
 void main()
 {
 	vec4 avg = vec4(0,0,0,0);
@@ -69,7 +90,7 @@ void main()
 	{
 		float factor = 1.0/n;
 		
-		vec4 cColor =  GetColorTime(GameTime-n*0.2)*factor;
+		vec4 cColor =  GetColorTime(GameTime-n*0.2, vec2(0,0))*factor;
 			avg+=cColor;
 			sum+=factor;
 	}

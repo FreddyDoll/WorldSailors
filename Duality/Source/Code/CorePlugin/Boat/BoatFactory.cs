@@ -23,7 +23,8 @@ namespace WorldSailorsDuality
             GameObject BoatGameObj = BoatPrefab.Res.Instantiate();
             BoatGameObj.Parent = this.GameObj;
             BoatController c = BoatGameObj.GetComponent<BoatController>();
-            
+            c.ReapplyAccumulated();
+
             if (ParentAgent == null)
                 ParentAgent = GameObj.GetComponent<Agent>();
             if (ParentAgent != null)

@@ -47,11 +47,15 @@ namespace WorldSailorsDuality
         /// <returns></returns>
         bool AdjustLevel(object target, int delta);
 
+        int LevelStorage { get; set; }
+
         string Name { get; }
     }
 
     public class HullDragUpgrade : IUpgrade
     {
+        public int LevelStorage { get; set; }
+
         public string Name
         {
             get
@@ -76,6 +80,7 @@ namespace WorldSailorsDuality
 
     public class HullLiftUpgrade : IUpgrade
     {
+        public int LevelStorage { get; set; }
         public string Name
         {
             get
@@ -100,6 +105,7 @@ namespace WorldSailorsDuality
 
     public class SailDragUpgrade : IUpgrade
     {
+        public int LevelStorage { get; set; }
         public string Name
         {
             get
@@ -125,6 +131,7 @@ namespace WorldSailorsDuality
 
     public class SailLiftUpgrade : IUpgrade
     {
+        public int LevelStorage { get; set; }
         public string Name
         {
             get
@@ -149,6 +156,7 @@ namespace WorldSailorsDuality
 
     public class TurnUpgrade : IUpgrade
     {
+        public int LevelStorage { get; set; }
 
         public string Name
         {

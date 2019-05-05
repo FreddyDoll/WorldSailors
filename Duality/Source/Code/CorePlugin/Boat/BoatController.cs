@@ -78,6 +78,7 @@ namespace WorldSailorsDuality
                 }
             }
         }
+        public List<IUpgrade> accumulatedUpgrades { get; set; }
 
         public float maxDrag { get; set; } = 2;
         public float minHeight { get; set; } = -20;
@@ -141,6 +142,23 @@ namespace WorldSailorsDuality
                         }
                 }
                 IsDestroyed = !JointsOK;
+            }
+        }
+
+        public void AddUpgrade(IUpgrade up)
+        {
+            if (accumulatedUpgrades == null)
+                accumulatedUpgrades = new List<IUpgrade>();
+            accumulatedUpgrades.Add(up);
+            up.AdjustLevel(this, up.LevelStorage);
+        }
+
+        public void ReapplyAccumulated()
+        {
+            if(accumulatedUpgrades != null)
+            {
+                foreach (IUpgrade ups in accumulatedUpgrades)
+                    ups.AdjustLevel(this, ups.LevelStorage);
             }
         }
 

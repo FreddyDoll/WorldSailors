@@ -118,7 +118,7 @@ namespace WorldSailorsDuality
             if (angleOfAttack > 180)
                 angleOfAttack -= 360;
 
-            if (ApperantSpeed.Length < 60) //Limit needed after init
+            if (ApperantSpeed.Length < maxSpeed) //Limit needed after init
             {
                 body.ApplyLocalForce(localForce);
             }

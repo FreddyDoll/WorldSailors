@@ -83,9 +83,29 @@ namespace WorldSailorsDuality
 
                 if (fact != null)
                 {
-                    //if (fact.BoatPrefab != null)
-                        //fact.BoatPrefab.Res.Inject(boat.GameObj);
-                    fact.BoatPrefab = BoatList[bID];
+                    Prefab withUpgrades = BoatList[bID].Res;
+                    if (fact.BoatPrefab != null)
+                    {
+                        GameObject tempBoat = BoatList[bID].Res.Instantiate();
+                        if (tempBoat != null)
+                        {
+                            BoatController b = tempBoat.GetComponent<BoatController>();
+                            if (b != null)
+                            {
+                                b.accumulatedUpgrades = new List<IUpgrade>();
+                                boat = GameObj.ParentScene.FindComponent<BoatController>();
+                                if (boat != null && boat.accumulatedUpgrades != null )
+                                {
+                                    foreach (IUpgrade up in boat.accumulatedUpgrades)
+                                    {
+                                        b.accumulatedUpgrades.Add(up);
+                                    }
+                                    withUpgrades = new Prefab(tempBoat);
+                                }
+                            }
+                        }
+                    }
+                    fact.BoatPrefab = withUpgrades;
                 }
             }
 
@@ -95,34 +115,30 @@ namespace WorldSailorsDuality
         private void SetUpSlider(Type upgradeType)
         {
             // create an object of the type
-            var obj = (IUpgrade)Activator.CreateInstance(upgradeType);
+            IUpgrade obj;
 
+            obj = (IUpgrade)Activator.CreateInstance(upgradeType);
             Gui.Lines.Add(new Line(new List<Element> { new Element("-", 1), new Element(obj.Name, 5), new Element("+", 1) }));
-            Gui.Lines.Last().Elements[0].ElementHit += HitMinus;
+            Gui.Lines.Last().Elements[0].ElementHit += SliderCallback;
+            obj.LevelStorage = -1;
             Gui.Lines.Last().Elements[0].AssociatedObject = obj;
-            Gui.Lines.Last().Elements[2].ElementHit += HitPlus;
+
+            obj = (IUpgrade)Activator.CreateInstance(upgradeType);
+            Gui.Lines.Last().Elements[2].ElementHit += SliderCallback;
+            obj.LevelStorage = 1;
             Gui.Lines.Last().Elements[2].AssociatedObject = obj;
         }
 
-        private void HitPlus(object sender, EventArgs e)
+        private void SliderCallback(object sender, EventArgs e)
         {
             boat = GameObj.ParentScene.FindComponent<BoatController>();
             if (boat == null)
                 return;
 
             if (sender is Element && ((Element)sender).AssociatedObject is IUpgrade)
-                ((IUpgrade)((Element)sender).AssociatedObject).AdjustLevel(boat, 1);            
+                boat.AddUpgrade((IUpgrade)((Element)sender).AssociatedObject);
         }
-
-        private void HitMinus(object sender, EventArgs e)
-        {
-            boat = GameObj.ParentScene.FindComponent<BoatController>();
-            if (boat == null)
-                return;
-
-            if (sender is Element && ((Element)sender).AssociatedObject is IUpgrade)
-                ((IUpgrade)((Element)sender).AssociatedObject).AdjustLevel(boat, -1);
-        }
+        
 
         public void OnShutdown(ShutdownContext context)
         {
