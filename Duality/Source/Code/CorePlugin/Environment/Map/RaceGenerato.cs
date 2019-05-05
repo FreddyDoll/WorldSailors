@@ -81,9 +81,11 @@ namespace WorldSailorsDuality
             for (; currentCount < Targets; currentCount++)
             {
                 int maxRaceSize = 4;
-                int minTaceSize = 1;
+                int minTaceSize = 0;
                 int raceSize = rand.Next(minTaceSize, maxRaceSize + 1);
                 ColorHsva raceColor = new ColorHsva(rand.NextFloat(0, 1), 0.6f, 0.8f, 1f);
+                if (raceSize == 0)
+                    raceColor = ColorHsva.Grey;
                 //Set Up GameObject
                 GameObject gameO = new GameObject("", this.GameObj);
 
@@ -93,11 +95,15 @@ namespace WorldSailorsDuality
                 controller.AIPrefab = Challengers;
                 controller.Laps = 1;//rand.Next(1,maxRaceSize-raceSize+2);
                 controller.WaitAfterStart = 0;
-                controller.SpawnAditionalAI = rand.Next(1,raceSize + 1);
+                if(raceSize == 0)
+                    controller.SpawnAditionalAI = 0;
+                else
+                    controller.SpawnAditionalAI = rand.Next(1,raceSize + 1);
                 string raceName = GetRaceName(raceSize, controller.Laps, controller.SpawnAditionalAI);
-                controller.Name = GetRaceName(raceSize,controller.Laps,controller.SpawnAditionalAI);
+                if (raceSize == 0)
+                    raceName = "Warp Point";
+                controller.Name = raceName;
                 gameO.Name = raceName;
-                //gameO.Active = true;
                 
                 //find Start Point
                 Vector2 startBase = new Vector2() + waveDir.PerpendicularLeft * currentStartPoint;
@@ -108,55 +114,57 @@ namespace WorldSailorsDuality
                 do { overflow++;  start = GetRandPoint(startBase); } while (map.Probe(start) > -1000 && overflow<overflowLimit);
                 if (overflow >= overflowLimit)
                     overflow = 0;
-
-
+                
                 controller.WaitArea = instantiateTarget(start, gameO,"Start Target");
                 if (controller.WaitArea == null)
                     return;
                 controller.WaitArea.activeColor = raceColor.ToRgba();
                 controller.WaitArea.inactiveColor = raceColor.WithValue(0.6f).ToRgba();
-                controller.WaitArea.Radius = 1000*raceSize;
+                if (raceSize == 0)
+                    controller.WaitArea.Radius = 2000;
+                else
+                    controller.WaitArea.Radius = 1000 * raceSize;
                 controller.WaitArea.GameObj.Active = false;
                 controller.WaitArea.GameObj.Active = true;
 
-           
-                int nrTargets = raceSize*3;
-                Vector2 finalPointBase = start +  waveDir * baseLength * raceSize;
-                Vector2 finalPoint;
-                overflow = 0;
-                do { overflow++; finalPoint = GetRandPoint(finalPointBase); } while (map.Probe(finalPoint) > -1000 && overflow < overflowLimit);
-                List<MyPathNode> path = finder.FindPath(start, finalPoint);
-                if (path == null)
+                if (raceSize != 0)
                 {
-                    path = new List<MyPathNode>();
-                    path.Add(new MyPathNode(finalPoint));
-                    raceSize = 1;
-                    nrTargets = 1;
+                    int nrTargets = raceSize * 3;
+                    Vector2 finalPointBase = start + waveDir * baseLength * raceSize;
+                    Vector2 finalPoint;
+                    overflow = 0;
+                    do { overflow++; finalPoint = GetRandPoint(finalPointBase); } while (map.Probe(finalPoint) > -1000 && overflow < overflowLimit);
+                    List<MyPathNode> path = finder.FindPath(start, finalPoint);
+                    if (path == null)
+                    {
+                        path = new List<MyPathNode>();
+                        path.Add(new MyPathNode(finalPoint));
+                        raceSize = 1;
+                        nrTargets = 1;
+                    }
+                    int pathIncrement = path.Count / nrTargets;
+                    int pathIndex = pathIncrement - 1;
+
+                    //Loop through Points
+                    controller.Targets = new List<AITarget>();
+                    for (int n = 0; n < nrTargets; n++)
+                    {
+                        Vector2 CurrPos = path[pathIndex].Position.Xy;
+                        pathIndex += pathIncrement;
+
+                        AITarget nextTarget = instantiateTarget(CurrPos, gameO, "Target" + n.ToString());
+                        nextTarget.Radius = 500 * raceSize;
+                        ColorRgba targetColor = raceColor.WithSaturation(0.3f).WithValue(0.6f).ToRgba();
+                        nextTarget.activeColor = raceColor.ToRgba();
+                        nextTarget.inactiveColor = raceColor.WithValue(0.4f).ToRgba();
+                        nextTarget.GameObj.Active = false;
+                        nextTarget.GameObj.Active = true;
+                        controller.Targets.Add(nextTarget);
+                    }
                 }
-                int pathIncrement = path.Count / nrTargets;
-                int pathIndex = pathIncrement-1;
-
-                //Loop through Points
-                controller.Targets = new List<AITarget>();
-                for (int n = 0;n<nrTargets;n++)
-                {
-                    Vector2 CurrPos = path[pathIndex].Position.Xy;
-                    pathIndex += pathIncrement;
-
-                    AITarget nextTarget = instantiateTarget(CurrPos, gameO,"Target" + n.ToString());
-                    nextTarget.Radius = 500*raceSize;
-                    ColorRgba targetColor = raceColor.WithSaturation(0.3f).WithValue(0.6f).ToRgba();
-                    nextTarget.activeColor = raceColor.ToRgba();
-                    nextTarget.inactiveColor = raceColor.WithValue(0.4f).ToRgba();
-                    nextTarget.GameObj.Active = false;
-                    nextTarget.GameObj.Active = true;
-                    controller.Targets.Add(nextTarget);
-                }
-
-                //Set Up Enemies
-                controller.Active = true;
 
                 //Start Everything
+                controller.Active = true;
             }
         }
 
@@ -212,11 +220,13 @@ namespace WorldSailorsDuality
                 default: ob = new List<string>() { "Bashing", "Crashing" }; break;
             }
 
+
             string name = adjectives[rand.Next(0,adjectives.Count-1)] + " " + nouns[rand.Next(0, nouns.Count - 1)];
             if (rand.NextBool())
                 name += " of " + ob[rand.Next(0, ob.Count - 1)];
+        
 
-            return name;
+             return name;
 
 
         }

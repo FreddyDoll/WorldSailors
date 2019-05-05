@@ -1,5 +1,6 @@
 ﻿using Duality;
 using Duality.Drawing;
+using Duality.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,29 @@ namespace WorldSailorsDuality
     public static class StaticHelpers
     {
         public static Random Rand = new Random(0);
+
+        public static void TransferAgent(Agent source, Agent target)
+        {
+            //Transfer Upgrades
+            try
+            {
+                Prefab BaseBoat = source.GameObj.GetComponent<BoatFactory>().BoatPrefab.Res;
+                BoatController currentBoat = source.GameObj.GetComponentsInChildren<BoatController>().FirstOrDefault();
+                BoatFactory fact = target.GameObj.GetComponent<BoatFactory>();
+                GameObject tempBoat = BaseBoat.Instantiate();
+                BoatController b = tempBoat.GetComponent<BoatController>(); b.accumulatedUpgrades = new List<IUpgrade>();
+                if (currentBoat != null && currentBoat.accumulatedUpgrades != null)
+                {
+                    foreach (IUpgrade up in currentBoat.accumulatedUpgrades)
+                    {
+                        b.accumulatedUpgrades.Add(up);
+                    }
+                    BaseBoat = new Prefab(tempBoat);
+                }
+                fact.BoatPrefab = BaseBoat;
+            }
+            catch { }
+        }
 
         public static string GenerateName(int len)
         {

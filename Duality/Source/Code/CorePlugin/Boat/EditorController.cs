@@ -74,41 +74,11 @@ namespace WorldSailorsDuality
             BoatID++;
         }
 
+        
+
         private void Done(object sender, EventArgs e)
         {
-            PlayerAgent ag = NextMap.Res.FindComponent<PlayerAgent>();
-            if (ag != null)
-            {
-                BoatFactory fact = ag.GameObj.GetComponent<BoatFactory>();
-
-                if (fact != null)
-                {
-                    Prefab withUpgrades = BoatList[bID].Res;
-                    if (fact.BoatPrefab != null)
-                    {
-                        GameObject tempBoat = BoatList[bID].Res.Instantiate();
-                        if (tempBoat != null)
-                        {
-                            BoatController b = tempBoat.GetComponent<BoatController>();
-                            if (b != null)
-                            {
-                                b.accumulatedUpgrades = new List<IUpgrade>();
-                                boat = GameObj.ParentScene.FindComponent<BoatController>();
-                                if (boat != null && boat.accumulatedUpgrades != null )
-                                {
-                                    foreach (IUpgrade up in boat.accumulatedUpgrades)
-                                    {
-                                        b.accumulatedUpgrades.Add(up);
-                                    }
-                                    withUpgrades = new Prefab(tempBoat);
-                                }
-                            }
-                        }
-                    }
-                    fact.BoatPrefab = withUpgrades;
-                }
-            }
-
+            StaticHelpers.TransferAgent(GameObj.ParentScene.FindComponent<PlayerAgent>(),NextMap.Res.FindComponent<PlayerAgent>());
             Scene.SwitchTo(NextMap);
         }
 

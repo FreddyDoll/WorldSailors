@@ -21,6 +21,7 @@ namespace WorldSailorsDuality
         public int Laps { get; set; } = 1;
         public int SpawnAditionalAI { get; set; } = 0;
         public string Name { get; set; } = "Race!";
+        public ContentRef<Scene> NextMap { get; set; }
 
         [DontSerialize]
         float startTime;
@@ -28,8 +29,7 @@ namespace WorldSailorsDuality
         float currentTime;
         [DontSerialize]
         List<RaceParticipant> participants;
-
-
+        
         public void startRace(Agent agent)
         {
 
@@ -78,15 +78,32 @@ namespace WorldSailorsDuality
 
             if (State == RaceState.WAITING && currentTime > WaitAfterStart + startTime)
             {
-                State = RaceState.RUNNING;
-                foreach (RaceParticipant p in participants)
-                    p.agent.SetTarget(Targets[0]);
+                if (Targets.Count == 0)
+                {
+                    State = RaceState.FINISHED;
+                    foreach (RaceParticipant p in participants)
+                    {
+                        p.finished = true;
+                        p.agent.RemoveTarget();
+                    }
+                }
+                else
+                {
+                    State = RaceState.RUNNING;
+                    foreach (RaceParticipant p in participants)
+                        p.agent.SetTarget(Targets[0]);
+                }
             }
 
             if (State == RaceState.RUNNING)
             {
+                bool allFinished = true;
+
                 foreach (RaceParticipant p in participants)
                 {
+                    if (!p.finished)
+                        allFinished = false; 
+
                     if (!p.finished && Targets[p.currentTarget].CheckReached(p.agent.GetPosition()))
                     {
                         p.currentTarget++;
@@ -101,6 +118,8 @@ namespace WorldSailorsDuality
                             else
                             {
                                 p.finished = true;
+                                if (p.agent is PlayerAgent)
+                                    SwitchMap();
                                 p.agent.RemoveTarget();
                             }
                         }
@@ -108,7 +127,15 @@ namespace WorldSailorsDuality
                             p.agent.SetTarget(Targets[p.currentTarget]);
                     }
                 }
+                if (allFinished)
+                    State = RaceState.FINISHED;
             }
+        }
+
+        private void SwitchMap()
+        {
+            StaticHelpers.TransferAgent(GameObj.ParentScene.FindComponent<PlayerAgent>(), NextMap.Res.FindComponent<PlayerAgent>());
+            Scene.SwitchTo(NextMap);
         }
 
         public string GetHudString()
