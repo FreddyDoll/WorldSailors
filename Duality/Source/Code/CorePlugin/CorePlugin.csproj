@@ -64,6 +64,7 @@
     <Compile Include="Agents\PlayerAgent.cs" />
     <Compile Include="Boat\BoatSpriteController.cs" />
     <Compile Include="Boat\EditorController.cs" />
+    <Compile Include="CoreSceneLoop.cs" />
     <Compile Include="Environment\Map\DeathWave.cs" />
     <Compile Include="Environment\Map\RaceGenerato.cs" />
     <Compile Include="Environment\Map\UpgradeGenerator.cs" />

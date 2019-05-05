@@ -1,7 +1,18 @@
 ﻿<root dataType="Struct" type="Duality.DualityAppData" id="129723834">
   <appName dataType="String">WorldSailorsDuality</appName>
   <authorName dataType="String">Freddy</authorName>
-  <customData />
+  <customData dataType="Struct" type="WorldSailorsDuality.CoreSceneLoop" id="427169525">
+    <_x003C_currentScene_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.CoreSceneLoop+SceneTypes" name="WORLD" value="0" />
+    <_x003C_Shop_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
+      <contentPath dataType="String">Data\ShipEditor.Scene.res</contentPath>
+    </_x003C_Shop_x003E_k__BackingField>
+    <_x003C_Title_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
+      <contentPath dataType="String">Data\TitleWorld.Scene.res</contentPath>
+    </_x003C_Title_x003E_k__BackingField>
+    <_x003C_World_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
+      <contentPath dataType="String">Data\VastWorld.Scene.res</contentPath>
+    </_x003C_World_x003E_k__BackingField>
+  </customData>
   <localUserData dataType="Bool">true</localUserData>
   <multisampleBackBuffer dataType="Bool">true</multisampleBackBuffer>
   <physicsFixedTime dataType="Bool">false</physicsFixedTime>
@@ -12,7 +23,7 @@
   <startScene dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
     <contentPath dataType="String">Data\TitleWorld.Scene.res</contentPath>
   </startScene>
-  <version dataType="UInt">4036</version>
+  <version dataType="UInt">4124</version>
   <websiteUrl dataType="String">http://www.adamslair.net</websiteUrl>
 </root>
 <!-- XmlFormatterBase Document Separator -->

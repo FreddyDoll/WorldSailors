@@ -428,6 +428,7 @@
                     <_x003C_NavTargetPrefab_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
                       <contentPath dataType="String">Data\Prefabs\Target.Prefab.res</contentPath>
                     </_x003C_NavTargetPrefab_x003E_k__BackingField>
+                    <_x003C_PowerCoins_x003E_k__BackingField dataType="Int">5</_x003C_PowerCoins_x003E_k__BackingField>
                     <_x003C_PrimaryColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
                       <A dataType="Byte">255</A>
                       <B dataType="Byte">0</B>
@@ -669,36 +670,39 @@
                             <_items dataType="Array" type="WorldSailorsDuality.GUIOverlay+Element[]" id="3706314564" length="4">
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="1838366276">
                                 <AssociatedObject dataType="Struct" type="WorldSailorsDuality.HullDragUpgrade" id="4079876676">
-                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
+                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
                                 </AssociatedObject>
                                 <ElementHit dataType="Delegate" type="System.EventHandler" id="224610966" multi="true">
-                                  <method dataType="MemberInfo" id="1817701326" value="M:WorldSailorsDuality.EditorController:SliderCallback(System.Object,System.EventArgs)" />
+                                  <method dataType="MemberInfo" id="1817701326" value="M:WorldSailorsDuality.EditorController:SliderCallbackPlus(System.Object,System.EventArgs)" />
                                   <target dataType="ObjectRef">542884417</target>
                                   <invocationList dataType="Array" type="System.Delegate[]" id="147481930">
                                     <item dataType="ObjectRef">224610966</item>
                                   </invocationList>
                                 </ElementHit>
-                                <Name dataType="String">-</Name>
+                                <Name dataType="String">+</Name>
                                 <Width dataType="Float">1</Width>
                               </item>
-                              <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="259783318">
+                              <item dataType="Struct" type="WorldSailorsDuality.EditorController+ElementUpgradeType" id="259783318">
                                 <AssociatedObject />
+                                <BaseName dataType="String">Hull Drag</BaseName>
                                 <ElementHit />
                                 <Name dataType="String">Hull Drag</Name>
+                                <TargetScene dataType="ObjectRef">129723834</TargetScene>
+                                <UpgradeType dataType="Type" id="617457614" value="WorldSailorsDuality.HullDragUpgrade" />
                                 <Width dataType="Float">5</Width>
                               </item>
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="3609476096">
                                 <AssociatedObject dataType="Struct" type="WorldSailorsDuality.HullDragUpgrade" id="1779199048">
-                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
+                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
                                 </AssociatedObject>
                                 <ElementHit dataType="Delegate" type="System.EventHandler" id="3059716318" multi="true">
-                                  <method dataType="ObjectRef">1817701326</method>
+                                  <method dataType="MemberInfo" id="736949002" value="M:WorldSailorsDuality.EditorController:SliderCallbackMinus(System.Object,System.EventArgs)" />
                                   <target dataType="ObjectRef">542884417</target>
-                                  <invocationList dataType="Array" type="System.Delegate[]" id="736949002">
+                                  <invocationList dataType="Array" type="System.Delegate[]" id="234794522">
                                     <item dataType="ObjectRef">3059716318</item>
                                   </invocationList>
                                 </ElementHit>
-                                <Name dataType="String">+</Name>
+                                <Name dataType="String">-</Name>
                                 <Width dataType="Float">1</Width>
                               </item>
                             </_items>
@@ -710,7 +714,7 @@
                             <_items dataType="Array" type="WorldSailorsDuality.GUIOverlay+Element[]" id="1573864672" length="4">
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="1863729116">
                                 <AssociatedObject dataType="Struct" type="WorldSailorsDuality.HullLiftUpgrade" id="1913678532">
-                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
+                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
                                 </AssociatedObject>
                                 <ElementHit dataType="Delegate" type="System.EventHandler" id="89133974" multi="true">
                                   <method dataType="ObjectRef">1817701326</method>
@@ -719,27 +723,30 @@
                                     <item dataType="ObjectRef">89133974</item>
                                   </invocationList>
                                 </ElementHit>
-                                <Name dataType="String">-</Name>
+                                <Name dataType="String">+</Name>
                                 <Width dataType="Float">1</Width>
                               </item>
-                              <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="134732054">
+                              <item dataType="Struct" type="WorldSailorsDuality.EditorController+ElementUpgradeType" id="134732054">
                                 <AssociatedObject />
+                                <BaseName dataType="String">Hull Lift</BaseName>
                                 <ElementHit />
                                 <Name dataType="String">Hull Lift</Name>
+                                <TargetScene dataType="ObjectRef">129723834</TargetScene>
+                                <UpgradeType dataType="Type" id="2871843062" value="WorldSailorsDuality.HullLiftUpgrade" />
                                 <Width dataType="Float">5</Width>
                               </item>
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="3054229832">
                                 <AssociatedObject dataType="Struct" type="WorldSailorsDuality.HullLiftUpgrade" id="1602793624">
-                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
+                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
                                 </AssociatedObject>
                                 <ElementHit dataType="Delegate" type="System.EventHandler" id="3234628894" multi="true">
-                                  <method dataType="ObjectRef">1817701326</method>
+                                  <method dataType="ObjectRef">736949002</method>
                                   <target dataType="ObjectRef">542884417</target>
                                   <invocationList dataType="Array" type="System.Delegate[]" id="1739438938">
                                     <item dataType="ObjectRef">3234628894</item>
                                   </invocationList>
                                 </ElementHit>
-                                <Name dataType="String">+</Name>
+                                <Name dataType="String">-</Name>
                                 <Width dataType="Float">1</Width>
                               </item>
                             </_items>
@@ -751,7 +758,7 @@
                             <_items dataType="Array" type="WorldSailorsDuality.GUIOverlay+Element[]" id="3879778860" length="4">
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="3470931172">
                                 <AssociatedObject dataType="Struct" type="WorldSailorsDuality.SailDragUpgrade" id="2222282692">
-                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
+                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
                                 </AssociatedObject>
                                 <ElementHit dataType="Delegate" type="System.EventHandler" id="2134209942" multi="true">
                                   <method dataType="ObjectRef">1817701326</method>
@@ -760,27 +767,30 @@
                                     <item dataType="ObjectRef">2134209942</item>
                                   </invocationList>
                                 </ElementHit>
-                                <Name dataType="String">-</Name>
+                                <Name dataType="String">+</Name>
                                 <Width dataType="Float">1</Width>
                               </item>
-                              <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="1786207766">
+                              <item dataType="Struct" type="WorldSailorsDuality.EditorController+ElementUpgradeType" id="1786207766">
                                 <AssociatedObject />
+                                <BaseName dataType="String">Sail Drag</BaseName>
                                 <ElementHit />
                                 <Name dataType="String">Sail Drag</Name>
+                                <TargetScene dataType="ObjectRef">129723834</TargetScene>
+                                <UpgradeType dataType="Type" id="2056389294" value="WorldSailorsDuality.SailDragUpgrade" />
                                 <Width dataType="Float">5</Width>
                               </item>
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="2694757088">
                                 <AssociatedObject dataType="Struct" type="WorldSailorsDuality.SailDragUpgrade" id="1296132360">
-                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
+                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
                                 </AssociatedObject>
                                 <ElementHit dataType="Delegate" type="System.EventHandler" id="3163058142" multi="true">
-                                  <method dataType="ObjectRef">1817701326</method>
+                                  <method dataType="ObjectRef">736949002</method>
                                   <target dataType="ObjectRef">542884417</target>
                                   <invocationList dataType="Array" type="System.Delegate[]" id="1710627786">
                                     <item dataType="ObjectRef">3163058142</item>
                                   </invocationList>
                                 </ElementHit>
-                                <Name dataType="String">+</Name>
+                                <Name dataType="String">-</Name>
                                 <Width dataType="Float">1</Width>
                               </item>
                             </_items>
@@ -792,7 +802,7 @@
                             <_items dataType="Array" type="WorldSailorsDuality.GUIOverlay+Element[]" id="2159353696" length="4">
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="2039605468">
                                 <AssociatedObject dataType="Struct" type="WorldSailorsDuality.SailLiftUpgrade" id="3439905476">
-                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
+                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
                                 </AssociatedObject>
                                 <ElementHit dataType="Delegate" type="System.EventHandler" id="244142998" multi="true">
                                   <method dataType="ObjectRef">1817701326</method>
@@ -801,27 +811,30 @@
                                     <item dataType="ObjectRef">244142998</item>
                                   </invocationList>
                                 </ElementHit>
-                                <Name dataType="String">-</Name>
+                                <Name dataType="String">+</Name>
                                 <Width dataType="Float">1</Width>
                               </item>
-                              <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="2586163478">
+                              <item dataType="Struct" type="WorldSailorsDuality.EditorController+ElementUpgradeType" id="2586163478">
                                 <AssociatedObject />
+                                <BaseName dataType="String">Sail Lift</BaseName>
                                 <ElementHit />
                                 <Name dataType="String">Sail Lift</Name>
+                                <TargetScene dataType="ObjectRef">129723834</TargetScene>
+                                <UpgradeType dataType="Type" id="795492854" value="WorldSailorsDuality.SailLiftUpgrade" />
                                 <Width dataType="Float">5</Width>
                               </item>
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="158870088">
                                 <AssociatedObject dataType="Struct" type="WorldSailorsDuality.SailLiftUpgrade" id="1450128536">
-                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
+                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
                                 </AssociatedObject>
                                 <ElementHit dataType="Delegate" type="System.EventHandler" id="978580766" multi="true">
-                                  <method dataType="ObjectRef">1817701326</method>
+                                  <method dataType="ObjectRef">736949002</method>
                                   <target dataType="ObjectRef">542884417</target>
                                   <invocationList dataType="Array" type="System.Delegate[]" id="552533850">
                                     <item dataType="ObjectRef">978580766</item>
                                   </invocationList>
                                 </ElementHit>
-                                <Name dataType="String">+</Name>
+                                <Name dataType="String">-</Name>
                                 <Width dataType="Float">1</Width>
                               </item>
                             </_items>
@@ -833,7 +846,7 @@
                             <_items dataType="Array" type="WorldSailorsDuality.GUIOverlay+Element[]" id="928763588" length="4">
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="373919556">
                                 <AssociatedObject dataType="Struct" type="WorldSailorsDuality.TurnUpgrade" id="825204292">
-                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
+                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
                                 </AssociatedObject>
                                 <ElementHit dataType="Delegate" type="System.EventHandler" id="1212709526" multi="true">
                                   <method dataType="ObjectRef">1817701326</method>
@@ -842,27 +855,30 @@
                                     <item dataType="ObjectRef">1212709526</item>
                                   </invocationList>
                                 </ElementHit>
-                                <Name dataType="String">-</Name>
+                                <Name dataType="String">+</Name>
                                 <Width dataType="Float">1</Width>
                               </item>
-                              <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="4109733526">
+                              <item dataType="Struct" type="WorldSailorsDuality.EditorController+ElementUpgradeType" id="4109733526">
                                 <AssociatedObject />
+                                <BaseName dataType="String">Turn Torque</BaseName>
                                 <ElementHit />
                                 <Name dataType="String">Turn Torque</Name>
+                                <TargetScene dataType="ObjectRef">129723834</TargetScene>
+                                <UpgradeType dataType="Type" id="2137256654" value="WorldSailorsDuality.TurnUpgrade" />
                                 <Width dataType="Float">5</Width>
                               </item>
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="1311889152">
                                 <AssociatedObject dataType="Struct" type="WorldSailorsDuality.TurnUpgrade" id="4168642120">
-                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
+                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
                                 </AssociatedObject>
                                 <ElementHit dataType="Delegate" type="System.EventHandler" id="3947673822" multi="true">
-                                  <method dataType="ObjectRef">1817701326</method>
+                                  <method dataType="ObjectRef">736949002</method>
                                   <target dataType="ObjectRef">542884417</target>
                                   <invocationList dataType="Array" type="System.Delegate[]" id="3324639498">
                                     <item dataType="ObjectRef">3947673822</item>
                                   </invocationList>
                                 </ElementHit>
-                                <Name dataType="String">+</Name>
+                                <Name dataType="String">-</Name>
                                 <Width dataType="Float">1</Width>
                               </item>
                             </_items>

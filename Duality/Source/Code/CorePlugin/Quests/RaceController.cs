@@ -85,6 +85,8 @@ namespace WorldSailorsDuality
                     {
                         p.finished = true;
                         p.agent.RemoveTarget();
+                        if (p.agent is PlayerAgent)
+                            PlayerFinished((PlayerAgent)p.agent);
                     }
                 }
                 else
@@ -119,7 +121,7 @@ namespace WorldSailorsDuality
                             {
                                 p.finished = true;
                                 if (p.agent is PlayerAgent)
-                                    SwitchMap();
+                                    PlayerFinished((PlayerAgent)p.agent);
                                 p.agent.RemoveTarget();
                             }
                         }
@@ -132,10 +134,11 @@ namespace WorldSailorsDuality
             }
         }
 
-        private void SwitchMap()
+        private void PlayerFinished(PlayerAgent a)
         {
-            StaticHelpers.TransferAgent(GameObj.ParentScene.FindComponent<PlayerAgent>(), NextMap.Res.FindComponent<PlayerAgent>());
-            Scene.SwitchTo(NextMap);
+            this.State = RaceState.IDLE;
+            StaticHelpers.SceneLoop.SwitchScenes(GameObj.ParentScene);
+
         }
 
         public string GetHudString()
@@ -222,15 +225,20 @@ namespace WorldSailorsDuality
         {
             if (context == InitContext.Activate && AIPrefab.Res != null && DualityApp.ExecContext != DualityApp.ExecutionContext.Editor)
             {
+                List<GameObject> ais = new List<GameObject>();
+                foreach (GameObject o in GameObj.Children)
+                {
+                    Agent ai = o.GetComponent<Agent>();
+                    if (o.Active && ai != null)
+                        ais.Add(o);
+                }
+
+                foreach (GameObject o in ais)
+                    GameObj.ParentScene.RemoveObject(o);
+
                 List<GameObject> spawnedAIs = new List<GameObject>();
                 List<GameObject> initPos = new List<GameObject>();
-                foreach (GameObject o in GameObj.Children)
-                    if (o.Active && o.Name == "ref_InitialPosition")
-                    {
-                        GameObject ai = AIPrefab.Res.Instantiate();
-                        initPos.Add(o);
-                        spawnedAIs.Add(ai);
-                    }
+
                 for(int n = 0;n<SpawnAditionalAI;n++)
                 {
                     GameObject ai = AIPrefab.Res.Instantiate();

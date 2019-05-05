@@ -23,6 +23,7 @@ namespace WorldSailorsDuality
             {
                 if (Target != null && Target.render != null)
                     Target.render.ColorTint = new ColorHsva(0, 0, 0.3f).ToRgba();
+                
                 return Upgrade.AdjustLevel(target, deltaLVL);
             }
             return false;

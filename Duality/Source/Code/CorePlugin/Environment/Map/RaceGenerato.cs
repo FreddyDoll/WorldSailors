@@ -26,6 +26,11 @@ namespace WorldSailorsDuality
         public int Targets { get; set; } = 10;
 
         /// <summary>
+        /// Nr of Races
+        /// </summary>
+        public bool forceRegeneration { get; set; } = true;
+
+        /// <summary>
         /// Area where races are created
         /// </summary>
         public Rect CompleteArea { get; set; } = new Rect(-1000000, -1000000, 2000000, 2000000);
@@ -53,6 +58,10 @@ namespace WorldSailorsDuality
             if (context != InitContext.Activate)
                 return;
             if (DualityApp.ExecContext == DualityApp.ExecutionContext.Editor)
+                return;
+            if (forceRegeneration)
+                forceRegeneration = false;
+            else
                 return;
             if (map == null)
                 map = GameObj.ParentScene.FindComponent<HeightMap>();
@@ -188,7 +197,7 @@ namespace WorldSailorsDuality
 
         public void OnShutdown(ShutdownContext context)
         {
-            ClearCreated();
+            //ClearCreated();
         }
 
         private string GetRaceName(int raceSize,int laps, int challengers)

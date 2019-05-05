@@ -160,5 +160,7 @@ namespace WorldSailorsDuality
                 c.DrawText(Name, start.X, start.Y);
             }
         }
+
+        
     }
 }

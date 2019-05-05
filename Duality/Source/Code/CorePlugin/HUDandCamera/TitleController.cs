@@ -84,8 +84,8 @@ namespace WorldSailorsDuality
                 DualityApp.Gamepads[0].ButtonHit(GamepadButton.Y) ||
                 DualityApp.Keyboard.KeyHit(Duality.Input.Key.Enter)||
                 DualityApp.Keyboard.KeyHit(Duality.Input.Key.Space))
-                Scene.SwitchTo(nextScene);
-            
+                StaticHelpers.SceneLoop.SwitchScenes(GameObj.ParentScene);
+
             CameraController controller = GameObj.ParentScene.FindComponent<CameraController>();
             if (controller == null)
                 return;

@@ -341,7 +341,7 @@
                       <X dataType="Float">-100000</X>
                       <Y dataType="Float">-100000</Y>
                     </_x003C_StartPos_x003E_k__BackingField>
-                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-642.515564</_x003C_TimeOffset_x003E_k__BackingField>
+                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-10.1673784</_x003C_TimeOffset_x003E_k__BackingField>
                   </_x003C_activeDeathWave_x003E_k__BackingField>
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
@@ -711,6 +711,7 @@
                     <X dataType="Float">-80000</X>
                     <Y dataType="Float">-80000</Y>
                   </_x003C_CompleteArea_x003E_k__BackingField>
+                  <_x003C_forceRegeneration_x003E_k__BackingField dataType="Bool">true</_x003C_forceRegeneration_x003E_k__BackingField>
                   <_x003C_StepLen_x003E_k__BackingField dataType="Float">10000</_x003C_StepLen_x003E_k__BackingField>
                   <_x003C_Target_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
                     <contentPath dataType="String">Data\Prefabs\Target.Prefab.res</contentPath>

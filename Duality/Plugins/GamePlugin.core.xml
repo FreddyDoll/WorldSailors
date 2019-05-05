@@ -141,6 +141,11 @@
             Nr of Races
             </summary>
         </member>
+        <member name="P:WorldSailorsDuality.RaceGenerato.forceRegeneration">
+            <summary>
+            Nr of Races
+            </summary>
+        </member>
         <member name="P:WorldSailorsDuality.RaceGenerato.CompleteArea">
             <summary>
             Area where races are created

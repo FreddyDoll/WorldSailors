@@ -22,6 +22,7 @@ namespace WorldSailorsDuality
         public virtual BoatController targetBoat { get; set; }
         public virtual ContentRef<Prefab> NavTargetPrefab { get; set; }
         public virtual Vector2 InitPos { get; set; }
+        public virtual int PowerCoins { get; set; }
 
         public virtual List<UpgradeTarget> CollectedUpgrades { get; set; }
 
@@ -90,6 +91,7 @@ namespace WorldSailorsDuality
             string header = Name;
             if (targetBoat != null)
                 header = targetBoat.name;
+            header += " (PC)x" + PowerCoins.ToString();
             c.DrawText(header, area.X + textPadding, area.Y + textPadding);
 
             List<string> bodyText = GenerateBodyText();
