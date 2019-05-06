@@ -32,7 +32,7 @@ namespace WorldSailorsDuality
                 if(ParentAgent.CollectedUpgrades != null)
                 {
                     foreach(UpgradeTarget u in ParentAgent.CollectedUpgrades)
-                        u.AdjustLevel(c);
+                        u.AdjustLevel(ParentAgent);
                 }
                 if(ParentAgent.targetBoat!= null)
                     GameObj.ParentScene.RemoveObject(ParentAgent.targetBoat.GameObj);

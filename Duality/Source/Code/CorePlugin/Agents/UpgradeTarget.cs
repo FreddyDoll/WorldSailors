@@ -14,17 +14,15 @@ namespace WorldSailorsDuality
     public class UpgradeTarget : Component,ICmpInitializable
     {
         public AITarget Target {get;set;}
-        public int deltaLVL { get; set; }
         public IUpgrade Upgrade { get; set; }
 
-        public bool AdjustLevel(object target)
+        public bool AdjustLevel(Agent target)
         {
-            if (Upgrade != null)
+            if (Upgrade != null && target.targetBoat != null)
             {
+                target.targetBoat.AddUpgrade(Upgrade);
                 if (Target != null && Target.render != null)
                     Target.render.ColorTint = new ColorHsva(0, 0, 0.3f).ToRgba();
-                
-                return Upgrade.AdjustLevel(target, deltaLVL);
             }
             return false;
         }
@@ -51,6 +49,7 @@ namespace WorldSailorsDuality
         int LevelStorage { get; set; }
 
         string Name { get; }
+        
     }
 
     public class HullDragUpgrade : IUpgrade
@@ -65,6 +64,8 @@ namespace WorldSailorsDuality
             }
         }
 
+        public float Strength{ get; set; }
+
         public bool AdjustLevel(object target, int delta)
         {
             if (!(target is BoatController))
@@ -73,7 +74,7 @@ namespace WorldSailorsDuality
             if (hull == null)
                 return false;
 
-            hull.StatDrag = hull.StatDrag * MathF.Pow(0.9f, delta);
+            hull.StatDrag = hull.StatDrag * MathF.Pow(0.95f, delta);
 
             return true;
         }
@@ -123,7 +124,7 @@ namespace WorldSailorsDuality
             if (sail == null)
                 return false;
 
-            sail.StatDrag = sail.StatDrag * MathF.Pow(0.9f, delta);
+            sail.StatDrag = sail.StatDrag * MathF.Pow(0.95f, delta);
 
             return true;
         }

@@ -38,9 +38,9 @@
           <active dataType="Bool">true</active>
           <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
             <A dataType="Byte">255</A>
-            <B dataType="Byte">153</B>
-            <G dataType="Byte">153</G>
-            <R dataType="Byte">153</R>
+            <B dataType="Byte">110</B>
+            <G dataType="Byte">110</G>
+            <R dataType="Byte">110</R>
           </colorTint>
           <customMat />
           <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
@@ -73,14 +73,16 @@
             <R dataType="Byte">110</R>
           </_x003C_inactiveColor_x003E_k__BackingField>
           <_x003C_MinRenderRadius_x003E_k__BackingField dataType="Float">400</_x003C_MinRenderRadius_x003E_k__BackingField>
+          <_x003C_render_x003E_k__BackingField dataType="ObjectRef">2392129080</_x003C_render_x003E_k__BackingField>
           <_x003C_Temporary_x003E_k__BackingField dataType="Bool">false</_x003C_Temporary_x003E_k__BackingField>
           <active dataType="Bool">true</active>
           <gameobj dataType="ObjectRef">923509800</gameobj>
         </item>
         <item dataType="Struct" type="WorldSailorsDuality.UpgradeTarget" id="4176021798">
-          <_x003C_deltaLVL_x003E_k__BackingField dataType="Int">-1</_x003C_deltaLVL_x003E_k__BackingField>
           <_x003C_Target_x003E_k__BackingField dataType="ObjectRef">1770689140</_x003C_Target_x003E_k__BackingField>
-          <_x003C_Upgrade_x003E_k__BackingField dataType="Struct" type="WorldSailorsDuality.SailDragUpgrade" id="2635416730" />
+          <_x003C_Upgrade_x003E_k__BackingField dataType="Struct" type="WorldSailorsDuality.SailDragUpgrade" id="2635416730">
+            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">0</_x003C_LevelStorage_x003E_k__BackingField>
+          </_x003C_Upgrade_x003E_k__BackingField>
           <active dataType="Bool">true</active>
           <gameobj dataType="ObjectRef">923509800</gameobj>
         </item>

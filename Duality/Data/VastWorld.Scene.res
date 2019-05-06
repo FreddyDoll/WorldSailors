@@ -124,6 +124,7 @@
             <_x003C_NavTargetPrefab_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
               <contentPath dataType="String">Data\Prefabs\Target.Prefab.res</contentPath>
             </_x003C_NavTargetPrefab_x003E_k__BackingField>
+            <_x003C_PowerCoins_x003E_k__BackingField dataType="Int">0</_x003C_PowerCoins_x003E_k__BackingField>
             <_x003C_PrimaryColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
               <A dataType="Byte">255</A>
               <B dataType="Byte">198</B>
@@ -341,7 +342,7 @@
                       <X dataType="Float">-100000</X>
                       <Y dataType="Float">-100000</Y>
                     </_x003C_StartPos_x003E_k__BackingField>
-                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-10.1673784</_x003C_TimeOffset_x003E_k__BackingField>
+                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-474.708</_x003C_TimeOffset_x003E_k__BackingField>
                   </_x003C_activeDeathWave_x003E_k__BackingField>
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
@@ -357,7 +358,7 @@
                   <_x003C_PerlinFrequency_x003E_k__BackingField dataType="Double">200000</_x003C_PerlinFrequency_x003E_k__BackingField>
                   <_x003C_PerlinOctave_x003E_k__BackingField dataType="Int">4</_x003C_PerlinOctave_x003E_k__BackingField>
                   <_x003C_PerlinPersistance_x003E_k__BackingField dataType="Float">0.8</_x003C_PerlinPersistance_x003E_k__BackingField>
-                  <_x003C_PerlinSeed_x003E_k__BackingField dataType="Int">2</_x003C_PerlinSeed_x003E_k__BackingField>
+                  <_x003C_PerlinSeed_x003E_k__BackingField dataType="Int">5</_x003C_PerlinSeed_x003E_k__BackingField>
                   <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">160000</_x003C_PointsGenerated_x003E_k__BackingField>
                   <_x003C_ScaleZ_x003E_k__BackingField dataType="Float">1400</_x003C_ScaleZ_x003E_k__BackingField>
                   <_x003C_SimpleFreqX_x003E_k__BackingField dataType="Float">5000</_x003C_SimpleFreqX_x003E_k__BackingField>
@@ -716,7 +717,7 @@
                   <_x003C_Target_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
                     <contentPath dataType="String">Data\Prefabs\Target.Prefab.res</contentPath>
                   </_x003C_Target_x003E_k__BackingField>
-                  <_x003C_Targets_x003E_k__BackingField dataType="Int">5</_x003C_Targets_x003E_k__BackingField>
+                  <_x003C_Targets_x003E_k__BackingField dataType="Int">8</_x003C_Targets_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <gameobj dataType="ObjectRef">2650261585</gameobj>
                 </item>
@@ -1659,7 +1660,7 @@
                   <parent dataType="ObjectRef">1240638615</parent>
                   <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="3671275849">
                     <changes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Resources.PrefabLink+VarMod]]" id="2034855700">
-                      <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="3587727460" length="4">
+                      <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="3587727460">
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                           <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3242659528">
                             <_items dataType="Array" type="System.Int32[]" id="261529196"></_items>
@@ -1697,8 +1698,20 @@
                           <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3507734406">
+                            <_items dataType="Array" type="System.Int32[]" id="2417777826"></_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType dataType="ObjectRef">2541176718</componentType>
+                          <prop dataType="MemberInfo" id="3250877356" value="P:WorldSailorsDuality.UpgradeTarget:Upgrade" />
+                          <val dataType="Struct" type="WorldSailorsDuality.HullDragUpgrade" id="3352857866">
+                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
+                            <_x003C_Strength_x003E_k__BackingField dataType="Float">0</_x003C_Strength_x003E_k__BackingField>
+                          </val>
+                        </item>
                       </_items>
-                      <_size dataType="Int">3</_size>
+                      <_size dataType="Int">4</_size>
                     </changes>
                     <obj dataType="ObjectRef">2516783011</obj>
                     <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
@@ -1762,17 +1775,6 @@
                       <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="1493071212">
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                           <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1868308904">
-                            <_items dataType="Array" type="System.Int32[]" id="3002900140"></_items>
-                            <_size dataType="Int">0</_size>
-                          </childIndex>
-                          <componentType dataType="ObjectRef">2541176718</componentType>
-                          <prop dataType="MemberInfo" id="3260198814" value="P:WorldSailorsDuality.UpgradeTarget:Upgrade" />
-                          <val dataType="Struct" type="WorldSailorsDuality.HullDragUpgrade" id="3322043284">
-                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">0</_x003C_LevelStorage_x003E_k__BackingField>
-                          </val>
-                        </item>
-                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="4113952290">
                             <_items dataType="ObjectRef">261529196</_items>
                             <_size dataType="Int">0</_size>
                           </childIndex>
@@ -1786,7 +1788,7 @@
                           </val>
                         </item>
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1954769760">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3260198814">
                             <_items dataType="ObjectRef">261529196</_items>
                             <_size dataType="Int">0</_size>
                           </childIndex>
@@ -1800,13 +1802,25 @@
                           </val>
                         </item>
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="251464774">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3322043284">
                             <_items dataType="ObjectRef">662961268</_items>
                             <_size dataType="Int">0</_size>
                           </childIndex>
                           <componentType dataType="ObjectRef">2924415894</componentType>
                           <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
+                        </item>
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="4113952290">
+                            <_items dataType="ObjectRef">2417777826</_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType dataType="ObjectRef">2541176718</componentType>
+                          <prop dataType="ObjectRef">3250877356</prop>
+                          <val dataType="Struct" type="WorldSailorsDuality.HullDragUpgrade" id="1954769760">
+                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
+                            <_x003C_Strength_x003E_k__BackingField dataType="Float">0</_x003C_Strength_x003E_k__BackingField>
+                          </val>
                         </item>
                       </_items>
                       <_size dataType="Int">4</_size>
@@ -1870,7 +1884,7 @@
                   <parent dataType="ObjectRef">1240638615</parent>
                   <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="3692935282">
                     <changes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Resources.PrefabLink+VarMod]]" id="768343840">
-                      <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="1635913692" length="4">
+                      <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="1635913692">
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                           <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="565851592">
                             <_items dataType="ObjectRef">261529196</_items>
@@ -1908,8 +1922,19 @@
                           <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3622068002">
+                            <_items dataType="ObjectRef">2417777826</_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType dataType="ObjectRef">2541176718</componentType>
+                          <prop dataType="ObjectRef">3250877356</prop>
+                          <val dataType="Struct" type="WorldSailorsDuality.HullLiftUpgrade" id="2943709056">
+                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
+                          </val>
+                        </item>
                       </_items>
-                      <_size dataType="Int">3</_size>
+                      <_size dataType="Int">4</_size>
                     </changes>
                     <obj dataType="ObjectRef">2289988750</obj>
                     <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
@@ -1970,7 +1995,7 @@
                   <parent dataType="ObjectRef">1240638615</parent>
                   <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="2992170465">
                     <changes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Resources.PrefabLink+VarMod]]" id="3807152772">
-                      <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="2492482628" length="4">
+                      <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="2492482628">
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                           <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="4206366792">
                             <_items dataType="ObjectRef">261529196</_items>
@@ -2008,8 +2033,19 @@
                           <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1314516002">
+                            <_items dataType="ObjectRef">2417777826</_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType dataType="ObjectRef">2541176718</componentType>
+                          <prop dataType="ObjectRef">3250877356</prop>
+                          <val dataType="Struct" type="WorldSailorsDuality.HullLiftUpgrade" id="2465336832">
+                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
+                          </val>
+                        </item>
                       </_items>
-                      <_size dataType="Int">3</_size>
+                      <_size dataType="Int">4</_size>
                     </changes>
                     <obj dataType="ObjectRef">2576057451</obj>
                     <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
@@ -2173,18 +2209,7 @@
                       <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="2539535972" length="8">
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                           <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3488162504">
-                            <_items dataType="ObjectRef">3002900140</_items>
-                            <_size dataType="Int">0</_size>
-                          </childIndex>
-                          <componentType dataType="ObjectRef">2541176718</componentType>
-                          <prop dataType="ObjectRef">3260198814</prop>
-                          <val dataType="Struct" type="WorldSailorsDuality.SailDragUpgrade" id="30197470">
-                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">0</_x003C_LevelStorage_x003E_k__BackingField>
-                          </val>
-                        </item>
-                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2290519860">
-                            <_items dataType="ObjectRef">3002900140</_items>
+                            <_items dataType="Array" type="System.Int32[]" id="2455948908"></_items>
                             <_size dataType="Int">0</_size>
                           </childIndex>
                           <componentType />
@@ -2192,7 +2217,7 @@
                           <val dataType="String">UpgradeSailDragPlus</val>
                         </item>
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1714135842">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="30197470">
                             <_items dataType="ObjectRef">261529196</_items>
                             <_size dataType="Int">0</_size>
                           </childIndex>
@@ -2206,7 +2231,7 @@
                           </val>
                         </item>
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1756494976">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2290519860">
                             <_items dataType="ObjectRef">261529196</_items>
                             <_size dataType="Int">0</_size>
                           </childIndex>
@@ -2220,13 +2245,24 @@
                           </val>
                         </item>
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="294145926">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1714135842">
                             <_items dataType="ObjectRef">662961268</_items>
                             <_size dataType="Int">0</_size>
                           </childIndex>
                           <componentType dataType="ObjectRef">2924415894</componentType>
                           <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
+                        </item>
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1756494976">
+                            <_items dataType="ObjectRef">2417777826</_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType dataType="ObjectRef">2541176718</componentType>
+                          <prop dataType="ObjectRef">3250877356</prop>
+                          <val dataType="Struct" type="WorldSailorsDuality.SailDragUpgrade" id="294145926">
+                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
+                          </val>
                         </item>
                       </_items>
                       <_size dataType="Int">5</_size>
@@ -2293,26 +2329,6 @@
                       <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="150533084" length="8">
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                           <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1953682888">
-                            <_items dataType="ObjectRef">3002900140</_items>
-                            <_size dataType="Int">0</_size>
-                          </childIndex>
-                          <componentType dataType="ObjectRef">2541176718</componentType>
-                          <prop dataType="ObjectRef">3260198814</prop>
-                          <val dataType="Struct" type="WorldSailorsDuality.SailLiftUpgrade" id="3946487518">
-                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">0</_x003C_LevelStorage_x003E_k__BackingField>
-                          </val>
-                        </item>
-                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1732222004">
-                            <_items dataType="ObjectRef">3002900140</_items>
-                            <_size dataType="Int">0</_size>
-                          </childIndex>
-                          <componentType dataType="ObjectRef">2541176718</componentType>
-                          <prop dataType="MemberInfo" id="569745186" value="P:WorldSailorsDuality.UpgradeTarget:deltaLVL" />
-                          <val dataType="Int">-1</val>
-                        </item>
-                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1760890752">
                             <_items dataType="ObjectRef">261529196</_items>
                             <_size dataType="Int">0</_size>
                           </childIndex>
@@ -2326,7 +2342,7 @@
                           </val>
                         </item>
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="4141296518">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3946487518">
                             <_items dataType="ObjectRef">261529196</_items>
                             <_size dataType="Int">0</_size>
                           </childIndex>
@@ -2340,7 +2356,7 @@
                           </val>
                         </item>
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="153426604">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1732222004">
                             <_items dataType="ObjectRef">662961268</_items>
                             <_size dataType="Int">0</_size>
                           </childIndex>
@@ -2348,8 +2364,19 @@
                           <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="569745186">
+                            <_items dataType="ObjectRef">2417777826</_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType dataType="ObjectRef">2541176718</componentType>
+                          <prop dataType="ObjectRef">3250877356</prop>
+                          <val dataType="Struct" type="WorldSailorsDuality.SailLiftUpgrade" id="1760890752">
+                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
+                          </val>
+                        </item>
                       </_items>
-                      <_size dataType="Int">5</_size>
+                      <_size dataType="Int">4</_size>
                     </changes>
                     <obj dataType="ObjectRef">4082710078</obj>
                     <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
@@ -2413,17 +2440,6 @@
                       <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="633902364">
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                           <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2180483272">
-                            <_items dataType="ObjectRef">3002900140</_items>
-                            <_size dataType="Int">0</_size>
-                          </childIndex>
-                          <componentType dataType="ObjectRef">2541176718</componentType>
-                          <prop dataType="ObjectRef">3260198814</prop>
-                          <val dataType="Struct" type="WorldSailorsDuality.SailLiftUpgrade" id="3819447006">
-                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">0</_x003C_LevelStorage_x003E_k__BackingField>
-                          </val>
-                        </item>
-                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="4247838004">
                             <_items dataType="ObjectRef">261529196</_items>
                             <_size dataType="Int">0</_size>
                           </childIndex>
@@ -2437,7 +2453,7 @@
                           </val>
                         </item>
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="4222893858">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3819447006">
                             <_items dataType="ObjectRef">261529196</_items>
                             <_size dataType="Int">0</_size>
                           </childIndex>
@@ -2451,13 +2467,24 @@
                           </val>
                         </item>
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
-                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2290246272">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="4247838004">
                             <_items dataType="ObjectRef">662961268</_items>
                             <_size dataType="Int">0</_size>
                           </childIndex>
                           <componentType dataType="ObjectRef">2924415894</componentType>
                           <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
+                        </item>
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="4222893858">
+                            <_items dataType="ObjectRef">2417777826</_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType dataType="ObjectRef">2541176718</componentType>
+                          <prop dataType="ObjectRef">3250877356</prop>
+                          <val dataType="Struct" type="WorldSailorsDuality.SailLiftUpgrade" id="2290246272">
+                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
+                          </val>
                         </item>
                       </_items>
                       <_size dataType="Int">4</_size>
@@ -2521,7 +2548,7 @@
                   <parent dataType="ObjectRef">1240638615</parent>
                   <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="2922793097">
                     <changes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Resources.PrefabLink+VarMod]]" id="3334258068">
-                      <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="270205796" length="4">
+                      <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="270205796">
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                           <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3878165704">
                             <_items dataType="ObjectRef">261529196</_items>
@@ -2559,8 +2586,19 @@
                           <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1894371106">
+                            <_items dataType="ObjectRef">2417777826</_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType dataType="ObjectRef">2541176718</componentType>
+                          <prop dataType="ObjectRef">3250877356</prop>
+                          <val dataType="Struct" type="WorldSailorsDuality.TurnUpgrade" id="1893648000">
+                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
+                          </val>
+                        </item>
                       </_items>
-                      <_size dataType="Int">3</_size>
+                      <_size dataType="Int">4</_size>
                     </changes>
                     <obj dataType="ObjectRef">3733736547</obj>
                     <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
@@ -2621,7 +2659,7 @@
                   <parent dataType="ObjectRef">1240638615</parent>
                   <prefabLink dataType="Struct" type="Duality.Resources.PrefabLink" id="560591195">
                     <changes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Resources.PrefabLink+VarMod]]" id="461231700">
-                      <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="115631332" length="4">
+                      <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="115631332">
                         <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                           <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="3246352584">
                             <_items dataType="ObjectRef">261529196</_items>
@@ -2659,8 +2697,19 @@
                           <prop dataType="ObjectRef">3908949992</prop>
                           <val dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0, Group1" value="3" />
                         </item>
+                        <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
+                          <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="933183266">
+                            <_items dataType="ObjectRef">2417777826</_items>
+                            <_size dataType="Int">0</_size>
+                          </childIndex>
+                          <componentType dataType="ObjectRef">2541176718</componentType>
+                          <prop dataType="ObjectRef">3250877356</prop>
+                          <val dataType="Struct" type="WorldSailorsDuality.TurnUpgrade" id="4068131456">
+                            <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
+                          </val>
+                        </item>
                       </_items>
-                      <_size dataType="Int">3</_size>
+                      <_size dataType="Int">4</_size>
                     </changes>
                     <obj dataType="ObjectRef">2735842793</obj>
                     <prefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
@@ -4025,6 +4074,7 @@
             <_x003C_NavTargetPrefab_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
               <contentPath dataType="String">Data\Prefabs\Target.Prefab.res</contentPath>
             </_x003C_NavTargetPrefab_x003E_k__BackingField>
+            <_x003C_PowerCoins_x003E_k__BackingField dataType="Int">0</_x003C_PowerCoins_x003E_k__BackingField>
             <_x003C_PrimaryColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
               <A dataType="Byte">220</A>
               <B dataType="Byte">16</B>

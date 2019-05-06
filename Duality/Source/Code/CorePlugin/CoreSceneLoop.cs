@@ -59,7 +59,10 @@ namespace WorldSailorsDuality
                 {
                     foreach (IUpgrade up in currentBoat.accumulatedUpgrades)
                     {
-                        b.accumulatedUpgrades.Add(up);
+                        if (up.LevelStorage > 0)
+                            b.accumulatedUpgrades.Add(up);
+                        else
+                            target.PowerCoins++;
                     }
                     BaseBoat = new Prefab(tempBoat);
                 }

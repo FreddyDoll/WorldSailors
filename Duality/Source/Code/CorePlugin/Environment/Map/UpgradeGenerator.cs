@@ -42,15 +42,23 @@ namespace WorldSailorsDuality
         public void OnInit(InitContext context)
         {
             if (DualityApp.ExecContext == DualityApp.ExecutionContext.Editor)
+            {
+                ClearCreated();
                 return;
+            }
 
             if (UpgradeTargets == null)
                 UpgradeTargets = new List<ContentRef<Prefab>>();
+
+            if (GameObj.GetComponentsInChildren<UpgradeTarget>().Count() == Targets)
+                return;
+
+            ClearCreated();
+
             Random rand = new Random(0);
 
             if(map == null)
             map = GameObj.ParentScene.FindComponent<HeightMap>();
-            ClearCreated();
 
             for (; currentCount < Targets && UpgradeTargets.Count()>0; currentCount++)
             {
@@ -75,7 +83,7 @@ namespace WorldSailorsDuality
 
         public void OnShutdown(ShutdownContext context)
         {
-            ClearCreated();
+            //ClearCreated();
         }
         
     }

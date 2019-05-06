@@ -121,7 +121,7 @@ namespace WorldSailorsDuality
                         if (!CollectedUpgrades.Any(x => x == ug))
                         {
                             CollectedUpgrades.Add(ug);
-                            ug.AdjustLevel(targetBoat);
+                            ug.AdjustLevel(this);
                         }
                     }
                 }
