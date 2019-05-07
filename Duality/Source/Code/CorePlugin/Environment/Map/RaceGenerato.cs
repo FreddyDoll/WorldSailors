@@ -31,9 +31,20 @@ namespace WorldSailorsDuality
         public bool forceRegeneration { get; set; } = true;
 
         /// <summary>
-        /// Area where races are created
+        /// Area where next spots are searched
         /// </summary>
         public Rect CompleteArea { get; set; } = new Rect(-1000000, -1000000, 2000000, 2000000);
+
+        /// <summary>
+        /// All Races Lead to this target (corner of map)
+        /// </summary>
+        public Vector2 EndPoint { get; set; } = new Vector2(1000000, 1000000);
+
+        /// <summary>
+        /// Direction the Races get generated
+        /// starting from 0,0
+        /// </summary>
+        public Vector2 CreationVector { get; set; } = new Vector2(30000,0);
 
         [DontSerialize]
         private HeightMap map;
@@ -78,10 +89,11 @@ namespace WorldSailorsDuality
             ClearCreated();
             int overflowLimit = 4000;
 
+            Vector2 secondaryCreationVector = CreationVector.PerpendicularRight;
             float StartMaxDist = 200000;
             float currentStartPoint = -StartMaxDist;
             float stepStart = (StartMaxDist * 2f) / Targets;
-            float baseLength = 300000;
+            float baseLength = 200000;
 
             Vector2 waveDir = new Vector2(1, 0);
             if (map.activeDeathWave != null)
@@ -113,10 +125,13 @@ namespace WorldSailorsDuality
                     raceName = "Warp Point";
                 controller.Name = raceName;
                 gameO.Name = raceName;
-                
+
                 //find Start Point
-                Vector2 startBase = new Vector2() + waveDir.PerpendicularLeft * currentStartPoint;
-                currentStartPoint += stepStart;
+                //Vector2 startBase = new Vector2() + waveDir.PerpendicularLeft * currentStartPoint;
+                //currentStartPoint += stepStart;
+                Vector2 startBase = CreationVector * currentCount;
+                if (currentCount % 2 == 0)
+                    startBase = secondaryCreationVector * currentCount;
 
                 Vector2 start;
                 int overflow = 0;
@@ -138,8 +153,9 @@ namespace WorldSailorsDuality
 
                 if (raceSize != 0)
                 {
-                    int nrTargets = raceSize * 3;
-                    Vector2 finalPointBase = start + waveDir * baseLength * raceSize;
+                    int nrTargets = raceSize * 2;
+                    //Vector2 finalPointBase = start + waveDir * baseLength * raceSize;
+                    Vector2 finalPointBase = start + (EndPoint-start).Normalized * baseLength * raceSize;
                     Vector2 finalPoint;
                     overflow = 0;
                     do { overflow++; finalPoint = GetRandPoint(finalPointBase); } while (map.Probe(finalPoint) > -1000 && overflow < overflowLimit);

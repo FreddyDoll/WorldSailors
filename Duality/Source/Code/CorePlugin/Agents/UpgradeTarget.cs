@@ -74,7 +74,7 @@ namespace WorldSailorsDuality
             if (hull == null)
                 return false;
 
-            hull.StatDrag = hull.StatDrag * MathF.Pow(0.95f, delta);
+            hull.StatDrag = hull.StatDrag * MathF.Pow(0.97f, delta);
 
             return true;
         }
@@ -99,7 +99,7 @@ namespace WorldSailorsDuality
             if (hull == null)
                 return false;
 
-            hull.StatLift = hull.StatLift * MathF.Pow(1.1f, delta);
+            hull.StatLift = hull.StatLift * MathF.Pow(1.05f, delta);
 
             return true;
         }
@@ -124,7 +124,7 @@ namespace WorldSailorsDuality
             if (sail == null)
                 return false;
 
-            sail.StatDrag = sail.StatDrag * MathF.Pow(0.95f, delta);
+            sail.StatDrag = sail.StatDrag * MathF.Pow(0.97f, delta);
 
             return true;
         }
@@ -150,7 +150,7 @@ namespace WorldSailorsDuality
             if (sail == null)
                 return false;
 
-            sail.StatLift = sail.StatLift * MathF.Pow(1.1f, delta);
+            sail.StatLift = sail.StatLift * MathF.Pow(1.05f, delta);
 
             return true;
         }

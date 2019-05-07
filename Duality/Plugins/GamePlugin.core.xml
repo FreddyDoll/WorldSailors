@@ -148,7 +148,18 @@
         </member>
         <member name="P:WorldSailorsDuality.RaceGenerato.CompleteArea">
             <summary>
-            Area where races are created
+            Area where next spots are searched
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.RaceGenerato.EndPoint">
+            <summary>
+            All Races Lead to this target (corner of map)
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.RaceGenerato.CreationVector">
+            <summary>
+            Direction the Races get generated
+            starting from 0,0
             </summary>
         </member>
         <member name="P:WorldSailorsDuality.UpgradeGenerator.Targets">

@@ -342,7 +342,7 @@
                       <X dataType="Float">-100000</X>
                       <Y dataType="Float">-100000</Y>
                     </_x003C_StartPos_x003E_k__BackingField>
-                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-474.708</_x003C_TimeOffset_x003E_k__BackingField>
+                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-1647.79272</_x003C_TimeOffset_x003E_k__BackingField>
                   </_x003C_activeDeathWave_x003E_k__BackingField>
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
@@ -712,12 +712,20 @@
                     <X dataType="Float">-80000</X>
                     <Y dataType="Float">-80000</Y>
                   </_x003C_CompleteArea_x003E_k__BackingField>
+                  <_x003C_CreationVector_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
+                    <X dataType="Float">80000</X>
+                    <Y dataType="Float">0</Y>
+                  </_x003C_CreationVector_x003E_k__BackingField>
+                  <_x003C_EndPoint_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
+                    <X dataType="Float">1000000</X>
+                    <Y dataType="Float">1000000</Y>
+                  </_x003C_EndPoint_x003E_k__BackingField>
                   <_x003C_forceRegeneration_x003E_k__BackingField dataType="Bool">true</_x003C_forceRegeneration_x003E_k__BackingField>
                   <_x003C_StepLen_x003E_k__BackingField dataType="Float">10000</_x003C_StepLen_x003E_k__BackingField>
                   <_x003C_Target_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
                     <contentPath dataType="String">Data\Prefabs\Target.Prefab.res</contentPath>
                   </_x003C_Target_x003E_k__BackingField>
-                  <_x003C_Targets_x003E_k__BackingField dataType="Int">8</_x003C_Targets_x003E_k__BackingField>
+                  <_x003C_Targets_x003E_k__BackingField dataType="Int">10</_x003C_Targets_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <gameobj dataType="ObjectRef">2650261585</gameobj>
                 </item>
@@ -2962,21 +2970,21 @@
                 <_items dataType="Array" type="Duality.Resources.PrefabLink+VarMod[]" id="1730918382" length="32">
                   <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                     <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="2890037260">
-                      <_items dataType="Array" type="System.Int32[]" id="229158052">0, 0, 0, 0</_items>
+                      <_items dataType="Array" type="System.Int32[]" id="229158052">1, 0, 0, 0</_items>
                       <_size dataType="Int">1</_size>
                     </childIndex>
                     <componentType dataType="ObjectRef">2729375690</componentType>
                     <prop dataType="ObjectRef">3286473416</prop>
-                    <val dataType="Float">50</val>
+                    <val dataType="Float">60</val>
                   </item>
                   <item dataType="Struct" type="Duality.Resources.PrefabLink+VarMod">
                     <childIndex dataType="Struct" type="System.Collections.Generic.List`1[[System.Int32]]" id="1029143286">
-                      <_items dataType="Array" type="System.Int32[]" id="1778770054">1, 0, 0, 0</_items>
+                      <_items dataType="Array" type="System.Int32[]" id="1778770054">0, 0, 0, 0</_items>
                       <_size dataType="Int">1</_size>
                     </childIndex>
                     <componentType dataType="ObjectRef">2729375690</componentType>
                     <prop dataType="ObjectRef">3286473416</prop>
-                    <val dataType="Float">50</val>
+                    <val dataType="Float">60</val>
                   </item>
                 </_items>
                 <_size dataType="Int">2</_size>
