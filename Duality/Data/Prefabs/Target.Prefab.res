@@ -5,7 +5,7 @@
     <sourceFileHint />
   </assetInfo>
   <objTree dataType="Struct" type="Duality.GameObject" id="307676462">
-    <active dataType="Bool">false</active>
+    <active dataType="Bool">true</active>
     <children />
     <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="81569913">
       <_items dataType="Array" type="Duality.Component[]" id="292792142" length="4">
@@ -20,13 +20,13 @@
           <ignoreParent dataType="Bool">true</ignoreParent>
           <parentTransform />
           <pos dataType="Struct" type="Duality.Vector3">
-            <X dataType="Float">0</X>
-            <Y dataType="Float">0</Y>
+            <X dataType="Float">1485.18213</X>
+            <Y dataType="Float">3680.9375</Y>
             <Z dataType="Float">-0.1</Z>
           </pos>
           <posAbs dataType="Struct" type="Duality.Vector3">
-            <X dataType="Float">0</X>
-            <Y dataType="Float">0</Y>
+            <X dataType="Float">1485.18213</X>
+            <Y dataType="Float">3680.9375</Y>
             <Z dataType="Float">-0.1</Z>
           </posAbs>
           <scale dataType="Float">2.5</scale>
@@ -73,6 +73,7 @@
             <R dataType="Byte">255</R>
           </_x003C_inactiveColor_x003E_k__BackingField>
           <_x003C_MinRenderRadius_x003E_k__BackingField dataType="Float">400</_x003C_MinRenderRadius_x003E_k__BackingField>
+          <_x003C_render_x003E_k__BackingField dataType="ObjectRef">1776295742</_x003C_render_x003E_k__BackingField>
           <_x003C_Temporary_x003E_k__BackingField dataType="Bool">false</_x003C_Temporary_x003E_k__BackingField>
           <active dataType="Bool">true</active>
           <gameobj dataType="ObjectRef">307676462</gameobj>
