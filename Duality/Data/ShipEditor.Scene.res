@@ -126,7 +126,7 @@
                 </item>
                 <item dataType="Struct" type="WorldSailorsDuality.LandRendererShaded" id="2996869631">
                   <_x003C_LandMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                    <contentPath dataType="String">Data\TerrainRendering\LandMatNew.Material.res</contentPath>
+                    <contentPath dataType="String">Data\TerrainRendering\LandMat.Material.res</contentPath>
                   </_x003C_LandMaterial_x003E_k__BackingField>
                   <_x003C_LUTheight_x003E_k__BackingField dataType="Struct" type="WorldSailorsDuality.ColorLUT" id="3863823341">
                     <_x003C_LUTcolors_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Drawing.ColorRgba]]" id="3693714150">
@@ -554,7 +554,7 @@
                           <item dataType="ObjectRef">3208465517</item>
                           <item dataType="Struct" type="WorldSailorsDuality.BoatFactory" id="1635519899">
                             <_x003C_BoatPrefab_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
-                              <contentPath dataType="String">Data\Prefabs\AnimBoat.Prefab.res</contentPath>
+                              <contentPath dataType="String">Data\Prefabs\Boats\AnimBoat.Prefab.res</contentPath>
                             </_x003C_BoatPrefab_x003E_k__BackingField>
                             <_x003C_ParentAgent_x003E_k__BackingField dataType="ObjectRef">3208465517</_x003C_ParentAgent_x003E_k__BackingField>
                             <active dataType="Bool">true</active>
@@ -638,16 +638,16 @@
                   <_x003C_BoatList_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[Duality.ContentRef`1[[Duality.Resources.Prefab]]]]" id="419155441">
                     <_items dataType="Array" type="Duality.ContentRef`1[[Duality.Resources.Prefab]][]" id="3916790702">
                       <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
-                        <contentPath dataType="String">Data\Prefabs\AnimBoat.Prefab.res</contentPath>
+                        <contentPath dataType="String">Data\Prefabs\Boats\AnimBoat.Prefab.res</contentPath>
                       </item>
                       <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
-                        <contentPath dataType="String">Data\Prefabs\AIBoat.Prefab.res</contentPath>
+                        <contentPath dataType="String">Data\Prefabs\Boats\AIBoat.Prefab.res</contentPath>
                       </item>
                       <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
-                        <contentPath dataType="String">Data\Prefabs\PlayerBoat.Prefab.res</contentPath>
+                        <contentPath dataType="String">Data\Prefabs\Boats\PlayerBoat.Prefab.res</contentPath>
                       </item>
                       <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
-                        <contentPath dataType="String">Data\Prefabs\AnimManiac.Prefab.res</contentPath>
+                        <contentPath dataType="String">Data\Prefabs\Boats\AnimManiac.Prefab.res</contentPath>
                       </item>
                     </_items>
                     <_size dataType="Int">4</_size>
@@ -671,6 +671,7 @@
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="1838366276">
                                 <AssociatedObject dataType="Struct" type="WorldSailorsDuality.HullDragUpgrade" id="4079876676">
                                   <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
+                                  <_x003C_Strength_x003E_k__BackingField dataType="Float">0</_x003C_Strength_x003E_k__BackingField>
                                 </AssociatedObject>
                                 <ElementHit dataType="Delegate" type="System.EventHandler" id="224610966" multi="true">
                                   <method dataType="MemberInfo" id="1817701326" value="M:WorldSailorsDuality.EditorController:SliderCallbackPlus(System.Object,System.EventArgs)" />
@@ -694,6 +695,7 @@
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="3609476096">
                                 <AssociatedObject dataType="Struct" type="WorldSailorsDuality.HullDragUpgrade" id="1779199048">
                                   <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
+                                  <_x003C_Strength_x003E_k__BackingField dataType="Float">0</_x003C_Strength_x003E_k__BackingField>
                                 </AssociatedObject>
                                 <ElementHit dataType="Delegate" type="System.EventHandler" id="3059716318" multi="true">
                                   <method dataType="MemberInfo" id="736949002" value="M:WorldSailorsDuality.EditorController:SliderCallbackMinus(System.Object,System.EventArgs)" />

@@ -30,12 +30,13 @@
           <_x003C_InitPos_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
           <_x003C_Name_x003E_k__BackingField dataType="String">An Agent</_x003C_Name_x003E_k__BackingField>
           <_x003C_NavMap_x003E_k__BackingField />
-          <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="3" />
+          <_x003C_NavMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+NavigationMode" name="INACTIVE" value="4" />
           <_x003C_NavShowTargets_x003E_k__BackingField dataType="Bool">false</_x003C_NavShowTargets_x003E_k__BackingField>
           <_x003C_NavTarget_x003E_k__BackingField />
           <_x003C_NavTargetPrefab_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
             <contentPath dataType="String">Data\Prefabs\Target.Prefab.res</contentPath>
           </_x003C_NavTargetPrefab_x003E_k__BackingField>
+          <_x003C_PowerCoins_x003E_k__BackingField dataType="Int">0</_x003C_PowerCoins_x003E_k__BackingField>
           <_x003C_PrimaryColor_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
             <A dataType="Byte">220</A>
             <B dataType="Byte">16</B>
@@ -49,12 +50,14 @@
           <_x003C_StraightTargetsListID_x003E_k__BackingField dataType="Int">0</_x003C_StraightTargetsListID_x003E_k__BackingField>
           <_x003C_StraightTargetsMode_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.AIAgent+TargetListMode" name="LOOP" value="0" />
           <_x003C_targetBoat_x003E_k__BackingField />
+          <_x003C_TargetHeading_x003E_k__BackingField dataType="Float">0</_x003C_TargetHeading_x003E_k__BackingField>
+          <_x003C_TargetSailAngle_x003E_k__BackingField dataType="Float">0.1</_x003C_TargetSailAngle_x003E_k__BackingField>
           <active dataType="Bool">true</active>
           <gameobj dataType="ObjectRef">3063359850</gameobj>
         </item>
         <item dataType="Struct" type="WorldSailorsDuality.BoatFactory" id="2347172069">
           <_x003C_BoatPrefab_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
-            <contentPath dataType="String">Data\Prefabs\AIBoat.Prefab.res</contentPath>
+            <contentPath dataType="String">Data\Prefabs\Boats\AIBoat.Prefab.res</contentPath>
           </_x003C_BoatPrefab_x003E_k__BackingField>
           <_x003C_ParentAgent_x003E_k__BackingField />
           <active dataType="Bool">true</active>
