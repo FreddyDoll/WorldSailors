@@ -179,4 +179,27 @@ namespace WorldSailorsDuality
         }
     }
 
+    public class SailStiffness : IUpgrade
+    {
+        public int LevelStorage { get; set; }
+
+        public string Name
+        {
+            get
+            {
+                return "Sail Stiffness";
+            }
+        }
+
+        public bool AdjustLevel(object target, int delta)
+        {
+            if (!(target is BoatController))
+                return false;
+            BoatController b = (BoatController)target;
+            b.SailStiffness *= MathF.Pow(1.1f, delta);
+
+            return true;
+        }
+    }
+
 }

@@ -278,25 +278,7 @@
                 <ignoreGravity dataType="Bool">false</ignoreGravity>
                 <joints dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Components.Physics.JointInfo]]" id="2053580279">
                   <_items dataType="Array" type="Duality.Components.Physics.JointInfo[]" id="1330647694">
-                    <item dataType="Struct" type="Duality.Components.Physics.DistanceJointInfo" id="2377554128">
-                      <breakPoint dataType="Float">0</breakPoint>
-                      <collide dataType="Bool">false</collide>
-                      <dampingRatio dataType="Float">0.8</dampingRatio>
-                      <enabled dataType="Bool">true</enabled>
-                      <frequency dataType="Float">2</frequency>
-                      <length dataType="Float">0</length>
-                      <localAnchorA dataType="Struct" type="Duality.Vector2">
-                        <X dataType="Float">0</X>
-                        <Y dataType="Float">200</Y>
-                      </localAnchorA>
-                      <localAnchorB dataType="Struct" type="Duality.Vector2">
-                        <X dataType="Float">0</X>
-                        <Y dataType="Float">200</Y>
-                      </localAnchorB>
-                      <otherBody dataType="ObjectRef">2876932474</otherBody>
-                      <parentBody dataType="ObjectRef">3930114967</parentBody>
-                    </item>
-                    <item dataType="Struct" type="Duality.Components.Physics.RevoluteJointInfo" id="1233420910">
+                    <item dataType="Struct" type="Duality.Components.Physics.RevoluteJointInfo" id="2377554128">
                       <breakPoint dataType="Float">0</breakPoint>
                       <collide dataType="Bool">false</collide>
                       <enabled dataType="Bool">true</enabled>
@@ -317,6 +299,24 @@
                       <parentBody dataType="ObjectRef">3930114967</parentBody>
                       <refAngle dataType="Float">0</refAngle>
                       <upperLimit dataType="Float">0</upperLimit>
+                    </item>
+                    <item dataType="Struct" type="Duality.Components.Physics.DistanceJointInfo" id="1233420910">
+                      <breakPoint dataType="Float">-1</breakPoint>
+                      <collide dataType="Bool">false</collide>
+                      <dampingRatio dataType="Float">0.8</dampingRatio>
+                      <enabled dataType="Bool">true</enabled>
+                      <frequency dataType="Float">1</frequency>
+                      <length dataType="Float">0</length>
+                      <localAnchorA dataType="Struct" type="Duality.Vector2">
+                        <X dataType="Float">0</X>
+                        <Y dataType="Float">200</Y>
+                      </localAnchorA>
+                      <localAnchorB dataType="Struct" type="Duality.Vector2">
+                        <X dataType="Float">0</X>
+                        <Y dataType="Float">200</Y>
+                      </localAnchorB>
+                      <otherBody dataType="ObjectRef">2876932474</otherBody>
+                      <parentBody dataType="ObjectRef">3930114967</parentBody>
                     </item>
                   </_items>
                   <_size dataType="Int">2</_size>
@@ -477,6 +477,7 @@
           <_x003C_noDragHeight_x003E_k__BackingField dataType="Float">-80</_x003C_noDragHeight_x003E_k__BackingField>
           <_x003C_Rudder_x003E_k__BackingField />
           <_x003C_Sail_x003E_k__BackingField dataType="ObjectRef">100218183</_x003C_Sail_x003E_k__BackingField>
+          <_x003C_SailStiffness_x003E_k__BackingField dataType="Float">2</_x003C_SailStiffness_x003E_k__BackingField>
           <_x003C_TurnRate_x003E_k__BackingField dataType="Float">0.0006</_x003C_TurnRate_x003E_k__BackingField>
           <active dataType="Bool">true</active>
           <gameobj dataType="ObjectRef">2279147639</gameobj>

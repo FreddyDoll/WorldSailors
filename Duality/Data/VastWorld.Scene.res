@@ -20,7 +20,23 @@
                   <deriveAngle dataType="Bool">true</deriveAngle>
                   <gameobj dataType="ObjectRef">1809157670</gameobj>
                   <ignoreParent dataType="Bool">true</ignoreParent>
-                  <parentTransform />
+                  <parentTransform dataType="Struct" type="Duality.Components.Transform" id="921270665">
+                    <active dataType="Bool">true</active>
+                    <angle dataType="Float">0</angle>
+                    <angleAbs dataType="Float">0</angleAbs>
+                    <angleVel dataType="Float">0</angleVel>
+                    <angleVelAbs dataType="Float">0</angleVelAbs>
+                    <deriveAngle dataType="Bool">true</deriveAngle>
+                    <gameobj dataType="ObjectRef">863993447</gameobj>
+                    <ignoreParent dataType="Bool">false</ignoreParent>
+                    <parentTransform />
+                    <pos dataType="Struct" type="Duality.Vector3" />
+                    <posAbs dataType="Struct" type="Duality.Vector3" />
+                    <scale dataType="Float">1</scale>
+                    <scaleAbs dataType="Float">1</scaleAbs>
+                    <vel dataType="Struct" type="Duality.Vector3" />
+                    <velAbs dataType="Struct" type="Duality.Vector3" />
+                  </parentTransform>
                   <pos dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">-13059.5615</X>
                     <Y dataType="Float">10876.5635</Y>
@@ -114,7 +130,8 @@
         <_size dataType="Int">1</_size>
       </children>
       <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="1879176232">
-        <_items dataType="Array" type="Duality.Component[]" id="1621514031" length="4">
+        <_items dataType="Array" type="Duality.Component[]" id="1621514031" length="8">
+          <item dataType="ObjectRef">921270665</item>
           <item dataType="Struct" type="WorldSailorsDuality.PlayerAgent" id="1720751284">
             <_x003C_CollectedUpgrades_x003E_k__BackingField />
             <_x003C_currentTarget_x003E_k__BackingField />
@@ -149,7 +166,7 @@
             <gameobj dataType="ObjectRef">863993447</gameobj>
           </item>
         </_items>
-        <_size dataType="Int">3</_size>
+        <_size dataType="Int">4</_size>
       </compList>
       <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="2285381839" surrogate="true">
         <header />
@@ -158,15 +175,17 @@
             <item dataType="Type" id="3085811140" value="WorldSailorsDuality.PlayerAgent" />
             <item dataType="Type" id="2324203926" value="WorldSailorsDuality.QuestManager" />
             <item dataType="Type" id="2661911680" value="WorldSailorsDuality.BoatFactory" />
+            <item dataType="ObjectRef">2739956540</item>
           </keys>
           <values dataType="Array" type="System.Object[]" id="3178403862">
             <item dataType="ObjectRef">1720751284</item>
             <item dataType="ObjectRef">282068451</item>
             <item dataType="ObjectRef">147805666</item>
+            <item dataType="ObjectRef">921270665</item>
           </values>
         </body>
       </compMap>
-      <compTransform />
+      <compTransform dataType="ObjectRef">921270665</compTransform>
       <identifier dataType="Struct" type="System.Guid" surrogate="true">
         <header>
           <data dataType="Array" type="System.Byte[]" id="829867872">7qUTAwdrPkGlI9fW9yRU1Q==</data>
@@ -342,7 +361,7 @@
                       <X dataType="Float">-100000</X>
                       <Y dataType="Float">-100000</Y>
                     </_x003C_StartPos_x003E_k__BackingField>
-                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-116.642311</_x003C_TimeOffset_x003E_k__BackingField>
+                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-2937.14063</_x003C_TimeOffset_x003E_k__BackingField>
                   </_x003C_activeDeathWave_x003E_k__BackingField>
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
@@ -660,13 +679,19 @@
                         <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeSailLiftPlus.Prefab.res</contentPath>
                       </item>
                       <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeSailStiffnessMinus.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeSailStiffnessPlus.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
                         <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeTurnRateMinu.Prefab.res</contentPath>
                       </item>
                       <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
                         <contentPath dataType="String">Data\Prefabs\Upgrades\UpgradeTurnRatePlus.Prefab.res</contentPath>
                       </item>
                     </_items>
-                    <_size dataType="Int">10</_size>
+                    <_size dataType="Int">12</_size>
                   </_x003C_UpgradeTargets_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <gameobj dataType="ObjectRef">638178698</gameobj>
@@ -703,8 +728,19 @@
             <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3405588333">
               <_items dataType="Array" type="Duality.Component[]" id="3162069222" length="4">
                 <item dataType="Struct" type="WorldSailorsDuality.RaceGenerato" id="3241141470">
-                  <_x003C_Challengers_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
-                    <contentPath dataType="String">Data\Prefabs\Basic AI.Prefab.res</contentPath>
+                  <_x003C_Challengers_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[Duality.ContentRef`1[[Duality.Resources.Prefab]]]]" id="3210762082">
+                    <_items dataType="Array" type="Duality.ContentRef`1[[Duality.Resources.Prefab]][]" id="756767632" length="4">
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\Basic AI.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\AnimAI.Prefab.res</contentPath>
+                      </item>
+                      <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                        <contentPath dataType="String">Data\Prefabs\CrazyAI.Prefab.res</contentPath>
+                      </item>
+                    </_items>
+                    <_size dataType="Int">3</_size>
                   </_x003C_Challengers_x003E_k__BackingField>
                   <_x003C_CompleteArea_x003E_k__BackingField dataType="Struct" type="Duality.Rect">
                     <H dataType="Float">160000</H>
@@ -1004,7 +1040,7 @@
         <_size dataType="Int">2</_size>
       </children>
       <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="4233758862">
-        <_items dataType="Array" type="Duality.Component[]" id="849044402">
+        <_items dataType="Array" type="Duality.Component[]" id="849044402" length="4">
           <item dataType="Struct" type="Duality.Components.Diagnostics.ProfileRenderer" id="894796662">
             <active dataType="Bool">false</active>
             <counterGraphs dataType="Struct" type="System.Collections.Generic.List`1[[System.String]]" id="3014228042">
@@ -1071,37 +1107,9 @@
             <active dataType="Bool">true</active>
             <gameobj dataType="ObjectRef">3379412982</gameobj>
           </item>
-          <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay" id="2890241912">
-            <_x003C_BackgroundMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-              <contentPath dataType="String">Data\GUI\BackroundMat.Material.res</contentPath>
-            </_x003C_BackgroundMaterial_x003E_k__BackingField>
-            <_x003C_ControlMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-              <contentPath dataType="String">Data\GUI\ControlMat.Material.res</contentPath>
-            </_x003C_ControlMaterial_x003E_k__BackingField>
-            <_x003C_DrawBackground_x003E_k__BackingField dataType="Bool">true</_x003C_DrawBackground_x003E_k__BackingField>
-            <_x003C_Font_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Font]]" />
-            <_x003C_Lines_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.GUIOverlay+Line]]" id="4180230884">
-              <_items dataType="Array" type="WorldSailorsDuality.GUIOverlay+Line[]" id="3091859396" length="0" />
-              <_size dataType="Int">0</_size>
-            </_x003C_Lines_x003E_k__BackingField>
-            <_x003C_LineSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-              <X dataType="Float">0.05</X>
-              <Y dataType="Float">0.05</Y>
-            </_x003C_LineSize_x003E_k__BackingField>
-            <_x003C_ScreenPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-              <X dataType="Float">0.05</X>
-              <Y dataType="Float">0.05</Y>
-            </_x003C_ScreenPosition_x003E_k__BackingField>
-            <_x003C_SelectedControlMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]" />
-            <_x003C_selectedElement_x003E_k__BackingField dataType="Int">0</_x003C_selectedElement_x003E_k__BackingField>
-            <_x003C_selectedLine_x003E_k__BackingField dataType="Int">0</_x003C_selectedLine_x003E_k__BackingField>
-            <_x003C_Visible_x003E_k__BackingField dataType="Bool">false</_x003C_Visible_x003E_k__BackingField>
-            <active dataType="Bool">true</active>
-            <gameobj dataType="ObjectRef">3379412982</gameobj>
-          </item>
           <item dataType="ObjectRef">4079431515</item>
         </_items>
-        <_size dataType="Int">4</_size>
+        <_size dataType="Int">3</_size>
       </compList>
       <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="2192820604" surrogate="true">
         <header />
@@ -1110,13 +1118,11 @@
             <item dataType="Type" id="3496425836" value="WorldSailorsDuality.HudRenderer" />
             <item dataType="Type" id="3587668022" value="WorldSailorsDuality.AgentSwitcher" />
             <item dataType="Type" id="1749950520" value="Duality.Components.Diagnostics.ProfileRenderer" />
-            <item dataType="Type" id="425338130" value="WorldSailorsDuality.GUIOverlay" />
           </keys>
           <values dataType="Array" type="System.Object[]" id="4096465374">
             <item dataType="ObjectRef">4079431515</item>
             <item dataType="ObjectRef">2578067603</item>
             <item dataType="ObjectRef">894796662</item>
-            <item dataType="ObjectRef">2890241912</item>
           </values>
         </body>
       </compMap>

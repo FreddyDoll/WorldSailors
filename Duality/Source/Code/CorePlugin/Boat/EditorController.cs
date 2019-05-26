@@ -61,6 +61,7 @@ namespace WorldSailorsDuality
             SetUpSlider(typeof(SailDragUpgrade));
             SetUpSlider(typeof(SailLiftUpgrade));
             SetUpSlider(typeof(TurnUpgrade));
+            SetUpSlider(typeof(SailStiffness));
 
             //Boat Select
             Gui.Lines.Add(new Line(new List<Element> { new Element("-", 1), new Element("Boat", 5), new Element("+", 1) }));

@@ -13,7 +13,7 @@ namespace WorldSailorsDuality
 {
     public class RaceController : Component, ICmpUpdatable, ICmpInitializable, Ihudstring, IQuest
     {
-        public ContentRef<Prefab> AIPrefab { get; set; }
+        public List<ContentRef<Prefab>> AIPrefab { get; set; } = new List<ContentRef<Prefab>>();
         public List<AITarget> Targets { get; set; } = new List<AITarget>();
         public AITarget WaitArea { get; set; }
         public RaceState State { get; set; } = RaceState.IDLE;
@@ -223,7 +223,7 @@ namespace WorldSailorsDuality
 
         public void OnInit(InitContext context)
         {
-            if (context == InitContext.Activate && AIPrefab.Res != null && DualityApp.ExecContext != DualityApp.ExecutionContext.Editor)
+            if (context == InitContext.Activate && AIPrefab!=null && AIPrefab.Count>0 && DualityApp.ExecContext != DualityApp.ExecutionContext.Editor)
             {
                 List<GameObject> ais = new List<GameObject>();
                 foreach (GameObject o in GameObj.Children)
@@ -241,7 +241,8 @@ namespace WorldSailorsDuality
 
                 for(int n = 0;n<SpawnAditionalAI;n++)
                 {
-                    GameObject ai = AIPrefab.Res.Instantiate();
+                    int aiID = StaticHelpers.Rand.Next(0, AIPrefab.Count);
+                    GameObject ai = AIPrefab[aiID].Res.Instantiate();
                     initPos.Add(WaitArea.GameObj);
                     spawnedAIs.Add(ai);
                 }

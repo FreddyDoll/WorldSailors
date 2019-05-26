@@ -1,4 +1,0 @@
--Better UI (Keyboard)
--more worlds
--Sail stiffness as upgrade
--nice targets

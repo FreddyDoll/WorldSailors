@@ -289,7 +289,7 @@
                       <collide dataType="Bool">false</collide>
                       <dampingRatio dataType="Float">0.8</dampingRatio>
                       <enabled dataType="Bool">true</enabled>
-                      <frequency dataType="Float">2</frequency>
+                      <frequency dataType="Float">1</frequency>
                       <length dataType="Float">0</length>
                       <localAnchorA dataType="Struct" type="Duality.Vector2">
                         <X dataType="Float">0</X>
@@ -434,6 +434,7 @@
           <_x003C_noDragHeight_x003E_k__BackingField dataType="Float">-80</_x003C_noDragHeight_x003E_k__BackingField>
           <_x003C_Rudder_x003E_k__BackingField />
           <_x003C_Sail_x003E_k__BackingField dataType="ObjectRef">2562801014</_x003C_Sail_x003E_k__BackingField>
+          <_x003C_SailStiffness_x003E_k__BackingField dataType="Float">2</_x003C_SailStiffness_x003E_k__BackingField>
           <_x003C_TurnRate_x003E_k__BackingField dataType="Float">0.0006</_x003C_TurnRate_x003E_k__BackingField>
           <active dataType="Bool">true</active>
           <gameobj dataType="ObjectRef">2166055711</gameobj>

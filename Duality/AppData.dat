@@ -2,7 +2,7 @@
   <appName dataType="String">WorldSailorsDuality</appName>
   <authorName dataType="String">Freddy</authorName>
   <customData dataType="Struct" type="WorldSailorsDuality.CoreSceneLoop" id="427169525">
-    <_x003C_currentScene_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.CoreSceneLoop+SceneTypes" name="SHOP" value="1" />
+    <_x003C_currentScene_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.CoreSceneLoop+SceneTypes" name="WORLD" value="0" />
     <_x003C_Shop_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
       <contentPath dataType="String">Data\ShipEditor.Scene.res</contentPath>
     </_x003C_Shop_x003E_k__BackingField>
@@ -23,7 +23,7 @@
   <startScene dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
     <contentPath dataType="String">Data\TitleWorld.Scene.res</contentPath>
   </startScene>
-  <version dataType="UInt">4202</version>
+  <version dataType="UInt">4273</version>
   <websiteUrl dataType="String">http://www.adamslair.net</websiteUrl>
 </root>
 <!-- XmlFormatterBase Document Separator -->

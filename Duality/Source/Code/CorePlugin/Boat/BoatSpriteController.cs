@@ -32,7 +32,14 @@ namespace WorldSailorsDuality.Boat
                 return;
 
             sailAngle = c.GetSailAngle() * 4f / MathF.Pi;
-            roll = - c.GetSailOperatingPoint().X / 20f;
+            //roll = - c.GetSailOperatingPoint().X / 20f;
+            roll = c.GetHullOperatingPoint().X / 20f;
+            if(sailAngle<0)
+                sailAngle *= -1;
+            if (sailAngle > 0.7f)
+                sailAngle = 0.7f;
+            if (c.SailBackPressure)
+                roll *= -1;
 
             this.AnimTime = TransformRollAndAngle();
         }

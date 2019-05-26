@@ -13,7 +13,7 @@ namespace WorldSailorsDuality
     public class RaceGenerato : Component, ICmpInitializable
     {
         public ContentRef<Prefab> Target { get; set; }
-        public ContentRef<Prefab> Challengers { get; set; }
+        public List<ContentRef<Prefab>> Challengers { get; set; } = new List<ContentRef<Prefab>>();
 
         /// <summary>
         /// Distance between Race Points

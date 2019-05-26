@@ -51,6 +51,8 @@ namespace WorldSailorsDuality
         /// How quickly the boat can turn
         /// </summary>
         public float TurnRate { get; set; } = 0.0006f;
+        public float SailStiffness { get; set; } = 0.5f;
+        public float SailDamping { get; set; } = 0.8f;
         public float ControlTorque { get; set; }
         public string name { get; set; } = "boat";
         /// <summary>
@@ -78,6 +80,7 @@ namespace WorldSailorsDuality
                 }
             }
         }
+
         public List<IUpgrade> accumulatedUpgrades { get; set; }
 
         public float maxDrag { get; set; } = 2;
@@ -140,8 +143,23 @@ namespace WorldSailorsDuality
                             JointsOK = false;
                             break;
                         }
+
+
+                    //Set Sail Free when on wrong side
+                    DistanceJointInfo distJoint = (DistanceJointInfo)sBody.Joints.ToArray()[1];
+                    if (SailBackPressure && GetSailOperatingPoint().Y > 0)
+                    {
+                        distJoint.Frequency = 0.01f;
+                        distJoint.DampingRatio = 0;
+                    }
+                    else
+                    {
+                        distJoint.Frequency = SailStiffness;
+                        distJoint.DampingRatio = SailDamping;
+                    }
                 }
                 IsDestroyed = !JointsOK;
+
             }
         }
 
@@ -200,6 +218,17 @@ namespace WorldSailorsDuality
             }
         }
 
+        public bool SailBackPressure
+        {
+            get
+            {
+                if (GetHullOperatingPoint().X * GetSailAngle() < 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
         public void SetSail(float angle)
         {
             if (sailCont == null)
@@ -210,12 +239,25 @@ namespace WorldSailorsDuality
 
         public float GetSailAngle()
         {
-            if (sailCont == null)
+
+            if (Hull == null || Sail == null)
+                return 0;
+
+            float ret =  Hull.Transform.Angle - Sail.Transform.Angle;
+
+            while (ret > MathF.Pi)
+                ret -= MathF.TwoPi;
+            while (ret < -MathF.Pi)
+                ret += MathF.TwoPi;
+
+            return ret;
+
+            /*if (sailCont == null)
                 sailCont = Sail.GetComponent<SailController>();
             if (sailCont != null)
                 return sailCont.GetSail();
 
-            return 0f;
+            return 0f;*/
         }
 
         public Vector2 GetSpeed()
@@ -302,6 +344,18 @@ namespace WorldSailorsDuality
                     sailFoil = Sail.GetComponent<FoilController>();
                 if (sailFoil != null)
                     return sailFoil.CurrentWorkingPoint;
+            }
+            return new Vector2(0, 0);
+        }
+
+        public Vector2 GetHullOperatingPoint()
+        {
+            if (Hull != null)
+            {
+                if (hullFoil == null)
+                    hullFoil = Hull.GetComponent<FoilController>();
+                if (hullFoil != null)
+                    return hullFoil.CurrentWorkingPoint;
             }
             return new Vector2(0, 0);
         }

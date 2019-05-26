@@ -46,13 +46,13 @@ namespace WorldSailorsDuality
             if (Lines == null || Lines.Count == 0)
                 return;
 
-            if (DualityApp.Gamepads[0].ButtonHit(GamepadButton.DPadLeft))
+            if (DualityApp.Gamepads[0].ButtonHit(GamepadButton.DPadLeft) || DualityApp.Keyboard.KeyHit(Duality.Input.Key.Left))
                 selectedElement--;
-            if (DualityApp.Gamepads[0].ButtonHit(GamepadButton.DPadRight))
+            if (DualityApp.Gamepads[0].ButtonHit(GamepadButton.DPadRight) || DualityApp.Keyboard.KeyHit(Duality.Input.Key.Right))
                 selectedElement++;
-            if (DualityApp.Gamepads[0].ButtonHit(GamepadButton.DPadUp))
+            if (DualityApp.Gamepads[0].ButtonHit(GamepadButton.DPadUp) || DualityApp.Keyboard.KeyHit(Duality.Input.Key.Up))
                 selectedLine--;
-            if (DualityApp.Gamepads[0].ButtonHit(GamepadButton.DPadDown))
+            if (DualityApp.Gamepads[0].ButtonHit(GamepadButton.DPadDown) || DualityApp.Keyboard.KeyHit(Duality.Input.Key.Down))
                 selectedLine++;
 
             if (selectedLine >= Lines.Count)
@@ -65,7 +65,7 @@ namespace WorldSailorsDuality
                 selectedElement = Lines[selectedLine].Elements.Count-1;
 
 
-            if (DualityApp.Gamepads[0].ButtonHit(GamepadButton.A) && Lines.Count>selectedLine && Lines[selectedLine].Elements.Count > selectedElement)
+            if ((DualityApp.Gamepads[0].ButtonHit(GamepadButton.A) || DualityApp.Keyboard.KeyHit(Duality.Input.Key.Enter)) && Lines.Count>selectedLine && Lines[selectedLine].Elements.Count > selectedElement)
                 Lines[selectedLine].Elements[selectedElement].RaiseElementHit();
             
             if (!Visible)

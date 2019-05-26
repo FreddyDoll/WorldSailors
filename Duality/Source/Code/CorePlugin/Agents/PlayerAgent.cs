@@ -35,7 +35,7 @@ namespace WorldSailorsDuality
                 bodyText.Add("True Wind   " + Math.Round(targetBoat.GetWind().Length, 2).ToString());
                 bodyText.Add("Boat Upwind " + Math.Round(targetBoat.GetUpwindSpeed(), 2).ToString());
                 bodyText.Add("");
-                bodyText.Add("Sail Angle  " + Math.Round(targetBoat.GetSailAngle(), 2).ToString());
+                bodyText.Add("Sail Angle  " + Math.Round(targetBoat.GetSailAngle(), 2).ToString() + " " + targetBoat.SailBackPressure.ToString() );
                 bodyText.Add("Under Keel  " + Math.Round(targetBoat.CurrentHeight, 2).ToString());
             }
             return bodyText;
@@ -50,9 +50,9 @@ namespace WorldSailorsDuality
 
                 //Turning
                 if (DualityApp.Keyboard[Key.Left])
-                    targetBoat.ApplySteering(-0.001f);
+                    targetBoat.ApplySteering(-targetBoat.TurnRate);
                 else if (DualityApp.Keyboard[Key.Right])
-                    targetBoat.ApplySteering(0.001f);
+                    targetBoat.ApplySteering(targetBoat.TurnRate);
                 else //Just to fix display of Control Torque Only LAST ApplySteering ist displayed 
                 {
                     float turn = StaticHelpers.ApplyStickDeadZone(DualityApp.Gamepads[0].LeftThumbstick.X);
