@@ -16,24 +16,20 @@ Arrow Keys Up/Down: Open/Close Sail
 
 Strg/Shift: Zoom in and out
 
-b: start race (in the red zone)
+Tab: Cycle through available race (Sets traget in Nav Ball)
 
-y: stop quest 
+b: start race
 
-Tab: Cycle through available Quests 
+y: stop race 
 
 a,s: switch through Agents (AI,Player)
-
-q,w: Increase/Decrease GridSize (Graphic Setting)
-
-e,r: Increase/Decrease Wind Particle Count (Graphic Setting)
 
 ### XBox 360 Controller
 LeftStick Left/Right: Turn Boat
 
-RightStick Left/Right: Open/Close Sail
+RightStick Left/Right: Pan Camera
 
-Left/Right Trigger: Override Open/Close Sail
+Left/Right Trigger: Open/Close Sail
 
 Left/Right Shoulder Buttons: Zoom in and out
 
@@ -48,19 +44,10 @@ DPad Left/Right : Cycle through Agents
 DPad UP/Down : Choose Quest (Sets traget in Nav Ball)
 
 ## TODO
-- Add Lighting (Sun moves around 1 day)
 - Sound
-- ShipEditor: Rewards for Quests are also needed
-- Quest Trading: Transport goods from A to B and receive goodies
-- Boat Trail Renderer: Boats need a nicer Trail!
-- Get up on a plane! Reduces Drag when reaching a certain speed and adjust visuals
-- SecondMap Renderer for Large Scale Viewing
 - Improve AI
 - On Collision check right of way to determine who gets broken
 - improve speed of particle renderer
-- Better Cloud Textures
-- Nav Ball:
-	- Show Control Aids
 
 
 
