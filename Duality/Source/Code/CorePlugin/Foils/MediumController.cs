@@ -97,25 +97,31 @@ namespace WorldSailorsDuality
                 strength = len;
             return speed.Normalized * strength;
         }
+
         [DontSerialize]
         HeightMap map;
+
         private Vector2 GenerateMapBased(Vector2 pos)
         {
             if (map == null)
                 map = GameObj.ParentScene.FindComponent<HeightMap>();
             if (map == null)
                 return speed;
-            //Vector2 gradient = map.ProbeGradient(pos, map.GridOffset * 10)*15*speed.Length;
-            Vector2 gradient = -map.ProbeGradient(pos, 10000)*MapBasedFactor;//*15*speed.Length;
-            Vector2 gradientLong = -map.ProbeGradient(pos, 1000000)*18* MapBasedFactor;// * 15 * speed.Length;
 
-            //return gradient.PerpendicularLeft + speed;
+            Vector2 gradient = -map.ProbeGradient(pos, 10000)*MapBasedFactor;
+            Vector2 gradientLong = -map.ProbeGradient(pos, 1000000)*18* MapBasedFactor;
+
+            float deathWaveCorrection = 1;
+            if (map.activeDeathWave != null)
+                deathWaveCorrection = 2500 / map.activeDeathWave.DirectionSpeed.Length;
+
+
             float heightLimLow = -1000;
             float heightLimHigh = 1000;
             float heightFactir = (map.Probe(pos) - heightLimLow)/(heightLimHigh- heightLimLow);
             if (heightFactir < 0)
                 heightFactir = 0;
-            return gradientLong + heightFactir*gradient;
+            return (gradientLong + heightFactir*gradient)* deathWaveCorrection;
         }
     }
 

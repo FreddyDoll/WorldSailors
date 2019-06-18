@@ -14,6 +14,7 @@ namespace WorldSailorsDuality
         public ContentRef<Scene> Shop { get; set; }
         public ContentRef<Scene> Title { get; set; }
         public SceneTypes currentScene { get; set; } = SceneTypes.TITLE;
+        public float DeathWaveSpeedIncrease { get; set; } = 1.5f;
 
         public void SwitchScenes(Scene start)
         {
@@ -32,6 +33,9 @@ namespace WorldSailorsDuality
             {
                 currentScene = SceneTypes.SHOP;
                 TransferAgent(start.FindComponent<PlayerAgent>(), Shop.Res.FindComponent<PlayerAgent>());
+                HeightMap map = World.Res.FindComponent<HeightMap>();
+                if (map != null && map.activeDeathWave != null)
+                    map.activeDeathWave.DirectionSpeed = map.activeDeathWave.DirectionSpeed * DeathWaveSpeedIncrease;
                 Scene.SwitchTo(Shop);
             }
         }
