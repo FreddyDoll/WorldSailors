@@ -129,7 +129,7 @@ namespace WorldSailorsDuality
 
         public string GetHudString()
         {
-            throw new NotImplementedException();
+            return this.ToString();
         }
     }
 }

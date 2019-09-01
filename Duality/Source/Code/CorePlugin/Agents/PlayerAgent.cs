@@ -45,6 +45,11 @@ namespace WorldSailorsDuality
         {
             base.OnUpdate();
 
+            if (DualityApp.Keyboard.KeyHit(Key.N))
+            {
+                StaticHelpers.SceneLoop.SwitchScenes(GameObj.ParentScene);
+            }
+
             if (targetBoat != null)
             {
 
@@ -92,6 +97,7 @@ namespace WorldSailorsDuality
                     targetSailDist = maxSailAngle;
 
                 targetBoat.SetSail(targetSailDist);
+
             }
 
         }

@@ -13,13 +13,16 @@ namespace WorldSailorsDuality
         public ContentRef<Scene> World { get; set; }
         public ContentRef<Scene> Shop { get; set; }
         public ContentRef<Scene> Title { get; set; }
-        public SceneTypes currentScene { get; set; } = SceneTypes.TITLE;
+        [DontSerialize]
+        public SceneTypes currentScene = SceneTypes.TITLE;
         public float DeathWaveSpeedIncrease { get; set; } = 1.5f;
+        Random rand = new Random();
 
         public void SwitchScenes(Scene start)
         {
             if (currentScene == SceneTypes.TITLE)
             {
+                NextWorld();
                 currentScene = SceneTypes.SHOP;
                 Scene.SwitchTo(Shop);
             }
@@ -39,6 +42,17 @@ namespace WorldSailorsDuality
                 Scene.SwitchTo(Shop);
             }
         }
+
+        public void NextWorld()
+        {
+            HeightMap map = World.Res.FindComponent<HeightMap>();
+            if (map != null)
+            {
+                map.PerlinSeed = rand.Next(1, 400);
+                map.InitArray();
+            }
+        }
+
 
         private void TransferAgent(Agent source, Agent target)
         {

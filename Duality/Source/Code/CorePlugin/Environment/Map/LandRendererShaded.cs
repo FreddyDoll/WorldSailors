@@ -16,6 +16,7 @@ namespace WorldSailorsDuality
         public ContentRef<Material> LandMaterial { get; set; } = Material.DualityIcon;
         public HeightMap map{ get; set; }
         public ColorLUT LUTheight { get; set; } = new ColorLUT();
+        public ColorRgba BaseWater { get; set; } = ColorRgba.Blue;
 
         private RenderDataSettings dataGroup0 = new RenderDataSettings();
         private RenderDataSettings dataGroup1 = new RenderDataSettings();
@@ -125,6 +126,10 @@ namespace WorldSailorsDuality
             device.AddVertices(LandMaterial, VertexMode.Quads, data.Quads);
             
             LandMaterial.Res.SetUniform("lod", (float)lodScale);
+
+
+            float[] watercolor = new float[4] { BaseWater.R/255.0f, BaseWater.G / 255.0f, BaseWater.B / 255.0f, BaseWater.A / 255.0f };
+            LandMaterial.Res.SetUniform("WaterColor", watercolor);
 
         }
            

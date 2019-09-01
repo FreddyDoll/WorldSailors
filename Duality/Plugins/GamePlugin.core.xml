@@ -356,6 +356,11 @@
             Change Value -> new Map
             </summary>
         </member>
+        <member name="P:WorldSailorsDuality.HeightMap.Perlin3DOffset">
+            <summary>
+            Offset for the 3D Perlin Version
+            </summary>
+        </member>
         <member name="P:WorldSailorsDuality.HeightMap.SimplexSeed">
             <summary>
             Change Value -> new Map for Simplex mode

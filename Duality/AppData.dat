@@ -2,8 +2,7 @@
   <appName dataType="String">WorldSailorsDuality</appName>
   <authorName dataType="String">Freddy</authorName>
   <customData dataType="Struct" type="WorldSailorsDuality.CoreSceneLoop" id="427169525">
-    <_x003C_currentScene_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.CoreSceneLoop+SceneTypes" name="TITLE" value="2" />
-    <_x003C_DeathWaveSpeedIncrease_x003E_k__BackingField dataType="Float">1.3</_x003C_DeathWaveSpeedIncrease_x003E_k__BackingField>
+    <_x003C_DeathWaveSpeedIncrease_x003E_k__BackingField dataType="Float">1.05</_x003C_DeathWaveSpeedIncrease_x003E_k__BackingField>
     <_x003C_Shop_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
       <contentPath dataType="String">Data\ShipEditor.Scene.res</contentPath>
     </_x003C_Shop_x003E_k__BackingField>
@@ -13,6 +12,11 @@
     <_x003C_World_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
       <contentPath dataType="String">Data\VastWorld.Scene.res</contentPath>
     </_x003C_World_x003E_k__BackingField>
+    <rand dataType="Struct" type="System.Random" id="1100841590">
+      <inext dataType="Int">8</inext>
+      <inextp dataType="Int">29</inextp>
+      <SeedArray dataType="Array" type="System.Int32[]" id="2824927200">0, 2092248703, 1381772055, 1684635084, 1705989764, 526702312, 1608509729, 2016670267, 1764392337, 237206671, 2023863632, 269318390, 726328846, 1113876179, 1617930031, 425838119, 63466412, 1254241644, 248634302, 1439907472, 2032872116, 658941304, 1803353649, 859688344, 1886377282, 937272192, 730298082, 782611811, 400355987, 2036052765, 798331957, 827930049, 321806033, 2005432946, 312832260, 1030186335, 969464272, 2144997653, 1995340680, 1156698741, 761398183, 281439345, 1737518119, 394916306, 764602572, 2119229709, 596168695, 1680579866, 2033232634, 1949630053, 1040162279, 1668631977, 238518531, 1583632906, 1595719150, 2340618</SeedArray>
+    </rand>
   </customData>
   <localUserData dataType="Bool">true</localUserData>
   <multisampleBackBuffer dataType="Bool">true</multisampleBackBuffer>
@@ -24,7 +28,7 @@
   <startScene dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
     <contentPath dataType="String">Data\TitleWorld.Scene.res</contentPath>
   </startScene>
-  <version dataType="UInt">4305</version>
+  <version dataType="UInt">4380</version>
   <websiteUrl dataType="String">http://www.adamslair.net</websiteUrl>
 </root>
 <!-- XmlFormatterBase Document Separator -->

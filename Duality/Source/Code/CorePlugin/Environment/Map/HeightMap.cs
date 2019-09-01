@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Duality.Drawing;
 using Duality.Resources;
 using WorldSailorsDuality.QuadTreeLib;
+using Duality.Input;
 
 namespace WorldSailorsDuality
 {
@@ -15,7 +16,8 @@ namespace WorldSailorsDuality
     {
         PERLIN,
         SIMPLE,
-        SIMPLEX
+        SIMPLEX,
+        PERLIN3D
     }
     
     public class HeightMap : Component, ICmpInitializable,ICmpUpdatable,Ihudstring
@@ -45,6 +47,10 @@ namespace WorldSailorsDuality
         /// Change Value -> new Map
         /// </summary>
         public int PerlinSeed { get; set; } = 0;
+        /// <summary>
+        /// Offset for the 3D Perlin Version
+        /// </summary>
+        public Vector3 Perlin3DOffset { get; set; } = new Vector3(0,0,0);
         /// <summary>
         /// Change Value -> new Map for Simplex mode
         /// integer
@@ -224,7 +230,10 @@ namespace WorldSailorsDuality
             if (!BufferPoints)
             {
                 grid = null;
-                return GetNoisePoint(point);
+                if (activeDeathWave != null)
+                    return GetNoisePoint(point) + activeDeathWave.getHeightOffset(point);
+                else
+                    return GetNoisePoint(point);
             }
 
             List<Point2> ps = new List<Point2>();
@@ -346,6 +355,7 @@ namespace WorldSailorsDuality
             switch (GenType)
             {
                 case MapGenerationType.PERLIN: return ProbePerlin(p);
+                case MapGenerationType.PERLIN3D: return ProbePerlin3D(p);
                 case MapGenerationType.SIMPLE: return ProbeSimple(p);
                 case MapGenerationType.SIMPLEX: return ProbeSimplex(p);
             }
@@ -355,6 +365,11 @@ namespace WorldSailorsDuality
         private float ProbePerlin(Vector2 point)
         {
             return (float)StaticHelpers.Perlin.OctavePerlin(point.X / PerlinFrequency + 10000, point.Y / PerlinFrequency + 10000, PerlinSeed, PerlinOctave, PerlinPersistance) * ScaleZ + Offset;
+        }
+
+        private float ProbePerlin3D(Vector2 point)
+        {
+            return (float)StaticHelpers.Perlin.OctavePerlin((point.X+Perlin3DOffset.X) / PerlinFrequency + 10000, (point.Y + Perlin3DOffset.Y) / PerlinFrequency + 10000, Perlin3DOffset.Z/ PerlinFrequency +10000, PerlinOctave, PerlinPersistance) * ScaleZ + Offset;
         }
 
         private float ProbeSimple(Vector2 point)
@@ -379,10 +394,11 @@ namespace WorldSailorsDuality
             return ret;// * ScaleZ + Offset;
         }
 
-        private void InitArray()
+
+
+        public void InitArray()
         {
             //End all Backround Workers
-            gridSize = new Point2();
             if (backroundGenerators.Count > 0)
                 foreach (Task t in backroundGenerators)
                     t.Wait();
@@ -450,6 +466,24 @@ namespace WorldSailorsDuality
         
         public void OnUpdate()
         {
+            if (GenType == MapGenerationType.PERLIN3D)
+            {
+                float val = Perlin3DOffset.Z;
+                if (DualityApp.Keyboard[Key.B])
+                    val += 50 * Time.TimeMult;
+                if (DualityApp.Keyboard[Key.V])
+                    val -= 50 * Time.TimeMult;
+
+                LandRendererShaded renderer = GameObj.GetComponent<LandRendererShaded>();
+                if (renderer != null)
+                {
+                    ColorHsva c = renderer.BaseWater.ToHsva().WithHue(val / 100000f);
+                    renderer.BaseWater = c.ToRgba();
+                }
+
+                Perlin3DOffset = new Vector3(Perlin3DOffset.Xy, val);
+            }
+
             CheckTasks();
             //Collect points
         }

@@ -11,6 +11,7 @@ uniform float Frequency;
 uniform float Persistance;
 uniform vec4 WaterColor;
 uniform vec4 LandColor;
+uniform vec4 gl_Color;
 
 float height;
 vec4 input;

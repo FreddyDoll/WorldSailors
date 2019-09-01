@@ -64,14 +64,22 @@ namespace WorldSailorsDuality
             SetUpSlider(typeof(SailStiffness));
 
             //Boat Select
-            Gui.Lines.Add(new Line(new List<Element> { new Element("-", 1), new Element("Boat", 5), new Element("+", 1) }));
-            Gui.Lines.Last().Elements[0].ElementHit += BoatMinus;
-            Gui.Lines.Last().Elements[2].ElementHit += BoatPlus; ;
+            //Gui.Lines.Add(new Line(new List<Element> { new Element("-", 1), new Element("Boat", 5), new Element("+", 1) }));
+            //Gui.Lines.Last().Elements[0].ElementHit += BoatMinus;
+            //Gui.Lines.Last().Elements[2].ElementHit += BoatPlus; ;
+
+
+            Gui.Lines.Add(new Line(new List<Element> { new Element("Next World! 100 (PC)", 1) }));
+            Gui.Lines.Last().Elements[0].ElementHit += Next_World;
 
             Gui.Lines.Add(new Line(new List<Element> { new Element("Done", 1) }));
             Gui.Lines.Last().Elements[0].ElementHit += Done;
         }
 
+        private void Next_World(object sender, EventArgs e)
+        {
+            StaticHelpers.SceneLoop.NextWorld();
+        }
 
         private void BoatPlus(object sender, EventArgs e)
         {

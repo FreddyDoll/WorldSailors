@@ -110,6 +110,7 @@
                   <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MapGenerationType" name="SIMPLE" value="1" />
                   <_x003C_GridOffset_x003E_k__BackingField dataType="Float">500000</_x003C_GridOffset_x003E_k__BackingField>
                   <_x003C_Offset_x003E_k__BackingField dataType="Float">-1000</_x003C_Offset_x003E_k__BackingField>
+                  <_x003C_Perlin3DOffset_x003E_k__BackingField dataType="Struct" type="Duality.Vector3" />
                   <_x003C_PerlinFrequency_x003E_k__BackingField dataType="Double">200000</_x003C_PerlinFrequency_x003E_k__BackingField>
                   <_x003C_PerlinOctave_x003E_k__BackingField dataType="Int">4</_x003C_PerlinOctave_x003E_k__BackingField>
                   <_x003C_PerlinPersistance_x003E_k__BackingField dataType="Float">0.8</_x003C_PerlinPersistance_x003E_k__BackingField>
@@ -125,6 +126,12 @@
                   <gameobj dataType="ObjectRef">2542847861</gameobj>
                 </item>
                 <item dataType="Struct" type="WorldSailorsDuality.LandRendererShaded" id="2996869631">
+                  <_x003C_BaseWater_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
+                    <A dataType="Byte">255</A>
+                    <B dataType="Byte">132</B>
+                    <G dataType="Byte">109</G>
+                    <R dataType="Byte">65</R>
+                  </_x003C_BaseWater_x003E_k__BackingField>
                   <_x003C_LandMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                     <contentPath dataType="String">Data\TerrainRendering\LandMat.Material.res</contentPath>
                   </_x003C_LandMaterial_x003E_k__BackingField>
@@ -664,7 +671,7 @@
                       <contentPath dataType="String">Default:Font:GenericMonospace10</contentPath>
                     </_x003C_Font_x003E_k__BackingField>
                     <_x003C_Lines_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.GUIOverlay+Line]]" id="3998144490">
-                      <_items dataType="Array" type="WorldSailorsDuality.GUIOverlay+Line[]" id="3531777312" length="8">
+                      <_items dataType="Array" type="WorldSailorsDuality.GUIOverlay+Line[]" id="3531777312">
                         <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Line" id="1929504732">
                           <Elements dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.GUIOverlay+Element]]" id="4108286660">
                             <_items dataType="Array" type="WorldSailorsDuality.GUIOverlay+Element[]" id="3706314564" length="4">
@@ -891,33 +898,40 @@
                           <Elements dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.GUIOverlay+Element]]" id="1721970382">
                             <_items dataType="Array" type="WorldSailorsDuality.GUIOverlay+Element[]" id="2756910032" length="4">
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="3457497788">
-                                <AssociatedObject />
-                                <ElementHit dataType="Delegate" type="System.EventHandler" id="558449220" multi="true">
-                                  <method dataType="MemberInfo" id="3568609860" value="M:WorldSailorsDuality.EditorController:BoatMinus(System.Object,System.EventArgs)" />
+                                <AssociatedObject dataType="Struct" type="WorldSailorsDuality.SailStiffness" id="558449220">
+                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">1</_x003C_LevelStorage_x003E_k__BackingField>
+                                </AssociatedObject>
+                                <ElementHit dataType="Delegate" type="System.EventHandler" id="2612415126" multi="true">
+                                  <method dataType="ObjectRef">1817701326</method>
                                   <target dataType="ObjectRef">542884417</target>
-                                  <invocationList dataType="Array" type="System.Delegate[]" id="864545430">
-                                    <item dataType="ObjectRef">558449220</item>
-                                  </invocationList>
-                                </ElementHit>
-                                <Name dataType="String">-</Name>
-                                <Width dataType="Float">1</Width>
-                              </item>
-                              <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="366887574">
-                                <AssociatedObject />
-                                <ElementHit />
-                                <Name dataType="String">Boat</Name>
-                                <Width dataType="Float">5</Width>
-                              </item>
-                              <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="3660740200">
-                                <AssociatedObject />
-                                <ElementHit dataType="Delegate" type="System.EventHandler" id="1596195544" multi="true">
-                                  <method dataType="MemberInfo" id="2557063084" value="M:WorldSailorsDuality.EditorController:BoatPlus(System.Object,System.EventArgs)" />
-                                  <target dataType="ObjectRef">542884417</target>
-                                  <invocationList dataType="Array" type="System.Delegate[]" id="3406113718">
-                                    <item dataType="ObjectRef">1596195544</item>
+                                  <invocationList dataType="Array" type="System.Delegate[]" id="2708460494">
+                                    <item dataType="ObjectRef">2612415126</item>
                                   </invocationList>
                                 </ElementHit>
                                 <Name dataType="String">+</Name>
+                                <Width dataType="Float">1</Width>
+                              </item>
+                              <item dataType="Struct" type="WorldSailorsDuality.EditorController+ElementUpgradeType" id="366887574">
+                                <AssociatedObject />
+                                <BaseName dataType="String">Sail Stiffness</BaseName>
+                                <ElementHit />
+                                <Name dataType="String">Sail Stiffness</Name>
+                                <TargetScene dataType="ObjectRef">129723834</TargetScene>
+                                <UpgradeType dataType="Type" id="2429995926" value="WorldSailorsDuality.SailStiffness" />
+                                <Width dataType="Float">5</Width>
+                              </item>
+                              <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="3660740200">
+                                <AssociatedObject dataType="Struct" type="WorldSailorsDuality.SailStiffness" id="1596195544">
+                                  <_x003C_LevelStorage_x003E_k__BackingField dataType="Int">-1</_x003C_LevelStorage_x003E_k__BackingField>
+                                </AssociatedObject>
+                                <ElementHit dataType="Delegate" type="System.EventHandler" id="80502942" multi="true">
+                                  <method dataType="ObjectRef">736949002</method>
+                                  <target dataType="ObjectRef">542884417</target>
+                                  <invocationList dataType="Array" type="System.Delegate[]" id="3510345370">
+                                    <item dataType="ObjectRef">80502942</item>
+                                  </invocationList>
+                                </ElementHit>
+                                <Name dataType="String">-</Name>
                                 <Width dataType="Float">1</Width>
                               </item>
                             </_items>
@@ -930,10 +944,29 @@
                               <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="4096626500">
                                 <AssociatedObject />
                                 <ElementHit dataType="Delegate" type="System.EventHandler" id="681549380" multi="true">
-                                  <method dataType="MemberInfo" id="2471328324" value="M:WorldSailorsDuality.EditorController:Done(System.Object,System.EventArgs)" />
+                                  <method dataType="MemberInfo" id="2471328324" value="M:WorldSailorsDuality.EditorController:Next_World(System.Object,System.EventArgs)" />
                                   <target dataType="ObjectRef">542884417</target>
                                   <invocationList dataType="Array" type="System.Delegate[]" id="3275770518">
                                     <item dataType="ObjectRef">681549380</item>
+                                  </invocationList>
+                                </ElementHit>
+                                <Name dataType="String">Next World! 100 (PC)</Name>
+                                <Width dataType="Float">1</Width>
+                              </item>
+                            </_items>
+                            <_size dataType="Int">1</_size>
+                          </Elements>
+                        </item>
+                        <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Line" id="545665930">
+                          <Elements dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.GUIOverlay+Element]]" id="2269218882">
+                            <_items dataType="Array" type="WorldSailorsDuality.GUIOverlay+Element[]" id="2733291536" length="4">
+                              <item dataType="Struct" type="WorldSailorsDuality.GUIOverlay+Element" id="3419045692">
+                                <AssociatedObject />
+                                <ElementHit dataType="Delegate" type="System.EventHandler" id="3506480964" multi="true">
+                                  <method dataType="MemberInfo" id="1486425668" value="M:WorldSailorsDuality.EditorController:Done(System.Object,System.EventArgs)" />
+                                  <target dataType="ObjectRef">542884417</target>
+                                  <invocationList dataType="Array" type="System.Delegate[]" id="3599612566">
+                                    <item dataType="ObjectRef">3506480964</item>
                                   </invocationList>
                                 </ElementHit>
                                 <Name dataType="String">Done</Name>
@@ -944,7 +977,7 @@
                           </Elements>
                         </item>
                       </_items>
-                      <_size dataType="Int">7</_size>
+                      <_size dataType="Int">8</_size>
                     </_x003C_Lines_x003E_k__BackingField>
                     <_x003C_LineSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
                       <X dataType="Float">0.3</X>

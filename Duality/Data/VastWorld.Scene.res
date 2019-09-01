@@ -354,17 +354,17 @@
                 <item dataType="Struct" type="WorldSailorsDuality.HeightMap" id="3389403723">
                   <_x003C_activeDeathWave_x003E_k__BackingField dataType="Struct" type="WorldSailorsDuality.DeathWave" id="1441022025">
                     <_x003C_DirectionSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                      <X dataType="Float">900</X>
-                      <Y dataType="Float">900</Y>
+                      <X dataType="Float">700</X>
+                      <Y dataType="Float">700</Y>
                     </_x003C_DirectionSpeed_x003E_k__BackingField>
                     <_x003C_StartPos_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
                       <X dataType="Float">-100000</X>
                       <Y dataType="Float">-100000</Y>
                     </_x003C_StartPos_x003E_k__BackingField>
-                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-354.583527</_x003C_TimeOffset_x003E_k__BackingField>
+                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">-159.930145</_x003C_TimeOffset_x003E_k__BackingField>
                   </_x003C_activeDeathWave_x003E_k__BackingField>
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
-                  <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">true</_x003C_BufferPoints_x003E_k__BackingField>
+                  <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">false</_x003C_BufferPoints_x003E_k__BackingField>
                   <_x003C_CompleteArea_x003E_k__BackingField dataType="Struct" type="Duality.Rect">
                     <H dataType="Float">2000000</H>
                     <W dataType="Float">2000000</W>
@@ -374,11 +374,12 @@
                   <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MapGenerationType" name="PERLIN" value="0" />
                   <_x003C_GridOffset_x003E_k__BackingField dataType="Float">5000</_x003C_GridOffset_x003E_k__BackingField>
                   <_x003C_Offset_x003E_k__BackingField dataType="Float">-500</_x003C_Offset_x003E_k__BackingField>
+                  <_x003C_Perlin3DOffset_x003E_k__BackingField dataType="Struct" type="Duality.Vector3" />
                   <_x003C_PerlinFrequency_x003E_k__BackingField dataType="Double">200000</_x003C_PerlinFrequency_x003E_k__BackingField>
                   <_x003C_PerlinOctave_x003E_k__BackingField dataType="Int">4</_x003C_PerlinOctave_x003E_k__BackingField>
                   <_x003C_PerlinPersistance_x003E_k__BackingField dataType="Float">0.8</_x003C_PerlinPersistance_x003E_k__BackingField>
-                  <_x003C_PerlinSeed_x003E_k__BackingField dataType="Int">7</_x003C_PerlinSeed_x003E_k__BackingField>
-                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">160000</_x003C_PointsGenerated_x003E_k__BackingField>
+                  <_x003C_PerlinSeed_x003E_k__BackingField dataType="Int">314</_x003C_PerlinSeed_x003E_k__BackingField>
+                  <_x003C_PointsGenerated_x003E_k__BackingField dataType="Int">16700</_x003C_PointsGenerated_x003E_k__BackingField>
                   <_x003C_ScaleZ_x003E_k__BackingField dataType="Float">1400</_x003C_ScaleZ_x003E_k__BackingField>
                   <_x003C_SimpleFreqX_x003E_k__BackingField dataType="Float">5000</_x003C_SimpleFreqX_x003E_k__BackingField>
                   <_x003C_SimpleFreqY_x003E_k__BackingField dataType="Float">8000</_x003C_SimpleFreqY_x003E_k__BackingField>
@@ -389,6 +390,12 @@
                   <gameobj dataType="ObjectRef">2542847861</gameobj>
                 </item>
                 <item dataType="Struct" type="WorldSailorsDuality.LandRendererShaded" id="2996869631">
+                  <_x003C_BaseWater_x003E_k__BackingField dataType="Struct" type="Duality.Drawing.ColorRgba">
+                    <A dataType="Byte">255</A>
+                    <B dataType="Byte">155</B>
+                    <G dataType="Byte">124</G>
+                    <R dataType="Byte">69</R>
+                  </_x003C_BaseWater_x003E_k__BackingField>
                   <_x003C_LandMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                     <contentPath dataType="String">Data\TerrainRendering\LandMat.Material.res</contentPath>
                   </_x003C_LandMaterial_x003E_k__BackingField>
@@ -835,7 +842,23 @@
                   <deriveAngle dataType="Bool">false</deriveAngle>
                   <gameobj dataType="ObjectRef">2441687343</gameobj>
                   <ignoreParent dataType="Bool">true</ignoreParent>
-                  <parentTransform />
+                  <parentTransform dataType="Struct" type="Duality.Components.Transform" id="3436690200">
+                    <active dataType="Bool">true</active>
+                    <angle dataType="Float">0</angle>
+                    <angleAbs dataType="Float">0</angleAbs>
+                    <angleVel dataType="Float">0</angleVel>
+                    <angleVelAbs dataType="Float">0</angleVelAbs>
+                    <deriveAngle dataType="Bool">true</deriveAngle>
+                    <gameobj dataType="ObjectRef">3379412982</gameobj>
+                    <ignoreParent dataType="Bool">false</ignoreParent>
+                    <parentTransform />
+                    <pos dataType="Struct" type="Duality.Vector3" />
+                    <posAbs dataType="Struct" type="Duality.Vector3" />
+                    <scale dataType="Float">1</scale>
+                    <scaleAbs dataType="Float">1</scaleAbs>
+                    <vel dataType="Struct" type="Duality.Vector3" />
+                    <velAbs dataType="Struct" type="Duality.Vector3" />
+                  </parentTransform>
                   <pos dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">0</X>
                     <Y dataType="Float">0</Y>
@@ -945,7 +968,7 @@
                   <deriveAngle dataType="Bool">true</deriveAngle>
                   <gameobj dataType="ObjectRef">1736672299</gameobj>
                   <ignoreParent dataType="Bool">false</ignoreParent>
-                  <parentTransform />
+                  <parentTransform dataType="ObjectRef">3436690200</parentTransform>
                   <pos dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">0</X>
                     <Y dataType="Float">0</Y>
@@ -1040,7 +1063,7 @@
         <_size dataType="Int">2</_size>
       </children>
       <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="4233758862">
-        <_items dataType="Array" type="Duality.Component[]" id="849044402" length="4">
+        <_items dataType="Array" type="Duality.Component[]" id="849044402" length="8">
           <item dataType="Struct" type="Duality.Components.Diagnostics.ProfileRenderer" id="894796662">
             <active dataType="Bool">false</active>
             <counterGraphs dataType="Struct" type="System.Collections.Generic.List`1[[System.String]]" id="3014228042">
@@ -1063,6 +1086,7 @@
             <textReportStat dataType="Bool">true</textReportStat>
             <updateInterval dataType="Int">250</updateInterval>
           </item>
+          <item dataType="ObjectRef">3436690200</item>
           <item dataType="Struct" type="WorldSailorsDuality.AgentSwitcher" id="2578067603">
             <_x003C_AllTrackers_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[WorldSailorsDuality.ITracksAgent]]" id="3277661683">
               <_items dataType="Array" type="WorldSailorsDuality.ITracksAgent[]" id="294552358" length="4">
@@ -1109,7 +1133,7 @@
           </item>
           <item dataType="ObjectRef">4079431515</item>
         </_items>
-        <_size dataType="Int">3</_size>
+        <_size dataType="Int">4</_size>
       </compList>
       <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="2192820604" surrogate="true">
         <header />
@@ -1118,15 +1142,17 @@
             <item dataType="Type" id="3496425836" value="WorldSailorsDuality.HudRenderer" />
             <item dataType="Type" id="3587668022" value="WorldSailorsDuality.AgentSwitcher" />
             <item dataType="Type" id="1749950520" value="Duality.Components.Diagnostics.ProfileRenderer" />
+            <item dataType="ObjectRef">2739956540</item>
           </keys>
           <values dataType="Array" type="System.Object[]" id="4096465374">
             <item dataType="ObjectRef">4079431515</item>
             <item dataType="ObjectRef">2578067603</item>
             <item dataType="ObjectRef">894796662</item>
+            <item dataType="ObjectRef">3436690200</item>
           </values>
         </body>
       </compMap>
-      <compTransform />
+      <compTransform dataType="ObjectRef">3436690200</compTransform>
       <identifier dataType="Struct" type="System.Guid" surrogate="true">
         <header>
           <data dataType="Array" type="System.Byte[]" id="1122605860">JfcPzv6x30KQ5Q4F33l8GQ==</data>
