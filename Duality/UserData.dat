@@ -1,10 +1,26 @@
 ﻿<root dataType="Struct" type="Duality.DualityUserData" id="129723834">
-  <customData />
+  <customData dataType="Struct" type="WorldSailorsDuality.CoreSceneLoop" id="427169525">
+    <_x003C_DeathWaveSpeedIncrease_x003E_k__BackingField dataType="Float">1.5</_x003C_DeathWaveSpeedIncrease_x003E_k__BackingField>
+    <_x003C_Shop_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
+      <contentPath dataType="String">Data\ShipEditor.Scene.res</contentPath>
+    </_x003C_Shop_x003E_k__BackingField>
+    <_x003C_Title_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
+      <contentPath dataType="String">Data\TitleWorld.Scene.res</contentPath>
+    </_x003C_Title_x003E_k__BackingField>
+    <_x003C_World_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
+      <contentPath dataType="String">Data\VastWorld.Scene.res</contentPath>
+    </_x003C_World_x003E_k__BackingField>
+    <rand dataType="Struct" type="System.Random" id="1100841590">
+      <inext dataType="Int">0</inext>
+      <inextp dataType="Int">21</inextp>
+      <SeedArray dataType="Array" type="System.Int32[]" id="2824927200">0, 1057840173, 1784217468, 1129303723, 1895938681, 833421478, 2015036100, 1402704831, 1209902484, 618310435, 1033742982, 1600676114, 1929756840, 1372113744, 1896993091, 668192939, 1640440427, 558710030, 644655841, 905795192, 1697633529, 136825798, 301477719, 1710913410, 1962433060, 884168529, 1013318179, 800581897, 2139802942, 254249298, 667428596, 537141012, 1990393770, 686934834, 1724738160, 332056338, 500428930, 1626008328, 1523116994, 174679293, 374253582, 687030889, 1621519706, 1996084933, 339942564, 1278140470, 1465291886, 159118189, 1271448249, 2079041868, 2072242070, 166963060, 1526196542, 364602686, 1602040254, 5933014</SeedArray>
+    </rand>
+  </customData>
   <gfxAAQuality dataType="Enum" type="Duality.AAQuality" name="High" value="0" />
-  <gfxHeight dataType="Int">1000</gfxHeight>
+  <gfxHeight dataType="Int">600</gfxHeight>
   <gfxMode dataType="Enum" type="Duality.ScreenMode" name="Window" value="0" />
   <gfxRefreshMode dataType="Enum" type="Duality.RefreshMode" name="AdaptiveVSync" value="3" />
-  <gfxWidth dataType="Int">1800</gfxWidth>
+  <gfxWidth dataType="Int">800</gfxWidth>
   <sfxEffectVol dataType="Float">1</sfxEffectVol>
   <sfxMasterVol dataType="Float">1</sfxMasterVol>
   <sfxMusicVol dataType="Float">1</sfxMusicVol>

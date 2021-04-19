@@ -1,0 +1,243 @@
+[Core] Msg: Running DualityLauncher with flags: Debugging
+[Core] Msg: Using 'DefaultPluginLoader' to load plugins.
+[Core] Msg: Environment Info:
+              Current Directory: D:\Games\WorldSailors-master\Duality
+              Command Line: "D:\Games\WorldSailors-master\Duality\Source\Code\..\..\DualityLauncher.exe" 
+              Operating System: Windows 8 or higher (Microsoft Windows NT 6.2.9200.0)
+              64 Bit OS: True
+              64 Bit Process: True
+              CLR Version: 4.0.30319.42000
+              Processor Count: 8
+              Processor Type: Intel64 Family 6 Model 94 Stepping 3, GenuineIntel
+              Processor Architecture: AMD64
+[Core] Msg: Currently Loaded Assemblies:
+              mscorlib 4.0.0.0
+              DualityLauncher 2.3.4.0
+              Duality 2.14.9.0
+              System.Runtime 4.0.0.0
+              System.Core 4.0.0.0
+              System 4.0.0.0
+              System.IO 4.0.0.0
+              System.Reflection 4.0.0.0
+              DualityPrimitives 2.0.7.0
+              System.Collections 4.0.0.0
+              System.Linq 4.0.0.0
+              System.Runtime.Extensions 4.0.0.0
+              System.Globalization 4.0.0.0
+              System.Diagnostics.Debug 4.0.0.0
+[Core] Msg: Plugin Base Directories:
+              Plugins
+[Core] Msg: Available Assembly Paths:
+              Plugins\AdamsLair.WinForms.dll
+              Plugins\CamView.editor.dll
+              Plugins\Compatibility.core.dll
+              Plugins\DefaultOpenTKBackend.core.dll
+              Plugins\DefaultOpenTKBackend.editor.dll
+              Plugins\DotNetFrameworkBackend.core.dll
+              Plugins\EditorBase.editor.dll
+              Plugins\GamePlugin.core.dll
+              Plugins\HelpAdvisor.editor.dll
+              Plugins\LogView.editor.dll
+              Plugins\ObjectInspector.editor.dll
+              Plugins\OpenALSoft32.dll
+              Plugins\OpenALSoft64.dll
+              Plugins\OpenTK.dll
+              Plugins\OpenTK.GLControl.dll
+              Plugins\PackageManagerFrontend.editor.dll
+              Plugins\ProjectView.editor.dll
+              Plugins\SceneView.editor.dll
+              Plugins\Tilemaps.core.dll
+              Plugins\Tilemaps.editor.dll
+              Plugins\WeifenLuo.WinFormsUI.Docking.dll
+[Core] Msg: Assembly loaded: System.Threading 4.0.0.0
+[Core] Msg: Scanning for core plugins...
+[Core] Msg:   Plugins\Compatibility.core.dll...
+[Core] Msg:     Assembly loaded: Compatibility.core 2.0.2.0
+[Core] Msg:     Assembly loaded: System.Linq.Expressions 4.0.0.0
+[Core] Msg:     Assembly loaded: Anonymously Hosted DynamicMethods Assembly 0.0.0.0
+[Core] Msg:   Plugins\DefaultOpenTKBackend.core.dll...
+[Core] Msg:     Assembly loaded: DefaultOpenTKBackend.core 2.0.22.0
+[Core] Msg:     Assembly loaded: OpenTK 1.1.10.0
+[Core] Msg:   Plugins\DotNetFrameworkBackend.core.dll...
+[Core] Msg:     Assembly loaded: DotNetFrameworkBackend.core 2.1.1.0
+[Core] Msg:   Plugins\GamePlugin.core.dll...
+[Core] Msg:     Assembly loaded: GamePlugin.core 1.0.0.0
+[Core] Msg:   Plugins\Tilemaps.core.dll...
+[Core] Msg:     Assembly loaded: Tilemaps.core 1.1.15.0
+[Core] Msg: Loading auxiliary libraries...
+[Core] Msg:   Assembly loaded: AdamsLair.WinForms 1.1.15.0
+[Core] Msg:   Assembly loaded: OpenTK.GLControl 1.1.10.0
+[Core] Msg:   Assembly loaded: WeifenLuo.WinFormsUI.Docking 2.8.1.0
+[Core] Msg: Initializing ISystemBackend...
+[Core] Msg:   Assembly loaded: System.Text.RegularExpressions 4.0.0.0
+[Core] Msg:   .Net Framework...
+[Core] Msg: Assembly loaded: System.Xml.XDocument 4.0.0.0
+[Core] Msg: Assembly loaded: System.Xml.Linq 4.0.0.0
+[Core] Msg: Assembly loaded: System.Xml 4.0.0.0
+[Core] Msg: Assembly loaded: System.Xml.ReaderWriter 4.0.0.0
+[Core] Msg: Assembly loaded: System.Text.Encoding 4.0.0.0
+[Core] Msg: Assembly loaded: System.Reflection.Extensions 4.0.0.0
+[Core] Msg: Initializing IGraphicsBackend...
+[Core] Msg:   OpenGL 2.1 (OpenTK)...
+[Core] Msg:     Initializing OpenTK...
+[Core] Msg:       Platform Backend: PreferNative
+                  EnableHighResolution: True
+[Core] Msg:     Assembly loaded: System.Drawing 4.0.0.0
+[Core] Msg:     Available display devices:
+[Core] Msg:       First : 1920x1080 at  50 Hz, 32 bpp, pos [   0,   0] (Primary)
+[Core] Msg: Initializing IAudioBackend...
+[Core] Msg:   OpenAL (OpenTK)...
+[Core] Msg:     OpenAL Drivers installed in C:\WINDOWS\system32\OpenAL32.dll
+[Core] Msg:     Available devices:
+                  Generic Software on Panasonic-TV (NVIDIA High Definition Audio) (Default)
+                  Generic Software on Digital Audio (S/PDIF) (High Definition Audio Device)
+[Core] Msg:     Current device: Generic Software
+[Core] Msg:     OpenAL Version: 1.1
+                Vendor: Creative Labs Inc.
+                Renderer: Software
+                Effects: True
+[Core] Msg:     256 sources available
+[Core] Msg: Initializing core plugins...
+[Core] Msg:   Compatibility.core...
+[Core] Msg:   DefaultOpenTKBackend.core...
+[Core] Msg:     Detected new Gamepad Input: "Gamepad 0" at index 0
+[Core] Msg:     Detected new Joystick Input: "Joystick 0" at index 0
+                Capabilities: 6 axes, 14 buttons, 0 hats
+[Core] Msg:   DotNetFrameworkBackend.core...
+[Core] Msg:   GamePlugin.core...
+[Core] Msg:   Tilemaps.core...
+[Core] Msg: DualityApp initialized
+            Debug Mode: True
+            Command line arguments: 
+[Core] Msg: Opening Window...
+[Core] Msg:   Window Specification: 
+                Buffers: 2
+                Samples: 16
+                ColorFormat: 32 (8888)
+                AccumFormat: 64 (16161616)
+                Depth: 24
+                Stencil: 0
+                VSync: Off
+                SwapInterval: 0
+[Core] Msg:   OpenGL Version: 4.6.0 NVIDIA 456.71
+              Vendor: NVIDIA Corporation
+              Renderer: GeForce GTX 970/PCIe/SSE2
+              Shader Version: 4.60 NVIDIA
+[Core] Msg: Initializing default content...
+[Core] Msg:   Assembly loaded: System.Runtime.InteropServices 4.0.0.0
+[Core] Msg:   Assembly loaded: System.Collections.Concurrent 4.0.0.0
+[Core] Msg:   Assembly loaded: System.Threading.Tasks.Parallel 4.0.0.0
+[Core] Msg:   Assembly loaded: NVorbis 0.7.5.0
+[Core] Msg:   ...done!
+[Core] Msg: Assembly loaded: FarseerDuality 4.1.4.0
+[Core] Msg: Loading Resource 'Data\TitleWorld.Scene.res'
+[Core] Msg:   Assembly loaded: System.Threading.Tasks 4.0.0.0
+[Core] Msg: Loading Resource 'Data\Prefabs\Boats\AnimBoat.Prefab.res'
+[Core] Msg:   Loading Resource 'Data\Textures\BoatPixmap.Material.res'
+[Core] Msg:     Loading Resource 'Data\Textures\BoatPixmap.Texture.res'
+[Core] Msg:       Loading Resource 'Data\Textures\BoatPixmap.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Prefabs\Target.Prefab.res'
+[Core] Msg: Loading Resource 'Data\Textures\Particle.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Particle.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Particle.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\TerrainRendering\LandMat.Material.res'
+[Core] Msg:   Loading Resource 'Data\TerrainRendering\TerrainTechnique.DrawTechnique.res'
+[Core] Msg: Determining OpenGL context capabilities...
+[Core] Msg: Loading Resource 'Data\TerrainRendering\TerrainProgram.ShaderProgram.res'
+[Core] Msg:   Loading Resource 'Data\TerrainRendering\TerrainShader.FragmentShader.res'
+[Core] Msg: Loading Resource 'Data\Title\TitleText.Material.res'
+[Core] Msg:   Loading Resource 'Data\Title\TitleText.DrawTechnique.res'
+[Core] Msg:   Loading Resource 'Data\Title\TitleText.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Title\TitleText.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Title\PressStart.Material.res'
+[Core] Msg:   Loading Resource 'Data\Title\PressStart.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Title\PressStart.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Title\TitleText.ShaderProgram.res'
+[Core] Msg:   Loading Resource 'Data\Title\TitleText.FragmentShader.res'
+[Core] Msg: Loading Resource 'Data\TrailRendering\TrailMaterial.Material.res'
+[Core] Msg:   Loading Resource 'Data\TrailRendering\TrailTechnique.DrawTechnique.res'
+[Core] Msg: Loading Resource 'Data\TrailRendering\TrailShader.ShaderProgram.res'
+[Core] Msg:   Loading Resource 'Data\TrailRendering\TrailFragment.FragmentShader.res'
+[Core] Msg: Assembly loaded: Microsoft.VisualStudio.Debugger.Runtime.Desktop 16.0.0.0
+[Core] Msg: Assembly loaded: System.Configuration 4.0.0.0
+[Core] Msg: Loading Resource 'Data\VastWorld.Scene.res'
+[Core] Msg:   Loading Resource 'Data\Prefabs\Upgrades\UpgradeSailStiffnessMinus.Prefab.res'
+[Core] Msg:   Loading Resource 'Data\Prefabs\Upgrades\UpgradeSailLiftMinus.Prefab.res'
+[Core] Msg:   Loading Resource 'Data\Prefabs\Upgrades\UpgradeHullLiftPlus.Prefab.res'
+[Core] Msg:   Loading Resource 'Data\Prefabs\Upgrades\UpgradeSailDragPlus.Prefab.res'
+[Core] Msg:   Loading Resource 'Data\Prefabs\Upgrades\UpgradeTurnRateMinu.Prefab.res'
+[Core] Msg:   Loading Resource 'Data\Prefabs\Upgrades\UpgradeTurnRatePlus.Prefab.res'
+[Core] Msg:   Loading Resource 'Data\Prefabs\Upgrades\UpgradeSailLiftPlus.Prefab.res'
+[Core] Msg:   Loading Resource 'Data\Prefabs\Upgrades\UpgradeSailDragMinus.Prefab.res'
+[Core] Msg:   Loading Resource 'Data\Prefabs\Upgrades\UpgradeSailStiffnessPlus.Prefab.res'
+[Core] Msg:   Loading Resource 'Data\Prefabs\Upgrades\UpgradeHullLiftMinus.Prefab.res'
+[Core] Msg:   Loading Resource 'Data\Prefabs\Upgrades\UpgradeHullDragPlus.Prefab.res'
+[Core] Msg:   Loading Resource 'Data\Prefabs\Upgrades\UpgradeHullDragMinus.Prefab.res'
+[Core] Msg: Loading Resource 'Data\ShipEditor.Scene.res'
+[Core] Msg: Loading Resource 'Data\Textures\Target.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Target.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Target.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\GUI\SelectedControlMat.Material.res'
+[Core] Msg: Loading Resource 'Data\GUI\ControlMat.Material.res'
+[Core] Msg: Loading Resource 'Data\Prefabs\CrazyAI.Prefab.res'
+[Core] Msg: Loading Resource 'Data\Prefabs\AnimAI.Prefab.res'
+[Core] Msg: Loading Resource 'Data\Prefabs\Basic AI.Prefab.res'
+[Core] Msg: Loading Resource 'Data\NavBall\AgentEnlarged.Material.res'
+[Core] Msg:   Loading Resource 'Data\NavBall\AgentEnlarged.Texture.res'
+[Core] Msg: Loading Resource 'Data\NavBall\AgentEnlarged.RenderTarget.res'
+[Core] Msg: Loading Resource 'Data\Prefabs\Boats\AnimManiac.Prefab.res'
+[Core] Msg: Loading Resource 'Data\Prefabs\Boats\AIBoat.Prefab.res'
+[Core] Msg: Loading Resource 'Data\Textures\Upgrades\TurnPlus.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Upgrades\TurnPlus.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Upgrades\TurnPlus.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Textures\ParticleTrail.Material.res'
+[Core] Msg: Loading Resource 'Data\Textures\Upgrades\SailDragPlus.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Upgrades\SailDragPlus.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Upgrades\SailDragPlus.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Textures\Upgrades\HullLiftPlus.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Upgrades\HullLiftPlus.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Upgrades\HullLiftPlus.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Textures\Upgrades\SailStiffnessMinus.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Upgrades\SailStiffnessMinus.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Upgrades\SailStiffnessMinus.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Textures\Upgrades\TurnMinus.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Upgrades\TurnMinus.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Upgrades\TurnMinus.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Textures\Upgrades\HullDragPlus.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Upgrades\HullDragPlus.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Upgrades\HullDragPlus.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Textures\Upgrades\SailStiffnessPlus.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Upgrades\SailStiffnessPlus.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Upgrades\SailStiffnessPlus.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Textures\Upgrades\SailLiftMinus.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Upgrades\SailLiftMinus.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Upgrades\SailLiftMinus.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Textures\Upgrades\SailDragMinus.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Upgrades\SailDragMinus.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Upgrades\SailDragMinus.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Textures\Upgrades\SailLiftPlus.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Upgrades\SailLiftPlus.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Upgrades\SailLiftPlus.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Textures\Upgrades\HullDragMinus.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Upgrades\HullDragMinus.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Upgrades\HullDragMinus.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Textures\Upgrades\HullLiftMinus.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Upgrades\HullLiftMinus.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Upgrades\HullLiftMinus.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Textures\Boat.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Boat.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Boat.Pixmap.res'
+[Core] Msg: Loading Resource 'Data\Textures\Sail.Material.res'
+[Core] Msg:   Loading Resource 'Data\Textures\Sail.Texture.res'
+[Core] Msg:     Loading Resource 'Data\Textures\Sail.Pixmap.res'
+[Core] Msg: Shutting down OpenGL 2.1 (OpenTK)...
+[Core] Msg: Shutting down OpenAL (OpenTK)...
+[Core] Msg: Assembly loaded: System.Security 4.0.0.0
+[Core] Msg: Assembly loaded: System.Windows.Forms 4.0.0.0
+[Core] Msg: Assembly loaded: PopupControl 1.0.0.0
+[Core] Msg: Assembly loaded: System.Data.SqlXml 4.0.0.0
+[Core] ERR: Can't resolve Type 'WorldSailorsDuality.CoreSceneLoop' in object Id 427169525. Type not found.
+[Core] Msg: Assembly loaded: Accessibility 4.0.0.0
+[Core] ERR: Can't resolve Type 'WorldSailorsDuality.CoreSceneLoop' in object Id 427169525. Type not found.
+[Core] Msg: Shutting down .Net Framework...
+[Core] Msg: DualityApp terminated

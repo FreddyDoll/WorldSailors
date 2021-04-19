@@ -1,0 +1,71 @@
+[Edit] Msg: Synchronizing Local Package Setup...
+[Edit] Msg:   Removing unregistered packages...
+[Edit] Msg:   Verifying registered packages...
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Editor.Backend.DefaultOpenTK', Version 2.0.7.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Editor.Backend.DefaultOpenTK'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Editor.Plugins.PackageManagerFrontend', Version 2.1.4.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Editor.Plugins.PackageManagerFrontend'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Editor.Plugins.SceneView', Version 2.0.18.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Editor.Plugins.SceneView'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Editor.Plugins.ProjectView', Version 2.0.16.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Editor.Plugins.ProjectView'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Editor.Plugins.ObjectInspector', Version 2.1.4.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Editor.Plugins.ObjectInspector'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Editor.Plugins.LogView', Version 2.1.10.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Editor.Plugins.LogView'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Editor.Plugins.HelpAdvisor', Version 2.0.6.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Editor.Plugins.HelpAdvisor'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Editor.Plugins.CamView', Version 2.6.8.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Editor.Plugins.CamView'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Editor.Plugins.Base', Version 2.3.2.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Editor.Plugins.Base'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Editor', Version 2.10.19.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Editor'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Backend.DefaultOpenTK', Version 2.0.22.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Backend.DefaultOpenTK'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Docs', Version 2.0.1.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Docs'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Plugins.Compatibility', Version 2.0.2.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Plugins.Compatibility'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Backend.DotNetFramework', Version 2.1.1.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Backend.DotNetFramework'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality.Launcher', Version 2.3.4.0: Exception: Can't resolve version of package 'AdamsLair.Duality.Launcher'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] ERR:     An error occurred verifying Package 'AdamsLair.Duality', Version 2.14.9.0: Exception: Can't resolve version of package 'AdamsLair.Duality'. There seems to be no compatible version available.
+                CallStack:
+                   bei Duality.Editor.PackageManagement.PackageManager.VerifyPackage(LocalPackage localPackage)
+                   bei Duality.Editor.Program.<SynchronizePackages>d__8.MoveNext()
+[Edit] Msg: An error occurred while initializing the editor: FileNotFoundException: Could not load file or assembly 'AdamsLair.WinForms, Version=1.1.15.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. Das System kann die angegebene Datei nicht finden.
+            CallStack:
+               at Duality.Editor.Forms.MainForm..ctor()
+               at Duality.Editor.Forms.SplashScreen.InitEditor()

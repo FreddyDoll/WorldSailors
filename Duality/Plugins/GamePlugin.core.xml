@@ -447,7 +447,7 @@
             How Many Grid Points are there
             </summary>
         </member>
-        <!-- Ungültiger XML-Kommentar wurde für den Member "P:WorldSailorsDuality.HeightMap.activeDeathWave" ignoriert -->
+        <!-- Badly formed XML comment ignored for member "P:WorldSailorsDuality.HeightMap.activeDeathWave" -->
         <member name="P:WorldSailorsDuality.LandRendererShaded.RenderDataSettings.GridSizeX">
             <summary>
             Screen gets split into Grid for Coloring/Texturing
@@ -656,7 +656,7 @@
             Return the contents of this node and all subnodes in the true below this one.
             </summary>
         </member>
-        <!-- Ungültiger XML-Kommentar wurde für den Member "M:WorldSailorsDuality.QuadTreeLib.QuadTreeNode`1.Query(Duality.Rect)" ignoriert -->
+        <!-- Badly formed XML comment ignored for member "M:WorldSailorsDuality.QuadTreeLib.QuadTreeNode`1.Query(Duality.Rect)" -->
         <member name="M:WorldSailorsDuality.QuadTreeLib.QuadTreeNode`1.Insert(`0)">
             <summary>
             Insert an item to this node
@@ -753,7 +753,7 @@
             <param name="x"></param>
             <returns></returns>
         </member>
-        <!-- Ungültiger XML-Kommentar wurde für den Member "T:Simplex.Noise" ignoriert -->
+        <!-- Badly formed XML comment ignored for member "T:Simplex.Noise" -->
         <member name="M:Simplex.Noise.Generate(System.Single)">
             <summary>
             1D simplex noise
