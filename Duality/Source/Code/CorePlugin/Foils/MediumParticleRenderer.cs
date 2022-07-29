@@ -19,8 +19,9 @@ namespace WorldSailorsDuality
         public float ScreenAreaFraction { get; set; } = 2;
         public Vector2 zHeight { get; set; } = new Vector2();
         public int ParticlesPerFrame { get; set; } = 10;
+        public int DelaySpawnFrame { get; set; } = 1;
         public int ParticlesVisible { get; set; } = 1000;
-        public int ParticlesScale { get; set; } = 10;
+        public float ParticlesScale { get; set; } = 10;
         /// <summary>
         /// If Set to != null the Area where the particles are spawned is kept constant.
         /// Otherwise its the screen*ScreenAreaFraction
@@ -61,7 +62,7 @@ namespace WorldSailorsDuality
                 return float.MaxValue;
             }
         }
-
+        int delayFrameCntr = 0;
         public void Draw(IDrawDevice device)
         {
             if(Medium == null)
@@ -70,29 +71,34 @@ namespace WorldSailorsDuality
             Vector3 TopLeftWorld = device.GetSpaceCoord(new Vector3(0, 0, 0));
             Vector3 BottomRightWorld = device.GetSpaceCoord(new Vector3(device.TargetSize.X, device.TargetSize.Y, 0));
 
-            for (int n = 0; n < 0 + ParticlesPerFrame && particles.Count < ParticlesVisible; n++)
+            delayFrameCntr++;
+            if (delayFrameCntr > DelaySpawnFrame)
             {
-                Vector3 pos = new Vector3();
-                if (SpawnArea == null || SpawnArea.Length < 1)
+                delayFrameCntr = 0;
+                for (int n = 0; n < ParticlesPerFrame && particles.Count < ParticlesVisible; n++)
                 {
-                    pos.X = StaticHelpers.lerp(TopLeftWorld.X, BottomRightWorld.X, MathF.Rnd.NextFloat() * ScreenAreaFraction - (ScreenAreaFraction - 1f) / 2f);
-                    pos.Y = StaticHelpers.lerp(TopLeftWorld.Y, BottomRightWorld.Y, MathF.Rnd.NextFloat() * ScreenAreaFraction - (ScreenAreaFraction - 1f) / 2f);
+                    Vector3 pos = new Vector3();
+                    if (SpawnArea == null || SpawnArea.Length < 1)
+                    {
+                        pos.X = StaticHelpers.lerp(TopLeftWorld.X, BottomRightWorld.X, MathF.Rnd.NextFloat() * ScreenAreaFraction - (ScreenAreaFraction - 1f) / 2f);
+                        pos.Y = StaticHelpers.lerp(TopLeftWorld.Y, BottomRightWorld.Y, MathF.Rnd.NextFloat() * ScreenAreaFraction - (ScreenAreaFraction - 1f) / 2f);
+                    }
+                    else
+                    {
+                        Vector2 ScreenCenter = device.RefCoord.Xy;
+                        pos = new Vector3(MathF.Rnd.NextVector2(new Rect(-SpawnArea.X / 2f, -SpawnArea.Y / 2f, SpawnArea.X, SpawnArea.Y)) + ScreenCenter, 0);
+                    }
+                    //pos.Z = zHeight.X + (zHeight.Y - zHeight.X) * MathF.Rnd.NextFloat();
+                    pos.Z = -1000;
+                    MediumParticle aParticle = new MediumParticle(pos, ParticlesScale, ParticleLife, ParticleMaterial.Res);
+                    particles.Add(aParticle);
+
+                    aParticle.colorFromLifetime = colorFromLifetime;
+                    if (Medium != null)
+                        aParticle.colorFromSpeed = Medium.colorFromSpeed;
+                    else
+                        aParticle.colorFromSpeed = new ColorLUT();
                 }
-                else
-                {
-                    Vector2 ScreenCenter = device.RefCoord.Xy;
-                    pos = new Vector3(MathF.Rnd.NextVector2(new Rect(-SpawnArea.X/2f, -SpawnArea.Y / 2f, SpawnArea.X, SpawnArea.Y))+ScreenCenter, 0);
-                }
-                //pos.Z = zHeight.X + (zHeight.Y - zHeight.X) * MathF.Rnd.NextFloat();
-                pos.Z = -1000;
-                MediumParticle aParticle = new MediumParticle(pos, ParticlesScale, ParticleLife, ParticleMaterial.Res);
-                particles.Add(aParticle);
-                
-                aParticle.colorFromLifetime = colorFromLifetime;
-                if (Medium != null)
-                    aParticle.colorFromSpeed = Medium.colorFromSpeed;
-                else
-                    aParticle.colorFromSpeed = new ColorLUT();
             }
 
             List<MediumParticle> aliveParticles = new List<MediumParticle>();
@@ -232,9 +238,9 @@ namespace WorldSailorsDuality
                     Vector3 pT = trailPositions[n];
                     float sT = 1f;
                     device.PreprocessCoords(ref pT, ref sT);
-                    byte alpha = (byte)(color.A * n / TrailCounter);
+                    //byte alpha = (byte)(color.A * n / TrailCounter);
                     trail[n].Color = trailColor[n];
-                    trail[n].Color.A = alpha;
+                    //trail[n].Color.A = alpha;
                     trail[n].Pos = new Vector3(pT.X, pT.Y, pT.Z);
                 }
 

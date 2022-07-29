@@ -387,15 +387,7 @@ namespace WorldSailorsDuality
             // targetSailAngle = 0f;
         }
 
-        private float FindDiff(float target, float current)
-        {
-            float diff = target - current;
-            while (diff > Math.PI)
-                diff -= (float)Math.PI * 2f;
-            while (diff < -Math.PI)
-                diff += (float)Math.PI * 2f;
-            return diff;
-        }
+        
 
         public override void SetTarget(AITarget target)
         {

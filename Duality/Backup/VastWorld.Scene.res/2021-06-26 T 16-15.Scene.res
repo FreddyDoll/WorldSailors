@@ -240,12 +240,9 @@
                     </_x003C_LUTvalues_x003E_k__BackingField>
                   </_x003C_colorFromSpeed_x003E_k__BackingField>
                   <_x003C_foils_x003E_k__BackingField />
-                  <_x003C_GenSineParameter_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                    <X dataType="Float">0.1</X>
-                    <Y dataType="Float">0.05</Y>
-                  </_x003C_GenSineParameter_x003E_k__BackingField>
+                  <_x003C_GenSineParameter_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                   <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.GenerationType" name="FUNCTION_PATH" value="4" />
-                  <_x003C_MapBasedFactor_x003E_k__BackingField dataType="Float">3.5</_x003C_MapBasedFactor_x003E_k__BackingField>
+                  <_x003C_MapBasedFactor_x003E_k__BackingField dataType="Float">5</_x003C_MapBasedFactor_x003E_k__BackingField>
                   <_x003C_MaxSpeed_x003E_k__BackingField dataType="Float">30</_x003C_MaxSpeed_x003E_k__BackingField>
                   <_x003C_Medium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="AIR" value="2" />
                   <_x003C_RadiusExponent_x003E_k__BackingField dataType="Float">0.5</_x003C_RadiusExponent_x003E_k__BackingField>
@@ -314,7 +311,7 @@
                   </_x003C_TrailMaterial_x003E_k__BackingField>
                   <_x003C_zHeight_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                   <active dataType="Bool">true</active>
-                  <delayFrameCntr dataType="Int">10</delayFrameCntr>
+                  <delayFrameCntr dataType="Int">5</delayFrameCntr>
                   <gameobj dataType="ObjectRef">1927754364</gameobj>
                 </item>
               </_items>

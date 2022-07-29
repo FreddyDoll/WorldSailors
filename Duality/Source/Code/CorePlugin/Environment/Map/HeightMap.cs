@@ -123,7 +123,7 @@ namespace WorldSailorsDuality
         public int GridPointsCount { get { return GridSize.X * GridSize.Y; } }
         /// How Many Grid Points are there
         /// </summary>
-        public DeathWave activeDeathWave { get; set; } = new DeathWave();
+        //public DeathWave activeDeathWave { get; set; }// = new DeathWave();
 
         [DontSerialize]
         private int simplexSeed = 0;
@@ -217,10 +217,10 @@ namespace WorldSailorsDuality
                     else
                         map[x, y].IsWall = true;
 
-                    if (wind != null && activeDeathWave == null)
+                    //if (wind != null && activeDeathWave == null)
                         map[x, y].WindDirection = wind.GetSpeedAtPosition(point);
-                    else
-                        map[x, y].WindDirection = activeDeathWave.DirectionSpeed;
+                    //else
+                    //    map[x, y].WindDirection = activeDeathWave.DirectionSpeed;
                 }
             }
         }
@@ -230,9 +230,9 @@ namespace WorldSailorsDuality
             if (!BufferPoints)
             {
                 grid = null;
-                if (activeDeathWave != null)
-                    return GetNoisePoint(point) + activeDeathWave.getHeightOffset(point);
-                else
+                //if (activeDeathWave != null)
+                    //return GetNoisePoint(point) + activeDeathWave.getHeightOffset(point);
+                //else
                     return GetNoisePoint(point);
             }
 
@@ -255,10 +255,10 @@ namespace WorldSailorsDuality
             pInt.Y *= GridOffset;
 
             float ret = StaticHelpers.BilinearInterpolation(pInt, new Vector2(GridOffset, GridOffset), vals);
-            if (activeDeathWave != null)
-            {
-                ret += activeDeathWave.getHeightOffset(point);
-            }
+            //if (activeDeathWave != null)
+            //{
+            //    ret += activeDeathWave.getHeightOffset(point);
+            //}
             return ret;
         }
 
@@ -454,10 +454,10 @@ namespace WorldSailorsDuality
             {
                 Simplex.Noise.Seed = SimplexSeed;
             }
-            if(activeDeathWave != null)
-            {
-                activeDeathWave.ResetTime();
-            }
+            //if(activeDeathWave != null)
+            //{
+            //    activeDeathWave.ResetTime();
+            //}
         }
         
         public void OnShutdown(ShutdownContext context)

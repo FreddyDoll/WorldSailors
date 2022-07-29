@@ -131,6 +131,16 @@
             cant be set to 0
             </summary>
         </member>
+        <member name="P:WorldSailorsDuality.PlayerAgent.AtrSteeringAmplification">
+            <summary>
+            How Aggressive is the heading controller
+            </summary>
+        </member>
+        <member name="P:WorldSailorsDuality.PlayerAgent.AtrTurnDamping">
+            <summary>
+            Damping of turn rate
+            </summary>
+        </member>
         <member name="P:WorldSailorsDuality.RaceGenerato.StepLen">
             <summary>
             Distance between Race Points
@@ -447,7 +457,7 @@
             How Many Grid Points are there
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:WorldSailorsDuality.HeightMap.activeDeathWave" -->
+        <!-- Badly formed XML comment ignored for member "F:WorldSailorsDuality.HeightMap.simplexSeed" -->
         <member name="P:WorldSailorsDuality.LandRendererShaded.RenderDataSettings.GridSizeX">
             <summary>
             Screen gets split into Grid for Coloring/Texturing

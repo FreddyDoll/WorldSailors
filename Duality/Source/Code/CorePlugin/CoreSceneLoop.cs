@@ -37,8 +37,9 @@ namespace WorldSailorsDuality
                 currentScene = SceneTypes.SHOP;
                 TransferAgent(start.FindComponent<PlayerAgent>(), Shop.Res.FindComponent<PlayerAgent>());
                 HeightMap map = World.Res.FindComponent<HeightMap>();
-                if (map != null && map.activeDeathWave != null)
-                    map.activeDeathWave.DirectionSpeed = map.activeDeathWave.DirectionSpeed * DeathWaveSpeedIncrease;
+                //TODO: DeathWave should be game object. not in map. 
+                //if (map != null && map.activeDeathWave != null)
+                //    map.activeDeathWave.DirectionSpeed = map.activeDeathWave.DirectionSpeed * DeathWaveSpeedIncrease;
                 Scene.SwitchTo(Shop);
             }
         }

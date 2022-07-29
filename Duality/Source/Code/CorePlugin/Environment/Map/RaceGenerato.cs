@@ -95,10 +95,6 @@ namespace WorldSailorsDuality
             float stepStart = (StartMaxDist * 2f) / Targets;
             float baseLength = 200000;
 
-            Vector2 waveDir = new Vector2(1, 0);
-            if (map.activeDeathWave != null)
-                waveDir = map.activeDeathWave.DirectionSpeed.Normalized;
-
             for (; currentCount < Targets; currentCount++)
             {
                 int maxRaceSize = 4;

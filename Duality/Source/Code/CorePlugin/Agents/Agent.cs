@@ -111,23 +111,8 @@ namespace WorldSailorsDuality
             if (CollectedUpgrades == null)
                 CollectedUpgrades = new List<UpgradeTarget>();
 
-            if (this is PlayerAgent)
-            {
-                foreach (UpgradeTarget ug in GameObj.ParentScene.FindComponents<UpgradeTarget>())
-                {
 
-                    if (targetBoat != null && ug.Target.CheckReached(targetBoat.Position))
-                    {
-                        if (!CollectedUpgrades.Any(x => x == ug))
-                        {
-                            CollectedUpgrades.Add(ug);
-                            ug.AdjustLevel(this);
-                        }
-                    }
-                }
-            }
-
-            if (targetBoat == null)
+            if(targetBoat == null)
             {
                 BoatFactory factory = GameObj.GetComponent<BoatFactory>();
                 if (factory != null)
@@ -135,9 +120,10 @@ namespace WorldSailorsDuality
                     factory.CreateBoat();
                 }
 
-                if (targetBoat == null)
-                    return;
             }
+
+            if (targetBoat == null)
+                return;
 
             if (lastInit + 5 > (float)Time.GameTimer.TotalSeconds)
             {
@@ -196,6 +182,16 @@ namespace WorldSailorsDuality
 
         public void OnShutdown(ShutdownContext context)
         {
+        }
+
+        protected float FindDiff(float target, float current)
+        {
+            float diff = target - current;
+            while (diff > Math.PI)
+                diff -= (float)Math.PI * 2f;
+            while (diff < -Math.PI)
+                diff += (float)Math.PI * 2f;
+            return diff;
         }
     }
 }

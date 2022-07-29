@@ -90,12 +90,13 @@ namespace WorldSailorsDuality
         }
         private Vector2 GenerateFunctionPath(Vector2 pos)
         {
-            float val = pos.Y - 40000f*MathF.Sin(pos.X / 40000f);
-            float strength = Math.Abs(val) / 3000f;
-            float len = speed.Length;
-            if (strength < len)
-                strength = len;
-            return speed.Normalized * strength;
+            float ampX = MapBasedFactor;
+            float ampY = MapBasedFactor;
+            float fX = GenSineParameter.X/10000.0f;
+            float fY = GenSineParameter.Y / 10000.0f;
+            float offset = MaxSpeed - ampX - ampY;
+            float val = ampX * MathF.Sin(pos.Y * fY) + ampY * MathF.Sin(pos.X * fX) + offset;
+            return pos.PerpendicularLeft.Normalized * val;
         }
 
         [DontSerialize]
@@ -112,8 +113,8 @@ namespace WorldSailorsDuality
             Vector2 gradientLong = -map.ProbeGradient(pos, 1000000)*18* MapBasedFactor;
 
             float deathWaveCorrection = 1;
-            if (map.activeDeathWave != null)
-                deathWaveCorrection = 2500 / map.activeDeathWave.DirectionSpeed.Length;
+            //if (map.activeDeathWave != null)
+                //deathWaveCorrection = 2500 / map.activeDeathWave.DirectionSpeed.Length;
 
 
             float heightLimLow = -1000;

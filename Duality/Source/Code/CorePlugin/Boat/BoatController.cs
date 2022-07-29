@@ -96,6 +96,12 @@ namespace WorldSailorsDuality
         private SailController sailCont;
         [DontSerialize]
         private FoilController sailFoil;
+
+        internal void DownhillPosition()
+        {
+            throw new NotImplementedException();
+        }
+
         [DontSerialize]
         private FoilController hullFoil;
 
@@ -158,9 +164,15 @@ namespace WorldSailorsDuality
                         distJoint.DampingRatio = SailDamping;
                     }
                 }
-                IsDestroyed = !JointsOK;
+                if (!JointsOK)
+                    DestroyBoat();
 
             }
+        }
+
+        public void DestroyBoat()
+        {
+            IsDestroyed = true;
         }
 
         public void AddUpgrade(IUpgrade up)

@@ -241,18 +241,18 @@
                   </_x003C_colorFromSpeed_x003E_k__BackingField>
                   <_x003C_foils_x003E_k__BackingField />
                   <_x003C_GenSineParameter_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                    <X dataType="Float">0.1</X>
-                    <Y dataType="Float">0.05</Y>
+                    <X dataType="Float">300000</X>
+                    <Y dataType="Float">30000</Y>
                   </_x003C_GenSineParameter_x003E_k__BackingField>
-                  <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.GenerationType" name="FUNCTION_PATH" value="4" />
-                  <_x003C_MapBasedFactor_x003E_k__BackingField dataType="Float">3.5</_x003C_MapBasedFactor_x003E_k__BackingField>
-                  <_x003C_MaxSpeed_x003E_k__BackingField dataType="Float">30</_x003C_MaxSpeed_x003E_k__BackingField>
+                  <_x003C_GenType_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.GenerationType" name="MAP_BASED" value="5" />
+                  <_x003C_MapBasedFactor_x003E_k__BackingField dataType="Float">60</_x003C_MapBasedFactor_x003E_k__BackingField>
+                  <_x003C_MaxSpeed_x003E_k__BackingField dataType="Float">20</_x003C_MaxSpeed_x003E_k__BackingField>
                   <_x003C_Medium_x003E_k__BackingField dataType="Enum" type="WorldSailorsDuality.MediumType" name="AIR" value="2" />
                   <_x003C_RadiusExponent_x003E_k__BackingField dataType="Float">0.5</_x003C_RadiusExponent_x003E_k__BackingField>
                   <_x003C_RadusSpeed_x003E_k__BackingField dataType="Float">10000</_x003C_RadusSpeed_x003E_k__BackingField>
                   <_x003C_ScreenString_x003E_k__BackingField dataType="String">Wind</_x003C_ScreenString_x003E_k__BackingField>
                   <_x003C_speed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                    <X dataType="Float">15</X>
+                    <X dataType="Float">20</X>
                     <Y dataType="Float">10</Y>
                   </_x003C_speed_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
@@ -263,7 +263,7 @@
                     <_x003C_LUTcolors_x003E_k__BackingField dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Drawing.ColorRgba]]" id="479206670">
                       <_items dataType="Array" type="Duality.Drawing.ColorRgba[]" id="3563621840">
                         <item dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
+                          <A dataType="Byte">0</A>
                           <B dataType="Byte">255</B>
                           <G dataType="Byte">255</G>
                           <R dataType="Byte">255</R>
@@ -295,14 +295,13 @@
                     </_x003C_LUTvalues_x003E_k__BackingField>
                   </_x003C_colorFromLifetime_x003E_k__BackingField>
                   <_x003C_ConstantScreenSize_x003E_k__BackingField dataType="Bool">true</_x003C_ConstantScreenSize_x003E_k__BackingField>
-                  <_x003C_DelaySpawnFrame_x003E_k__BackingField dataType="Int">10</_x003C_DelaySpawnFrame_x003E_k__BackingField>
-                  <_x003C_ParticleLife_x003E_k__BackingField dataType="Int">3000</_x003C_ParticleLife_x003E_k__BackingField>
+                  <_x003C_ParticleLife_x003E_k__BackingField dataType="Int">4000</_x003C_ParticleLife_x003E_k__BackingField>
                   <_x003C_ParticleMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                     <contentPath dataType="String">Data\Textures\Particle.Material.res</contentPath>
                   </_x003C_ParticleMaterial_x003E_k__BackingField>
                   <_x003C_ParticlesPerFrame_x003E_k__BackingField dataType="Int">4</_x003C_ParticlesPerFrame_x003E_k__BackingField>
-                  <_x003C_ParticlesScale_x003E_k__BackingField dataType="Float">10</_x003C_ParticlesScale_x003E_k__BackingField>
-                  <_x003C_ParticlesVisible_x003E_k__BackingField dataType="Int">200000</_x003C_ParticlesVisible_x003E_k__BackingField>
+                  <_x003C_ParticlesScale_x003E_k__BackingField dataType="Int">4</_x003C_ParticlesScale_x003E_k__BackingField>
+                  <_x003C_ParticlesVisible_x003E_k__BackingField dataType="Int">700</_x003C_ParticlesVisible_x003E_k__BackingField>
                   <_x003C_RenderHead_x003E_k__BackingField dataType="Bool">true</_x003C_RenderHead_x003E_k__BackingField>
                   <_x003C_ScreenAreaFraction_x003E_k__BackingField dataType="Float">2</_x003C_ScreenAreaFraction_x003E_k__BackingField>
                   <_x003C_SpawnArea_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
@@ -314,7 +313,6 @@
                   </_x003C_TrailMaterial_x003E_k__BackingField>
                   <_x003C_zHeight_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                   <active dataType="Bool">true</active>
-                  <delayFrameCntr dataType="Int">10</delayFrameCntr>
                   <gameobj dataType="ObjectRef">1927754364</gameobj>
                 </item>
               </_items>
@@ -354,6 +352,17 @@
             <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="1631501312">
               <_items dataType="Array" type="Duality.Component[]" id="3809980531" length="8">
                 <item dataType="Struct" type="WorldSailorsDuality.HeightMap" id="3389403723">
+                  <_x003C_activeDeathWave_x003E_k__BackingField dataType="Struct" type="WorldSailorsDuality.DeathWave" id="1441022025">
+                    <_x003C_DirectionSpeed_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
+                      <X dataType="Float">0</X>
+                      <Y dataType="Float">0.0001</Y>
+                    </_x003C_DirectionSpeed_x003E_k__BackingField>
+                    <_x003C_StartPos_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
+                      <X dataType="Float">-5000000</X>
+                      <Y dataType="Float">-5000000</Y>
+                    </_x003C_StartPos_x003E_k__BackingField>
+                    <_x003C_TimeOffset_x003E_k__BackingField dataType="Float">0</_x003C_TimeOffset_x003E_k__BackingField>
+                  </_x003C_activeDeathWave_x003E_k__BackingField>
                   <_x003C_BackgroundWorkersCount_x003E_k__BackingField dataType="Int">0</_x003C_BackgroundWorkersCount_x003E_k__BackingField>
                   <_x003C_BufferPoints_x003E_k__BackingField dataType="Bool">false</_x003C_BufferPoints_x003E_k__BackingField>
                   <_x003C_CompleteArea_x003E_k__BackingField dataType="Struct" type="Duality.Rect">
@@ -586,13 +595,12 @@
                     </_x003C_LUTvalues_x003E_k__BackingField>
                   </_x003C_colorFromLifetime_x003E_k__BackingField>
                   <_x003C_ConstantScreenSize_x003E_k__BackingField dataType="Bool">true</_x003C_ConstantScreenSize_x003E_k__BackingField>
-                  <_x003C_DelaySpawnFrame_x003E_k__BackingField dataType="Int">1</_x003C_DelaySpawnFrame_x003E_k__BackingField>
                   <_x003C_ParticleLife_x003E_k__BackingField dataType="Int">1000</_x003C_ParticleLife_x003E_k__BackingField>
                   <_x003C_ParticleMaterial_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
                     <contentPath dataType="String">Data\Textures\Particle.Material.res</contentPath>
                   </_x003C_ParticleMaterial_x003E_k__BackingField>
                   <_x003C_ParticlesPerFrame_x003E_k__BackingField dataType="Int">1</_x003C_ParticlesPerFrame_x003E_k__BackingField>
-                  <_x003C_ParticlesScale_x003E_k__BackingField dataType="Float">4</_x003C_ParticlesScale_x003E_k__BackingField>
+                  <_x003C_ParticlesScale_x003E_k__BackingField dataType="Int">4</_x003C_ParticlesScale_x003E_k__BackingField>
                   <_x003C_ParticlesVisible_x003E_k__BackingField dataType="Int">10000</_x003C_ParticlesVisible_x003E_k__BackingField>
                   <_x003C_RenderHead_x003E_k__BackingField dataType="Bool">true</_x003C_RenderHead_x003E_k__BackingField>
                   <_x003C_ScreenAreaFraction_x003E_k__BackingField dataType="Float">2</_x003C_ScreenAreaFraction_x003E_k__BackingField>
@@ -605,7 +613,6 @@
                   </_x003C_TrailMaterial_x003E_k__BackingField>
                   <_x003C_zHeight_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                   <active dataType="Bool">false</active>
-                  <delayFrameCntr dataType="Int">0</delayFrameCntr>
                   <gameobj dataType="ObjectRef">410715791</gameobj>
                 </item>
               </_items>
